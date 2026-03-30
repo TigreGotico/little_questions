@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "little_questions"
+version = "0.7.0a1"
+description = "question parser and classifier"
+license = { text = "Apache-2.0" }
+authors = [{ name = "jarbasAI", email = "jarbasai@mailfence.com" }]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.21.2",
+    "nltk",
+    "wordfreq",
+    "scikit-learn",
+    "joblib",
+    "pyxdg",
+]
+
+[project.optional-dependencies]
+model-zoo = ["JarbasModelZoo>=0.2.0a2"]
+
+[project.urls]
+Homepage = "https://github.com/OpenJarbas/little_questions"
+
+[tool.setuptools.packages.find]
+include = ["little_questions*"]
+
+[tool.setuptools.package-data]
+"little_questions" = ["models/*"]

@@ -1,11 +1,17 @@
+import logging
 import pickle
 from os.path import join, isfile
 
-import JarbasModelZoo
 import nltk
 import requests
-from JarbasModelZoo import LOG
 from xdg import BaseDirectory as XDG
+
+try:
+    import JarbasModelZoo as _JarbasModelZoo
+    from JarbasModelZoo import LOG
+except ImportError:
+    _JarbasModelZoo = None
+    LOG = logging.getLogger(__name__)
 
 MODEL2URL = {
     "questions52_EN":
@@ -120,13 +126,15 @@ def download_en():
 def download_pt():
     download("questions52_PT")
     download("questions6_PT")
-    JarbasModelZoo.download("nltk_floresta_macmorpho_brill_tagger")
+    if _JarbasModelZoo is not None:
+        _JarbasModelZoo.download("nltk_floresta_macmorpho_brill_tagger")
 
 
 def download_es():
     download("questions52_ES")
     download("questions6_ES")
-    JarbasModelZoo.download("nltk_cess_esp_udep_brill_tagger")
+    if _JarbasModelZoo is not None:
+        _JarbasModelZoo.download("nltk_cess_esp_udep_brill_tagger")
 
 
 def download_fr():
@@ -147,7 +155,8 @@ def download_de():
 def download_ca():
     download("questions52_CA")
     download("questions6_CA")
-    JarbasModelZoo.download("nltk_cess_cat_udep_brill_tagger")
+    if _JarbasModelZoo is not None:
+        _JarbasModelZoo.download("nltk_cess_cat_udep_brill_tagger")
 
 
 # get path to downloaded models

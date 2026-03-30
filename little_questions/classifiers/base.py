@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from typing import Dict, List, Optional
+
 import joblib
 from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVC as _LinearSVC
@@ -16,14 +20,22 @@ from little_questions.models import get_model_path
 # this is meant to be subclassed per language, need to create datasets and
 # TODO train a proper classifier
 class SentenceScorer:
+    """Rule-based sentence-type scorer (language-agnostic fallback).
+
+    Subclass and override the ``*_score`` static methods to implement
+    language-specific heuristics.
+    """
+
     @staticmethod
-    def predict(text):
+    def predict(text: str) -> str:
+        """Return the most likely sentence type for *text*."""
         score = SentenceScorer.score(text)
         best = max(score, key=lambda key: score[key])
         return best
 
     @staticmethod
-    def score(text):
+    def score(text: str) -> Dict[str, float]:
+        """Return a dict mapping sentence type to confidence score."""
         return {
             "question": SentenceScorer.question_score(text),
             "statement": SentenceScorer.statement_score(text),
@@ -33,25 +45,29 @@ class SentenceScorer:
         }
 
     @staticmethod
-    def question_score(text):
+    def question_score(text: str) -> float:
+        """Heuristic confidence that *text* is a question."""
         if text.endswith("?"):
             return 0.8
         return 0.4
 
     @staticmethod
-    def statement_score(text):
+    def statement_score(text: str) -> float:
+        """Heuristic confidence that *text* is a statement."""
         if text.endswith("."):
             return 0.5
         return 0
 
     @staticmethod
-    def exclamation_score(text):
+    def exclamation_score(text: str) -> float:
+        """Heuristic confidence that *text* is an exclamation."""
         if text.endswith("!"):
             return 0.6
         return 0
 
     @staticmethod
-    def command_score(text):
+    def command_score(text: str) -> float:
+        """Heuristic confidence that *text* is a command."""
         if text.endswith("."):
             return 0.6
         if text.endswith("!"):
@@ -59,7 +75,8 @@ class SentenceScorer:
         return 0
 
     @staticmethod
-    def request_score(text):
+    def request_score(text: str) -> float:
+        """Heuristic confidence that *text* is a request."""
         if text.endswith("."):
             return 0.5
         if text.endswith("?"):
@@ -68,24 +85,32 @@ class SentenceScorer:
 
 
 class Classifier:
-    def __init__(self, pipeline_id):
-        self.pipeline_id = pipeline_id.lower().split("-")[0]
-        self.clf = None
+    """Base class for COSC question classifiers backed by a joblib model."""
 
-    def train(self, train_data, target_data):
+    def __init__(self, pipeline_id: str) -> None:
+        """Initialise with *pipeline_id* (language code, e.g. ``"en"``)."""
+        self.pipeline_id: str = pipeline_id.lower().split("-")[0]
+        self.clf: Optional[Pipeline] = None
+
+    def train(self, train_data: List[str], target_data: List[str]) -> None:
+        """Train the classifier (subclasses must implement)."""
         raise NotImplementedError
 
     @property
-    def pipeline(self):
+    def pipeline(self) -> list:
+        """Return the sklearn pipeline steps as a list of (name, estimator) tuples."""
         return []
 
-    def predict(self, text):
+    def predict(self, text: List[str]) -> List[str]:
+        """Classify *text* and return label list."""
         return self.clf.predict(text)
 
-    def save(self, path):
+    def save(self, path: str) -> None:
+        """Persist the fitted pipeline to *path* via joblib."""
         joblib.dump(self.clf, path)
 
-    def load_from_file(self, path=None):
+    def load_from_file(self, path: Optional[str] = None) -> "Classifier":
+        """Load a fitted pipeline from *path* (or the default model path)."""
         path = path or get_model_path(self.pipeline_id)
         self.clf = joblib.load(path)
         return self
