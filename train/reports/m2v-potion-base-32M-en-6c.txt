@@ -1,0 +1,20 @@
+Scorer : m2v-potion-base-32M-en-6c
+Dataset: test-split-en-6c  (lang=en)
+Samples: 702
+
+              precision    recall  f1-score   support
+
+        ABBR       0.89      0.81      0.85        21
+        DESC       0.74      0.47      0.57        90
+        ENTY       0.77      0.84      0.81       267
+         HUM       0.65      0.60      0.62        67
+         LOC       0.77      0.85      0.81       107
+         NUM       0.84      0.87      0.86       150
+
+    accuracy                           0.78       702
+   macro avg       0.78      0.74      0.75       702
+weighted avg       0.77      0.78      0.77       702
+
+Accuracy : 0.7764
+Macro F1 : 0.7518
+Wtd   F1 : 0.7701

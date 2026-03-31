@@ -1,3 +1,7 @@
+Scorer : tfidf-svm
+Dataset: test-split-en-6c  (lang=en)
+Samples: 702
+
               precision    recall  f1-score   support
 
         ABBR       1.00      0.76      0.86        21
@@ -10,3 +14,7 @@
     accuracy                           0.88       702
    macro avg       0.90      0.83      0.86       702
 weighted avg       0.88      0.88      0.88       702
+
+Accuracy : 0.8775
+Macro F1 : 0.8583
+Wtd   F1 : 0.8753
