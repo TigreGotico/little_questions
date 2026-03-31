@@ -12,21 +12,10 @@ from nltk import word_tokenize, pos_tag
 
 
 # begin of sentence indicators for Yes/No questions
-YES_NO_STARTERS = [
-    "would",
-    "is",
-    "will",
-    "does",
-    "can",
-    "has",
-    "if",
-    "could",
-    "are",
-    "should",
-    "have",
-    "has",
-    "did",
-]
+YES_NO_STARTERS: frozenset = frozenset({
+    "would", "is", "will", "does", "can", "has", "if",
+    "could", "are", "should", "have", "did",
+})
 
 # begin of sentence indicators for "command" questions, eg, "do this"
 # non exhaustive list, should capture common voice interactions
@@ -132,13 +121,13 @@ class SentenceScorerHeuristic:
         )
         tokens = word_tokenize(text)
         tagged = pos_tag(tokens)
-        if not tokens[-1] in last_tokens:
+        if tokens[-1] not in last_tokens:
             score -= 1
-        if not tokens[0] in first_tokens:
+        if tokens[0] not in first_tokens:
             score -= 1
-        if not tagged[0][1] in start_pos_tags:
+        if tagged[0][1] not in start_pos_tags:
             score -= 1
-        if not tagged[-1][1] in end_pos_tags:
+        if tagged[-1][1] not in end_pos_tags:
             score -= 1
 
         if tagged[0][1] in unlikely_start_pos_tag:
@@ -300,11 +289,9 @@ class SentenceScorerHeuristic:
             unlikely_pos_tag,
         )
 
-        if not text.split(" ")[0].lower() in first_tokens:
+        if text.split(" ")[0].lower() not in first_tokens:
             score -= 0.1
-        elif not text.lower().startswith("what a ") or not text.lower().startswith(
-            "what an "
-        ):
+        elif not (text.lower().startswith("what a ") or text.lower().startswith("what an ")):
             score -= 0.1
         for w in unlikely_words:
             if w in text.lower():
@@ -380,6 +367,6 @@ class SentenceScorerHeuristic:
 
         if "please" in text:
             score += 0.3
-        if not text.split(" ")[0].lower() in first_tokens:
+        if text.split(" ")[0].lower() not in first_tokens:
             score -= 0.2
         return max(min(score, 1), 0)
