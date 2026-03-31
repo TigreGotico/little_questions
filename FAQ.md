@@ -9,7 +9,7 @@ uv pip install -e /path/to/little_questions
 Runtime dependencies are declared in `pyproject.toml`: `numpy`, `nltk`, `scikit-learn`, `joblib`, `pyxdg`, `wordfreq`, `requests`.
 
 **Q: Does it need internet access at runtime?**
-No — inference is fully offline. Network access happens only once per language, on first use, to download the pre-trained `.pkl` model file (~1–5 MB each) from the GitHub releases page. After that the model is cached in `~/.local/share/little_questions/`.
+No — inference is fully offline. Network access happens only once per language, on first use, to download the pre-trained `.onnx` model file (~1–5 MB each) from the GitHub releases page. After that the model is cached in `~/.local/share/little_questions/`.
 
 **Q: Where are the model files cached?**
 `~/.local/share/little_questions/` (XDG Base Directory). Override by setting `XDG_DATA_HOME`. See `little_questions/models/__init__.py:LANG2MODEL`.
@@ -34,7 +34,7 @@ print(s.sentence_type)    # question
 ```python
 s = Sentence("¿Quién inventó el teléfono?", model="es")
 ```
-Supported language codes: `en`, `es`, `pt`, `ca`, `fr`, `de`, `it`.
+Supported language codes: `en`, `es`, `pt`, `ca`, `fr`, `de`, `it`, `nl`.
 
 **Q: What is `Sentence.parse()`?**
 A classmethod added in Phase 2 that provides a discoverable, typed entry point:
@@ -91,23 +91,23 @@ The COSC classifier always predicts a label regardless of sentence type — it w
 Yes. `Request` subclasses `Command`, so `is_command` is `True` for requests. Check `is_request` first if you need to distinguish polite requests from direct commands.
 
 **Q: How does sentence type detection work for English?**
-`SentenceScorerEN` applies POS-tag heuristics (NLTK `pos_tag`) per sentence type and returns the type with the highest score. Source: `little_questions/classifiers/lang/en/__init__.py:SentenceScorerEN`.
+A trained `SentenceTypeClassifier` (TF-IDF + M2V embeddings, 93% accuracy) is used for English. The legacy `SentenceScorerHeuristic` (POS-tag based) is kept in `little_questions/classifiers/legacy.py` as a fallback. Source: `little_questions/sentence_type.py:SentenceTypeClassifier`.
 
 **Q: How does sentence type detection work for non-English?**
-The fallback `SentenceScorer` uses only terminal punctuation heuristics (`?` → question, `!` → exclamation, `.` → command/statement). This is less accurate than the English scorer.
+The fallback `SentenceScorer` uses terminal punctuation heuristics (`?` → question, `!` → exclamation, `.` → command/statement). Source: `little_questions/classifiers/__init__.py:SentenceScorer`.
 
 ---
 
 ## Classifiers
 
 **Q: Which ML algorithm is used?**
-Linear SVM (`sklearn.svm.LinearSVC`) trained on the UIUC QC dataset (5500 training / 500 test questions). Pipeline: feature extraction (word features, n-grams, TF-IDF, POS tags) → `LinearSVC`. Serialised via `joblib`. Source: `little_questions/classifiers/base.py:LinearSVCTextClassifier`.
+Linear SVM (`sklearn.svm.LinearSVC`) trained on the UIUC QC dataset (4677 balanced questions). Pipeline: TF-IDF (word unigrams/bigrams + char trigrams/4-grams) → `LinearSVC`. Exported to ONNX format for cross-platform inference. Source: `little_questions/classifiers/__init__.py:Classifier`.
 
 **Q: Can I use a different algorithm?**
-Yes — `LogRegTextClassifier`, `RandomForestTextClassifier`, `NaiveBayesTextClassifier`, `PassiveAggressiveTextClassifier`, `SGDTextClassifier`, `PerceptronTextClassifier` are all available in `little_questions/classifiers/base.py`. Load a custom model file with `Classifier.load_from_file(path)`.
+Training pipelines live in the `train/` package: `LinearSVCClassifier`, `LogRegTextClassifier`, `NaiveBayesTextClassifier`, and others in `train/classifiers.py`. Load a custom model file with `Classifier.load_from_file(path)`.
 
 **Q: How do I retrain a model?**
-See `train_scripts/`. Each language has a `train_<lang>.py` script. Training requires the cleaned dataset in `train_scripts/clean_data/` and produces a `.pkl` file. See `docs/contributing.md` for the full workflow.
+See `train/`. Use `train/train_en.py` for English or `train/train_all.py` for all languages. Training requires `pip install little_questions[train]` (adds `skl2onnx`, `onnx`). Output is an `.onnx` model file. See `docs/contributing.md` for the full workflow.
 
 **Q: Why is the model cached globally?**
 `get_classifier()` in `little_questions/classifiers/__init__.py` keeps a module-level `_LAZY_LOADING` dict so each language model is loaded from disk only once per process. Call `clear_classifier_cache()` to reset (useful in tests or long-running processes that need to free memory).
@@ -151,11 +151,11 @@ uv run pytest test/ -v --cov=little_questions --cov-report=term-missing
 ```
 
 **Q: How do I add a new language?**
-1. Create `little_questions/classifiers/lang/<code>/` with `__init__.py` and `features.py`.
-2. Register a `get_pipeline_<code>()` function in `little_questions/classifiers/lang/__init__.py`.
-3. Add model download URLs to `MODEL2URL` and model paths to `LANG2MODEL` in `little_questions/models/__init__.py`.
-4. Add a `download_<code>()` function in `little_questions/models/__init__.py`.
-5. Train the model using `train_scripts/` as a template.
+1. Create `little_questions/classifiers/lang/<code>/` with `__init__.py` and optionally `postag.py`.
+2. Add model filenames to `LANG2MODEL` and download URLs to `MODEL2URL` in `little_questions/models/__init__.py`.
+3. Add a `download_<code>()` function in `little_questions/models/__init__.py`.
+4. Add the language code to `SUPPORTED_LANGUAGES` in `little_questions/classifiers/__init__.py`.
+5. Train the model using `train/train_all.py` as a template.
 6. Write smoke tests.
 
 **Q: How do I add a new sentence type?**
