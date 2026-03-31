@@ -1,10 +1,20 @@
 from nltk import word_tokenize
-import JarbasModelZoo
-from little_questions.models import LANG2MODEL
+
+try:
+    from brill_postagger import BrillPostagger
+
+    HAS_BRILL = True
+except ImportError:
+    HAS_BRILL = False
 
 
 def load_ca_tagger():
-    return JarbasModelZoo.load_model("nltk_cess_cat_udep_brill_tagger")
+    if not HAS_BRILL:
+        raise ImportError(
+            "brill_postagger is required for Catalan POS tagging. "
+            "Install with: pip install brill_postagger"
+        )
+    return BrillPostagger.from_pretrained("ca")
 
 
 def pos_tag_ca(tokens, tagger=None):

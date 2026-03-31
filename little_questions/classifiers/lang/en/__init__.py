@@ -1,8 +1,5 @@
-"""English sentence type classifier using trained model."""
+"""English sentence type classifier — re-exports from sentence_type module."""
 
 from little_questions.sentence_type import SentenceTypeClassifier
 
-
-def get_scorer():
-    """Get the English sentence type scorer."""
-    return SentenceTypeClassifier.get_instance()
+__all__ = ["SentenceTypeClassifier"]

@@ -8,78 +8,10 @@ from __future__ import annotations
 
 from typing import List
 
+from little_questions.constants import SUPPORTED_LANGUAGES
 from little_questions.models import get_model_path
-
-
+from little_questions.classifiers.base import SentenceScorer
 from little_questions.classifiers.legacy import SentenceScorerHeuristic
-
-
-class SentenceScorer:
-    """Rule-based sentence-type scorer (language-agnostic fallback).
-
-    Subclass and override the ``*_score`` static methods to implement
-    language-specific heuristics.
-
-    For the legacy POS-tagging based heuristics, use SentenceScorerHeuristic
-    from little_questions.classifiers.legacy.
-    """
-
-    @staticmethod
-    def predict(text: str) -> str:
-        """Return the most likely sentence type for *text*."""
-        score = SentenceScorer.score(text)
-        best = max(score, key=lambda key: score[key])
-        return best
-
-    @staticmethod
-    def score(text: str) -> dict:
-        """Return a dict mapping sentence type to confidence score."""
-        return {
-            "question": SentenceScorer.question_score(text),
-            "statement": SentenceScorer.statement_score(text),
-            "exclamation": SentenceScorer.exclamation_score(text),
-            "command": SentenceScorer.command_score(text),
-            "request": SentenceScorer.request_score(text),
-        }
-
-    @staticmethod
-    def question_score(text: str) -> float:
-        """Heuristic confidence that *text* is a question."""
-        if text.endswith("?"):
-            return 0.8
-        return 0.4
-
-    @staticmethod
-    def statement_score(text: str) -> float:
-        """Heuristic confidence that *text* is a statement."""
-        if text.endswith("."):
-            return 0.5
-        return 0
-
-    @staticmethod
-    def exclamation_score(text: str) -> float:
-        """Heuristic confidence that *text* is an exclamation."""
-        if text.endswith("!"):
-            return 0.6
-        return 0
-
-    @staticmethod
-    def command_score(text: str) -> float:
-        """Heuristic confidence that *text* is a command."""
-        if text.endswith("."):
-            return 0.6
-        if text.endswith("!"):
-            return 0.5
-        return 0
-
-    @staticmethod
-    def request_score(text: str) -> float:
-        """Heuristic confidence that *text* is a request."""
-        if text.endswith("."):
-            return 0.5
-        if text.endswith("?"):
-            return 0.5
-        return 0
 
 
 class Classifier:
@@ -96,28 +28,33 @@ class Classifier:
 
     @property
     def _is_onnx(self) -> bool:
+        """True when an ONNX model is loaded."""
         return self._onnx_session is not None
 
     def predict(self, texts: List[str]) -> List[str]:
+        """Classify *texts* and return a label per entry."""
         if self._onnx_session is not None:
-            input_texts = [t for t in texts]  # 1D array of strings
+            input_texts = [t for t in texts]
             outputs = self._onnx_session.run(None, {"input": input_texts})
-            labels = outputs[0]  # shape: (n_samples,)
-            classes = self._classes
-            if classes is None:
-                classes = [f"class_{i}" for i in range(52)]  # fallback
-            return [classes[int(l)] for l in labels]
+            labels = outputs[0]
+            classes = self._classes or [f"class_{i}" for i in range(52)]
+            return [classes[int(label)] for label in labels]
         elif self._sklearn_clf is not None:
             return list(self._sklearn_clf.predict(texts))
         else:
             raise RuntimeError("Model not loaded. Call load_from_file() first.")
 
     def predict_proba(self, texts: List[str]) -> List[List[float]]:
+        """Return probability estimates for *texts* (sklearn only)."""
         if self._sklearn_clf is not None:
             return self._sklearn_clf.predict_proba(texts)
         raise NotImplementedError("predict_proba not supported for ONNX models")
 
     def load_from_file(self, path: str = None) -> "Classifier":
+        """Load a model from *path* (or the default model path).
+
+        Detects format from file extension: .onnx uses ONNX Runtime, .pkl uses joblib.
+        """
         resolved_path = path or get_model_path(self.pipeline_id)
 
         if resolved_path.endswith(".onnx"):
@@ -132,72 +69,47 @@ class Classifier:
         return self
 
     def _load_onnx(self, path: str) -> None:
-        """Load an ONNX model using onnxruntime."""
-        import onnx
+        """Load an ONNX model using onnxruntime.
+
+        Class labels are sourced from a companion .pkl sidecar if present,
+        otherwise falls back to generic names.
+        """
         import onnxruntime as ort
 
-        onnx_model = onnx.load(path)
-        self._classes = None
-
         sess_options = ort.SessionOptions()
-        sess_options.graph_optimization_level = (
-            ort.GraphOptimizationLevel.ORT_ENABLE_ALL
-        )
+        sess_options.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_ALL
         self._onnx_session = ort.InferenceSession(path, sess_options)
         self._sklearn_clf = None
 
-        # Try to get classes from sklearn fallback if available
+        # Prefer class labels from a companion .pkl sidecar produced during training.
         pkl_path = path.replace(".onnx", ".pkl")
         try:
             import joblib
-
             sklearn_clf = joblib.load(pkl_path)
             self._classes = list(sklearn_clf.classes_)
         except Exception:
             self._classes = None
 
     def _load_sklearn(self, path: str) -> None:
+        """Load a joblib-serialised sklearn pipeline."""
         import joblib
 
         self._sklearn_clf = joblib.load(path)
         self._onnx_session = None
-
-        self._classes = None
-        clf = self._sklearn_clf
-        if clf is not None:
-            classes = getattr(clf, "classes_", None)
-            if classes is not None:
-                self._classes = list(classes)
+        classes = getattr(self._sklearn_clf, "classes_", None)
+        self._classes = list(classes) if classes is not None else None
 
 
-def get_scorer(lang=None):
-    """Get the appropriate scorer for a language.
-
-    Uses trained classifier for English (93% accuracy).
-    Falls back to rule-based heuristic for other languages.
-    """
-    if lang:
-        lang = lang.lower()
-        if lang.startswith("en"):
-            from little_questions.sentence_type import get_sentence_type_classifier
-
-            return get_sentence_type_classifier()
-    return SentenceScorer()
-
-
-_LAZY_LOADING = {}
-
-
-SUPPORTED_LANGUAGES = ["en", "es", "pt", "ca", "fr", "de", "it", "nl"]
+_LAZY_LOADING: dict = {}
 
 
 def clear_classifier_cache() -> None:
-    """Clear the global classifier cache."""
+    """Clear the global classifier cache (frees RAM; models reload on next use)."""
     global _LAZY_LOADING
     _LAZY_LOADING.clear()
 
 
-def list_supported_languages():
+def list_supported_languages() -> List[str]:
     """Return the list of supported language codes."""
     return list(SUPPORTED_LANGUAGES)
 
@@ -206,9 +118,20 @@ def get_classifier(model_id: str) -> Classifier:
     """Load (or return cached) COSC classifier for the given language/model."""
     global _LAZY_LOADING
     model_id = model_id.lower()
-    if model_id in _LAZY_LOADING:
-        return _LAZY_LOADING[model_id]
-    classifier = Classifier(model_id)
-    classifier.load_from_file()
-    _LAZY_LOADING[model_id] = classifier
-    return classifier
+    if model_id not in _LAZY_LOADING:
+        classifier = Classifier(model_id)
+        classifier.load_from_file()
+        _LAZY_LOADING[model_id] = classifier
+    return _LAZY_LOADING[model_id]
+
+
+def get_scorer(lang: str = None):
+    """Return the appropriate sentence-type scorer for *lang*.
+
+    English uses the trained SentenceTypeClassifier (93% accuracy).
+    All other languages fall back to the punctuation-heuristic SentenceScorer.
+    """
+    if lang and lang.lower().startswith("en"):
+        from little_questions.sentence_type import get_sentence_type_classifier
+        return get_sentence_type_classifier()
+    return SentenceScorer()
