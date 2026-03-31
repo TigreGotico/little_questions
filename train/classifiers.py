@@ -117,14 +117,29 @@ class TrainableClassifier:
 
         from sklearn.svm import LinearSVC
 
+        import json
+
         initial_type = [("input", StringTensorType([None]))]
         onnx_model = convert_sklearn(
             self.clf, initial_types=initial_type, options={LinearSVC: {"nocl": True}}
         )
         if isinstance(onnx_model, tuple):
-            onnx.save_model(onnx_model[0], path)
-        else:
-            onnx.save_model(onnx_model, path)
+            onnx_model = onnx_model[0]
+
+        # Embed class labels as metadata so inference needs no sidecar.
+        classes = list(getattr(self.clf, "classes_", []))
+        if not classes:
+            # Pipeline: access the final estimator's classes.
+            try:
+                classes = list(list(self.clf.steps)[-1][1].classes_)
+            except Exception:
+                pass
+        if classes:
+            meta = onnx_model.metadata_props.add()
+            meta.key = "classes"
+            meta.value = json.dumps(classes)
+
+        onnx.save_model(onnx_model, path)
 
 
 class LinearSVCClassifier(TrainableClassifier):

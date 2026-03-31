@@ -1,103 +1,81 @@
-"""Inference-only COSC question classifiers.
+"""Inference-only COSC question classifiers — ONNX Runtime only.
 
-This module provides ONNX Runtime inference for COSC question classification.
-Training pipelines have been moved to the `train/` module.
+Training pipelines live in the ``train/`` module.
 """
 
 from __future__ import annotations
 
 from threading import Lock
-from typing import TYPE_CHECKING, List, Optional
+from typing import List, Optional
 
 from little_questions.constants import SUPPORTED_LANGUAGES
 from little_questions.models import get_model_path
-
-if TYPE_CHECKING:
-    import onnxruntime as ort
-    from sklearn.pipeline import Pipeline
 
 
 class Classifier:
     """COSC question classifier using ONNX Runtime inference.
 
-    Supports ONNX models for cross-platform compatibility and performance.
-    Falls back to a joblib-serialised sklearn pipeline when given a .pkl path.
+    Attributes:
+        pipeline_id: The language code this classifier was created for.
     """
 
     def __init__(self, pipeline_id: str) -> None:
         self.pipeline_id = pipeline_id.lower().split("-")[0]
-        self._onnx_session: Optional[ort.InferenceSession] = None
-        self._sklearn_clf: Optional[Pipeline] = None
+        self._session = None   # onnxruntime.InferenceSession
         self._classes: Optional[List[str]] = None
 
-    @property
-    def _is_onnx(self) -> bool:
-        """True when an ONNX model is loaded."""
-        return self._onnx_session is not None
-
     def predict(self, texts: List[str]) -> List[str]:
-        """Classify *texts* and return a label per entry."""
-        if self._onnx_session is not None:
-            outputs = self._onnx_session.run(None, {"input": texts})
-            labels = outputs[0]
-            classes = self._classes or [f"class_{i}" for i in range(52)]
-            return [classes[int(label)] for label in labels]
-        if self._sklearn_clf is not None:
-            return list(self._sklearn_clf.predict(texts))
-        raise RuntimeError("Model not loaded. Call load_from_file() first.")
+        """Classify *texts* and return one COSC label per entry.
 
-    def predict_proba(self, texts: List[str]) -> List[List[float]]:
-        """Return probability estimates for *texts* (sklearn only)."""
-        if self._sklearn_clf is not None:
-            return self._sklearn_clf.predict_proba(texts)
-        raise NotImplementedError("predict_proba not supported for ONNX models")
+        Args:
+            texts: Input sentences.
+
+        Returns:
+            List of COSC label strings (e.g. ``["HUM:ind", "LOC:city"]``).
+
+        Raises:
+            RuntimeError: If the model has not been loaded yet.
+        """
+        if self._session is None:
+            raise RuntimeError("Model not loaded. Call load_from_file() first.")
+        outputs = self._session.run(None, {"input": texts})
+        labels = outputs[0]
+        classes = self._classes or [f"class_{i}" for i in range(52)]
+        return [classes[int(label)] for label in labels]
 
     def load_from_file(self, path: Optional[str] = None) -> "Classifier":
-        """Load a model from *path* (or the default model path).
+        """Load an ONNX model from *path* (or the default model path for this language).
 
-        Detects format from file extension: .onnx uses ONNX Runtime, .pkl uses joblib.
-        """
-        resolved_path = path or get_model_path(self.pipeline_id)
-        if resolved_path.endswith(".onnx"):
-            self._load_onnx(resolved_path)
-        elif resolved_path.endswith(".pkl"):
-            self._load_sklearn(resolved_path)
-        else:
-            try:
-                self._load_onnx(resolved_path)
-            except Exception:
-                self._load_sklearn(resolved_path)
-        return self
+        Args:
+            path: Absolute path to an ``.onnx`` file.  When omitted the path is
+                  resolved via :func:`~little_questions.models.get_model_path`.
 
-    def _load_onnx(self, path: str) -> None:
-        """Load an ONNX model using onnxruntime.
-
-        Class labels are sourced from a companion .pkl sidecar if present,
-        otherwise falls back to generic names.
+        Returns:
+            *self*, for chaining.
         """
         import onnxruntime as ort
 
-        sess_options = ort.SessionOptions()
-        sess_options.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_ALL
-        self._onnx_session = ort.InferenceSession(path, sess_options)
-        self._sklearn_clf = None
+        resolved = path or get_model_path(self.pipeline_id)
+        opts = ort.SessionOptions()
+        opts.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_ALL
+        self._session = ort.InferenceSession(resolved, opts)
 
-        pkl_path = path.replace(".onnx", ".pkl")
-        try:
+        # Read class labels: prefer ONNX model metadata, fall back to pkl sidecar.
+        meta = self._session.get_modelmeta().custom_metadata_map
+        if "classes" in meta:
+            import json
+            self._classes = json.loads(meta["classes"])
+        else:
+            # Sidecar .pkl contains the fitted pipeline; we only need .classes_.
             import joblib
-            sidecar = joblib.load(pkl_path)
-            self._classes = list(sidecar.classes_)
-        except Exception:
-            self._classes = None
+            pkl_path = resolved.replace(".onnx", ".pkl")
+            try:
+                sidecar = joblib.load(pkl_path)
+                self._classes = list(sidecar.classes_)
+            except Exception:
+                self._classes = None
 
-    def _load_sklearn(self, path: str) -> None:
-        """Load a joblib-serialised sklearn pipeline."""
-        import joblib
-
-        self._sklearn_clf = joblib.load(path)
-        self._onnx_session = None
-        classes = getattr(self._sklearn_clf, "classes_", None)
-        self._classes = list(classes) if classes is not None else None
+        return self
 
 
 _LAZY_LOADING: dict = {}
@@ -116,24 +94,34 @@ def list_supported_languages() -> List[str]:
 
 
 def get_classifier(model_id: str) -> Classifier:
-    """Load (or return cached) COSC classifier for the given language/model."""
+    """Return the (cached) COSC classifier for *model_id*.
+
+    Loads and caches the ONNX model on the first call per language.
+
+    Args:
+        model_id: Language code, e.g. ``"en"``, ``"es"``.
+
+    Returns:
+        Loaded :class:`Classifier` instance.
+    """
     model_id = model_id.lower()
     with _LAZY_LOADING_LOCK:
         if model_id not in _LAZY_LOADING:
-            classifier = Classifier(model_id)
-            classifier.load_from_file()
-            _LAZY_LOADING[model_id] = classifier
+            _LAZY_LOADING[model_id] = Classifier(model_id).load_from_file()
     return _LAZY_LOADING[model_id]
 
 
 def get_scorer(lang: Optional[str] = None):
     """Return the sentence-type classifier for *lang*.
 
-    Uses the trained SentenceTypeClassifier for all languages.
-    When no model file is present for a language, SentenceTypeClassifier
-    falls back to its internal punctuation + first-word heuristic.
+    Uses a trained ONNX :class:`~little_questions.sentence_type.SentenceTypeClassifier`.
+    Falls back to its internal heuristic when no model file is available.
 
-    For rule-based baselines (benchmarking only), see train/baselines.py.
+    Args:
+        lang: Language code.  Defaults to ``"en"``.
+
+    Returns:
+        :class:`~little_questions.sentence_type.SentenceTypeClassifier` instance.
     """
     from little_questions.sentence_type import get_sentence_type_classifier
     return get_sentence_type_classifier(lang or "en")
