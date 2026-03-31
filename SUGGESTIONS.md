@@ -265,6 +265,21 @@ import from there.
 
 ---
 
+## Completed (post v0.8.0 refactor)
+
+| ID | Suggestion | Resolved |
+|----|-----------|---------|
+| S-009 | Fix `or` logic bug in `exclamation_score` | `legacy.py:305` |
+| S-010 | Fix `not x in y` anti-pattern | `legacy.py:135,137,139,141,303,383` |
+| S-011 | Eliminate `SentenceScorer`/`Classifier` duplication | `base.py` canonical; dead `Classifier` in `base.py` removed |
+| S-012 | Remove `get_scorer()` triplicate | Single definition in `classifiers/__init__.py` |
+| S-014 | Replace `pretty_label` if/elif chain | `__init__.py:_MAIN_LABEL_NAMES`, `_SEC_LABEL_NAMES` |
+| S-015 | Remove dead lang sub-packages | Deleted `classifiers/lang/{ca,de,es,fr,it,nl,pt}/`; postag files moved to `train/lang/` |
+| S-016 | Consolidate duplicate constants | `little_questions/constants.py` |
+| S-017 | Fix duplicate `"has"` in `YES_NO_STARTERS` | Converted to `frozenset` |
+| S-020 | Remove dead HTTP TODO branch | Removed from `Sentence.__new__` |
+| S-021 | Extract `load_data()` to `train/utils.py` | `train/utils.py:load_data` |
+
 ## Completed (v0.8.0)
 
 | ID | Suggestion | Resolved |

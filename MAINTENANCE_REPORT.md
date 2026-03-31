@@ -37,6 +37,46 @@
 
 ---
 
+## 2026-03-31 — Code-smell refactor
+
+**AI Model**: claude-sonnet-4-6
+**Actions Taken**:
+
+1. **Fixed logic bugs in `legacy.py`** (S-009, S-010, S-017):
+   - `exclamation_score`: `not A or not B` (always True) → `not (A or B)`
+   - Five `not x in y` occurrences replaced with `x not in y`
+   - `YES_NO_STARTERS` list had duplicate `"has"`; converted to `frozenset`
+
+2. **Replaced `pretty_label` if/elif chain with dict lookups** (S-014):
+   - Added `_MAIN_LABEL_NAMES` and `_SEC_LABEL_NAMES` dicts at module level in `__init__.py`
+   - Reduced 50+ lines to 2 dict lookups
+
+3. **Removed dead HTTP scorer branch** (S-020):
+   - `Sentence.__new__` had an unresolvable TODO for HTTP URL lang extraction
+   - `get_model_path()` raises `NotImplementedError` for HTTP anyway; branch deleted
+
+4. **Eliminated class/function duplication** (S-011, S-012, S-016):
+   - `SentenceScorer` consolidated to `base.py`; duplicate in `classifiers/__init__.py` removed
+   - Dead `Classifier` class in `base.py` removed (only `classifiers/__init__.py` version was used)
+   - `get_scorer()` was defined in three places; now only in `classifiers/__init__.py`
+   - `SENTENCE_TYPES` and `SUPPORTED_LANGUAGES` extracted to `little_questions/constants.py`
+
+5. **Removed dead lang sub-packages** (S-015):
+   - Deleted `classifiers/lang/{ca,de,es,fr,it,nl,pt}/` (11 files, all unused by inference)
+   - Moved `postag.py` files (ca, es, pt) + `pt/tokenize.py` to `train/lang/`
+   - Fixed import in `train/lang/pt/postag.py`
+
+6. **Extracted shared `load_data()` to `train/utils.py`** (S-021):
+   - Duplicate `load_data()` in `train_en.py` and `train_all.py` consolidated
+   - `train_all.py` version (which also skipped blank lines) used as canonical
+
+7. **Added `.gitignore`**: excludes `__pycache__`, `*.pyc`, `*.joblib`, `*.pkl`, `*.npy`, `*.onnx`
+
+**Oversight**: All changes reviewed by human before commit.
+**Test result**: 40/40 passed after each commit.
+
+---
+
 ## 2026-03-30 — Phase 1 Revival
 
 **AI Model**: claude-sonnet-4-6
