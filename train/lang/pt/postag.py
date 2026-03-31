@@ -1,4 +1,4 @@
-from little_questions.classifiers.lang.pt.tokenize import word_tokenize_pt
+from train.lang.pt.tokenize import word_tokenize_pt
 
 try:
     from brill_postagger import BrillPostagger
