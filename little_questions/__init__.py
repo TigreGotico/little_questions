@@ -4,15 +4,66 @@ from typing import Optional
 
 from little_questions.classifiers import get_classifier, get_scorer
 
+_MAIN_LABEL_NAMES = {
+    "HUM": "Human",
+    "ENTY": "Entity",
+    "DESC": "Description",
+    "NUM": "Numeric",
+    "LOC": "Location",
+    "ABBR": "Abbreviation",
+}
+
+_SEC_LABEL_NAMES = {
+    "def": "definition",
+    "desc": "description",
+    "ind": "individual",
+    "dist": "distance",
+    "volsize": "volume",
+    "temp": "temperature",
+    "gr": "group or organization of persons",
+    "abb": "abbreviation",
+    "exp": "expression abbreviated",
+    "body": "organs of body",
+    "cremat": "inventions, books and other creative pieces",
+    "dismed": "diseases and medicine",
+    "lang": "language",
+    "termeq": "equivalent terms",
+    "veh": "vehicles",
+}
+
 # str methods whose return value should NOT be re-wrapped as a Sentence subclass
-_STR_PASSTHROUGH = frozenset({
-    "__len__", "__contains__", "__iter__", "__hash__",
-    "__eq__", "__lt__", "__le__", "__gt__", "__ge__",
-    "encode", "startswith", "endswith", "find", "rfind",
-    "index", "rindex", "count", "isalpha", "isdigit",
-    "isspace", "isalnum", "islower", "isupper", "istitle",
-    "isidentifier", "isprintable", "isnumeric", "isdecimal",
-})
+_STR_PASSTHROUGH = frozenset(
+    {
+        "__len__",
+        "__contains__",
+        "__iter__",
+        "__hash__",
+        "__eq__",
+        "__lt__",
+        "__le__",
+        "__gt__",
+        "__ge__",
+        "encode",
+        "startswith",
+        "endswith",
+        "find",
+        "rfind",
+        "index",
+        "rindex",
+        "count",
+        "isalpha",
+        "isdigit",
+        "isspace",
+        "isalnum",
+        "islower",
+        "isupper",
+        "istitle",
+        "isidentifier",
+        "isprintable",
+        "isnumeric",
+        "isdecimal",
+    }
+)
 
 
 class Sentence(str):
@@ -36,6 +87,23 @@ class Sentence(str):
     sentence_type: str
     score: dict
 
+    @classmethod
+    def parse(cls, text: str, lang: str = "en") -> "Sentence":
+        """Classify *text* in the given *lang* and return the appropriate ``Sentence`` subclass.
+
+        This is the preferred entry point for parsing utterances. It is equivalent to
+        calling ``Sentence(text, model=lang)`` but has a more discoverable signature.
+
+        Args:
+            text: The utterance to classify.
+            lang: Language code (e.g. ``"en"``, ``"es"``, ``"fr"``). Defaults to ``"en"``.
+
+        Returns:
+            A concrete subclass instance (``Question``, ``Command``, ``Statement``,
+            ``Exclamation``, or ``Request``) with classification metadata attached.
+        """
+        return cls(text, model=lang)
+
     def __new__(
         cls,
         content: str,
@@ -45,14 +113,7 @@ class Sentence(str):
         """Classify *content* and return the appropriate ``Sentence`` subclass instance."""
         # lazy load classifiers
         question_classifier = get_classifier(model_id=model)
-        if scorer is None:
-            if model.startswith("http"):
-                # TODO naming convention to extract lang
-                if "en" in model:
-                    scorer = "en"
-            else:
-                scorer = model
-        sentence_classifier = get_scorer(lang=scorer)
+        sentence_classifier = get_scorer(lang=scorer or model)
 
         # classify
         classification = question_classifier.predict([content])[0]
@@ -80,7 +141,9 @@ class Sentence(str):
         """Delegate unknown attribute access to :class:`str` (safety net only)."""
         # This is only reached when normal attribute lookup has already failed,
         # so it will not shadow real properties/methods defined on the class.
-        raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+        raise AttributeError(
+            f"'{type(self).__name__}' object has no attribute '{name}'"
+        )
 
     @property
     def main_label(self) -> str:
@@ -95,53 +158,9 @@ class Sentence(str):
     @property
     def pretty_label(self) -> str:
         """Human-readable label combining main and secondary COSC categories."""
-        pretty_main = self.main_label
-        if self.main_label == "ENTY":
-            pretty_main = "Entity"
-        elif self.main_label == "DESC":
-            pretty_main = "Description"
-        elif self.main_label == "NUM":
-            pretty_main = "Numeric"
-        elif self.main_label == "HUM":
-            pretty_main = "Human"
-        elif self.main_label == "LOC":
-            pretty_main = "Location"
-        elif self.main_label == "ABBR":
-            pretty_main = "Abbreviation"
-
-        pretty_sec = self.secondary_label
-        if self.secondary_label == "def":
-            pretty_sec = "definition"
-        elif self.secondary_label == "desc":
-            pretty_sec = "description"
-        elif self.secondary_label == "ind":
-            pretty_sec = "individual"
-        elif self.secondary_label == "dist":
-            pretty_sec = "distance"
-        elif self.secondary_label == "volsize":
-            pretty_sec = "volume"
-        elif self.secondary_label == "temp":
-            pretty_sec = "temperature"
-        elif self.secondary_label == "gr":
-            pretty_sec = "group or organization of persons"
-        elif self.secondary_label == "abb":
-            pretty_sec = "abbreviation"
-        elif self.secondary_label == "exp":
-            pretty_sec = "expression abbreviated"
-        elif self.secondary_label == "body":
-            pretty_sec = "organs of body"
-        elif self.secondary_label == "cremat":
-            pretty_sec = "inventions, books and other creative pieces"
-        elif self.secondary_label == "dismed":
-            pretty_sec = "diseases and medicine"
-        elif self.secondary_label == "lang":
-            pretty_sec = "language"
-        elif self.secondary_label == "termeq":
-            pretty_sec = "equivalent terms"
-        elif self.secondary_label == "veh":
-            pretty_sec = "vehicles"
-
-        return pretty_sec + " (" + pretty_main + ")"
+        pretty_main = _MAIN_LABEL_NAMES.get(self.main_label, self.main_label)
+        pretty_sec = _SEC_LABEL_NAMES.get(self.secondary_label, self.secondary_label)
+        return f"{pretty_sec} ({pretty_main})"
 
     @property
     def is_exclamation(self) -> bool:
@@ -187,4 +206,3 @@ class Exclamation(Sentence):
 
 class Statement(Sentence):
     """A sentence classified as a declarative statement."""
-
