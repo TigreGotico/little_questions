@@ -40,7 +40,7 @@ def translate_text(text, lang):
 
 
 def main():
-    base_path = Path(__file__).parent.parent / "train" / "clean_data"
+    base_path = Path(__file__).parent / "clean_data"
     en_file = base_path / "sentence_types_EN.txt"
 
     # Read EN file
