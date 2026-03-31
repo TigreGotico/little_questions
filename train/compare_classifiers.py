@@ -15,8 +15,8 @@ Usage::
     # 52-class, specific language
     python -m train.compare_classifiers --lang es --classes 52
 
-    # All languages, produce plots
-    python -m train.compare_classifiers --all-langs --classes 6 --plot
+    # All languages with enhanced features, produce plots
+    python -m train.compare_classifiers --all-langs --classes 6 --enhanced --save-plots
 """
 
 from __future__ import annotations
@@ -76,14 +76,34 @@ class _SklearnScorerAdapter:
         return self._clf.predict([text])[0]
 
 
-class _HeuristicAdapter:
-    """Wrap HeuristicScorer for the COSC task (always returns 'DESC:def')."""
+def _run_baselines(
+    lang: str,
+    classes: int,
+    x_test: List[str],
+    y_test: List[str],
+) -> List[EvalResult]:
+    """Evaluate rule-based baselines and log each to MLflow."""
+    results = []
 
-    name = "heuristic-punctuation"
+    scorers = [PunctuationScorer()]
+    if lang == "en":
+        scorers.append(HeuristicScorer())
 
-    def predict(self, text: str) -> str:
-        from train.baselines import PunctuationScorer
-        return PunctuationScorer().predict(text)
+    for scorer in scorers:
+        name = getattr(scorer, "name", type(scorer).__name__)
+        params = {"lang": lang, "n_classes": classes, "model_type": "heuristic",
+                  "scorer": name}
+        with mlflow_config.run(mlflow_config.EXPERIMENT_COMPARE,
+                               f"{name}-{lang}-{classes}c", params):
+            result = evaluate(scorer, x_test, y_test, lang=lang,
+                              dataset=f"test-split-{lang}-{classes}c")
+            mlflow_config.log_classification_metrics(y_test,
+                                                     [scorer.predict(t) for t in x_test])
+            _log_report_artifact(result, f"{name}_{lang}_{classes}c")
+        results.append(result)
+        print(f"  {name}: accuracy={result.accuracy:.4f}  macro_f1={result.macro_f1:.4f}")
+
+    return results
 
 
 def _load_split(lang: str, classes: int):
@@ -99,6 +119,60 @@ def _load_split(lang: str, classes: int):
 # ---------------------------------------------------------------------------
 # Single-classifier benchmark
 # ---------------------------------------------------------------------------
+
+def _run_enhanced_svm(
+    lang: str,
+    classes: int,
+    x_train, x_test, y_train, y_test,
+) -> EvalResult:
+    """Train TF-IDF + char n-gram + linguistic features LinearSVC."""
+    import mlflow
+    from sklearn.svm import LinearSVC
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    from scipy.sparse import hstack
+    from train.features import LinguisticFeaturesTransformer
+
+    params = {
+        "lang": lang, "n_classes": classes,
+        "model_type": "tfidf+char+linguistic-svm",
+        "vectorizer": "tfidf-word12+char34+linguistic",
+        "classifier": "LinearSVC",
+    }
+    run_name = f"enhanced-svm-{lang}-{classes}c"
+
+    with mlflow_config.run(mlflow_config.EXPERIMENT_COMPARE, run_name, params):
+        word_vec = TfidfVectorizer(analyzer="word", ngram_range=(1, 2),
+                                   min_df=1, max_df=0.4, sublinear_tf=True)
+        char_vec = TfidfVectorizer(analyzer="char_wb", ngram_range=(3, 4),
+                                   min_df=1, max_df=0.4)
+        ling = LinguisticFeaturesTransformer(sparse=True)
+
+        X_tr = hstack([word_vec.fit_transform(x_train),
+                       char_vec.fit_transform(x_train),
+                       ling.fit_transform(x_train)])
+        X_te = hstack([word_vec.transform(x_test),
+                       char_vec.transform(x_test),
+                       ling.transform(x_test)])
+
+        clf = LinearSVC(C=1.0, max_iter=2000)
+        clf.fit(X_tr, y_train)
+
+        class _Adapter:
+            name = run_name
+            def predict(_, text: str) -> str:
+                from scipy.sparse import hstack as _h
+                feat = _h([word_vec.transform([text]),
+                           char_vec.transform([text]),
+                           ling.transform([text])])
+                return clf.predict(feat)[0]
+
+        result = evaluate(_Adapter(), x_test, y_test, lang=lang,
+                          dataset=f"test-split-{lang}-{classes}c")
+        mlflow_config.log_classification_metrics(y_test, clf.predict(X_te))
+        _log_report_artifact(result, run_name)
+
+    return result
+
 
 def _run_svm(
     lang: str,
@@ -196,6 +270,7 @@ def compare_lang(
     classes: int = 6,
     save_plots: bool = False,
     show_plots: bool = True,
+    run_enhanced: bool = False,
 ) -> List[EvalResult]:
     """Run all classifiers for *lang* and return results."""
     print(f"\n{'=' * 70}")
@@ -207,12 +282,21 @@ def compare_lang(
 
     results: List[EvalResult] = []
 
-    # 1. TF-IDF SVM baseline
-    print("\n[1/N] TF-IDF LinearSVC ...")
+    # 0. Heuristic baselines (no training — evaluate on full test set)
+    print("\n[0] Heuristic baselines ...")
+    results.extend(_run_baselines(lang, classes, x_test, y_test))
+
+    # 1. TF-IDF SVM
+    print("\n[1] TF-IDF LinearSVC ...")
     results.append(_run_svm(lang, classes, x_train, x_test, y_train, y_test))
 
-    # 2. Potion / model2vec variants
-    for idx, (model_name, scope) in enumerate(POTION_MODELS, start=2):
+    # 2. Enhanced SVM (TF-IDF + char + linguistic features)
+    if run_enhanced:
+        print("\n[2] Enhanced SVM (TF-IDF + char + linguistic) ...")
+        results.append(_run_enhanced_svm(lang, classes, x_train, x_test, y_train, y_test))
+
+    # 3. Potion / model2vec variants
+    for idx, (model_name, scope) in enumerate(POTION_MODELS, start=3):
         is_multilingual = scope == "multilingual"
         if lang != "en" and not is_multilingual:
             LOG.debug("Skipping EN-only model %s for lang=%s", model_name, lang)
@@ -227,7 +311,7 @@ def compare_lang(
         if r:
             results.append(r)
 
-    # 3. Print comparison table
+    # 4. Print comparison table
     print()
     compare(
         results,
@@ -259,6 +343,8 @@ def main() -> None:
     )
     parser.add_argument("--plot", action="store_true", help="Show plots interactively")
     parser.add_argument("--save-plots", action="store_true", help="Save plots to reports/")
+    parser.add_argument("--enhanced", action="store_true",
+                        help="Also run enhanced SVM (TF-IDF + char + linguistic features)")
     args = parser.parse_args()
 
     mlflow_config.setup()
@@ -273,6 +359,7 @@ def main() -> None:
                 args.classes,
                 save_plots=args.save_plots,
                 show_plots=args.plot,
+                run_enhanced=args.enhanced,
             )
         except FileNotFoundError as exc:
             LOG.warning("Skipping %s: %s", lang, exc)
