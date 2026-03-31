@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "little_questions"
-version = "0.8.0"
+dynamic = ["version"]
 description = "Question parser and classifier for voice assistants"
 license = { text = "Apache-2.0" }
 authors = [{ name = "jarbasAI", email = "jarbasai@mailfence.com" }]
@@ -52,6 +52,9 @@ Homepage = "https://github.com/OpenJarbas/little_questions"
 Repository = "https://github.com/OpenJarbas/little_questions"
 Changelog = "https://github.com/OpenJarbas/little_questions/blob/dev/CHANGELOG.md"
 "Bug Tracker" = "https://github.com/OpenJarbas/little_questions/issues"
+
+[tool.setuptools.dynamic]
+version = {attr = "little_questions.version.__version__"}
 
 [tool.setuptools.packages.find]
 include = ["little_questions*"]
