@@ -202,3 +202,127 @@ class PerceptronClassifier(TrainableClassifier):
             ("tfidf", TfidfVectorizer(ngram_range=(1, 2), min_df=1, max_df=0.4)),
             ("clf", _Perceptron()),
         ]
+
+
+class Model2VecClassifier:
+    """Static embedding classifier using a model2vec Potion model + LinearSVC.
+
+    Embeddings are produced by a frozen model2vec ``StaticModel``; a LinearSVC
+    is trained on top.  Optionally fused with TF-IDF word n-grams for a small
+    accuracy boost.
+
+    Args:
+        model_name: HuggingFace repo ID or local path of the model2vec model.
+            Defaults to ``"minishlab/potion-base-8M"`` (EN-only).
+            Use ``"minishlab/potion-multilingual-128M"`` for multilingual tasks.
+        use_tfidf_fusion: When True, concatenate TF-IDF word(1,2) features with
+            the model2vec embeddings before fitting the classifier.
+    """
+
+    name: str  # set after construction
+
+    def __init__(
+        self,
+        model_name: str = "minishlab/potion-base-8M",
+        use_tfidf_fusion: bool = False,
+    ) -> None:
+        self.model_name = model_name
+        self.use_tfidf_fusion = use_tfidf_fusion
+        self._m2v_model = None
+        self._clf: Optional[_LinearSVC] = None
+        self._tfidf: Optional[TfidfVectorizer] = None
+        self._classes: Optional[List[str]] = None
+        short = model_name.split("/")[-1]
+        suffix = "+tfidf" if use_tfidf_fusion else ""
+        self.name = f"m2v-{short}{suffix}"
+
+    def _encode(self, texts: List[str]):
+        """Return embedding matrix for *texts*."""
+        return self._m2v_model.encode(texts)
+
+    def _features(self, texts: List[str], fit: bool = False):
+        """Return feature matrix (embeddings, optionally fused with TF-IDF)."""
+        import numpy as np
+        from scipy.sparse import hstack, issparse
+
+        emb = self._encode(texts)
+        if not self.use_tfidf_fusion:
+            return emb
+
+        if fit:
+            self._tfidf = TfidfVectorizer(ngram_range=(1, 2), min_df=1, max_df=0.4)
+            tfidf_feat = self._tfidf.fit_transform(texts)
+        else:
+            tfidf_feat = self._tfidf.transform(texts)
+
+        # hstack handles sparse + dense by converting dense to sparse
+        return hstack([tfidf_feat, emb])
+
+    def train(self, train_data: List[str], target_data: List[str]) -> None:
+        """Fit the classifier on *train_data* / *target_data*."""
+        from model2vec import StaticModel
+
+        self._m2v_model = StaticModel.from_pretrained(self.model_name)
+        X = self._features(train_data, fit=True)
+        self._clf = _LinearSVC()
+        self._clf.fit(X, target_data)
+        self._classes = list(self._clf.classes_)
+
+    def predict(self, texts: List[str]) -> List[str]:
+        """Return predicted labels for *texts*."""
+        if self._clf is None:
+            raise RuntimeError("Model not trained. Call train() first.")
+        return list(self._clf.predict(self._features(texts)))
+
+    def save(self, directory: str) -> None:
+        """Save model artefacts to *directory*.
+
+        Writes:
+        - ``clf.joblib`` — the fitted LinearSVC
+        - ``tfidf.joblib`` — the TF-IDF vectorizer (only when fusion is active)
+        - ``model2vec/`` — the model2vec StaticModel directory
+        - ``meta.json`` — metadata (model name, fusion flag, classes)
+        """
+        import json
+        import joblib
+        from pathlib import Path
+
+        if self._clf is None:
+            raise RuntimeError("Model not trained. Call train() first.")
+
+        out = Path(directory)
+        out.mkdir(parents=True, exist_ok=True)
+
+        joblib.dump(self._clf, out / "clf.joblib")
+        if self.use_tfidf_fusion and self._tfidf is not None:
+            joblib.dump(self._tfidf, out / "tfidf.joblib")
+
+        self._m2v_model.save_pretrained(str(out / "model2vec"))
+
+        meta = {
+            "model_name": self.model_name,
+            "use_tfidf_fusion": self.use_tfidf_fusion,
+            "classes": self._classes,
+        }
+        (out / "meta.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
+
+    @classmethod
+    def load(cls, directory: str) -> "Model2VecClassifier":
+        """Load a previously saved Model2VecClassifier from *directory*."""
+        import json
+        import joblib
+        from pathlib import Path
+        from model2vec import StaticModel
+
+        out = Path(directory)
+        meta = json.loads((out / "meta.json").read_text(encoding="utf-8"))
+        inst = cls(
+            model_name=meta["model_name"],
+            use_tfidf_fusion=meta.get("use_tfidf_fusion", False),
+        )
+        inst._clf = joblib.load(out / "clf.joblib")
+        inst._classes = meta.get("classes")
+        inst._m2v_model = StaticModel.from_pretrained(str(out / "model2vec"))
+        if inst.use_tfidf_fusion and (out / "tfidf.joblib").exists():
+            inst._tfidf = joblib.load(out / "tfidf.joblib")
+        return inst

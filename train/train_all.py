@@ -22,6 +22,7 @@ from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
 from xdg import BaseDirectory as XDG
 
+import train.mlflow_config as mlflow_config
 from train.classifiers import LinearSVCClassifier
 from train.utils import load_data
 
@@ -87,10 +88,13 @@ def train_language(
     from sklearn.metrics import accuracy_score, f1_score
     accuracy = accuracy_score(y_test, y_pred)
     macro_f1 = f1_score(y_test, y_pred, average="macro", zero_division=0)
+    weighted_f1 = f1_score(y_test, y_pred, average="weighted", zero_division=0)
 
     os.makedirs(REPORTS_DIR, exist_ok=True)
     report_path = join(REPORTS_DIR, f"{model_name}.txt")
     Path(report_path).write_text(report, encoding="utf-8")
+
+    import mlflow
 
     if export_onnx:
         onnx_path = join(MODEL_DIR, f"{model_name}.onnx")
@@ -99,9 +103,27 @@ def train_language(
             clf.save_onnx(onnx_path)
         except Exception as exc:
             LOG.warning("ONNX export failed (%s); saving pkl", exc)
+            onnx_path = None
             clf.save(join(MODEL_DIR, f"{model_name}.pkl"))
     else:
+        onnx_path = None
         clf.save(join(MODEL_DIR, f"{model_name}.pkl"))
+
+    # --- MLflow: log metrics, report, and ONNX model in a single run ---
+    mlflow.set_experiment(mlflow_config.EXPERIMENT_COSC)
+    with mlflow.start_run(run_name=model_name):
+        mlflow.log_params({
+            "lang": lang, "n_classes": classes, "model_name": model_name,
+            "model_type": "tfidf-svm", "test_size": 0.15,
+        })
+        mlflow.log_metrics({
+            "accuracy": accuracy,
+            "macro_f1": macro_f1,
+            "weighted_f1": weighted_f1,
+        })
+        mlflow.log_artifact(report_path)
+        if onnx_path and os.path.exists(onnx_path):
+            mlflow.log_artifact(onnx_path, artifact_path="onnx")
 
     return {"lang": lang, "model_name": model_name, "accuracy": accuracy, "macro_f1": macro_f1}
 
@@ -149,6 +171,7 @@ def plot_results(results: list[dict], classes: int, save_path: str | None = None
 
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+    mlflow_config.setup()
 
     parser = argparse.ArgumentParser(description="Train COSC classifiers for all languages")
     parser.add_argument("--lang", help="Train a single language only")

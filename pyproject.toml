@@ -43,6 +43,8 @@ dependencies = [
 train = [
     "skl2onnx",
     "onnx",
+    "model2vec",
+    "mlflow",
 ]
 
 [project.urls]
