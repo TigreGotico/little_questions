@@ -1,97 +1,114 @@
 # little_questions — Roadmap
 
-## Status summary
+## Status Summary
 
 | Phase | Goal | Status |
 |-------|------|--------|
-| 1 — Stabilize | Installable, working, tested | ✅ Done (2026-03-30) |
-| 2 — Clean API | Type-safe, no magic, canonical entry point | 🔄 In progress |
-| 3 — OVOS integration | Pipeline adapter, voice assistant routing | ⬜ Planned |
-| 4 — PyPI release | Published as `little-questions` | ⬜ Planned |
+| 1 — Stabilize | Installable, working, tested | ✅ Done |
+| 2 — Clean API | Type-safe, no magic, canonical entry point | ✅ Done |
+| 3 — ONNX Migration | Replace joblib .pkl with ONNX runtime inference | ✅ Done |
+| 4 — Train Models | Retrain all languages with ONNX export | ✅ Done |
+| 5 — PyPI Release | Publish v0.8.0 | ⬜ Planned |
 
 ---
 
 ## Phase 1 — Stabilize ✅ Done
 
-- [x] Replace `setup.py` with `pyproject.toml`; `python_requires = ">=3.10"`
-- [x] Replace fragile `__getattribute__` delegation in `Sentence` with `__new__` + `_TYPE_MAP`
-- [x] Add type hints and docstrings to `Sentence`, `Classifier`, `SentenceScorer` and all subclasses
-- [x] Write 28 unit tests (sentence type dispatch, COSC labels, str behaviour, scorer heuristics)
-- [x] `test/conftest.py` stubs `JarbasModelZoo` and `xdg` so tests run without network/models
-- [x] `docs/index.md` — overview, COSC taxonomy, sentence type table, usage example, architecture
+- [x] Replace `setup.py` with `pyproject.toml`
+- [x] Fix model path bug (missing `.pkl` extensions)
+- [x] Add type hints and docstrings
+- [x] 40 unit tests passing
 
 ---
 
-## Phase 2 — Clean API 🔄 In progress
+## Phase 2 — Clean API ✅ Done
 
-**Goal:** Ergonomic, typed, documented entry points. No implicit magic at import time.
-
-### 2a — Fix model path bug
-- [ ] `LANG2MODEL` entries for `ca`, `fr`, `it`, `de` are missing `.pkl` extension
-  — `get_model_path()` returns paths that `joblib.load()` cannot open
-  — Fix: append `.pkl` to those four entries in `little_questions/models/__init__.py`
-  — Add regression test: `get_model_path(lang)` returns a string ending in `.pkl` for all 7 languages
-
-### 2b — Add `Sentence.parse()` canonical entry point
-- [ ] Add `Sentence.parse(text: str, lang: str = "en") -> "Sentence"` classmethod
-  — mirrors `Sentence(text, model=lang)` but has a discoverable, typed signature
-  — docstring explains that the returned type is a concrete subclass
-  — keep `Sentence(text, model=lang)` working unchanged (no breaking change)
-
-### 2c — Simplify and document `get_classifier()`
-- [ ] Add full docstring to `get_classifier()` explaining the lazy cache (`_LAZY_LOADING`)
-- [ ] Add `clear_classifier_cache()` utility for test isolation and memory management
-- [ ] Add `list_supported_languages() -> List[str]` returning the 7 supported language codes
-
-### 2d — SentenceScorerEN type hints
-- [ ] Add return type annotations to all `SentenceScorerEN` static methods
-  — `predict(text: str) -> str`
-  — `score(text: str) -> Dict[str, float]`
-  — `_score(...) -> float`
-  — `*_score(text: str) -> float`
-
-### 2e — Expand test coverage
-- [ ] Test `get_model_path()` returns `.pkl` paths for all 7 languages (no network needed)
-- [ ] Test `Sentence.parse()` classmethod produces the same result as `Sentence()` constructor
-- [ ] Test `clear_classifier_cache()` resets `_LAZY_LOADING`
-- [ ] Test `list_supported_languages()` returns all 7 codes
+- [x] `Sentence.parse()` canonical entry point
+- [x] `clear_classifier_cache()` utility
+- [x] `list_supported_languages()` utility
+- [x] `SentenceScorerEN` type hints
 
 ---
 
-## Phase 3 — OVOS integration ⬜ Planned
+## Phase 3 — ONNX Migration ✅ Done
 
-**Goal:** Drop-in adapter for routing utterances in an OVOS skill pipeline.
-
-- [ ] `little_questions.ovos.QuestionRouter` — thin wrapper returning an intent-compatible dict:
-  ```python
-  {"utterance": text, "main_label": "HUM", "secondary_label": "ind",
-   "sentence_type": "question", "confidence": 0.82}
-  ```
-- [ ] Register as an OVOS utterance transformer plugin (entry point in `pyproject.toml`)
-- [ ] CI: add Python 3.10 / 3.11 / 3.12 GitHub Actions workflow
-- [ ] Smoke test per language (requires pre-downloaded model fixtures in CI or mocked)
+- [x] Replace joblib-only `Classifier` with ONNX Runtime inference
+- [x] `train/classifiers.py` - new trainable classifiers module
+- [x] Removed JarbasModelZoo dependency (replaced with `brill_postagger`)
+- [x] Added `onnxruntime` and `brill_postagger` as runtime dependencies
+- [x] Removed `features.py` sklearn training code from inference package
 
 ---
 
-## Phase 4 — PyPI release ⬜ Planned
+## Phase 4 — Train Models ✅ Done
 
-**Goal:** Publish as `little-questions` so downstream projects can `uv add little-questions`.
+Trained ONNX models for 8 languages with balanced training data (4677 questions):
 
-- [ ] Retrain all 7 language models on Python 3.12 + scikit-learn ≥ 1.4 to eliminate joblib pickle version mismatch warnings
-- [ ] Bundle small NLTK data assets (`punkt`, `averaged_perceptron_tagger`) as package data or download on first use with a friendly message
-- [ ] `CHANGELOG.md` — add v0.7.0 release entry covering all Phase 1–3 changes
-- [ ] `pyproject.toml` classifiers, keywords, project URLs
-- [ ] Build and publish to PyPI
+| Language | Accuracy | Model File |
+|----------|----------|------------|
+| EN | 82% | `questions52_svm_EN_0.8.0.onnx` |
+| ES | 79% | `questions52_svm_ES_0.8.0.onnx` |
+| CA | 79% | `questions52_svm_CA_0.8.0.onnx` |
+| PT | 77% | `questions52_svm_PT_0.8.0.onnx` |
+| FR | 78% | `questions52_svm_FR_0.8.0.onnx` |
+| DE | 76% | `questions52_svm_DE_0.8.0.onnx` |
+| IT | 78% | `questions52_svm_IT_0.8.0.onnx` |
+| NL | 78% | `questions52_svm_NL_0.8.0.onnx` |
+
+Training data: `train/clean_data/raw_questions_EN_balanced_0.8.0.txt`
+Translation: argostranslate (offline)
+
+### Sentence Type Classifier (NEW) ✅
+
+Replaced heuristic-based `SentenceScorerEN` with trained classifier:
+
+| Model | Accuracy | Features |
+|-------|----------|----------|
+| TF-IDF word(1,2)+char(3,4) | 86.3% | lexical |
+| M2V multilingual-128M | 91.2% | embeddings |
+| **TF-IDF + M2V combo** | **93.0%** | combined |
+
+Models: `little_questions/models/sentence_type_svm_EN.joblib`
+Training data: `train/clean_data/sentence_types_EN.txt` (628 sentences)
+Labels: question, statement, command, exclamation, request
 
 ---
 
-## Key invariants
+## Phase 5 — PyPI Release 🔄 In Progress
 
-The COSC 52-class taxonomy (`main_label` / `secondary_label` / `pretty_label`) is the primary
-deliverable. Any refactor must preserve the full label set and be covered by regression tests
-before the classifier pipeline is touched.
+- [ ] Upload ONNX models to GitHub releases (tag `0.8.0`)
+- [ ] Update CHANGELOG.md
+- [ ] `pip install little-questions[train]` for training
+- [ ] Publish to PyPI
 
-`Sentence` subclassing `str` is intentional (voice assistant pipelines treat utterances as
-strings; subclassing lets metadata travel with the string without changing call sites). If this
-ever causes real problems, introduce `Sentence.parse()` as the replacement entry point first,
-then deprecate the `Sentence(str)` constructor in a separate breaking-change release.
+---
+
+## Supported Languages
+
+| Language | Code | POS Tagger | COSC Model |
+|----------|------|------------|------------|
+| English | en | NLTK (built-in) | ✅ 82% |
+| Spanish | es | brill_postagger | ✅ 79% |
+| Portuguese | pt | brill_postagger | ✅ 77% |
+| Catalan | ca | brill_postagger | ✅ 79% |
+| French | fr | brill_postagger | ✅ 78% |
+| German | de | brill_postagger | ✅ 76% |
+| Italian | it | brill_postagger | ✅ 78% |
+| Dutch | nl | brill_postagger | ✅ 78% |
+
+---
+
+## Architecture
+
+```
+little_questions/          # Inference package (ONNX Runtime)
+├── Sentence.parse()      # Main entry point
+├── Sentence(text)       # Classify sentences
+└── ONNX Runtime          # Model inference
+
+train/                    # Training package (sklearn)
+├── classifiers.py        # Trainable classifiers
+├── train_all.py          # Train all languages
+├── translate.py         # Translate training data
+└── clean_data/          # Training datasets
+```

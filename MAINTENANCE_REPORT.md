@@ -112,3 +112,35 @@
 
 **Oversight**: All changes reviewed by human before commit.
 **Test result**: 28/28 passed.
+
+---
+
+## 2026-03-31 — Training infrastructure overhaul + scorer removal
+
+**AI Model**: claude-sonnet-4-6
+
+**Actions Taken**:
+
+1. **Removed rule-based scorers from inference package** — `classifiers/base.py` and
+   `classifiers/legacy.py` deleted. `PunctuationScorer` and `HeuristicScorer` extracted
+   to `train/baselines.py` for use as benchmarking baselines only.
+
+2. **Added `train/metrics.py`** — `EvalResult` dataclass with `plot_confusion_matrix()`,
+   `plot_per_class_bars()`, `save()` (JSON); `evaluate()` and `compare()` functions.
+
+3. **Added `train/eval_sentence_type.py`** — CLI to run `SentenceTypeClassifier` +
+   baselines against labelled `sentence_types_*.txt` datasets; saves reports and PNG plots.
+
+4. **Rewrote `train/train_all.py`** — added `--classes` flag (replaces `--6` hack),
+   `--plot`/`--save-plot`, `plot_results()` bar chart, summary table with accuracy/macro-F1.
+
+5. **Simplified `train/train_en.py`** — thin wrapper around `train_all.train_language`;
+   no duplicate logic; supports `--classes`, `--no-onnx`, `--plot`.
+
+6. **Deleted `train_scripts/`** — 50+ stale files (old reports, per-lang training scripts,
+   translation helpers) removed. All workflows now live in `train/`.
+
+7. **Updated `SUGGESTIONS.md`** — closed S-003 through S-021 (15 items); 2 items remain open.
+
+**Oversight**: Changes staged for human review before push.
+**Test result**: All 28 tests passed (`uv run pytest test/ -v`).
