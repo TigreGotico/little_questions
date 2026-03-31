@@ -2,12 +2,32 @@
 
 ## `little_questions` — top-level package
 
+### `classify`
+
+```python
+classify(text: str, lang: str = "en") -> str
+```
+`little_questions/__init__.py:8`
+
+Return the COSC label for *text* without sentence-type scoring. Faster than `Sentence.parse()` when only the label is needed.
+
+### `classify_batch`
+
+```python
+classify_batch(texts: list[str], lang: str = "en") -> list[str]
+```
+`little_questions/__init__.py:25`
+
+Classify multiple texts in a single model call.
+
+---
+
 ### `Sentence`
 
 ```python
 class Sentence(str)
 ```
-`little_questions/__init__.py:18`
+`little_questions/__init__.py:99`
 
 A classified sentence. Subclasses `str`, so all string operations work normally. The concrete
 subclass (`Question`, `Command`, etc.) is chosen at construction time.
@@ -21,18 +41,19 @@ Sentence(content: str, model: str = "en", scorer: Optional[str] = None) -> Sente
 | Parameter | Default | Description |
 |-----------|---------|-------------|
 | `content` | — | The sentence text. |
-| `model` | `"en"` | Language code for the COSC classifier. One of `en es pt ca fr de it`. |
+| `model` | `"en"` | Language code for the COSC classifier. One of `en es pt ca fr de it nl`. |
 | `scorer` | `None` | Language code for the sentence-type scorer. Defaults to `model`. |
 
 Returns a concrete subclass instance (`Question`, `Command`, etc.).
 
-**Alternative entry point (Phase 2+):**
+**Classmethod:**
 
 ```python
 Sentence.parse(text: str, lang: str = "en") -> Sentence
 ```
+`little_questions/__init__.py:121`
 
-Classmethod. Equivalent to `Sentence(text, model=lang)` but more discoverable.
+Equivalent to `Sentence(text, model=lang)`.
 
 **Attributes set at construction:**
 
@@ -47,20 +68,20 @@ Classmethod. Equivalent to `Sentence(text, model=lang)` but more discoverable.
 
 | Property | Type | Description | Source |
 |----------|------|-------------|--------|
-| `main_label` | `str` | Top-level COSC category. | `__init__.py:86` |
-| `secondary_label` | `str` | Fine-grained COSC subtype. | `__init__.py:92` |
-| `pretty_label` | `str` | Human-readable combined label. | `__init__.py:97` |
-| `is_question` | `bool` | `True` when `isinstance(self, Question)`. | `__init__.py:168` |
-| `is_command` | `bool` | `True` when `isinstance(self, Command)`. | `__init__.py:163` |
-| `is_request` | `bool` | `True` when `isinstance(self, Request)`. | `__init__.py:153` |
-| `is_statement` | `bool` | `True` when `isinstance(self, Statement)`. | `__init__.py:158` |
-| `is_exclamation` | `bool` | `True` when `isinstance(self, Exclamation)`. | `__init__.py:147` |
+| `main_label` | `str` | Top-level COSC category. | `__init__.py:179` |
+| `secondary_label` | `str` | Fine-grained COSC subtype. | `__init__.py:184` |
+| `pretty_label` | `str` | Human-readable combined label. | `__init__.py:189` |
+| `is_exclamation` | `bool` | `True` when `isinstance(self, Exclamation)`. | `__init__.py:196` |
+| `is_request` | `bool` | `True` when `isinstance(self, Request)`. | `__init__.py:201` |
+| `is_statement` | `bool` | `True` when `isinstance(self, Statement)`. | `__init__.py:206` |
+| `is_command` | `bool` | `True` when `isinstance(self, Command)`. | `__init__.py:211` |
+| `is_question` | `bool` | `True` when `isinstance(self, Question)`. | `__init__.py:216` |
 
 ---
 
 ### Concrete sentence subclasses
 
-All subclass `Sentence` (and `str`).
+All subclass `Sentence` (and `str`). `little_questions/__init__.py:221`
 
 | Class | Inherits | Notes |
 |-------|----------|-------|
@@ -74,12 +95,11 @@ All subclass `Sentence` (and `str`).
 
 ## `little_questions.classifiers`
 
+`little_questions/classifiers/__init__.py`
+
 ### `get_classifier(model_id: str) -> Classifier`
 
-`little_questions/classifiers/__init__.py:16`
-
-Returns a loaded `Classifier` for the given language code. Results are cached in
-`_LAZY_LOADING` — the model file is read from disk only on the first call per language.
+Line 118. Returns a loaded `Classifier` for the given language code. Results are cached — the model file is read from disk only on the first call per language.
 
 ```python
 from little_questions.classifiers import get_classifier
@@ -87,127 +107,74 @@ clf = get_classifier("en")
 labels = clf.predict(["Who invented the telephone?"])  # ["HUM:ind"]
 ```
 
-### `get_scorer(lang: Optional[str] = None) -> SentenceScorer`
+### `get_scorer(lang: Optional[str] = None) -> SentenceTypeClassifier`
 
-`little_questions/classifiers/__init__.py:8`
-
-Returns `SentenceScorerEN()` if `lang` starts with `"en"`, otherwise `SentenceScorer()`.
+Line 129. Returns the `SentenceTypeClassifier` for *lang*. When no trained model file is present, it falls back to the internal punctuation + first-word heuristic.
 
 ### `clear_classifier_cache() -> None`
 
-`little_questions/classifiers/__init__.py` (Phase 2)
-
-Clears the lazy-load cache. All subsequent `get_classifier()` calls will reload from disk.
+Line 107. Clears the lazy-load cache. All subsequent `get_classifier()` calls will reload from disk.
 
 ### `list_supported_languages() -> List[str]`
 
-`little_questions/classifiers/__init__.py` (Phase 2)
-
-Returns `["en", "es", "pt", "ca", "fr", "de", "it"]`.
+Line 113. Returns the list of all supported language codes (reads from `SUPPORTED_LANGUAGES`).
 
 ---
 
-## `little_questions.classifiers.base`
-
-### `SentenceScorer`
-
-`little_questions/classifiers/base.py:22`
-
-Rule-based sentence-type scorer. Language-agnostic fallback using terminal punctuation only.
-
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| `predict` | `(text: str) -> str` | Return best sentence type. |
-| `score` | `(text: str) -> Dict[str, float]` | Return all type scores. |
-| `question_score` | `(text: str) -> float` | Heuristic: 0.8 if ends `?`, else 0.4. |
-| `statement_score` | `(text: str) -> float` | Heuristic: 0.5 if ends `.`, else 0. |
-| `exclamation_score` | `(text: str) -> float` | Heuristic: 0.6 if ends `!`, else 0. |
-| `command_score` | `(text: str) -> float` | Heuristic: 0.6 if ends `.`, 0.5 if `!`, else 0. |
-| `request_score` | `(text: str) -> float` | Heuristic: 0.5 if ends `.` or `?`, else 0. |
-
 ### `Classifier`
 
-`little_questions/classifiers/base.py:87`
+`little_questions/classifiers/__init__.py:20`
 
-Base class for COSC classifiers backed by a joblib-serialised sklearn pipeline.
+COSC question classifier using ONNX Runtime inference. Falls back to joblib `.pkl` when given a `.pkl` path.
 
 | Method | Signature | Description |
 |--------|-----------|-------------|
 | `__init__` | `(pipeline_id: str)` | `pipeline_id` is the language code, e.g. `"en"`. |
-| `train` | `(train_data, target_data)` | Fit the pipeline (subclasses implement). |
-| `predict` | `(text: List[str]) -> List[str]` | Return list of COSC labels. |
-| `save` | `(path: str)` | Persist the fitted pipeline via joblib. |
-| `load_from_file` | `(path: Optional[str])` | Load from path (or default model path). |
-
-**Available concrete subclasses** (all in `little_questions/classifiers/base.py`):
-
-- `LinearSVCTextClassifier` — default; best accuracy on UIUC QC
-- `LogRegTextClassifier`
-- `RandomForestTextClassifier`
-- `NaiveBayesTextClassifier`
-- `PassiveAggressiveTextClassifier`
-- `SGDTextClassifier`
-- `PerceptronTextClassifier`
-
----
-
-## `little_questions.classifiers.lang.en`
-
-### `SentenceScorerEN`
-
-`little_questions/classifiers/lang/en/__init__.py:23`
-
-English sentence-type scorer using NLTK POS tags. More accurate than the base `SentenceScorer`.
-
-Each `*_score(text)` static method runs `word_tokenize` + `pos_tag` via NLTK, then computes
-a score ∈ [0, 1] based on start/end tokens, POS tag patterns, and unlikely-word penalties.
-The internal `_score()` method at line 41 implements the shared scoring framework.
+| `predict` | `(texts: List[str]) -> List[str]` | Return list of COSC labels. |
+| `predict_proba` | `(texts: List[str]) -> List[List[float]]` | Probability estimates (sklearn only). |
+| `load_from_file` | `(path: Optional[str])` | Load from path (or default model path). Detects format from extension. |
 
 ---
 
 ## `little_questions.models`
 
-### `get_model_path(model: str) -> str`
+`little_questions/models/__init__.py`
 
-`little_questions/models/__init__.py:163`
+### `get_model_path(model: str = "en") -> str`
 
-Resolve the filesystem path for a model. Downloads the model and required NLTK data if not present.
+Line 149. Resolve the filesystem path for a model. Downloads the model if not already cached.
 
 | `model` value | Resolution |
 |---------------|------------|
-| Starts with `http` | Raises `NotImplementedError` |
-| A valid filesystem path | Returned as-is |
+| An existing filesystem path | Returned as-is |
 | A key in `LANG2MODEL` | Downloads if absent, returns path |
 | Anything else | Raises `ValueError` |
 
-### `download(model_id: str, force: bool = False) -> Optional[str]`
+### `download(model_id: str, force: bool = False) -> str`
 
-`little_questions/models/__init__.py:48`
-
-Download a model file to the XDG data directory. `model_id` is a key in `MODEL2URL` (e.g.
-`"questions52_EN"`). Skips if already downloaded unless `force=True`.
+Line 120. Download a model file to the XDG data directory and verify its SHA-256 checksum. `model_id` is a language code (e.g. `"en"`) or a key in `LANG2MODEL`. Skips if already downloaded unless `force=True`. Returns the absolute path.
 
 ### Language-specific download helpers
 
-| Function | Downloads |
-|----------|-----------|
-| `download_en()` | EN 52-class + 6-class models + NLTK data |
-| `download_es()` | ES models + Spanish Brill tagger (via JarbasModelZoo if available) |
-| `download_pt()` | PT models + Floresta tagger |
-| `download_ca()` | CA models + Catalan Brill tagger |
-| `download_fr()` | FR models |
-| `download_de()` | DE models |
-| `download_it()` | IT models |
+| Function | Line | Downloads |
+|----------|------|-----------|
+| `download_en()` | 178 | EN 52-class + 6-class models + NLTK data |
+| `download_es()` | 192 | ES 52-class + 6-class models |
+| `download_pt()` | 186 | PT 52-class + 6-class models |
+| `download_ca()` | 216 | CA 52-class + 6-class models |
+| `download_fr()` | 198 | FR 52-class + 6-class models |
+| `download_de()` | 210 | DE 52-class + 6-class models |
+| `download_it()` | 204 | IT 52-class + 6-class models |
+| `download_nl()` | 222 | NL 52-class + 6-class models |
 
 ### `MODEL2URL`
 
-`little_questions/models/__init__.py:16`
-
-Dict mapping model ID (e.g. `"questions52_EN"`) to GitHub release download URL.
+Line 39. Dict mapping language code (e.g. `"en"`) to the GitHub release download URL.
 
 ### `LANG2MODEL`
 
-`little_questions/models/__init__.py:79`
+Line 20. Dict mapping language code (e.g. `"en"`) to the expected model filename. Includes `_small` variants (6-class).
 
-Dict mapping language code (e.g. `"en"`) to the expected filesystem path of the model file.
-Includes `_small` variants (6-class) and `_tagger` variants (POS tagger, where applicable).
+### `MODEL2SHA256`
+
+Line 46. Dict mapping language code to expected SHA-256 digest. Entries are `None` until populated after a release upload; missing entries log a warning and skip verification.

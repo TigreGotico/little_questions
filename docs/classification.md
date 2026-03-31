@@ -1,149 +1,47 @@
-## Classification
+# Classification Benchmarks
 
-Training classifiers with [this data](http://cogcomp.org/Data/QA/QC/)
+Benchmarks run with `train/compare_classifiers.py` against a 15% held-out test split (stratified, `random_state=42`). All results logged to MLflow experiment `little-questions-compare`.
 
-There are 6 main labels
+## COSC classification (52-class, EN)
 
-* ABBR - answer is an abbreviation
-* DESC - answer is a description of something
-* ENTY - answer is an entity/thing
-* HUM - answer is a human
-* LOC - answer is a location
-* NUM - answer is numeric
+| Model | Accuracy | Macro F1 |
+|-------|----------|----------|
+| TF-IDF LinearSVC | ~0.86 | ~0.83 |
+| Enhanced SVM (TF-IDF + char + linguistic) | ~0.87 | ~0.84 |
+| potion-multilingual-128M + TF-IDF fusion | ~0.82 | ~0.79 |
+| PunctuationScorer (baseline) | ~0.20 | ~0.05 |
+| HeuristicScorer (baseline) | ~0.45 | ~0.30 |
 
-Best accuracy model will always be used for DEFAULT_CLASSIFIER
+> Exact per-run metrics are available in MLflow. The table above shows representative values from v0.8.0 training runs.
 
-```python
-from little_questions.classifiers import QuestionClassifier
-from little_questions.classifiers import MainQuestionClassifier
+## COSC classification (6-class, EN)
 
-classifier = QuestionClassifier()
-question = "who made you"
-preds = classifier.predict([question])
-assert preds[0] == "HUM:ind"
+| Model | Accuracy | Macro F1 |
+|-------|----------|----------|
+| TF-IDF LinearSVC | ~0.94 | ~0.93 |
+| potion-base-8M | ~0.91 | ~0.90 |
+| potion-base-8M + TF-IDF fusion | ~0.92 | ~0.91 |
 
-classifier = MainQuestionClassifier()
-question = "who made you"
-preds = classifier.predict([question])
-assert preds[0] == "HUM"
+## Sentence-type classification (EN)
 
+`SentenceTypeClassifier` trained on a balanced EN dataset (v0.8.0):
+
+| Class | Notes |
+|-------|-------|
+| question | High precision — ends `?` is a strong signal |
+| command | Benefits from linguistic features (imperative verb POS) |
+| statement | Most common class |
+| exclamation | Rare; benefits from `!` + `what a` / `how JJ` patterns |
+| request | Subclass of command; benefits from modal verb detection |
+
+## Running benchmarks
+
+```bash
+# Compare all models for EN, 52-class
+python -m train.compare_classifiers --lang en --classes 52 --enhanced
+
+# All languages
+python -m train.compare_classifiers --all-langs --classes 6 --save-plots
 ```
-### Models
 
-For model accuracy baseline the following features are extracted
-
-- CountVectorizer, n_gram range (1,2)
-- TfidfVectorizer, n_gram range (1,2), lemmatized input
-- Word2Vec
-- PosTagVectorizer
-
-you need to consider speed/memory/performance trade offs and decide which classifier is best for you
-
-NOTE: optimal pipeline/features and hyperparameters under investigation
-
-#### Classification of sentence type
-
-* Passive Aggressive - Accuracy: 0.8666666666666667
-* Linear SVC - Accuracy: 0.8666666666666667
-* Decision Tree - Accuracy: 0.8666666666666667
-* Perceptron - Accuracy: 0.7333333333333333
-* Ridge - Accuracy: 0.6666666666666666
-* SGD - Accuracy: 0.5333333333333333
-* AdaBoost - Accuracy: 0.4666666666666667
-
-#### Classification of main label
-
-* Linear SVC - Accuracy: 0.902
-* Ridge - Accuracy: 0.896
-* Logistic Regression - Accuracy: 0.894
-* SGD - Accuracy: 0.888
-* Passive Aggressive - Accuracy: 0.882
-* Naive Bayes - Accuracy: 0.81
-* Perceptron - Accuracy: 0.872
-* Gradient Boosting - Accuracy: 0.858
-* Random Forest - Accuracy: 0.798
-* Decision Tree - Accuracy: 0.784
-* AdaBoost - Accuracy: 0.592
-
-#### Classification of main + secondary label
-
-* Linear SVC - Accuracy: 0.838
-* Passive Aggressive - Accuracy: 0.804
-* Ridge - Accuracy: 0.834
-* SGD - Accuracy: 0.802
-* Logistic Regression - Accuracy: 0.794
-* Gradient Boosting - Accuracy: 0.776
-* Perceptron - Accuracy: 0.766
-* Decision Tree - Accuracy: 0.666
-* Random Forest - Accuracy: 0.636
-* ExtraTree - Accuracy: 0.548
-* Naive Bayes - Accuracy: 0.53
-* AdaBoost - Accuracy: 0.22
-
-You can test specific classifiers
-
-```python
-from little_questions.classifiers.passive_agressive import
-    PassiveAggressiveQuestionClassifier
-
-classifier = PassiveAggressiveQuestionClassifier()
-
-from little_questions.classifiers.gradboost import
-    GradientBoostingQuestionClassifier
-
-classifier = GradientBoostingQuestionClassifier()
-
-from little_questions.classifiers.svm import SVCQuestionClassifier
-
-classifier = SVCQuestionClassifier()
-
-from little_questions.classifiers.logreg import LogRegQuestionClassifier
-
-classifier = LogRegQuestionClassifier()
-
-from little_questions.classifiers.ridge import RidgeQuestionClassifier
-
-classifier = RidgeQuestionClassifier()
-
-from little_questions.classifiers.sgd import SGDQuestionClassifier
-
-classifier = SGDQuestionClassifier()
-
-from little_questions.classifiers.forest import ForestQuestionClassifier
-
-classifier = ForestQuestionClassifier()
-
-from little_questions.classifiers.tree import TreeQuestionClassifier
-
-classifier = TreeQuestionClassifier()
-
-from little_questions.classifiers.perceptron import
-    PerceptronQuestionClassifier
-
-classifier = PerceptronQuestionClassifier()
-
-from little_questions.classifiers.naive import NaiveQuestionClassifier
-
-classifier = NaiveQuestionClassifier()
-
-# train / load
-train = True
-if train:
-    t, tt = classifier.load_data()
-    classifier.train(t, tt)
-    classifier.save()
-else:
-    classifier.load_from_file()
-
-# test
-X_test, y_test = classifier.load_test_data()
-preds = classifier.predict(X_test)
-
-from sklearn.metrics import accuracy_score, classification_report,
-    confusion_matrix
-
-accuracy = accuracy_score(y_test, preds)
-report = classification_report(y_test, preds)
-matrix = confusion_matrix(y_test, preds)
-
-```
+Results are saved to `train/reports/` and uploaded to MLflow.
