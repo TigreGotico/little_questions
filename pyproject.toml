@@ -1,14 +1,32 @@
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
-build-backend = "setuptools.backends.legacy:build"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "little_questions"
-version = "0.7.0a1"
-description = "question parser and classifier"
+version = "0.8.0"
+description = "Question parser and classifier for voice assistants"
 license = { text = "Apache-2.0" }
 authors = [{ name = "jarbasAI", email = "jarbasai@mailfence.com" }]
 requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Natural Language :: Spanish",
+    "Natural Language :: French",
+    "Natural Language :: German",
+    "Natural Language :: Italian",
+    "Natural Language :: Portuguese",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+]
 dependencies = [
     "numpy>=1.21.2",
     "nltk",
@@ -16,16 +34,26 @@ dependencies = [
     "scikit-learn",
     "joblib",
     "pyxdg",
+    "requests",
+    "brill_postagger",
+    "onnxruntime",
 ]
 
 [project.optional-dependencies]
-model-zoo = ["JarbasModelZoo>=0.2.0a2"]
+train = [
+    "skl2onnx",
+    "onnx",
+]
 
 [project.urls]
 Homepage = "https://github.com/OpenJarbas/little_questions"
+Repository = "https://github.com/OpenJarbas/little_questions"
+Changelog = "https://github.com/OpenJarbas/little_questions/blob/dev/CHANGELOG.md"
+"Bug Tracker" = "https://github.com/OpenJarbas/little_questions/issues"
 
 [tool.setuptools.packages.find]
 include = ["little_questions*"]
+exclude = ["train*", "test*"]
 
 [tool.setuptools.package-data]
 "little_questions" = ["models/*"]
