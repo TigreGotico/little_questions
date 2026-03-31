@@ -160,3 +160,28 @@ uv run pytest test/ -v --cov=little_questions --cov-report=term-missing
 
 **Q: How do I add a new sentence type?**
 Add a subclass of `Sentence`, add the type key to `_TYPE_MAP` in `little_questions/__init__.py`, implement scoring in `SentenceScorerEN` and `SentenceScorer`. Add tests.
+
+---
+
+## Dataset
+
+**Q: What is the sentence-type dataset format?**
+Two files are kept in sync:
+- `train/clean_data/sentence_types_EN.csv` — `label,text` CSV with header
+- `train/clean_data/sentence_types_EN.txt` — numbered `N: label sentence` format
+
+**Q: What are the 6 sentence-type classes and how are they distinguished?**
+| Class | Criteria |
+|---|---|
+| `command` | Direct imperative verb at start, no polite framing |
+| `exclamation` | Expressive "What a…!" or "How…!" constructions |
+| `polar_question` | Aux-verb-first yes/no questions |
+| `request` | Polite forms: "Could you…", "Would you…", "May I…", "Might I…" |
+| `statement` | Declarative sentence reporting a fact or state |
+| `wh_question` | Wh-word-first questions (Who/What/When/Where/Why/How/Which) |
+
+**Q: What is the current dataset size?**
+9,900 entries — exactly 1,650 samples per class (balanced). As of 2026-03-31.
+
+**Q: Why was the dataset split into polar_question and wh_question?**
+The original `question` class was ambiguous. Separating polar (yes/no) questions from wh-questions improves classifier precision, since the two subtypes have distinct lexical and syntactic patterns.
