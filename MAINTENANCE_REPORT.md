@@ -1,5 +1,42 @@
 # MAINTENANCE_REPORT
 
+## 2026-03-31 — Production Readiness Audit (v0.8.0)
+
+**AI Model**: claude-sonnet-4-6
+**Actions Taken**:
+
+1. **Fixed `pyproject.toml`** (`pyproject.toml`):
+   - Added missing `requests` runtime dependency (used in `little_questions/models/__init__.py:download`).
+   - Added trove classifiers (`Development Status`, `Intended Audience`, `Natural Language`,
+     `Programming Language`, `Topic`).
+   - Added `Repository`, `Changelog`, and `Bug Tracker` project URLs for PyPI.
+
+2. **Wrote complete CHANGELOG.md** (`CHANGELOG.md`):
+   - Added v0.8.0 entry documenting ONNX migration, new API, test suite, and removed items.
+   - Added v0.7.0a1 entry for historical record.
+   - Added comparison URLs for all tagged versions.
+
+3. **Updated AUDIT.md** (`AUDIT.md`):
+   - Moved BUG-001, TD-002, TD-003, TD-004, TD-005, TD-008, TD-010 to "Resolved (v0.8.0)" table.
+   - Updated file references from removed `features.py` to current `postag.py` / `legacy.py`.
+   - Retained open items: TD-001, TD-006, TD-007, TD-009 (non-blocking).
+
+4. **Updated FAQ.md** (`FAQ.md`):
+   - Corrected `.pkl` → `.onnx` model format reference.
+   - Added `nl` (Dutch) to supported language list (was missing).
+   - Updated classifier/training section to reflect `train/` package and ONNX format.
+   - Updated sentence-type section to reference `SentenceTypeClassifier` (trained, 93%).
+   - Updated "add a new language" instructions to match v0.8 structure.
+
+5. **Updated SUGGESTIONS.md** (`SUGGESTIONS.md`):
+   - Moved S-001, S-002, S-006, S-007 to "Completed" table.
+   - Retained open items: S-003, S-004, S-005, S-008.
+
+**Oversight**: All changes reviewed by human before commit.
+**Test result**: 40/40 passed.
+
+---
+
 ## 2026-03-30 — Phase 1 Revival
 
 **AI Model**: claude-sonnet-4-6
