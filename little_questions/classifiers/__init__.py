@@ -11,8 +11,6 @@ from typing import TYPE_CHECKING, List, Optional
 
 from little_questions.constants import SUPPORTED_LANGUAGES
 from little_questions.models import get_model_path
-from little_questions.classifiers.base import SentenceScorer
-from little_questions.classifiers.legacy import SentenceScorerHeuristic
 
 if TYPE_CHECKING:
     import onnxruntime as ort
@@ -84,7 +82,6 @@ class Classifier:
         self._onnx_session = ort.InferenceSession(path, sess_options)
         self._sklearn_clf = None
 
-        # Prefer class labels from a companion .pkl sidecar produced during training.
         pkl_path = path.replace(".onnx", ".pkl")
         try:
             import joblib
@@ -129,13 +126,14 @@ def get_classifier(model_id: str) -> Classifier:
     return _LAZY_LOADING[model_id]
 
 
-def get_scorer(lang: Optional[str] = None) -> SentenceScorer:
-    """Return the appropriate sentence-type scorer for *lang*.
+def get_scorer(lang: Optional[str] = None):
+    """Return the sentence-type classifier for *lang*.
 
-    English uses the trained SentenceTypeClassifier (93% accuracy).
-    All other languages fall back to the punctuation-heuristic SentenceScorer.
+    Uses the trained SentenceTypeClassifier for all languages.
+    When no model file is present for a language, SentenceTypeClassifier
+    falls back to its internal punctuation + first-word heuristic.
+
+    For rule-based baselines (benchmarking only), see train/baselines.py.
     """
-    if lang and lang.lower().startswith("en"):
-        from little_questions.sentence_type import get_sentence_type_classifier
-        return get_sentence_type_classifier()
-    return SentenceScorer()
+    from little_questions.sentence_type import get_sentence_type_classifier
+    return get_sentence_type_classifier(lang or "en")

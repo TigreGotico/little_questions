@@ -1,8 +1,4 @@
-"""Language-specific sentence scorers.
-
-get_scorer() is the canonical entry point; it is defined in
-little_questions.classifiers and re-exported here for convenience.
-"""
+"""Language support — re-exports get_scorer from parent package."""
 
 from little_questions.classifiers import get_scorer
 

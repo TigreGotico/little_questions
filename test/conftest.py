@@ -6,9 +6,15 @@ language feature modules are loaded.
 """
 from __future__ import annotations
 
+import os
 import sys
 import types
 from unittest.mock import MagicMock
+
+# Ensure repo root is on sys.path so `train` package is importable from tests.
+_repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if _repo_root not in sys.path:
+    sys.path.insert(0, _repo_root)
 
 # --- JarbasModelZoo stub ---
 if "JarbasModelZoo" not in sys.modules:
