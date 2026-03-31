@@ -1,0 +1,360 @@
+QUESTION:COMMAND Ser tranquilo
+QUESTION:COMMAND Comer vuestra cena
+QUESTION:COMMAND Abierto la puerta
+QUESTION:COMMAND Abierto las puertas de bahía de la vaina
+QUESTION:COMMAND Da ejemplos de animales
+QUESTION:COMMAND Me digo aproximadamente mal
+QUESTION:QUERY Qué puede  hablamos
+QUESTION:QUERY Qué día es Navidad 
+QUESTION:QUERY Qué   compras
+QUESTION:QUERY Qué   comes
+QUESTION:QUERY Qué   tienes para almuerzo
+QUESTION:QUERY Qué  te gusta
+QUESTION:QUERY Qué   estudias
+QUESTION:QUERY Qué   enseñe
+QUESTION:QUERY Qué  enorme malo
+QUESTION:QUERY Qué ha sido ordenado
+QUESTION:QUERY Qué es Peter que hace
+QUESTION:QUERY Qué es caro
+QUESTION:QUERY Qué es jugando
+QUESTION:QUERY Qué es
+QUESTION:QUERY Qué es
+QUESTION:QUERY Qué clase de perro   tienes
+QUESTION:QUERY Qué clase de música  te gusta
+QUESTION:QUERY Qué tiene que  compramos
+QUESTION:QUERY Qué fue lavando
+QUESTION:QUERY Qué   compre
+QUESTION:QUERY Qué es jugando
+QUESTION:QUERY Cuándo puede  venga
+QUESTION:QUERY Cuándo puede  conocemos
+QUESTION:QUERY Cuando hace el inicio de clase
+QUESTION:QUERY Cuando es Navidad
+QUESTION:QUERY Cuando es vuestro cumpleaños
+QUESTION:QUERY Dónde eres yendo mañana
+QUESTION:QUERY Dónde   van
+QUESTION:QUERY Dónde tiene  visite
+QUESTION:QUERY Dónde es Vancouver
+QUESTION:QUERY Dónde es vuestro distrito de casa
+QUESTION:QUERY Qué diario   leíste
+QUESTION:QUERY Quién son
+QUESTION:QUERY Quiénes pueden cocinar bien
+QUESTION:QUERY Quién   llame
+QUESTION:QUERY Quién  a John le gusta
+QUESTION:QUERY Quién está viniendo
+QUESTION:QUERY Quién es
+QUESTION:QUERY Quién está durmiendo
+QUESTION:QUERY Quién es vuestro actor favorito 
+QUESTION:QUERY Quién sabe la respuesta
+QUESTION:QUERY A Quién le gusta Lisa
+QUESTION:QUERY Quién dijo que
+QUESTION:QUERY Quién está viniendo
+QUESTION:QUERY De quién bolsa es en la mesa
+QUESTION:QUERY De quién bolsa es en la mesa
+QUESTION:QUERY De quién coche es aquello 
+QUESTION:QUERY De quién sitio web es esto 
+QUESTION:QUERY Por qué   te llamas
+QUESTION:QUERY Por qué es llorando
+QUESTION:QUERY Por qué fue llorando
+QUESTION:QUERY Qué rápidamente puede una carrera de elefante
+QUESTION:QUERY Cuánto tiempo hace era sunrise
+QUESTION:QUERY Cuánto tiempo hasta guerra mundial 3
+QUESTION:QUERY Cuánto es bitcoin valor
+QUESTION:QUERY Qué hacer perros y gatos haber en común
+QUESTION:QUERY Qué es un ser vivo
+QUESTION:QUERY Qué es la velocidad de la luz
+QUESTION:QUERY Qué tiempo  el inicio de clase/Cuando hace el inicio de clase
+QUESTION:QUERY Cuando es vuestro cumpleaños
+QUESTION:QUERY Cuando fuiste nacido
+QUESTION:QUERY Cuándo  el fin mundial
+QUESTION:QUERY Dónde   almacenas vuestro dato
+QUESTION:QUERY Qué ciudad tiene más personas
+QUESTION:QUERY Quién te hiciste
+QUESTION:QUERY De quién perro es esto 
+QUESTION:QUERY Por qué es rojo de camiones del fuego
+QUESTION:REQUEST Podría  tengo que ahora, gracias
+QUESTION:REQUEST Podría  me paso la sal complace
+QUESTION:REQUEST   alimentas el perro, complacer
+QUESTION:REQUEST   importas cerrar la puerta
+QUESTION:YESNO Soy I yendo para morir
+QUESTION:YESNO Soy I enfermo
+QUESTION:YESNO Es español y lenguas diferentes alemanas?
+QUESTION:YESNO Es aviones interior volado?
+QUESTION:YESNO Es manzanas fruta roja?
+QUESTION:YESNO Es aspirina y tylenol dolor relievers?
+QUESTION:YESNO Es plátanos y naranjas vegetales dulces?
+QUESTION:YESNO Es banda-las ayudas utilizaron para curarse?
+QUESTION:YESNO Es los coches hicieron aquí
+QUESTION:YESNO Es los coches utilizaron para conducir en el agua?
+QUESTION:YESNO Es chips y pretzels salobres?
+QUESTION:YESNO Es los relojes y las bicis utilizaron para decir tiempo?
+QUESTION:YESNO Es café y chocolate caliente bebidas frías?
+QUESTION:YESNO Es los ordenadores utilizaron para cepillar vuestros dientes con?
+QUESTION:YESNO Es perros y animales de gatos que vivos en la jungla?
+QUESTION:YESNO Es moscas y robins insectos pequeños?
+QUESTION:YESNO Es fútbol y tipos de béisbol de alimentarios?
+QUESTION:YESNO Es frutas y vegetales sanos de comer?
+QUESTION:YESNO Es casas más de $50 dólares?
+QUESTION:YESNO Es lasaña y spaghetti platos chinos?
+QUESTION:YESNO Es los lagartos pequeños?
+QUESTION:YESNO Es los músculos necesitaron mover nuestro cuerpo?
+QUESTION:YESNO Es los músicos y los artistas creativos?
+QUESTION:YESNO Es los hornos utilizaron para congelar cosas?
+QUESTION:YESNO Es la pintura y el jarabe utilizaron para tomar un baño en?
+QUESTION:YESNO Es los cacahuetes hicieron a mermelada?
+QUESTION:YESNO Es el lápiz y los marcadores utilizaron para escribir en un whiteboard?
+QUESTION:YESNO Es las almohadas y los colchones utilizaron para dormir encima?
+QUESTION:YESNO Es rattlesnakes venenoso?
+QUESTION:YESNO Es rosas árboles altos?
+QUESTION:YESNO Es exclusivas de golosina de helado?
+QUESTION:YESNO Es calza gastado sobre la parte superior de calcetines?
+QUESTION:YESNO Es palea algo  utilizarías para cavar un agujero con?
+QUESTION:YESNO Es los niños en escolares?
+QUESTION:YESNO Es las letras "d" y "s" en el apósito "de palabra"?
+QUESTION:YESNO Es allí 80 minutos en una hora?
+QUESTION:YESNO Son americanos?
+QUESTION:YESNO Son sentando en una fila ?
+QUESTION:YESNO Son estudiando duros
+QUESTION:YESNO Son visitando París?
+QUESTION:YESNO Es los paraguas utilizaron para  mantenerte mojado?
+QUESTION:YESNO Es violines y pianos instrumentos musicales?
+QUESTION:YESNO Somos yendo para  probarlo
+QUESTION:YESNO Es los animales salvajes peligrosos?
+QUESTION:YESNO Eres yendo para  probarlo
+QUESTION:YESNO Eres famélico?
+QUESTION:YESNO Eres buscando las llaves
+QUESTION:YESNO Eres enfermo
+QUESTION:YESNO Puede John leyó
+QUESTION:YESNO Puede una mochila consigue un frío ?
+QUESTION:YESNO Puede un círculo tiene esquinas?
+QUESTION:YESNO Puede un pez vive fuera de agua?
+QUESTION:YESNO Puede un tigre es vuestra mascota ?
+QUESTION:YESNO Puede los cerdos andan encima dos pies?
+QUESTION:YESNO Puede  cepillas vuestros dientes con un zapato?
+QUESTION:YESNO Puede  compras huevos a docenas?
+QUESTION:YESNO Puede  conduces un automovilístico llevando un blindfold?
+QUESTION:YESNO Puede  conduces un coche sin llevar un seatbelt?
+QUESTION:YESNO Puede  comes sopa de tomate con un tenedor?
+QUESTION:YESNO Puede  comes sin una boca?
+QUESTION:YESNO Puede  congelas zumo naranja?
+QUESTION:YESNO Puede  fríes vegetales en una cacerola?
+QUESTION:YESNO Puede  creces un mustache en vuestro pie?
+QUESTION:YESNO Puede  saltas un charco?
+QUESTION:YESNO Puede  mantienes un caballo dentro de vuestra casa?
+QUESTION:YESNO Puede  haces pan sin utilizar harina?
+QUESTION:YESNO Puede te hojas de rastrillo con un martillo?
+QUESTION:YESNO Puede  montas una bici sin un casco?
+QUESTION:YESNO Puede  montas un camello?
+QUESTION:YESNO Puede  desgarras concreto?
+QUESTION:YESNO Puede  ves en la oscuridad sin una linterna?
+QUESTION:YESNO Puede  duermes en el tiempo de día?
+QUESTION:YESNO Puede  hablas ruso
+QUESTION:YESNO Puede  barajas algo con una cuchara?
+QUESTION:YESNO Puede  extiendes un rock?
+QUESTION:YESNO Puede  enseñas un gato para hablar?
+QUESTION:YESNO Puede  tocas vuestro codo con vuestra nariz?
+QUESTION:YESNO Puede  utilizas una pala en la playa?
+QUESTION:YESNO Puede  llevas un lazo?
+QUESTION:YESNO Puede  llevas pajama es a trabajo / escolar?
+QUESTION:YESNO Podría  haya dicho que
+QUESTION:YESNO   Tenga una sonrisa en su cara
+QUESTION:YESNO   Tenga su cámara
+QUESTION:YESNO Hizo el jefe nota la equivocación
+QUESTION:YESNO Hizo la rotura de impresora
+QUESTION:YESNO   Bailan bien
+QUESTION:YESNO   Encuentran la respuesta?
+QUESTION:YESNO   Olvidan #suyo @ticket
+QUESTION:YESNO   Sientes enfermo
+QUESTION:YESNO   Vas al parque
+QUESTION:YESNO   Ves John ayer?
+QUESTION:YESNO Hacer trabajo de astronautas en grocery tiendas?
+QUESTION:YESNO Hacer las criaturas necesitan sus pañales cambiaron?
+QUESTION:YESNO Hacer pájaros de criatura consiguen alimentados por su madre?
+QUESTION:YESNO Hacer las mariposas corridas rápidamente?
+QUESTION:YESNO Hacer los coches tienen motores?
+QUESTION:YESNO Hacer los gatos suben árboles?
+QUESTION:YESNO Hacer juego de niños con juguetes?
+QUESTION:YESNO Hacer los ordenadores nosayudan encontrar información?
+QUESTION:YESNO Hacer los elefantes viven en el océano?
+QUESTION:YESNO Hacer erasers sacar marcas de lápiz?
+QUESTION:YESNO Hacer bombero de ayuda de extintores de fuego?
+QUESTION:YESNO Hacer palos de uso de jugadores de fútbol?
+QUESTION:YESNO Hacer calcetines de desgaste de los caballos?
+QUESTION:YESNO Hacer la ropa nueva se ensucia?
+QUESTION:YESNO Hacer aviones de papel de mosca de pilotos?
+QUESTION:YESNO Hacer vasos de desgaste de las plantas?
+QUESTION:YESNO Hacer casas de daño de las tormentas?
+QUESTION:YESNO Hacer los profesores ayudan  aprendes?
+QUESTION:YESNO   Llamamos un escolares si  tenemos una emergencia?
+QUESTION:YESNO   Comemos ternera
+QUESTION:YESNO   Necesitamos nuestras manos para jugar un instrumento musical?
+QUESTION:YESNO   Queremos más dinero
+QUESTION:YESNO Hacer necesidad de ventanas para ser limpiado?
+QUESTION:YESNO   Estás de acuerdo
+QUESTION:YESNO   Me creo
+QUESTION:YESNO   Masticas sopa?
+QUESTION:YESNO  Tú  yoga
+QUESTION:YESNO   Comes ternera
+QUESTION:YESNO   Consigues mojado cuándo  vas nadar?
+QUESTION:YESNO   Tienes un coche?
+QUESTION:YESNO   Tienes un perro
+QUESTION:YESNO   Tienes un problema?
+QUESTION:YESNO  Te gusta París
+QUESTION:YESNO   Necesitas ir casa?
+QUESTION:YESNO   Posees un coche?
+QUESTION:YESNO   Echas cosas en la basura que está roto?
+QUESTION:YESNO   Utilizas el rodillo patina en la hierba?
+QUESTION:YESNO   Quieres una bebida
+QUESTION:YESNO   Quieres más dinero
+QUESTION:YESNO Hace una naranja tiene más zumo que un plátano?
+QUESTION:YESNO   Lea todos los días
+QUESTION:YESNO Lo hace nieve durante el verano?
+QUESTION:YESNO Hace mi corteza de perro ruidosamente
+QUESTION:YESNO   Tenga un trabajo?
+QUESTION:YESNO  Le encanta el tenis?
+QUESTION:YESNO Hace las cosas de marca del sol calientes?
+QUESTION:YESNO Hace yogurt ir malo si no es refrigerado?
+QUESTION:YESNO Hace vuestro cumpleaños siempre pasa en el mismo día?
+QUESTION:YESNO Hace vuestra corteza de perro ruidosamente
+QUESTION:YESNO Tiene John sido despedido?
+QUESTION:YESNO Tiene  sido trabajando aquí
+QUESTION:YESNO Tiene  tenga cirugía
+QUESTION:YESNO Tiene ella hecho el housework?
+QUESTION:YESNO Tiene  tenga un trabajo?
+QUESTION:YESNO Tiene el orden sido aprobado
+QUESTION:YESNO Tiene  acabaron
+QUESTION:YESNO Te tienes almuerzo comido hoy?
+QUESTION:YESNO Tiene  conseguías un coche ?
+QUESTION:YESNO Tiene  conseguías un bolígrafo ?
+QUESTION:YESNO Te tienes Michael visto
+QUESTION:YESNO Si  es junio , es caliente en el Polo Del norte?
+QUESTION:YESNO Si alguien llora, son tristes?
+QUESTION:YESNO Si alguien sonríe, son tristes?
+QUESTION:YESNO Si algo es ligero,   se hunda?
+QUESTION:YESNO Si algo es tasty, es malo?
+QUESTION:YESNO Si algo huele,   apeste?
+QUESTION:YESNO Si  hay laves en la tierra, es invierno?
+QUESTION:YESNO Si  hay nieve en la tierra, es verano?
+QUESTION:YESNO Si  rompes un huevo, puede  lo fijas?
+QUESTION:YESNO Si te cortaste realmente malo, tener que  vas al dentista?
+QUESTION:YESNO Si  tienes una pelota, puede  juegas coge?
+QUESTION:YESNO Si  tienes un brazalete,   posees joyas?
+QUESTION:YESNO Si  tienes un bolígrafo y papel, puede  escribes vuestro nombre?
+QUESTION:YESNO Si  tienes hervir agua, es caliente?
+QUESTION:YESNO Si  desgarras vuestra camisa,  grapa  respalde junto?
+QUESTION:YESNO Si  quieres mirar una película,   vas a un banco?
+QUESTION:YESNO Si  quisiste conseguir tibio,   bebes chocolate caliente?
+QUESTION:YESNO Si  fuiste a un restaurante,   ves payasos?
+QUESTION:YESNO Si  eras una abeja , podría  cantas?
+QUESTION:YESNO Si  eras un pájaro ,   tienes aletas?
+QUESTION:YESNO Si  eras un constructor ,   utilizas un martillo?
+QUESTION:YESNO Si  eras un gato ,   tienes tres piernas?
+QUESTION:YESNO Si  eras una oruga ,   tienes piernas?
+QUESTION:YESNO Si  eras una silla , podría  nadas?
+QUESTION:YESNO Si  eras un ordenador ,  ser vivo?
+QUESTION:YESNO Si  eras un pez , podría  saltas?
+QUESTION:YESNO Si  eras un caballo , podría tú gallup?
+QUESTION:YESNO Si  eras un tiburón ,   comes pez?
+QUESTION:YESNO Si  eras una hormiga ,   vives en suciedad?
+QUESTION:YESNO Si  eras un dueño ,   tienes una mascota?
+QUESTION:YESNO Si  eras podrido,   hueles bueno?
+QUESTION:YESNO Si vuestra bici tiene un neumático plano, tener que  lo montas?
+QUESTION:YESNO Es 50% más alto que 48%?
+QUESTION:YESNO Es 9:30 p.m. más tarde que 3:30 p.m.?
+QUESTION:YESNO Es John un doctor
+QUESTION:YESNO Es Luan yendo para ser contratado
+QUESTION:YESNO Es Ciudad de Nueva York pequeña?
+QUESTION:YESNO Es Peter que va para ir
+QUESTION:YESNO Es un ladrillo más pesado que una pluma?
+QUESTION:YESNO Es un automovilístico más grande que una persona?
+QUESTION:YESNO Es un automovilístico más rápido que una bicicleta?
+QUESTION:YESNO Es un payaso más gracioso que un doctor?
+QUESTION:YESNO Es una vaca más grande que un elefante?
+QUESTION:YESNO Es un día más largo que una semana?
+QUESTION:YESNO Es un padre más viejo que su hijo?
+QUESTION:YESNO Es un galón menos de una taza?
+QUESTION:YESNO Es un huracán peligroso?
+QUESTION:YESNO Es una milla más larga que un campo de fútbol?
+QUESTION:YESNO Es un mes más largo que una hora?
+QUESTION:YESNO Es un par de los zapatos más de uno calzan?
+QUESTION:YESNO Es un par de calcetines menos de tres pares?
+QUESTION:YESNO Es un destornillador una herramienta?
+QUESTION:YESNO Es un estatal más grande que una ciudad?
+QUESTION:YESNO Es un año más largo que seis meses?
+QUESTION:YESNO Está construyendo un trabajo duro de casa?
+QUESTION:YESNO Es cinco dólares más de cien?
+QUESTION:YESNO Es a medias una manzana menos de una manzana?
+QUESTION:YESNO Es una persona mala
+QUESTION:YESNO Es una persona buena
+QUESTION:YESNO Es siendo entrevistado ahora
+QUESTION:YESNO Es gordo
+QUESTION:YESNO Es alto
+QUESTION:YESNO Es 4 en punto
+QUESTION:YESNO Es el trabajo para salvar de un doctor personas?
+QUESTION:YESNO Es mi nombre que se apellida
+QUESTION:YESNO Es un millón un número grande?
+QUESTION:YESNO Es el papel utilizó para lavar ropa?
+QUESTION:YESNO Es una persona mala
+QUESTION:YESNO Es una persona buena
+QUESTION:YESNO Es siendo entrevistado ahora
+QUESTION:YESNO Es gordo
+QUESTION:YESNO Es alto
+QUESTION:YESNO Es la luna más caliente que el sol?
+QUESTION:YESNO Es el escolar abierto
+QUESTION:YESNO Es el tren que va para llegar?
+QUESTION:YESNO Es treinta minutos más cortos que una hora?
+QUESTION:YESNO Es hoy mi cumpleaños
+QUESTION:YESNO Es hoy vuestro cumpleaños
+QUESTION:YESNO Es veinte más de cincuenta?
+QUESTION:YESNO Es totalidad menos de un medio?
+QUESTION:YESNO Es el yoga popular
+QUESTION:YESNO Es vuestro brazo más grande que vuestro muslo?
+QUESTION:YESNO Poderlo ser roto
+QUESTION:YESNO Mosto un visado ser obtenido primero
+QUESTION:YESNO   atendemos
+QUESTION:YESNO Tener que  practique más
+QUESTION:YESNO Tener que  practique más
+QUESTION:YESNO Era Nueva York cara?
+QUESTION:YESNO Era Sarah su profesor
+QUESTION:YESNO Fue yendo para visitar
+QUESTION:YESNO Fue bueno?
+QUESTION:YESNO Fue yendo para visitar
+QUESTION:YESNO Era el libro vendió
+QUESTION:YESNO Era el precio igual
+QUESTION:YESNO Era el ser de impresora reparó?
+QUESTION:YESNO Era el camarero grosero
+QUESTION:YESNO Fueron esperando mucho tiempo
+QUESTION:YESNO Fuimos tarde?
+QUESTION:YESNO Fuiste rico
+QUESTION:YESNO Fuiste allí
+QUESTION:YESNO Fuiste cansado
+QUESTION:YESNO   venga?
+QUESTION:YESNO   venga?
+QUESTION:YESNO  ellos ser felices
+QUESTION:YESNO  ellos ser contratados?
+QUESTION:YESNO   les unimos
+QUESTION:YESNO   vas al parque
+QUESTION:YESNO   les unes
+QUESTION:YESNO   me caso
+QUESTION:YESNO   haya sido enojado
+QUESTION:YESNO   haya sido enojada
+QUESTION:YESNO Puede  mueres
+QUESTION:YESNO   Sabes que los perros son animales 
+QUESTION:YESNO   Estás de acuerdo que la vida es bonita
+QUESTION:YESNO Tiene  acabaste chutar arriba
+QUESTION:YESNO Tener que i programar estupidez artificial
+QUESTION:YESNO   vives para siempre
+SENTENCE:EXCLAMATION Me gusta la pizza
+SENTENCE:EXCLAMATION  Te quieres para comprar bitcoin
+SENTENCE:EXCLAMATION A Jimmy le encanta su perro
+SENTENCE:EXCLAMATION  Lee dos diarios todos los días
+SENTENCE:EXCLAMATION El gobierno hará un anuncio en mediodía
+SENTENCE:EXCLAMATION No una cuestión
+SENTENCE:SOCIAL Consigue bien pronto
+SENTENCE:SOCIAL Tiene un día bueno
+SENTENCE:SOCIAL Ayuda vosotros a café
+SENTENCE:STATEMENT Me gusta la pizza
+SENTENCE:STATEMENT  Te quieres para comprar bitcoin
+SENTENCE:STATEMENT A Jimmy le encanta su perro
+SENTENCE:STATEMENT  Lee dos diarios todos los días
+SENTENCE:STATEMENT El gobierno hará un anuncio en mediodía
+SENTENCE:STATEMENT No una cuestión

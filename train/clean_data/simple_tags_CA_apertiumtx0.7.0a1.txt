@@ -1,0 +1,360 @@
+QUESTION:COMMAND Ser callat
+QUESTION:COMMAND Menja el vostre sopar
+QUESTION:COMMAND Obert la porta
+QUESTION:COMMAND Obert les portes de badia de la beina
+QUESTION:COMMAND dóna exemples d'animals
+QUESTION:COMMAND digues-me sobre mal
+QUESTION:QUERY El que podem parlar
+QUESTION:QUERY Quin dia és Nadal
+QUESTION:QUERY El que vas comprar
+QUESTION:QUERY El que vas menjar
+QUESTION:QUERY El que vas tenir per a esmorzar
+QUESTION:QUERY El que  tu com
+QUESTION:QUERY El que estudies
+QUESTION:QUERY El que ensenya
+QUESTION:QUERY El que fa enorme roí
+QUESTION:QUERY El que ha estat ordenat
+QUESTION:QUERY El que és fer #Peter
+QUESTION:QUERY El que és car
+QUESTION:QUERY El que està jugant
+QUESTION:QUERY El que l'és
+QUESTION:QUERY El que és ella
+QUESTION:QUERY Quina classe de gos  tens
+QUESTION:QUERY Quina classe de música  tu com
+QUESTION:QUERY El que hauríem de comprar
+QUESTION:QUERY El que rentava
+QUESTION:QUERY El que comprarà
+QUESTION:QUERY @What està jugant
+QUESTION:QUERY Quan pot venir
+QUESTION:QUERY Quan podem conèixer
+QUESTION:QUERY Quan fa l'inici de classe
+QUESTION:QUERY Quan és Nadal
+QUESTION:QUERY Quan és el vostre natalici
+QUESTION:QUERY On estàs anant demà
+QUESTION:QUERY On  van
+QUESTION:QUERY On ha visitat
+QUESTION:QUERY On és Vancouver
+QUESTION:QUERY On és la vostra barriada de casa
+QUESTION:QUERY Quin diari  vas llegir
+QUESTION:QUERY Que és ells
+QUESTION:QUERY Que pot cuinar bé
+QUESTION:QUERY Que va trucar
+QUESTION:QUERY Que fa John com
+QUESTION:QUERY Que està venint
+QUESTION:QUERY Que és ella
+QUESTION:QUERY Que està dormint
+QUESTION:QUERY Que és el vostre actor favorit
+QUESTION:QUERY Que sap la resposta
+QUESTION:QUERY Que agrada Lisa
+QUESTION:QUERY Que va dir allò
+QUESTION:QUERY Qui està venint
+QUESTION:QUERY La borsa de la qual és en la taula
+QUESTION:QUERY La borsa de la qual  en la taula
+QUESTION:QUERY El carro del qual és allò
+QUESTION:QUERY El lloc web del qual és això
+QUESTION:QUERY Per què et va trucar
+QUESTION:QUERY Per què està plorant
+QUESTION:QUERY Per què plorava
+QUESTION:QUERY com llanda ràpida una cursa d'elefant
+QUESTION:QUERY quant temps  era alba
+QUESTION:QUERY quant temps fins a guerra mundial 3
+QUESTION:QUERY quant és bitcoin valor
+QUESTION:QUERY el que fer els gossos i els gats tenen en comú
+QUESTION:QUERY el que és un ésser viu
+QUESTION:QUERY el que és la velocitat de la llum
+QUESTION:QUERY quins temps fan l'inici de classe/Quan fa l'inici de classe
+QUESTION:QUERY quan és el vostre natalici
+QUESTION:QUERY quan era tu nat
+QUESTION:QUERY quan  el final mundial
+QUESTION:QUERY on  emmagatzemes la vostra dada
+QUESTION:QUERY quina ciutat té més persones
+QUESTION:QUERY que et va fer
+QUESTION:QUERY el gos del qual és això
+QUESTION:QUERY per què és vermell de camions del foc
+QUESTION:REQUEST Podria tenir que ara, gràcies
+QUESTION:REQUEST em podries passar la sal per favor
+QUESTION:REQUEST alimentaries el gos, per favor
+QUESTION:REQUEST importaries  tancar la porta
+QUESTION:YESNO Moriré
+QUESTION:YESNO És jo malalt
+QUESTION:YESNO És espanyol i llengües diferents alemanyes?
+QUESTION:YESNO És avions interior volat?
+QUESTION:YESNO És pomes fruita vermella?
+QUESTION:YESNO És aspirina i tylenol dolor relievers?
+QUESTION:YESNO És plàtans i taronges vegetals dolços?
+QUESTION:YESNO És grup-ajuda utilitzat per a curació?
+QUESTION:YESNO És els carros fets aquí
+QUESTION:YESNO És els carros van soler unitat en l'aigua?
+QUESTION:YESNO És trossos i pretzels salat?
+QUESTION:YESNO És els rellotges i les bicis van soler dir temps?
+QUESTION:YESNO És cafè i xocolata calenta tragos freds?
+QUESTION:YESNO És els ordinadors van soler raspallar les vostres dents amb?
+QUESTION:YESNO És gossos i animals de gats que viu en la jungla?
+QUESTION:YESNO És mosques i pit-rojos insectes petits?
+QUESTION:YESNO És futbol i tipus de beisbol d'àpat?
+QUESTION:YESNO És fruites i vegetals sa de menjar?
+QUESTION:YESNO És cases més que $50 dòlars?
+QUESTION:YESNO És lasagna i spaghetti plats xinesos?
+QUESTION:YESNO És els llangardaixos petits?
+QUESTION:YESNO És els músculs van necessitar moure el nostre ens?
+QUESTION:YESNO És els músics i els artistes creatius?
+QUESTION:YESNO És els forns van soler congelar coses?
+QUESTION:YESNO És la pintura i l'almívar van soler dur un bany dins?
+QUESTION:YESNO És els cacauets fets a embús?
+QUESTION:YESNO És el llapis i els marcadors van soler escriure damunt un whiteboard?
+QUESTION:YESNO És els coixins i els matalassos van soler dormir damunt?
+QUESTION:YESNO És rattlesnakes metzinós?
+QUESTION:YESNO És roses arbres alts?
+QUESTION:YESNO És exclusives de llaminadura de gelat?
+QUESTION:YESNO És les sabates dutes sobre el cim de mitjons?
+QUESTION:YESNO És pales alguna cosa et soldria cavar un clot amb?
+QUESTION:YESNO És els nens a escola?
+QUESTION:YESNO És les lletres "d" i "s" en el mot "apòsit"?
+QUESTION:YESNO És allà 80 minuts en una hora?
+QUESTION:YESNO És ells americà?
+QUESTION:YESNO estan seient en una fila ?
+QUESTION:YESNO estan estudiant durs
+QUESTION:YESNO estan visitant París?
+QUESTION:YESNO És els paraigües van soler seguir vas sucar?
+QUESTION:YESNO És violins i pianos instruments musicals?
+QUESTION:YESNO el tastarem
+QUESTION:YESNO És els animals salvatges perillosos?
+QUESTION:YESNO te'l tastarà
+QUESTION:YESNO T'és afamat?
+QUESTION:YESNO t'està buscant les claus
+QUESTION:YESNO T'és malalt
+QUESTION:YESNO Pot John va llegir
+QUESTION:YESNO Enllauna una motxilla rep un fred?
+QUESTION:YESNO Enllauna un cercle té racons?
+QUESTION:YESNO Enllauna uns peixos viuen fora d'aigua?
+QUESTION:YESNO Enllauna un tigre és el vostre animal de companyia?
+QUESTION:YESNO Pot els porcs caminen en dos peus?
+QUESTION:YESNO pots raspallar les vostres dents amb una sabata?
+QUESTION:YESNO pots comprar ous per la dotzena?
+QUESTION:YESNO pots conduir un carro que duu un blindfold?
+QUESTION:YESNO pots conduir un automobilístic sense dur un seatbelt?
+QUESTION:YESNO pots menjar sopa de tomàquet amb una forca?
+QUESTION:YESNO pots menjar sense una boca?
+QUESTION:YESNO pots congelar suc taronja?
+QUESTION:YESNO pots fregir vegetals en una cassola?
+QUESTION:YESNO pots créixer un mustache en el vostre peu?
+QUESTION:YESNO pots saltar un toll?
+QUESTION:YESNO pots seguir un cavall dins la vostra casa?
+QUESTION:YESNO pots fer pa sense utilitzar farina?
+QUESTION:YESNO Enllauna't fulls de rasclet amb un martell?
+QUESTION:YESNO pots muntar una bici sense un casc?
+QUESTION:YESNO pots muntar un camell?
+QUESTION:YESNO pots estripar concret?
+QUESTION:YESNO pots veure a les fosques sense una torxa?
+QUESTION:YESNO pots dormir en el temps de dia?
+QUESTION:YESNO pots parlar rus
+QUESTION:YESNO pots remenar alguna cosa amb una cullera?
+QUESTION:YESNO pots estendre un rock?
+QUESTION:YESNO pots ensenyar un gat per parlar?
+QUESTION:YESNO pots tocar el vostre colze amb el vostre nas?
+QUESTION:YESNO pots utilitzar una pala a la platja?
+QUESTION:YESNO pots dur un llaç?
+QUESTION:YESNO pots dur pajamaha a feina / escolar?
+QUESTION:YESNO Podria ha dit allò
+QUESTION:YESNO  té un somriure en la seva faç
+QUESTION:YESNO  té la seva cambra
+QUESTION:YESNO Va fer l'anunci de cap l'equivocació
+QUESTION:YESNO Va fer la pausa d'impressora
+QUESTION:YESNO van ballar bé
+QUESTION:YESNO  troben la resposta?
+QUESTION:YESNO van oblidar els seus tiquets
+QUESTION:YESNO vas sentir malalt
+QUESTION:YESNO vas anar al parc
+QUESTION:YESNO vas veure John ahir?
+QUESTION:YESNO Fes els astronautes treballen dins grocery tendes?
+QUESTION:YESNO Fes els bebès necessiten els seus bolquers van canviar?
+QUESTION:YESNO Fes aus de bebè reben alimentades per la seva mare?
+QUESTION:YESNO Fes les papallones corren ràpides?
+QUESTION:YESNO Fes els carros tenen motors?
+QUESTION:YESNO Fes els gats ascendeixen arbres?
+QUESTION:YESNO Fes els nens juguen amb joguines?
+QUESTION:YESNO Fes els ordinadors ens ajuden troba informació?
+QUESTION:YESNO Fes els elefants viuen en l'oceà?
+QUESTION:YESNO Fes erasers treure marques de llapis?
+QUESTION:YESNO #Viure els extintors ajudar bomber?
+QUESTION:YESNO Fes jugadors de futbol utilitzen estics?
+QUESTION:YESNO Fes els cavalls duen mitjons?
+QUESTION:YESNO Fes la roba nova s'embruta?
+QUESTION:YESNO Fes pilota plans de paper de la mosca?
+QUESTION:YESNO Fes planta gots de desgast?
+QUESTION:YESNO Fes ataca cases de dany?
+QUESTION:YESNO Fes els mestres t'ajuden aprendre?
+QUESTION:YESNO  truquem un escolar si tenim una emergència?
+QUESTION:YESNO  mengem vedella
+QUESTION:YESNO  necessitem les nostres mans per jugar un instrument musical?
+QUESTION:YESNO  volem més diners
+QUESTION:YESNO Fes necessitat de finestres per ser netejat?
+QUESTION:YESNO  acordes
+QUESTION:YESNO  em creus
+QUESTION:YESNO  mastegues sopa?
+QUESTION:YESNO  fer ioga
+QUESTION:YESNO  menges vedella
+QUESTION:YESNO  reps moll quan vas nedant?
+QUESTION:YESNO  tens un automobilístic?
+QUESTION:YESNO  tens un gos
+QUESTION:YESNO  tens un problema?
+QUESTION:YESNO  tu com París
+QUESTION:YESNO  necessites anar casa?
+QUESTION:YESNO  posseeixes un automobilístic?
+QUESTION:YESNO  tires coses en els fems que és trencat?
+QUESTION:YESNO  utilitzes el roleu patina en l'herba?
+QUESTION:YESNO  vols un trago
+QUESTION:YESNO  vols més diners
+QUESTION:YESNO Fa una taronja té més suc que un plàtan?
+QUESTION:YESNO  va llegir cada dia
+QUESTION:YESNO El fa neu a l'estiu?
+QUESTION:YESNO Fa la meva pell de gos sorollosament
+QUESTION:YESNO  té una feina?
+QUESTION:YESNO vol tennis?
+QUESTION:YESNO Fa les coses de marca del sol calentes?
+QUESTION:YESNO Fa yogurt anar roí si no és va refrigerar?
+QUESTION:YESNO Fa el vostre natalici sempre passa en el mateix dia?
+QUESTION:YESNO Fa la vostra pell de gos sorollosament
+QUESTION:YESNO John ha estat acomiadat?
+QUESTION:YESNO ha estat treballant aquí
+QUESTION:YESNO Té va tenir cirurgia
+QUESTION:YESNO ha fet el housework?
+QUESTION:YESNO Té va tenir una feina?
+QUESTION:YESNO Té l'ordre estat aprovat
+QUESTION:YESNO han acabat
+QUESTION:YESNO has menjat esmorzar avui?
+QUESTION:YESNO has rebut un carro?
+QUESTION:YESNO has rebut un bolígraf?
+QUESTION:YESNO has vist Michael
+QUESTION:YESNO Si és juny, l'és calent dins el pol Nord?
+QUESTION:YESNO Si algú plora, és ells trist?
+QUESTION:YESNO Si algú somriu, és ells trist?
+QUESTION:YESNO Si alguna cosa és clar, afonaria?
+QUESTION:YESNO Si alguna cosa és tasty, l'és roí?
+QUESTION:YESNO Si alguna cosa olora, empesta?
+QUESTION:YESNO Si hi ha laves en el terra, l'és hivern?
+QUESTION:YESNO Si hi ha neu en el terra, l'és estiu?
+QUESTION:YESNO Si trenques un ou, el pots fixar?
+QUESTION:YESNO Si tu mateix vas tallar molt roí, hauries d'anar al dentista?
+QUESTION:YESNO Si tens una bola, pots jugar agafar?
+QUESTION:YESNO Si tens un braçalet,  tu joies pròpies?
+QUESTION:YESNO Si tens un bolígraf i paper, pots escriure el vostre nom?
+QUESTION:YESNO Si tens bullir aigua, l'és calent?
+QUESTION:YESNO Si estripes la vostra camisa,  tu grapa recolza junt?
+QUESTION:YESNO Si vols mirar una pel·lícula, aniries a un banc?
+QUESTION:YESNO Si vas voler rebre tebi, beuries xocolata calenta?
+QUESTION:YESNO Si vas anar a un restaurant, veuries pallassos?
+QUESTION:YESNO Si t'era una abella, podries cantar?
+QUESTION:YESNO Si t'era una au, tindries aletes?
+QUESTION:YESNO Si t'era un constructor, utilitzaries un martell?
+QUESTION:YESNO Si t'era un gat, tindries tres cames?
+QUESTION:YESNO Si t'era una eruga, tindries cames?
+QUESTION:YESNO Si t'era una cadira, podries nedar?
+QUESTION:YESNO Si t'era un ordinador, series viu?
+QUESTION:YESNO Si t'era un peix, podries saltar?
+QUESTION:YESNO Si t'era un cavall, podria tu gallup?
+QUESTION:YESNO Si t'era un tauró, menjaries peixos?
+QUESTION:YESNO Si eres una formiga, viuries en brutícia?
+QUESTION:YESNO Si eres un amo, tindries un animal de companyia?
+QUESTION:YESNO Si eres rotten, oloraries bo?
+QUESTION:YESNO Si la vostra bici té un pneumàtic pla, l'hauries de muntar?
+QUESTION:YESNO És 50% més alt que 48%?
+QUESTION:YESNO És 9:30 p. m. més tard que 3:30 p. m.?
+QUESTION:YESNO És John un doctor
+QUESTION:YESNO És Luan anar per ser contractat
+QUESTION:YESNO És Ciutat de Nova York petita?
+QUESTION:YESNO És anar #Peter per anar
+QUESTION:YESNO És un maó més pesat que una ploma?
+QUESTION:YESNO És un automobilístic més gran que una persona?
+QUESTION:YESNO És un automobilístic més ràpid que una bicicleta?
+QUESTION:YESNO És un pallasso més graciós que un doctor?
+QUESTION:YESNO És una vaca més gran que un elefant?
+QUESTION:YESNO És un dia més llarg que una setmana?
+QUESTION:YESNO És un mossèn més vell que el seu fill?
+QUESTION:YESNO És un galó menys que una copa?
+QUESTION:YESNO És un huracà perillós?
+QUESTION:YESNO És una milla més llarga que un camp de futbol?
+QUESTION:YESNO És un mes més llarg que una hora?
+QUESTION:YESNO És un parell de sabates més que u calçar?
+QUESTION:YESNO És un parell de mitjons menys que tres parells?
+QUESTION:YESNO És un tornavís una eina?
+QUESTION:YESNO És un estat més gran que una ciutat?
+QUESTION:YESNO És un any més llarg que sis mesos?
+QUESTION:YESNO Està construint una casa feina dura?
+QUESTION:YESNO És cinc dòlars més que cent?
+QUESTION:YESNO És mig una poma menys que una poma?
+QUESTION:YESNO És ell una persona roïna
+QUESTION:YESNO És ell una persona bona
+QUESTION:YESNO està sent entrevistat ara
+QUESTION:YESNO És ell gros
+QUESTION:YESNO És ell alt
+QUESTION:YESNO L'és 4 en punt
+QUESTION:YESNO L'és la feina per salvar d'un doctor  persones?
+QUESTION:YESNO És el meu ésser de nom anomenat
+QUESTION:YESNO És un milió un número gran?
+QUESTION:YESNO És el paper va soler roba de rentada?
+QUESTION:YESNO És ella una persona roïna
+QUESTION:YESNO És ella una persona bona
+QUESTION:YESNO està sent entrevistada ara
+QUESTION:YESNO És ella gros
+QUESTION:YESNO És ella alt
+QUESTION:YESNO És la lluna més calenta que el sol?
+QUESTION:YESNO És l'escola oberta
+QUESTION:YESNO És el tren anar per arribar?
+QUESTION:YESNO És trenta minuts més baixos que una hora?
+QUESTION:YESNO És avui el meu natalici
+QUESTION:YESNO És avui el vostre natalici
+QUESTION:YESNO És vint més que cinquanta?
+QUESTION:YESNO És enter menys que una meitat?
+QUESTION:YESNO És el ioga popular
+QUESTION:YESNO És el vostre braç més gran que la vostra cuixa?
+QUESTION:YESNO Podria ell ser trencat
+QUESTION:YESNO Haver d'un visat ser obtingut primer
+QUESTION:YESNO assistirem
+QUESTION:YESNO hauria de practicar més
+QUESTION:YESNO hauria de practicar més
+QUESTION:YESNO Era Nova York cara?
+QUESTION:YESNO Era Sarah el seu mestre
+QUESTION:YESNO anava a visitar
+QUESTION:YESNO El va ser bo?
+QUESTION:YESNO anava a visitar
+QUESTION:YESNO Era el llibre venut
+QUESTION:YESNO Era el preu igual
+QUESTION:YESNO Era l'ésser d'impressora reparat?
+QUESTION:YESNO Era el cambrer groller
+QUESTION:YESNO esperaven llargs
+QUESTION:YESNO Era nosaltres tardà?
+QUESTION:YESNO Et va ser ric
+QUESTION:YESNO Era tu allà
+QUESTION:YESNO Era vas cansar
+QUESTION:YESNO vindrà?
+QUESTION:YESNO vindrà?
+QUESTION:YESNO seran feliços
+QUESTION:YESNO seran contractats?
+QUESTION:YESNO els unirem
+QUESTION:YESNO aniràs al parc
+QUESTION:YESNO els uniràs
+QUESTION:YESNO em casaràs
+QUESTION:YESNO  ha estat enfadat
+QUESTION:YESNO  ha estat enfadada
+QUESTION:YESNO pots morir
+QUESTION:YESNO vas saber que els gossos són animals
+QUESTION:YESNO  acordes que la vida és bonica
+QUESTION:YESNO has acabat xutant dalt
+QUESTION:YESNO  i programa estupidesa artificial
+QUESTION:YESNO viuràs per sempre
+SENTENCE:EXCLAMATION Jo com pizza
+SENTENCE:EXCLAMATION Et vull per comprar bitcoin
+SENTENCE:EXCLAMATION Jimmy vol el seu gos
+SENTENCE:EXCLAMATION Llegeix dos diaris cada dia
+SENTENCE:EXCLAMATION La governació farà un anunci al migdia
+SENTENCE:EXCLAMATION no una pregunta
+SENTENCE:SOCIAL Rep bé aviat
+SENTENCE:SOCIAL Tingues un dia bo
+SENTENCE:SOCIAL Ajuda vosaltres mateixos a cafè
+SENTENCE:STATEMENT Jo com pizza
+SENTENCE:STATEMENT Et vull per comprar bitcoin
+SENTENCE:STATEMENT Jimmy vol el seu gos
+SENTENCE:STATEMENT Llegeix dos diaris cada dia
+SENTENCE:STATEMENT La governació farà un anunci al migdia
+SENTENCE:STATEMENT no una pregunta

@@ -1,0 +1,459 @@
+HUM:desc Who was Nikola Tesla?
+HUM:desc What makes someone a good leader?
+HUM:desc Who invented the printing press?
+HUM:desc What qualities define a hero?
+HUM:desc Who discovered penicillin?
+HUM:desc What characterizes a great artist?
+HUM:desc Who was the first person on the Moon?
+HUM:desc What makes someone influential?
+HUM:desc Who founded Apple?
+HUM:desc What defines a successful person?
+HUM:desc Who wrote Don Quixote?
+HUM:desc What makes a good teacher?
+HUM:desc Who was Leonardo da Vinci?
+HUM:desc What distinguishes an expert?
+HUM:desc Who developed the theory of relativity?
+HUM:desc Who was Cleopatra?
+HUM:desc What defines a visionary?
+HUM:desc Who invented the telephone?
+HUM:desc What makes a great musician?
+HUM:desc Who was Shakespeare?
+ENTY:product What is the latest iPhone model?
+ENTY:product Which smartphone has the best camera?
+ENTY:product What electric car does Tesla make?
+ENTY:product Which laptop is best for programming?
+ENTY:product What streaming service has the most shows?
+ENTY:product Which headphones cancel noise best?
+ENTY:product What game console is most popular?
+ENTY:product Which tablet is best for drawing?
+ENTY:product What smart speaker has the best voice assistant?
+ENTY:product Which fitness tracker monitors heart rate?
+ENTY:product What VR headset is available?
+ENTY:product Which e-reader has the best display?
+ENTY:product What programming language is most popular?
+ENTY:product Which browser is fastest?
+ENTY:product Which keyboard is mechanical?
+ENTY:product What monitor has 4K resolution?
+ENTY:product Which mouse is wireless?
+ENTY:product What external hard drive is reliable?
+ENTY:product Which webcam has HD quality?
+ENTY:product What router provides fastest WiFi?
+ENTY:product Which printer is ink-efficient?
+ENTY:product Which portable charger has highest capacity?
+ENTY:product What noise-canceling earbuds exist?
+ENTY:product Which portable speaker is waterproof?
+ENTY:product What smartwatch has ECG?
+ENTY:product Which air purifier removes allergens?
+ENTY:product What coffee maker brews espresso?
+ENTY:product Which air fryer is largest capacity?
+ENTY:product What blender makes smoothies?
+ENTY:product Which vacuum is cordless?
+ENTY:product What steam iron removes wrinkles?
+ENTY:product Which drill is cordless?
+ENTY:product What saw cuts metal?
+ENTY:product Which sander is random orbit?
+ENTY:symbol What is the symbol for gold on the periodic table?
+ENTY:symbol What symbol represents peace?
+ENTY:symbol What is the chemical symbol for oxygen?
+ENTY:symbol What symbol denotes female?
+ENTY:symbol What is the currency symbol for the euro?
+ENTY:symbol What symbol represents infinity?
+ENTY:symbol What is the chemical symbol for carbon?
+ENTY:symbol What symbol denotes male?
+ENTY:symbol What symbol represents love?
+ENTY:symbol What is the symbol for iron on the periodic table?
+ENTY:symbol What symbol denotes copyright?
+ENTY:symbol What symbol represents danger?
+ENTY:symbol What is the chemical symbol for sodium?
+ENTY:symbol What symbol denotes trademark?
+ENTY:symbol What is the symbol for hydrogen on the periodic table?
+ENTY:symbol What symbol denotes registered trademark?
+ENTY:symbol What is the chemical symbol for helium?
+ENTY:symbol What symbol denotes euro?
+ENTY:symbol What is the symbol for potassium on the periodic table?
+ENTY:symbol What symbol denotes question mark?
+ENTY:symbol What is the chemical symbol for nitrogen?
+ENTY:symbol What symbol denotes asterisk?
+ENTY:symbol What is the symbol for silver on the periodic table?
+ENTY:symbol What symbol denotes dollar?
+ENTY:symbol What is the symbol for copper on the periodic table?
+ENTY:symbol What symbol denotes at sign?
+ENTY:symbol What is the chemical symbol for chlorine?
+ENTY:symbol What symbol denotes hashtag?
+ENTY:symbol What is the symbol for zinc on the periodic table?
+ENTY:symbol What symbol denotes plus?
+ENTY:symbol What is the chemical symbol for lithium?
+ENTY:symbol What symbol denotes bullet point?
+ENTY:symbol What is the symbol for lead on the periodic table?
+ENTY:symbol What symbol denotes checkmark?
+HUM:title Who wrote Pride and Prejudice?
+HUM:title Who painted The Starry Night?
+HUM:title Who composed Symphony No. 9?
+HUM:title Who directed The Godfather?
+HUM:title Who wrote 1984?
+HUM:title Who authored Harry Potter?
+HUM:title Who painted The Scream?
+HUM:title Who composed Fur Elise?
+HUM:title Who directed Star Wars?
+HUM:title Who wrote The Great Gatsby?
+HUM:title Who painted Guernica?
+HUM:title Who composed The Four Seasons?
+HUM:title Who directed Jurassic Park?
+HUM:title Who wrote Lord of the Rings?
+HUM:title Who painted The Persistence of Memory?
+HUM:title Who composed Moonlight Sonata?
+HUM:title Who directed The Matrix?
+HUM:title Who wrote Crime and Punishment?
+HUM:title Who painted Water Lilies?
+HUM:title Who composed Bohemian Rhapsody?
+HUM:title Who directed Inception?
+HUM:title Who wrote The Catcher in the Rye?
+HUM:title Who painted The Birth of Venus?
+HUM:title Who composed Canon in D?
+HUM:title Who directed Titanic?
+HUM:title Who wrote To Kill a Mockingbird?
+HUM:title Who painted The Last Supper?
+HUM:title Who composed La Vie en Rose?
+HUM:title Who directed Avatar?
+HUM:title Who wrote The Odyssey?
+HUM:title Who painted The Creation of Adam?
+HUM:title Who composed Eine kleine Nachtmusik?
+HUM:title Who directed Forrest Gump?
+LOC:landmass What is the largest continent?
+LOC:landmass Which continent is the driest?
+LOC:landmass What is the smallest continent?
+LOC:landmass Which continent has the most countries?
+LOC:landmass What continent is Australia part of?
+LOC:landmass Which continent is Antarctica?
+LOC:landmass What continent has the Amazon rainforest?
+LOC:landmass Which continent is the Sahara Desert on?
+LOC:landmass What continent has the most people?
+LOC:landmass Which continent is Iceland on?
+LOC:landmass What continent is Japan part of?
+LOC:landmass Which continent has the Great Barrier Reef?
+LOC:landmass What continent is the Nile River on?
+LOC:landmass Which continent is New Zealand part of?
+LOC:landmass What continent is the Himalayas on?
+LOC:landmass Which continent is Italy part of?
+LOC:landmass What continent is Egypt in?
+LOC:landmass Which continent has the most languages?
+LOC:landmass What continent is Brazil on?
+LOC:landmass Which continent is the Alps mountain range on?
+LOC:landmass What continent is Canada part of?
+LOC:landmass Which continent has the Congo rainforest?
+LOC:landmass What continent is Norway part of?
+LOC:landmass Which continent has the largest desert?
+LOC:landmass What continent is the Grand Canyon on?
+LOC:landmass Which continent is India part of?
+LOC:landmass What continent has the Serengeti?
+LOC:landmass Which continent is Spain part of?
+LOC:landmass What continent has the Great Wall?
+LOC:landmass Which continent is Kenya in?
+LOC:landmass What continent is the Dead Sea on?
+LOC:landmass Which continent is Thailand part of?
+LOC:landmass What continent has the most islands?
+LOC:landmass Which continent is Argentina on?
+NUM:volsize How large is the Sun compared to Earth?
+NUM:volsize What is the size of a standard swimming pool?
+NUM:volsize How big is a typical apartment in square meters?
+NUM:volsize What is the volume of a wine bottle?
+NUM:volsize How large is the Amazon rainforest?
+NUM:volsize What size is a standard parking space?
+NUM:volsize How big is a tennis court?
+NUM:volsize What is the size of a football field?
+NUM:volsize How large is a typical refrigerator?
+NUM:volsize What is the volume of a basketball?
+NUM:volsize How big is the Moon compared to Earth?
+NUM:volsize What size is a king-size bed?
+NUM:volsize How large is the Pacific Ocean?
+NUM:volsize What is the size of a golf ball?
+NUM:volsize How big is a standard door?
+NUM:volsize What is the volume of a basketball court?
+NUM:volsize How large is Antarctica?
+NUM:volsize What size is a laptop screen?
+NUM:volsize How big is Jupiter compared to Earth?
+NUM:volsize What is the size of a basketball hoop?
+NUM:volsize How large is the Sahara Desert?
+NUM:volsize How big is a sheet of paper?
+NUM:volsize What is the size of a soccer ball?
+NUM:volsize How large is the Mediterranean Sea?
+NUM:volsize What size is a AA battery?
+NUM:volsize How big is the Great Wall of China?
+NUM:volsize What is the volume of an Olympic pool?
+NUM:volsize How large is an orange?
+NUM:volsize What size is a credit card?
+NUM:volsize How big is a tennis ball?
+NUM:volsize What is the size of the International Space Station?
+NUM:volsize How large is the human brain?
+ENTY:techmeth How does blockchain work?
+ENTY:techmeth What is the method for 3D printing?
+ENTY:techmeth How does CRISPR gene editing work?
+ENTY:techmeth What is the technique for carbon capture?
+ENTY:techmeth How does GPS tracking work?
+ENTY:techmeth What method purifies seawater?
+ENTY:techmeth How does WiFi transmission work?
+ENTY:techmeth What is the process for desalination?
+ENTY:techmeth How does NFC payment work?
+ENTY:techmeth What technique analyzes DNA?
+ENTY:techmeth How does machine learning work?
+ENTY:techmeth What is the method for composting?
+ENTY:techmeth What technique is used for deep learning?
+ENTY:techmeth How does 5G network work?
+ENTY:techmeth What method is used for PCR testing?
+ENTY:techmeth How does QR code scanning work?
+ENTY:techmeth What technique creates NFTs?
+ENTY:techmeth How does fiber optic transmission work?
+ENTY:techmeth What is the method for nuclear fusion?
+ENTY:techmeth How does Bluetooth pairing work?
+ENTY:techmeth What technique is used for CT scanning?
+ENTY:techmeth How does solar panel conversion work?
+ENTY:techmeth What method generates wind power?
+ENTY:techmeth How does facial recognition work?
+ENTY:techmeth What technique is used for MRI imaging?
+ENTY:techmeth How does voice recognition work?
+ENTY:techmeth What method converts speech to text?
+ENTY:techmeth How does cryptocurrency mining work?
+ENTY:techmeth What technique is used for dialysis?
+ENTY:techmeth How does wireless charging work?
+LOC:mount What is the tallest mountain in the world?
+LOC:mount Where is Mount Everest located?
+LOC:mount Which mountain is the highest in Europe?
+LOC:mount What is the tallest peak in the Americas?
+LOC:mount Where is Mount Kilimanjaro?
+LOC:mount Which mountain is the highest in Australia?
+LOC:mount What is the tallest mountain in Japan?
+LOC:mount Where is Mont Blanc located?
+LOC:mount Which mountain is the highest in Africa?
+LOC:mount What is the tallest peak in the Alps?
+LOC:mount Where is Mount Fuji?
+LOC:mount Which mountain is the highest in the Himalayas?
+LOC:mount What is the tallest mountain in North America?
+LOC:mount Where is the Matterhorn?
+LOC:mount Which mountain is the highest in the Andes?
+LOC:mount Where is K2 located?
+LOC:mount Which mountain is the highest in the Appalachian range?
+LOC:mount What is the tallest mountain in the UK?
+LOC:mount Where is Mount Elbrus?
+LOC:mount Which mountain is the highest in New Zealand?
+LOC:mount What is the tallest mountain in Ireland?
+LOC:mount Where is the Zugspitze?
+LOC:mount Which mountain is the highest in the Atlas range?
+LOC:mount What is the tallest peak in the Dolomites?
+LOC:mount Where is Mount Olympus?
+LOC:mount Which mountain is the highest in the Scottish Highlands?
+LOC:mount What is the tallest mountain in Wales?
+LOC:mount Where is Mount Etna?
+LOC:mount Which mountain is the highest in the Carpathians?
+NUM:temp What is the boiling point of water in Celsius?
+NUM:temp What temperature does water freeze at?
+NUM:temp What is normal human body temperature?
+NUM:temp What is the temperature on the Sun's surface?
+NUM:temp What is the average temperature in Antarctica?
+NUM:temp What temperature is considered fever?
+NUM:temp What is the temperature inside a freezer?
+NUM:temp What is the hottest temperature ever recorded on Earth?
+NUM:temp What temperature does water evaporate?
+NUM:temp What is the average temperature in the Sahara?
+NUM:temp What temperature is needed to bake bread?
+NUM:temp What is the temperature of a typical refrigerator?
+NUM:temp What temperature does steel melt?
+NUM:temp What is the temperature of the core of the Earth?
+NUM:temp What temperature is comfortable room temperature?
+NUM:temp What is the temperature of liquid nitrogen?
+NUM:temp What temperature does glass become soft?
+NUM:temp What temperature is considered hypothermic?
+NUM:temp What temperature does alcohol boil?
+NUM:temp What is the temperature of the Sun's corona?
+NUM:temp What temperature is needed to forge iron?
+NUM:temp What is the temperature of boiling milk?
+NUM:temp What temperature does dry ice sublimate?
+NUM:temp What temperature is considered heat stroke?
+NUM:temp What temperature does chocolate melt?
+NUM:temp What is the temperature of the moon's surface?
+NUM:temp What temperature does honey crystallize?
+ENTY:word What is a synonym for happy?
+ENTY:word What is another word for big?
+ENTY:word What is an antonym of dark?
+ENTY:word What is another term for running?
+ENTY:word What is a word that means quick?
+ENTY:word What is a synonym for beautiful?
+ENTY:word What is another word for sad?
+ENTY:word What is an antonym of fast?
+ENTY:word What is another term for small?
+ENTY:word What is a word that means intelligent?
+ENTY:word What is a synonym for old?
+ENTY:word What is another word for new?
+ENTY:word What is an antonym of hot?
+ENTY:word What is another term for walk?
+ENTY:word What is a word that means expensive?
+ENTY:word What is a synonym for begin?
+ENTY:word What is another word for end?
+ENTY:word What is an antonym of light?
+ENTY:word What is another term for speak?
+ENTY:word What is a word that means difficult?
+ENTY:word What is a synonym for quiet?
+ENTY:word What is another word for loud?
+ENTY:word What is an antonym of good?
+ENTY:word What is another term for think?
+ENTY:word What is a word that means easy?
+NUM:perc What percentage of Earth is covered by water?
+NUM:perc What percent of the atmosphere is nitrogen?
+NUM:perc What percentage of people are right-handed?
+NUM:perc What percent of the human body is water?
+NUM:perc What percentage of the brain is used?
+NUM:perc What percent of the world is left-handed?
+NUM:perc What percentage of animals are vertebrates?
+NUM:perc What percent of the Earth is land?
+NUM:perc What percentage of the ocean is unexplored?
+NUM:perc What percent of the population lives in cities?
+NUM:perc What percentage of the genome is coding DNA?
+NUM:perc What percent of the atmosphere is oxygen?
+NUM:perc What percentage of the Earth is desert?
+NUM:perc What percent of the human body is bone?
+NUM:perc What percentage of the world uses the internet?
+NUM:perc What percent of the body is muscle?
+NUM:perc What percentage of the Earth is forest?
+NUM:perc What percent of the population has blue eyes?
+NUM:perc What percentage of the world speaks English?
+NUM:perc What percent of the human body is fat?
+NUM:perc What percent of the population has brown eyes?
+NUM:perc What percentage of the ocean is salt water?
+NUM:perc What percent of the world has access to clean water?
+NUM:perc What percentage of the body is skin?
+ENTY:religion What is the largest religion in the world?
+ENTY:religion Which religion has the most followers?
+ENTY:religion What is the main religion in India?
+ENTY:religion Which religion originated in Saudi Arabia?
+ENTY:religion What is the primary religion in Israel?
+ENTY:religion Which religion is Buddhism?
+ENTY:religion What is the main religion in Thailand?
+ENTY:religion Which religion practices meditation?
+ENTY:religion What is the primary religion in Japan?
+ENTY:religion Which religion follows the Torah?
+ENTY:religion What is the main religion in Italy?
+ENTY:religion Which religion has the most countries?
+ENTY:religion What is the primary religion in Pakistan?
+ENTY:religion Which religion believes in reincarnation?
+ENTY:religion What is the main religion in Greece?
+ENTY:religion Which religion observes Ramadan?
+ENTY:religion What is the primary religion in Poland?
+ENTY:religion Which religion follows the Bible?
+ENTY:religion What is the main religion in Brazil?
+ENTY:religion What is the primary religion in Indonesia?
+ENTY:religion Which religion practices baptism?
+ENTY:religion What is the main religion in Sweden?
+ENTY:religion Which religion believes in karma?
+NUM:code What is the country calling code for the US?
+NUM:code What is the ISO country code for Japan?
+NUM:code What is the currency code for the euro?
+NUM:code What is the telephone country code for the UK?
+NUM:code What is the ICAO code for airports?
+NUM:code What is the ISBN prefix for books?
+NUM:code What is the IATA code for Heathrow Airport?
+NUM:code What is the SWIFT code for US banks?
+NUM:code What is the ISO language code for Spanish?
+NUM:code What is the NATO country code for France?
+NUM:code What is the airport code for Los Angeles?
+NUM:code What is the dialling code for Australia?
+NUM:code What is the ISO code for China?
+NUM:code What is the UN country code for Russia?
+NUM:code What is the IATA code for JFK Airport?
+NUM:code What is the ISO currency code for GBP?
+NUM:code What is the country code for Brazil?
+NUM:code What is the ICAO code for airlines?
+NUM:code What is the dialing code for India?
+NUM:code What is the ISO country code for Mexico?
+NUM:code What is the IBAN code for Spain?
+NUM:code What is the SWIFT code for UK banks?
+NUM:code What is the telephone country code for Germany?
+NUM:speed What is the speed of light in meters per second?
+NUM:speed How fast can a cheetah run?
+NUM:speed What is the top speed of a commercial airplane?
+NUM:speed How fast does sound travel in air?
+NUM:speed What is the maximum speed of a train?
+NUM:speed How fast does Earth orbit the Sun?
+NUM:speed What is the speed of a typical WiFi connection?
+NUM:speed How fast can Usain Bolt run?
+NUM:speed What is the maximum speed of a bicycle?
+NUM:speed How fast does a bullet travel?
+NUM:speed What is the speed of a typical 5G network?
+NUM:speed How fast can a submarine travel?
+NUM:speed What is the speed of the fastest internet connection?
+NUM:speed How fast does a typical cruise ship travel?
+NUM:speed What is the speed of a satellite in orbit?
+NUM:speed How fast does a falcon dive?
+NUM:speed What is the top speed of a motorcycle?
+NUM:speed How fast does a human sneeze travel?
+NUM:speed What is the speed of a typical hard drive?
+NUM:speed How fast does a typical electric car accelerate?
+ENTY:lang What is the most spoken language in the world?
+ENTY:lang Which language has the most native speakers?
+ENTY:lang What is the official language of Brazil?
+ENTY:lang Which language is spoken in Argentina?
+ENTY:lang What is the primary language of the Netherlands?
+ENTY:lang Which language is spoken in Switzerland?
+ENTY:lang What is the main language of Portugal?
+ENTY:lang Which language is spoken in Romania?
+ENTY:lang What is the official language of Indonesia?
+ENTY:lang Which language is spoken in the Philippines?
+ENTY:lang What is the primary language of Poland?
+ENTY:lang Which language is spoken in Czech Republic?
+ENTY:lang What is the main language of Turkey?
+ENTY:lang Which language is spoken in Vietnam?
+ENTY:lang What is the official language of Thailand?
+ENTY:plant What is the tallest tree species?
+ENTY:plant Which plant produces the most oxygen?
+ENTY:plant What is the fastest growing plant?
+ENTY:plant Which plant is used to make chocolate?
+ENTY:plant What is the oldest living tree?
+ENTY:plant Which plant is the source of coffee?
+ENTY:plant What plant produces vanilla flavoring?
+ENTY:plant Which plant is used to make paper?
+ENTY:plant What plant is the largest flower?
+ENTY:plant Which plant is known for bioluminescence?
+ENTY:plant What plant is used to make tea?
+ENTY:plant Which plant is the oldest known?
+ENTY:plant What plant produces the most food?
+ENTY:plant Which plant is used in medicine?
+ABBR:abb What does CPU stand for?
+ABBR:abb What does NASA stand for?
+ABBR:abb What does FBI stand for?
+ABBR:abb What does URL stand for?
+ABBR:abb What does AIDS stand for?
+ABBR:abb What does radar stand for?
+ABBR:abb What does laser stand for?
+ABBR:abb What does sonar stand for?
+ABBR:abb What does UNESCO stand for?
+ABBR:abb What does NATO stand for?
+ABBR:abb What does OPEC stand for?
+ABBR:abb What does UNICEF stand for?
+ABBR:abb What does FAQ stand for?
+ABBR:abb What does VIP stand for?
+ABBR:abb What does SUV stand for?
+ENTY:letter What letter appears most in English?
+ENTY:letter What is the most common vowel in English?
+ENTY:letter What letter starts most English words?
+ENTY:letter What is the least used letter in English?
+ENTY:letter What letter ends most English words?
+ENTY:letter What is the rarest letter in Scrabble?
+ENTY:letter What letter is silent in gnome?
+ENTY:letter What is the most common consonant in English?
+ENTY:letter What letter follows q most often?
+ENTY:currency What is the official currency of the United States?
+ENTY:currency What currency does Japan use?
+ENTY:currency What is the currency of the United Kingdom?
+ENTY:currency Which country uses the euro?
+ENTY:currency What is the currency of Brazil?
+ENTY:currency What currency does India use?
+ENTY:currency What is the currency of Russia?
+ENTY:currency Which country uses the yuan?
+ENTY:currency What is the currency of Switzerland?
+ENTY:instru What instrument measures temperature?
+ENTY:instru What device measures atmospheric pressure?
+ENTY:instru What instrument measures time?
+ENTY:instru What tool measures weight?
+ENTY:instru What device measures distance?
+ENTY:instru What instrument measures blood pressure?
+ENTY:instru What tool measures angles?
+ENTY:instru What device measures speed?
+ENTY:instru What instrument measures sound?

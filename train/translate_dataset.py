@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Translate sentence types dataset while preserving labels."""
+"""Translate sentence types dataset while preserving labels using deep-translator."""
 
 import re
 from pathlib import Path
+from deep_translator import GoogleTranslator
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 LANG_PAIRS = {
     "es": "es",
@@ -28,30 +30,13 @@ def format_line(num, label, text):
     return f"{num}: {label} {text}"
 
 
-def translate_batch(texts, from_code="en", to_code="es"):
-    """Translate a batch of texts using argostranslate."""
+def translate_text(text, lang):
+    """Translate single text."""
     try:
-        from argostranslate.translate import get_translation_from_codes
-
-        translations = []
-        for text in texts:
-            try:
-                translation = get_translation_from_codes(from_code, to_code)
-                if translation:
-                    result = translation.translate(text)
-                    translations.append(result)
-                else:
-                    translations.append(text)
-            except Exception as e:
-                print(f"    Error: {e}")
-                translations.append(text)
-        return translations
-    except ImportError:
-        print("  argostranslate not installed")
-        return None
+        t = GoogleTranslator(source="en", target=lang)
+        return t.translate(text)
     except Exception as e:
-        print(f"  Translation error: {e}")
-        return None
+        return text
 
 
 def main():
@@ -71,37 +56,42 @@ def main():
 
     print(f"Loaded {len(entries)} entries from EN file")
 
-    # Translate to each language in batches
-    for lang, to_code in LANG_PAIRS.items():
+    # Translate to each language
+    for lang in LANG_PAIRS:
         out_file = base_path / f"sentence_types_{lang.upper()}.txt"
-        print(f"\nTranslating to {lang.upper()}...")
+        print(f"\nTranslating to {lang.upper()} ({len(entries)} sentences)...")
 
-        # Translate in batches
-        batch_size = 50
         texts = [e[2] for e in entries]
-        all_translations = []
 
-        for i in range(0, len(texts), batch_size):
-            batch = texts[i : i + batch_size]
-            print(
-                f"  {i + 1}-{min(i + batch_size, len(texts))}...", end=" ", flush=True
-            )
+        # Use threading for speed
+        translations = [None] * len(texts)
+        with ThreadPoolExecutor(max_workers=10) as executor:
+            futures = {
+                executor.submit(translate_text, text, lang): i
+                for i, text in enumerate(texts)
+            }
 
-            translated = translate_batch(batch, "en", to_code)
-            if translated:
-                all_translations.extend(translated)
-                print("OK")
-            else:
-                all_translations.extend(batch)
-                print("SKIP")
+            done = 0
+            for future in as_completed(futures):
+                i = futures[future]
+                try:
+                    translations[i] = future.result()
+                except Exception as e:
+                    translations[i] = texts[i]
+                done += 1
+                if done % 500 == 0:
+                    print(f"  {done}/{len(texts)} done")
+
+        # Fill any None values with original
+        translations = [t if t else texts[i] for i, t in enumerate(translations)]
 
         # Write output
         with open(out_file, "w") as f:
-            for entry, trans_text in zip(entries, all_translations):
+            for entry, trans_text in zip(entries, translations):
                 num, label, _ = entry
                 f.write(format_line(num, label, trans_text) + "\n")
 
-        print(f"  Wrote {len(entries)} lines to {out_file.name}")
+        print(f"  Done! Wrote to {out_file.name}")
 
 
 if __name__ == "__main__":
