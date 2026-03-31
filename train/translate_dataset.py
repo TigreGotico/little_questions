@@ -53,11 +53,11 @@ MODEL_REPO = "DZgas/Tower-Plus-2B-GGUF"
 
 #: Map quantization shorthand → filename pattern in the GGUF repo.
 QUANT_FILES: Dict[str, str] = {
-    "Q3_K_M": "tower-plus-2b.Q3_K_M.gguf",
-    "Q4_K_M": "tower-plus-2b.Q4_K_M.gguf",
-    "Q5_K_M": "tower-plus-2b.Q5_K_M.gguf",
-    "Q6_K":   "tower-plus-2b.Q6_K.gguf",
-    "Q8_0":   "tower-plus-2b.Q8_0.gguf",
+    "Q3_K_M": "Tower-Plus-2B.Q3_K_M.gguf",
+    "Q4_K_M": "Tower-Plus-2B.Q4_K_M.gguf",
+    "Q5_K_M": "Tower-Plus-2B.Q5_K_M.gguf",
+    "Q6_K":   "Tower-Plus-2B.Q6_K.gguf",
+    "Q8_0":   "Tower-Plus-2B.Q8_0.gguf",
 }
 DEFAULT_QUANT = "Q4_K_M"
 
@@ -144,6 +144,9 @@ def load_model(quant: str, n_gpu_layers: int, verbose: bool = False):
 def translate_one(model, text: str, target_lang: str) -> str:
     """Translate a single sentence using Tower-Plus-2B.
 
+    Uses the Gemma2 chat completion API so that proper ``<start_of_turn>``
+    tokens are applied, which Tower-Plus-2B requires to follow instructions.
+
     Args:
         model: Loaded ``llama_cpp.Llama`` instance.
         text: English source sentence.
@@ -152,20 +155,18 @@ def translate_one(model, text: str, target_lang: str) -> str:
     Returns:
         Translated string, or the original *text* on failure.
     """
-    prompt = PROMPT_TMPL.format(target_lang=target_lang, text=text)
+    user_msg = PROMPT_TMPL.format(target_lang=target_lang, text=text)
     try:
-        result = model(
-            prompt,
+        result = model.create_chat_completion(
+            messages=[{"role": "user", "content": user_msg}],
             max_tokens=256,
             temperature=0.0,
             top_p=0.95,
-            echo=False,
-            stop=["\n", "\n\n"],
         )
-        translation: str = result["choices"][0]["text"].strip()
-        # Occasionally the model prefixes the target language name again; strip it.
+        translation: str = result["choices"][0]["message"]["content"].strip()
+        # Strip any repeated language label the model occasionally prefixes.
         prefix = f"{target_lang}:"
-        if translation.startswith(prefix):
+        if translation.lower().startswith(prefix.lower()):
             translation = translation[len(prefix):].strip()
         return translation if translation else text
     except Exception as exc:  # noqa: BLE001
