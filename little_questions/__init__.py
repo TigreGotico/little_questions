@@ -1,8 +1,38 @@
 from __future__ import annotations
 
-from typing import Optional
+from typing import Optional, Tuple
 
 from little_questions.classifiers import get_classifier, get_scorer
+
+
+def classify(text: str, lang: str = "en") -> str:
+    """Return the COSC label for *text* without sentence-type scoring.
+
+    Faster than ``Sentence.parse()`` for pipelines that only need the COSC
+    label (``"HUM:ind"``, ``"DESC:def"``, etc.) and do not need sentence-type
+    detection or a ``Sentence`` object.
+
+    Args:
+        text: The utterance to classify.
+        lang: Language code (e.g. ``"en"``). Defaults to ``"en"``.
+
+    Returns:
+        COSC label string, e.g. ``"HUM:ind"``.
+    """
+    return get_classifier(model_id=lang).predict([text])[0]
+
+
+def classify_batch(texts: list[str], lang: str = "en") -> list[str]:
+    """Classify multiple texts in a single model call.
+
+    Args:
+        texts: Utterances to classify.
+        lang: Language code. Defaults to ``"en"``.
+
+    Returns:
+        List of COSC label strings, one per input text.
+    """
+    return get_classifier(model_id=lang).predict(texts)
 
 _MAIN_LABEL_NAMES = {
     "HUM": "Human",
