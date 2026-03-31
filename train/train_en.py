@@ -1,87 +1,47 @@
 #!/usr/bin/env python3
-"""Train English COSC question classifier.
+"""Train the English COSC question classifier.
 
-Usage:
-    python -m train.train_en           # Train 52-class model
-    python -m train.train_en --6       # Train 6-class model
-    python -m train.train_en --onnx    # Export as ONNX
+This is a convenience wrapper around :mod:`train.train_all` for the EN language.
+Prefer ``python -m train.train_all --lang en`` for batch workflows.
+
+Usage::
+
+    python -m train.train_en                # Train 52-class model (default)
+    python -m train.train_en --classes 6    # Train 6-class model
+    python -m train.train_en --no-onnx      # Save as .pkl instead
+    python -m train.train_en --plot         # Plot accuracy/F1 after training
 """
 
+from __future__ import annotations
+
 import argparse
-import os
-from os.path import join, dirname
+import logging
 
-from sklearn.metrics import classification_report
-from sklearn.model_selection import train_test_split
-from xdg import BaseDirectory as XDG
+from train.train_all import train_language, plot_results
 
-from train.classifiers import LinearSVCClassifier
-from train.utils import load_data
-
-DATA_DIR = join(dirname(__file__), "clean_data")
-REPORTS_DIR = join(dirname(__file__), "reports")
-MODEL_DIR = XDG.save_data_path("little_questions")
+LOG = logging.getLogger(__name__)
 
 
-def train(lang, dataset, model_name, classes=52, export_onnx=True):
-    """Train a model and optionally export as ONNX."""
-    print(f"Training {model_name} ({classes}-class)...")
+def main() -> None:
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-    data_path = join(DATA_DIR, dataset)
-    if not os.path.exists(data_path):
-        print(f"Dataset not found: {data_path}")
-        print("Please add training data to train/clean_data/")
-        return
-
-    x, y = load_data(data_path, classes)
-    print(f"Loaded {len(x)} samples")
-
-    x_train, x_test, y_train, y_test = train_test_split(
-        x, y, test_size=0.15, stratify=y, random_state=42
-    )
-
-    clf = LinearSVCClassifier(lang)
-    clf.train(x_train, y_train)
-
-    preds = clf.predict(x_test)
-    report = classification_report(y_test, preds)
-    print(f"\nClassification Report:\n{report}")
-
-    os.makedirs(REPORTS_DIR, exist_ok=True)
-    with open(join(REPORTS_DIR, f"{model_name}.txt"), "w") as f:
-        f.write(report)
-
-    if export_onnx:
-        onnx_path = join(MODEL_DIR, f"{model_name}.onnx")
-        print(f"\nExporting to ONNX: {onnx_path}")
-        clf.save_onnx(onnx_path)
-    else:
-        pkl_path = join(MODEL_DIR, f"{model_name}.pkl")
-        print(f"\nSaving as pickle: {pkl_path}")
-        clf.save(pkl_path)
-
-    print("Done!")
-
-
-def main():
     parser = argparse.ArgumentParser(description="Train English COSC classifier")
     parser.add_argument(
-        "--6", action="store_true", help="Train 6-class model instead of 52-class"
+        "--classes", type=int, default=52, choices=[6, 52],
+        help="Number of classes (default: 52)",
     )
-    parser.add_argument("--no-onnx", action="store_true", help="Skip ONNX export")
+    parser.add_argument("--no-onnx", action="store_true", help="Save .pkl instead of .onnx")
+    parser.add_argument("--plot", action="store_true", help="Plot accuracy/F1 after training")
     parser.add_argument(
-        "--dataset", default="raw_questions_EN_0.8.0.txt", help="Dataset filename"
+        "--dataset",
+        default="raw_questions_EN_balanced_0.8.0.txt",
+        help="Dataset filename inside train/clean_data/",
     )
     args = parser.parse_args()
 
-    if args._6:
-        model_name = "questions6_svm_EN_0.8.0"
-        classes = 6
-    else:
-        model_name = "questions52_svm_EN_0.8.0"
-        classes = 52
-
-    train("en", args.dataset, model_name, classes, not args.no_onnx)
+    result = train_language("en", args.classes, not args.no_onnx)
+    if result and args.plot:
+        plot_results([result], args.classes)
 
 
 if __name__ == "__main__":
