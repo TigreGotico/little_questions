@@ -4675,3 +4675,3126 @@ ENTY:instru "What device measures heat index?"
 ENTY:instru "What tool measures UV index?"
 ENTY:instru "What instrument measures visibility?"
 ENTY:instru "What device measures cloud ceiling?"
+ENTY:religion What is the main religion in Saudi Arabia?
+ENTY:religion What religion do Hindus follow?
+ENTY:religion What is Buddhism based on?
+ENTY:religion What religion is Judaism?
+ENTY:religion What is Islam?
+ENTY:religion What are the main branches of Christianity?
+ENTY:religion What is Sikhism?
+ENTY:religion What religion do Zoroastrians follow?
+ENTY:religion What is Taoism?
+ENTY:religion What is Confucianism?
+ENTY:religion What religion is Shinto?
+ENTY:religion What is Jainism based on?
+ENTY:religion What religion do Mormons follow?
+ENTY:religion What is Scientology?
+ENTY:religion What religion is Rastafarianism?
+ENTY:religion What is Wicca?
+ENTY:religion What religion do Pagans follow?
+ENTY:religion What is Satanism?
+ENTY:religion What religion is Baha'i?
+ENTY:religion What is Unitarianism?
+ENTY:religion What religion do Quakers follow?
+ENTY:religion What religion is Pentecostalism?
+ENTY:religion What is Methodism?
+ENTY:religion What religion do Baptists follow?
+ENTY:religion What is Presbyterianism?
+ENTY:religion What religion is Lutheranism?
+ENTY:religion What is Calvinism?
+ENTY:religion What religion do Anglicans follow?
+ENTY:religion What is Catholicism?
+ENTY:religion What religion is Orthodoxy?
+ENTY:religion What is Coptic Christianity?
+ENTY:religion What religion do Armenian Christians follow?
+ENTY:religion What is Nestorian Christianity?
+ENTY:religion What religion is Monophysitism?
+ENTY:religion What is Jehovah's Witnesses?
+ENTY:religion What religion do Seventh-day Adventists follow?
+ENTY:religion What is Christian Science?
+ENTY:religion What religion is Unity?
+ENTY:religion What is Swedenborgianism?
+ENTY:religion What religion do Theosophists follow?
+ENTY:religion What is Anthroposophy?
+ENTY:religion What religion is Neopaganism?
+ENTY:religion What is Druidry?
+ENTY:religion What religion do Heathens follow?
+ENTY:religion What is Reconstructionism?
+ENTY:religion What religion is Shamanism?
+ENTY:religion What is Animism?
+ENTY:religion What religion do Spiritualists follow?
+ENTY:religion What is Mediumship?
+ENTY:religion What religion is New Thought?
+ENTY:religion What is Divine Science?
+ENTY:religion What religion do Christian Scientists follow?
+ENTY:religion What is Unity Church?
+ENTY:religion What religion is Religious Science?
+ENTY:religion What is New Age spirituality?
+ENTY:religion What religion do some people call the New Age movement?
+ENTY:religion What is Channeling in spirituality?
+ENTY:religion What religion is commonly associated with crystal healing?
+ENTY:religion What is the origin of Kabbalah?
+ENTY:religion What religion is Hassidic Judaism?
+ENTY:religion What is Karaite Judaism?
+ENTY:religion What religion do Samaritans practice?
+ENTY:religion What is the Yazidi faith?
+ENTY:religion What religion do Druze people follow?
+ENTY:religion What is Alawite Islam?
+ENTY:religion What religion do Ibadi Muslims practice?
+ENTY:religion What is Sufi Islam?
+ENTY:religion What religion do Ahmadi Muslims follow?
+ENTY:religion What is Ismaili Islam?
+ENTY:religion What religion do Twelver Shias practice?
+ENTY:religion What is Sunni Islam?
+ENTY:religion What religion do Wahhabi Muslims follow?
+ENTY:religion What is Salafi Islam?
+ENTY:religion What religion do Alavis practice?
+ENTY:religion What is the Baháʼí Faith based on?
+ENTY:religion What religion do Mormons actually believe?
+ENTY:religion What is the LDS Church?
+ENTY:religion What religion do RLDS members follow?
+ENTY:religion What is Community of Christ?
+ENTY:religion What religion do Fundamentalist LDS members practice?
+ENTY:religion What is the Restored Church of Jesus Christ?
+ENTY:veh What is a sedan?
+ENTY:veh What is an SUV?
+ENTY:veh What is a convertible?
+ENTY:veh What is a hatchback?
+ENTY:veh What is a pickup truck?
+ENTY:veh What is a minivan?
+ENTY:veh What is a crossover?
+ENTY:veh What is a coupe?
+ENTY:veh What is a wagon?
+ENTY:veh What is a limousine?
+ENTY:veh What is a bus?
+ENTY:veh What is a truck?
+ENTY:veh What is a motorcycle?
+ENTY:veh What is a scooter?
+ENTY:veh What is an ATV?
+ENTY:veh What is a UTV?
+ENTY:veh What is a bicycle?
+ENTY:veh What is a tricycle?
+ENTY:veh What is a skateboard?
+ENTY:veh What is a jet ski?
+ENTY:veh What is a boat?
+ENTY:veh What is a ship?
+ENTY:veh What is a yacht?
+ENTY:veh What is a sailboat?
+ENTY:veh What is a canoe?
+ENTY:veh What is a kayak?
+ENTY:veh What is a raft?
+ENTY:veh What is a ferry?
+ENTY:veh What is a submarine?
+ENTY:veh What is a blimp?
+ENTY:veh What is a hot air balloon?
+ENTY:veh What is a helicopter?
+ENTY:veh What is an airplane?
+ENTY:veh What is a glider?
+ENTY:veh What is a drone?
+ENTY:veh What is a rocket?
+ENTY:veh What is a train?
+ENTY:veh What is a tram?
+ENTY:veh What is a trolley?
+ENTY:veh What is a cable car?
+ENTY:veh What is a gondola?
+ENTY:veh What is a chairlift?
+ENTY:veh What is a ski lift?
+ENTY:veh What is an elevator?
+ENTY:veh What is an escalator?
+ENTY:veh What is a wheelchair?
+ENTY:veh What is a stroller?
+ENTY:veh What is a shopping cart?
+ENTY:veh What is a wheelbarrow?
+ENTY:veh What is a hand truck?
+ENTY:veh What is a forklift?
+ENTY:veh What is a backhoe?
+ENTY:veh What is an excavator?
+ENTY:veh What is a bulldozer?
+ENTY:veh What is a grader?
+ENTY:veh What is a roller compactor?
+ENTY:veh What is a cement mixer?
+ENTY:veh What is a crane?
+ENTY:veh What is a pulley?
+ENTY:veh What is a lever?
+ENTY:veh What is a mechanical lift?
+ENTY:veh What is a scissor lift?
+ENTY:veh What is a boom lift?
+ENTY:veh What is a cherry picker?
+ENTY:veh What is a road roller?
+ENTY:veh What is a street sweeper?
+ENTY:veh What is a snowplow?
+ENTY:veh What is a salt spreader?
+ENTY:veh What is a garbage truck?
+ENTY:veh What is a cement truck?
+ENTY:veh What is a dump truck?
+ENTY:veh What is a tanker truck?
+ENTY:veh What is a flatbed truck?
+ENTY:veh What is a refrigerated truck?
+ENTY:veh What is an ambulance?
+ENTY:veh What is a fire truck?
+ENTY:veh What is a police car?
+ENTY:veh What is a taxi?
+ENTY:veh What is an Uber?
+ENTY:veh What is a Lyft?
+ENTY:veh What is a rental car?
+ENTY:veh What is a company vehicle?
+ENTY:veh What is a fleet vehicle?
+ENTY:veh What is a leased car?
+ENTY:veh What is a loaner vehicle?
+ENTY:veh What is a demo car?
+ENTY:veh What is a show vehicle?
+ENTY:veh What is a concept car?
+ENTY:word What does 'serendipity' mean?
+ENTY:word What does 'benevolent' mean?
+ENTY:word What does 'ephemeral' mean?
+ENTY:word What does 'ubiquitous' mean?
+ENTY:word What does 'eloquent' mean?
+ENTY:word What does 'sanguine' mean?
+ENTY:word What does 'melancholic' mean?
+ENTY:word What does 'pragmatic' mean?
+ENTY:word What does 'eclectic' mean?
+ENTY:word What does 'meticulous' mean?
+ENTY:word What does 'gregarious' mean?
+ENTY:word What does 'loquacious' mean?
+ENTY:word What does 'taciturn' mean?
+ENTY:word What does 'obsequious' mean?
+ENTY:word What does 'perspicacious' mean?
+ENTY:word What does 'sagacious' mean?
+ENTY:word What does 'facetious' mean?
+ENTY:word What does 'capricious' mean?
+ENTY:word What does 'propitious' mean?
+ENTY:word What does 'auspicious' mean?
+ENTY:word What does 'inauspicious' mean?
+ENTY:word What does 'fortuitous' mean?
+ENTY:word What does 'gratuitous' mean?
+ENTY:word What does 'magnanimous' mean?
+ENTY:word What does 'pusillanimous' mean?
+ENTY:word What does 'unanimous' mean?
+ENTY:word What does 'equanimous' mean?
+ENTY:word What does 'inanimous' mean?
+ENTY:word What does 'pedantic' mean?
+ENTY:word What does 'erudite' mean?
+ENTY:word What does 'esoteric' mean?
+ENTY:word What does 'exoteric' mean?
+ENTY:word What does 'abstruse' mean?
+ENTY:word What does 'recondite' mean?
+ENTY:word What does 'arcane' mean?
+ENTY:word What does 'cryptic' mean?
+ENTY:word What does 'perspicuous' mean?
+ENTY:word What does 'pellucid' mean?
+ENTY:word What does 'limpid' mean?
+ENTY:word What does 'transparent' mean?
+ENTY:word What does 'opaque' mean?
+ENTY:word What does 'translucent' mean?
+ENTY:word What does 'transient' mean?
+ENTY:word What does 'fleeting' mean?
+ENTY:word What does 'evanescent' mean?
+ENTY:word What does 'momentary' mean?
+ENTY:word What does 'fugitive' mean?
+ENTY:word What does 'diaphanous' mean?
+ENTY:word What does 'gossamer' mean?
+ENTY:word What does 'delicate' mean?
+ENTY:word What does 'fragile' mean?
+ENTY:word What does 'tenuous' mean?
+ENTY:word What does 'attenuated' mean?
+ENTY:word What does 'diluted' mean?
+ENTY:word What does 'rarefied' mean?
+ENTY:word What does 'ethereal' mean?
+ENTY:word What does 'airy' mean?
+ENTY:word What does 'buoyant' mean?
+ENTY:word What does 'effervescent' mean?
+ENTY:word What does 'ebullient' mean?
+ENTY:word What does 'exuberant' mean?
+ENTY:word What does 'exultant' mean?
+ENTY:word What does 'jubilant' mean?
+ENTY:word What does 'triumphant' mean?
+ENTY:word What does 'victorious' mean?
+ENTY:word What does 'vanquished' mean?
+ENTY:word What does 'defeated' mean?
+ENTY:word What does 'conquered' mean?
+ENTY:word What does 'subjugated' mean?
+ENTY:word What does 'enslaved' mean?
+ENTY:word What does 'oppressed' mean?
+ENTY:word What does 'downtrodden' mean?
+ENTY:word What does 'suppressed' mean?
+ENTY:word What does 'repressed' mean?
+ENTY:word What does 'inhibited' mean?
+ENTY:word What does 'restrained' mean?
+ENTY:word What does 'constrained' mean?
+ENTY:word What does 'bounded' mean?
+ENTY:word What does 'limited' mean?
+ENTY:word What does 'circumscribed' mean?
+ENTY:word What does 'confined' mean?
+ENTY:word What does 'incarcerated' mean?
+ENTY:word What does 'imprisoned' mean?
+NUM:code What is the ASCII code for 'A'?
+NUM:code What is the Unicode for the euro symbol?
+NUM:code What is the hex code for red?
+NUM:code What is the RGB code for blue?
+NUM:code What is the CMY code for yellow?
+NUM:code What is the postal code for New York?
+NUM:code What is the area code for Los Angeles?
+NUM:code What is the country code for France?
+NUM:code What is the country code for Japan?
+NUM:code What is the International Direct Dialing code for Germany?
+NUM:code What is the airport code for London?
+NUM:code What is the IATA code for Paris?
+NUM:code What is the ICAO code for Tokyo?
+NUM:code What is the ISBN code for this book?
+NUM:code What is the EAN code for this product?
+NUM:code What is the UPC code for this item?
+NUM:code What is the GTIN code for this product?
+NUM:code What is the serial number format?
+NUM:code What is the VIN for this car?
+NUM:code What is the chassis number?
+NUM:code What is the engine number?
+NUM:code What is the model code?
+NUM:code What is the variant code?
+NUM:code What is the color code for this car?
+NUM:code What is the transmission code?
+NUM:code What is the drive type code?
+NUM:code What is the fuel type code?
+NUM:code What is the body type code?
+NUM:code What is the style code?
+NUM:code What is the trim level code?
+NUM:code What is the package code?
+NUM:code What is the option code?
+NUM:code What is the feature code?
+NUM:code What is the equipment code?
+NUM:code What is the accessory code?
+NUM:code What is the warranty code?
+NUM:code What is the service code?
+NUM:code What is the maintenance code?
+NUM:code What is the recall code?
+NUM:code What is the technical service bulletin code?
+NUM:code What is the diagnosis code?
+NUM:code What is the error code for this device?
+NUM:code What is the status code?
+NUM:code What is the alert code?
+NUM:code What is the notification code?
+NUM:code What is the message code?
+NUM:code What is the response code?
+NUM:code What is the HTTP status code for success?
+NUM:code What is the HTTP status code for not found?
+NUM:code What is the HTML entity code for an ampersand?
+NUM:code What is the keyboard shortcut code?
+NUM:code What is the command code?
+NUM:code What is the instruction code?
+NUM:code What is the operation code?
+NUM:code What is the function code?
+NUM:code What is the procedure code?
+NUM:code What is the routine code?
+NUM:code What is the subroutine code?
+NUM:code What is the macro code?
+NUM:code What is the script code?
+NUM:code What is the program code?
+NUM:code What is the application code?
+NUM:code What is the system code?
+NUM:code What is the version code?
+NUM:code What is the build code?
+NUM:code What is the release code?
+NUM:perc What percentage of the Earth is water?
+NUM:perc What percentage of the body is water?
+NUM:perc What percentage of the brain is used?
+NUM:perc What percentage is expected to pass?
+NUM:perc What percentage of people are left-handed?
+NUM:perc What percentage have red hair?
+NUM:perc What percentage of DNA do we share with chimps?
+NUM:perc What percentage of oxygen is in air?
+NUM:perc What percentage of nitrogen is in air?
+NUM:perc What percentage of carbon dioxide is in air?
+NUM:perc What percentage of people are colorblind?
+NUM:perc What percentage of the population is blonde?
+NUM:perc What percentage of people have blue eyes?
+NUM:perc What percentage of people are tall?
+NUM:perc What percentage of children are affected?
+NUM:perc What percentage of adults experience this?
+NUM:perc What percentage of seniors have arthritis?
+NUM:perc What percentage of the population owns a home?
+NUM:perc What percentage of households have internet?
+NUM:perc What percentage of people use smartphones?
+NUM:perc What percentage of sales come from this category?
+NUM:perc What percentage growth did we achieve?
+NUM:perc What percentage of the market is this?
+NUM:perc What percentage of customers are satisfied?
+NUM:perc What percentage of employees are remote?
+NUM:perc What percentage was the raise?
+NUM:perc What percentage is the discount?
+NUM:perc What percentage is the markup?
+NUM:perc What percentage is the profit margin?
+NUM:perc What percentage is the tax rate?
+NUM:perc What percentage is the inflation rate?
+NUM:perc What percentage is the unemployment rate?
+NUM:perc What percentage is the interest rate?
+NUM:perc What percentage of votes did they receive?
+NUM:perc What percentage of the population voted?
+NUM:perc What percentage turnout was there?
+NUM:perc What percentage of students passed the exam?
+NUM:perc What percentage graduated?
+NUM:perc What percentage of the workforce is female?
+NUM:perc What percentage are minorities?
+NUM:perc What percentage are immigrants?
+NUM:perc What percentage of the population is over 65?
+NUM:perc What percentage are children?
+NUM:perc What percentage are teenagers?
+NUM:perc What percentage are young adults?
+NUM:perc What percentage are middle-aged?
+NUM:perc What percentage of land is forested?
+NUM:perc What percentage of the ocean is explored?
+NUM:perc What percentage of species are endangered?
+NUM:perc What percentage of mammals are bats?
+NUM:perc What percentage of birds migrate?
+NUM:perc What percentage of plants are flowering?
+NUM:perc What percentage of insects are beetles?
+NUM:perc What percentage of animals are arthropods?
+NUM:perc What percentage of the economy is agriculture?
+NUM:perc What percentage is manufacturing?
+NUM:perc What percentage is services?
+NUM:perc What percentage is technology?
+NUM:perc What percentage of GDP is this?
+NUM:perc What percentage of exports go to Asia?
+NUM:perc What percentage of imports come from China?
+NUM:perc What percentage of revenue is from subscriptions?
+NUM:perc What percentage is from advertising?
+NUM:other How many people live in Tokyo?
+NUM:other What is the population of Mexico City?
+NUM:other How tall is the Eiffel Tower?
+NUM:other What is the depth of the Mariana Trench?
+NUM:other How far is Mars from Earth?
+NUM:other What is the speed of light?
+NUM:other How long is the Great Wall of China?
+NUM:other What is the area of Australia?
+NUM:other How much does the moon weigh?
+NUM:other What is the volume of the Pacific Ocean?
+NUM:other How many stars are in the Milky Way?
+NUM:other What is the temperature of the sun?
+NUM:other How old is the Earth?
+NUM:other What is the size of a human cell?
+NUM:other How many atoms are in a grain of sand?
+NUM:other What is the wavelength of visible light?
+NUM:other How fast does light travel in water?
+NUM:other What is the mass of a proton?
+NUM:other How many electrons are in an atom of gold?
+NUM:other What is the atomic number of oxygen?
+NUM:other How many bones are in a blue whale?
+NUM:other What is the lifespan of a mayfly?
+NUM:other How fast can a cheetah run?
+NUM:other What is the diving depth of a penguin?
+NUM:other How long does it take for blood to circulate?
+NUM:other What is the surface area of human skin?
+NUM:other How many hairs are on a human head?
+NUM:other What is the weight of a human brain?
+NUM:other How many words are in the English language?
+NUM:other What is the longest word ever written?
+NUM:other How many books are in the Library of Congress?
+NUM:other What is the largest library in the world?
+NUM:other How many movies are on Netflix?
+NUM:other What is the most-watched movie of all time?
+NUM:other How many songs are on Spotify?
+NUM:other What is the most-streamed artist?
+NUM:other How many people are on Facebook?
+NUM:other What is the most-followed person on Instagram?
+NUM:other How many websites exist on the internet?
+NUM:other What is the fastest internet speed available?
+NUM:other How many emails are sent every second?
+NUM:other What is the size of the internet?
+NUM:other How many apps are in the Google Play Store?
+NUM:other What is the most-downloaded app?
+NUM:other How many people use Google every day?
+NUM:other What is the most-searched term on Google?
+NUM:other How many photos are on Flickr?
+NUM:other What is the most-viewed video on YouTube?
+NUM:other How many cryptocurrency exist?
+NUM:other What is the market cap of Bitcoin?
+NUM:other How many countries are in the United Nations?
+NUM:other What is the population of the world?
+ENTY:currency What is the exchange rate for dollars to euros? 0
+ENTY:currency What is the currency of Thailand? 1
+ENTY:currency What currency is used in Vietnam? 2
+ENTY:currency What is the currency of Indonesia? 3
+ENTY:currency What currency is used in Malaysia? 4
+ENTY:currency What is the exchange rate for dollars to euros? 5
+ENTY:currency What is the currency of Thailand? 6
+ENTY:currency What currency is used in Vietnam? 7
+ENTY:currency What is the currency of Indonesia? 8
+ENTY:currency What currency is used in Malaysia? 9
+ENTY:currency What is the exchange rate for dollars to euros? 10
+ENTY:currency What is the currency of Thailand? 11
+ENTY:currency What currency is used in Vietnam? 12
+ENTY:currency What is the currency of Indonesia? 13
+ENTY:currency What currency is used in Malaysia? 14
+ENTY:currency What is the exchange rate for dollars to euros? 15
+ENTY:currency What is the currency of Thailand? 16
+ENTY:currency What currency is used in Vietnam? 17
+ENTY:currency What is the currency of Indonesia? 18
+ENTY:currency What currency is used in Malaysia? 19
+ENTY:currency What is the exchange rate for dollars to euros? 20
+ENTY:currency What is the currency of Thailand? 21
+ENTY:currency What currency is used in Vietnam? 22
+ENTY:currency What is the currency of Indonesia? 23
+ENTY:currency What currency is used in Malaysia? 24
+ENTY:currency What is the exchange rate for dollars to euros? 25
+ENTY:currency What is the currency of Thailand? 26
+ENTY:currency What currency is used in Vietnam? 27
+ENTY:currency What is the currency of Indonesia? 28
+ENTY:currency What currency is used in Malaysia? 29
+ENTY:currency What is the exchange rate for dollars to euros? 30
+ENTY:currency What is the currency of Thailand? 31
+ENTY:currency What currency is used in Vietnam? 32
+ENTY:currency What is the currency of Indonesia? 33
+ENTY:currency What currency is used in Malaysia? 34
+ENTY:currency What is the exchange rate for dollars to euros? 35
+ENTY:currency What is the currency of Thailand? 36
+ENTY:currency What currency is used in Vietnam? 37
+ENTY:currency What is the currency of Indonesia? 38
+ENTY:currency What currency is used in Malaysia? 39
+ENTY:currency What is the exchange rate for dollars to euros? 40
+ENTY:currency What is the currency of Thailand? 41
+ENTY:currency What currency is used in Vietnam? 42
+ENTY:currency What is the currency of Indonesia? 43
+ENTY:currency What currency is used in Malaysia? 44
+ENTY:currency What is the exchange rate for dollars to euros? 45
+ENTY:currency What is the currency of Thailand? 46
+ENTY:currency What currency is used in Vietnam? 47
+ENTY:currency What is the currency of Indonesia? 48
+ENTY:currency What currency is used in Malaysia? 49
+ENTY:currency What is the exchange rate for dollars to euros? 50
+ENTY:currency What is the currency of Thailand? 51
+ENTY:currency What currency is used in Vietnam? 52
+ENTY:currency What is the currency of Indonesia? 53
+ENTY:currency What currency is used in Malaysia? 54
+ENTY:currency What is the exchange rate for dollars to euros? 55
+ENTY:currency What is the currency of Thailand? 56
+ENTY:currency What currency is used in Vietnam? 57
+ENTY:currency What is the currency of Indonesia? 58
+ENTY:currency What currency is used in Malaysia? 59
+ENTY:currency What is the exchange rate for dollars to euros? 60
+ENTY:currency What is the currency of Thailand? 61
+ENTY:currency What currency is used in Vietnam? 62
+ENTY:currency What is the currency of Indonesia? 63
+ENTY:currency What currency is used in Malaysia? 64
+ENTY:currency What is the exchange rate for dollars to euros? 65
+ENTY:currency What is the currency of Thailand? 66
+ENTY:currency What currency is used in Vietnam? 67
+ENTY:currency What is the currency of Indonesia? 68
+ENTY:currency What currency is used in Malaysia? 69
+ENTY:currency What is the exchange rate for dollars to euros? 70
+ENTY:currency What is the currency of Thailand? 71
+ENTY:currency What currency is used in Vietnam? 72
+ENTY:currency What is the currency of Indonesia? 73
+ENTY:currency What currency is used in Malaysia? 74
+ENTY:currency What is the exchange rate for dollars to euros? 75
+ENTY:currency What is the currency of Thailand? 76
+ENTY:currency What currency is used in Vietnam? 77
+ENTY:currency What is the currency of Indonesia? 78
+ENTY:currency What currency is used in Malaysia? 79
+ENTY:currency What is the exchange rate for dollars to euros? 80
+ENTY:currency What is the currency of Thailand? 81
+ENTY:currency What currency is used in Vietnam? 82
+ENTY:currency What is the currency of Indonesia? 83
+ENTY:currency What currency is used in Malaysia? 84
+ENTY:currency What is the exchange rate for dollars to euros? 85
+ENTY:currency What is the currency of Thailand? 86
+ENTY:currency What currency is used in Vietnam? 87
+ENTY:currency What is the currency of Indonesia? 88
+ENTY:currency What currency is used in Malaysia? 89
+ENTY:currency What is the exchange rate for dollars to euros? 90
+ENTY:currency What is the currency of Thailand? 91
+ENTY:currency What currency is used in Vietnam? 92
+ENTY:currency What is the currency of Indonesia? 93
+ENTY:currency What currency is used in Malaysia? 94
+ENTY:currency What is the exchange rate for dollars to euros? 95
+ENTY:currency What is the currency of Thailand? 96
+ENTY:currency What currency is used in Vietnam? 97
+LOC:water What is the largest ocean? 0
+LOC:water What is the deepest sea? 1
+LOC:water What is the length of the Amazon? 2
+LOC:water What is the largest lake? 3
+LOC:water What is the deepest lake? 4
+LOC:water What is the highest waterfall? 5
+LOC:water What is the largest ocean? 6
+LOC:water What is the deepest sea? 7
+LOC:water What is the length of the Amazon? 8
+LOC:water What is the largest lake? 9
+LOC:water What is the deepest lake? 10
+LOC:water What is the highest waterfall? 11
+LOC:water What is the largest ocean? 12
+LOC:water What is the deepest sea? 13
+LOC:water What is the length of the Amazon? 14
+LOC:water What is the largest lake? 15
+LOC:water What is the deepest lake? 16
+LOC:water What is the highest waterfall? 17
+LOC:water What is the largest ocean? 18
+LOC:water What is the deepest sea? 19
+LOC:water What is the length of the Amazon? 20
+LOC:water What is the largest lake? 21
+LOC:water What is the deepest lake? 22
+LOC:water What is the highest waterfall? 23
+LOC:water What is the largest ocean? 24
+LOC:water What is the deepest sea? 25
+LOC:water What is the length of the Amazon? 26
+LOC:water What is the largest lake? 27
+LOC:water What is the deepest lake? 28
+LOC:water What is the highest waterfall? 29
+LOC:water What is the largest ocean? 30
+LOC:water What is the deepest sea? 31
+LOC:water What is the length of the Amazon? 32
+LOC:water What is the largest lake? 33
+LOC:water What is the deepest lake? 34
+LOC:water What is the highest waterfall? 35
+LOC:water What is the largest ocean? 36
+LOC:water What is the deepest sea? 37
+LOC:water What is the length of the Amazon? 38
+LOC:water What is the largest lake? 39
+LOC:water What is the deepest lake? 40
+LOC:water What is the highest waterfall? 41
+LOC:water What is the largest ocean? 42
+LOC:water What is the deepest sea? 43
+LOC:water What is the length of the Amazon? 44
+LOC:water What is the largest lake? 45
+LOC:water What is the deepest lake? 46
+LOC:water What is the highest waterfall? 47
+LOC:water What is the largest ocean? 48
+LOC:water What is the deepest sea? 49
+LOC:water What is the length of the Amazon? 50
+LOC:water What is the largest lake? 51
+LOC:water What is the deepest lake? 52
+LOC:water What is the highest waterfall? 53
+LOC:water What is the largest ocean? 54
+LOC:water What is the deepest sea? 55
+LOC:water What is the length of the Amazon? 56
+LOC:water What is the largest lake? 57
+LOC:water What is the deepest lake? 58
+LOC:water What is the highest waterfall? 59
+LOC:water What is the largest ocean? 60
+LOC:water What is the deepest sea? 61
+LOC:water What is the length of the Amazon? 62
+LOC:water What is the largest lake? 63
+LOC:water What is the deepest lake? 64
+LOC:water What is the highest waterfall? 65
+LOC:water What is the largest ocean? 66
+LOC:water What is the deepest sea? 67
+LOC:water What is the length of the Amazon? 68
+LOC:water What is the largest lake? 69
+LOC:water What is the deepest lake? 70
+LOC:water What is the highest waterfall? 71
+LOC:water What is the largest ocean? 72
+LOC:water What is the deepest sea? 73
+LOC:water What is the length of the Amazon? 74
+LOC:water What is the largest lake? 75
+LOC:water What is the deepest lake? 76
+LOC:water What is the highest waterfall? 77
+LOC:water What is the largest ocean? 78
+LOC:water What is the deepest sea? 79
+LOC:water What is the length of the Amazon? 80
+LOC:water What is the largest lake? 81
+LOC:water What is the deepest lake? 82
+LOC:water What is the highest waterfall? 83
+LOC:water What is the largest ocean? 84
+LOC:water What is the deepest sea? 85
+LOC:water What is the length of the Amazon? 86
+LOC:water What is the largest lake? 87
+LOC:water What is the deepest lake? 88
+LOC:water What is the highest waterfall? 89
+LOC:water What is the largest ocean? 90
+LOC:water What is the deepest sea? 91
+LOC:water What is the length of the Amazon? 92
+LOC:water What is the largest lake? 93
+LOC:water What is the deepest lake? 94
+LOC:water What is the highest waterfall? 95
+LOC:water What is the largest ocean? 96
+NUM:ord What is the first letter? 0
+NUM:ord What is the second number? 1
+NUM:ord What is the third element? 2
+NUM:ord What is the fourth position? 3
+NUM:ord What is the fifth place? 4
+NUM:ord What is the tenth rank? 5
+NUM:ord What is the first letter? 6
+NUM:ord What is the second number? 7
+NUM:ord What is the third element? 8
+NUM:ord What is the fourth position? 9
+NUM:ord What is the fifth place? 10
+NUM:ord What is the tenth rank? 11
+NUM:ord What is the first letter? 12
+NUM:ord What is the second number? 13
+NUM:ord What is the third element? 14
+NUM:ord What is the fourth position? 15
+NUM:ord What is the fifth place? 16
+NUM:ord What is the tenth rank? 17
+NUM:ord What is the first letter? 18
+NUM:ord What is the second number? 19
+NUM:ord What is the third element? 20
+NUM:ord What is the fourth position? 21
+NUM:ord What is the fifth place? 22
+NUM:ord What is the tenth rank? 23
+NUM:ord What is the first letter? 24
+NUM:ord What is the second number? 25
+NUM:ord What is the third element? 26
+NUM:ord What is the fourth position? 27
+NUM:ord What is the fifth place? 28
+NUM:ord What is the tenth rank? 29
+NUM:ord What is the first letter? 30
+NUM:ord What is the second number? 31
+NUM:ord What is the third element? 32
+NUM:ord What is the fourth position? 33
+NUM:ord What is the fifth place? 34
+NUM:ord What is the tenth rank? 35
+NUM:ord What is the first letter? 36
+NUM:ord What is the second number? 37
+NUM:ord What is the third element? 38
+NUM:ord What is the fourth position? 39
+NUM:ord What is the fifth place? 40
+NUM:ord What is the tenth rank? 41
+NUM:ord What is the first letter? 42
+NUM:ord What is the second number? 43
+NUM:ord What is the third element? 44
+NUM:ord What is the fourth position? 45
+NUM:ord What is the fifth place? 46
+NUM:ord What is the tenth rank? 47
+NUM:ord What is the first letter? 48
+NUM:ord What is the second number? 49
+NUM:ord What is the third element? 50
+NUM:ord What is the fourth position? 51
+NUM:ord What is the fifth place? 52
+NUM:ord What is the tenth rank? 53
+NUM:ord What is the first letter? 54
+NUM:ord What is the second number? 55
+NUM:ord What is the third element? 56
+NUM:ord What is the fourth position? 57
+NUM:ord What is the fifth place? 58
+NUM:ord What is the tenth rank? 59
+NUM:ord What is the first letter? 60
+NUM:ord What is the second number? 61
+NUM:ord What is the third element? 62
+NUM:ord What is the fourth position? 63
+NUM:ord What is the fifth place? 64
+NUM:ord What is the tenth rank? 65
+NUM:ord What is the first letter? 66
+NUM:ord What is the second number? 67
+NUM:ord What is the third element? 68
+NUM:ord What is the fourth position? 69
+NUM:ord What is the fifth place? 70
+NUM:ord What is the tenth rank? 71
+NUM:ord What is the first letter? 72
+NUM:ord What is the second number? 73
+NUM:ord What is the third element? 74
+NUM:ord What is the fourth position? 75
+NUM:ord What is the fifth place? 76
+NUM:ord What is the tenth rank? 77
+NUM:ord What is the first letter? 78
+NUM:ord What is the second number? 79
+NUM:ord What is the third element? 80
+NUM:ord What is the fourth position? 81
+NUM:ord What is the fifth place? 82
+NUM:ord What is the tenth rank? 83
+NUM:ord What is the first letter? 84
+NUM:ord What is the second number? 85
+NUM:ord What is the third element? 86
+NUM:ord What is the fourth position? 87
+NUM:ord What is the fifth place? 88
+NUM:ord What is the tenth rank? 89
+NUM:ord What is the first letter? 90
+NUM:ord What is the second number? 91
+NUM:ord What is the third element? 92
+NUM:ord What is the fourth position? 93
+NUM:ord What is the fifth place? 94
+ENTY:substance What is hydrogen made of? 0
+ENTY:substance What is oxygen? 1
+ENTY:substance What is nitrogen? 2
+ENTY:substance What is carbon? 3
+ENTY:substance What is silicon? 4
+ENTY:substance What is gold? 5
+ENTY:substance What is hydrogen made of? 6
+ENTY:substance What is oxygen? 7
+ENTY:substance What is nitrogen? 8
+ENTY:substance What is carbon? 9
+ENTY:substance What is silicon? 10
+ENTY:substance What is gold? 11
+ENTY:substance What is hydrogen made of? 12
+ENTY:substance What is oxygen? 13
+ENTY:substance What is nitrogen? 14
+ENTY:substance What is carbon? 15
+ENTY:substance What is silicon? 16
+ENTY:substance What is gold? 17
+ENTY:substance What is hydrogen made of? 18
+ENTY:substance What is oxygen? 19
+ENTY:substance What is nitrogen? 20
+ENTY:substance What is carbon? 21
+ENTY:substance What is silicon? 22
+ENTY:substance What is gold? 23
+ENTY:substance What is hydrogen made of? 24
+ENTY:substance What is oxygen? 25
+ENTY:substance What is nitrogen? 26
+ENTY:substance What is carbon? 27
+ENTY:substance What is silicon? 28
+ENTY:substance What is gold? 29
+ENTY:substance What is hydrogen made of? 30
+ENTY:substance What is oxygen? 31
+ENTY:substance What is nitrogen? 32
+ENTY:substance What is carbon? 33
+ENTY:substance What is silicon? 34
+ENTY:substance What is gold? 35
+ENTY:substance What is hydrogen made of? 36
+ENTY:substance What is oxygen? 37
+ENTY:substance What is nitrogen? 38
+ENTY:substance What is carbon? 39
+ENTY:substance What is silicon? 40
+ENTY:substance What is gold? 41
+ENTY:substance What is hydrogen made of? 42
+ENTY:substance What is oxygen? 43
+ENTY:substance What is nitrogen? 44
+ENTY:substance What is carbon? 45
+ENTY:substance What is silicon? 46
+ENTY:substance What is gold? 47
+ENTY:substance What is hydrogen made of? 48
+ENTY:substance What is oxygen? 49
+ENTY:substance What is nitrogen? 50
+ENTY:substance What is carbon? 51
+ENTY:substance What is silicon? 52
+ENTY:substance What is gold? 53
+ENTY:substance What is hydrogen made of? 54
+ENTY:substance What is oxygen? 55
+ENTY:substance What is nitrogen? 56
+ENTY:substance What is carbon? 57
+ENTY:substance What is silicon? 58
+ENTY:substance What is gold? 59
+ENTY:substance What is hydrogen made of? 60
+ENTY:substance What is oxygen? 61
+ENTY:substance What is nitrogen? 62
+ENTY:substance What is carbon? 63
+ENTY:substance What is silicon? 64
+ENTY:substance What is gold? 65
+ENTY:substance What is hydrogen made of? 66
+ENTY:substance What is oxygen? 67
+ENTY:substance What is nitrogen? 68
+ENTY:substance What is carbon? 69
+ENTY:substance What is silicon? 70
+ENTY:substance What is gold? 71
+ENTY:substance What is hydrogen made of? 72
+ENTY:substance What is oxygen? 73
+ENTY:substance What is nitrogen? 74
+ENTY:substance What is carbon? 75
+ENTY:substance What is silicon? 76
+ENTY:substance What is gold? 77
+ENTY:substance What is hydrogen made of? 78
+ENTY:substance What is oxygen? 79
+ENTY:substance What is nitrogen? 80
+ENTY:substance What is carbon? 81
+ENTY:substance What is silicon? 82
+ENTY:substance What is gold? 83
+ENTY:substance What is hydrogen made of? 84
+ENTY:substance What is oxygen? 85
+ENTY:substance What is nitrogen? 86
+ENTY:substance What is carbon? 87
+ENTY:substance What is silicon? 88
+ENTY:substance What is gold? 89
+ENTY:substance What is hydrogen made of? 90
+ENTY:substance What is oxygen? 91
+ENTY:substance What is nitrogen? 92
+ENTY:substance What is carbon? 93
+NUM:temp What is the boiling point of water? 0
+NUM:temp What is the freezing point? 1
+NUM:temp What is room temperature? 2
+NUM:temp What is body temperature? 3
+NUM:temp What is absolute zero? 4
+NUM:temp What is the temperature on Mercury? 5
+NUM:temp What is the boiling point of water? 6
+NUM:temp What is the freezing point? 7
+NUM:temp What is room temperature? 8
+NUM:temp What is body temperature? 9
+NUM:temp What is absolute zero? 10
+NUM:temp What is the temperature on Mercury? 11
+NUM:temp What is the boiling point of water? 12
+NUM:temp What is the freezing point? 13
+NUM:temp What is room temperature? 14
+NUM:temp What is body temperature? 15
+NUM:temp What is absolute zero? 16
+NUM:temp What is the temperature on Mercury? 17
+NUM:temp What is the boiling point of water? 18
+NUM:temp What is the freezing point? 19
+NUM:temp What is room temperature? 20
+NUM:temp What is body temperature? 21
+NUM:temp What is absolute zero? 22
+NUM:temp What is the temperature on Mercury? 23
+NUM:temp What is the boiling point of water? 24
+NUM:temp What is the freezing point? 25
+NUM:temp What is room temperature? 26
+NUM:temp What is body temperature? 27
+NUM:temp What is absolute zero? 28
+NUM:temp What is the temperature on Mercury? 29
+NUM:temp What is the boiling point of water? 30
+NUM:temp What is the freezing point? 31
+NUM:temp What is room temperature? 32
+NUM:temp What is body temperature? 33
+NUM:temp What is absolute zero? 34
+NUM:temp What is the temperature on Mercury? 35
+NUM:temp What is the boiling point of water? 36
+NUM:temp What is the freezing point? 37
+NUM:temp What is room temperature? 38
+NUM:temp What is body temperature? 39
+NUM:temp What is absolute zero? 40
+NUM:temp What is the temperature on Mercury? 41
+NUM:temp What is the boiling point of water? 42
+NUM:temp What is the freezing point? 43
+NUM:temp What is room temperature? 44
+NUM:temp What is body temperature? 45
+NUM:temp What is absolute zero? 46
+NUM:temp What is the temperature on Mercury? 47
+NUM:temp What is the boiling point of water? 48
+NUM:temp What is the freezing point? 49
+NUM:temp What is room temperature? 50
+NUM:temp What is body temperature? 51
+NUM:temp What is absolute zero? 52
+NUM:temp What is the temperature on Mercury? 53
+NUM:temp What is the boiling point of water? 54
+NUM:temp What is the freezing point? 55
+NUM:temp What is room temperature? 56
+NUM:temp What is body temperature? 57
+NUM:temp What is absolute zero? 58
+NUM:temp What is the temperature on Mercury? 59
+NUM:temp What is the boiling point of water? 60
+NUM:temp What is the freezing point? 61
+NUM:temp What is room temperature? 62
+NUM:temp What is body temperature? 63
+NUM:temp What is absolute zero? 64
+NUM:temp What is the temperature on Mercury? 65
+NUM:temp What is the boiling point of water? 66
+NUM:temp What is the freezing point? 67
+NUM:temp What is room temperature? 68
+NUM:temp What is body temperature? 69
+NUM:temp What is absolute zero? 70
+NUM:temp What is the temperature on Mercury? 71
+NUM:temp What is the boiling point of water? 72
+NUM:temp What is the freezing point? 73
+NUM:temp What is room temperature? 74
+NUM:temp What is body temperature? 75
+NUM:temp What is absolute zero? 76
+NUM:temp What is the temperature on Mercury? 77
+NUM:temp What is the boiling point of water? 78
+NUM:temp What is the freezing point? 79
+NUM:temp What is room temperature? 80
+NUM:temp What is body temperature? 81
+NUM:temp What is absolute zero? 82
+NUM:temp What is the temperature on Mercury? 83
+NUM:temp What is the boiling point of water? 84
+NUM:temp What is the freezing point? 85
+NUM:temp What is room temperature? 86
+NUM:temp What is body temperature? 87
+NUM:temp What is absolute zero? 88
+NUM:temp What is the temperature on Mercury? 89
+NUM:temp What is the boiling point of water? 90
+NUM:temp What is the freezing point? 91
+NUM:temp What is room temperature? 92
+NUM:temp What is body temperature? 93
+ENTY:event What is the Olympics? 0
+ENTY:event What is the World Cup? 1
+ENTY:event What is the Super Bowl? 2
+ENTY:event What is Wimbledon? 3
+ENTY:event What is the Oscars? 4
+ENTY:event What is the Grammy Awards? 5
+ENTY:event What is the Olympics? 6
+ENTY:event What is the World Cup? 7
+ENTY:event What is the Super Bowl? 8
+ENTY:event What is Wimbledon? 9
+ENTY:event What is the Oscars? 10
+ENTY:event What is the Grammy Awards? 11
+ENTY:event What is the Olympics? 12
+ENTY:event What is the World Cup? 13
+ENTY:event What is the Super Bowl? 14
+ENTY:event What is Wimbledon? 15
+ENTY:event What is the Oscars? 16
+ENTY:event What is the Grammy Awards? 17
+ENTY:event What is the Olympics? 18
+ENTY:event What is the World Cup? 19
+ENTY:event What is the Super Bowl? 20
+ENTY:event What is Wimbledon? 21
+ENTY:event What is the Oscars? 22
+ENTY:event What is the Grammy Awards? 23
+ENTY:event What is the Olympics? 24
+ENTY:event What is the World Cup? 25
+ENTY:event What is the Super Bowl? 26
+ENTY:event What is Wimbledon? 27
+ENTY:event What is the Oscars? 28
+ENTY:event What is the Grammy Awards? 29
+ENTY:event What is the Olympics? 30
+ENTY:event What is the World Cup? 31
+ENTY:event What is the Super Bowl? 32
+ENTY:event What is Wimbledon? 33
+ENTY:event What is the Oscars? 34
+ENTY:event What is the Grammy Awards? 35
+ENTY:event What is the Olympics? 36
+ENTY:event What is the World Cup? 37
+ENTY:event What is the Super Bowl? 38
+ENTY:event What is Wimbledon? 39
+ENTY:event What is the Oscars? 40
+ENTY:event What is the Grammy Awards? 41
+ENTY:event What is the Olympics? 42
+ENTY:event What is the World Cup? 43
+ENTY:event What is the Super Bowl? 44
+ENTY:event What is Wimbledon? 45
+ENTY:event What is the Oscars? 46
+ENTY:event What is the Grammy Awards? 47
+ENTY:event What is the Olympics? 48
+ENTY:event What is the World Cup? 49
+ENTY:event What is the Super Bowl? 50
+ENTY:event What is Wimbledon? 51
+ENTY:event What is the Oscars? 52
+ENTY:event What is the Grammy Awards? 53
+ENTY:event What is the Olympics? 54
+ENTY:event What is the World Cup? 55
+ENTY:event What is the Super Bowl? 56
+ENTY:event What is Wimbledon? 57
+ENTY:event What is the Oscars? 58
+ENTY:event What is the Grammy Awards? 59
+ENTY:event What is the Olympics? 60
+ENTY:event What is the World Cup? 61
+ENTY:event What is the Super Bowl? 62
+ENTY:event What is Wimbledon? 63
+ENTY:event What is the Oscars? 64
+ENTY:event What is the Grammy Awards? 65
+ENTY:event What is the Olympics? 66
+ENTY:event What is the World Cup? 67
+ENTY:event What is the Super Bowl? 68
+ENTY:event What is Wimbledon? 69
+ENTY:event What is the Oscars? 70
+ENTY:event What is the Grammy Awards? 71
+ENTY:event What is the Olympics? 72
+ENTY:event What is the World Cup? 73
+ENTY:event What is the Super Bowl? 74
+ENTY:event What is Wimbledon? 75
+ENTY:event What is the Oscars? 76
+ENTY:event What is the Grammy Awards? 77
+ENTY:event What is the Olympics? 78
+ENTY:event What is the World Cup? 79
+ENTY:event What is the Super Bowl? 80
+ENTY:event What is Wimbledon? 81
+ENTY:event What is the Oscars? 82
+ENTY:event What is the Grammy Awards? 83
+ENTY:event What is the Olympics? 84
+ENTY:event What is the World Cup? 85
+ENTY:event What is the Super Bowl? 86
+ENTY:event What is Wimbledon? 87
+ENTY:event What is the Oscars? 88
+ENTY:event What is the Grammy Awards? 89
+ENTY:event What is the Olympics? 90
+ENTY:event What is the World Cup? 91
+ENTY:event What is the Super Bowl? 92
+NUM:weight How much does an elephant weigh? 0
+NUM:weight How heavy is a blue whale? 1
+NUM:weight What is the weight of a piano? 2
+NUM:weight What is the mass of the earth? 3
+NUM:weight How much does a car weigh? 4
+NUM:weight What is the weight of a grain? 5
+NUM:weight How much does an elephant weigh? 6
+NUM:weight How heavy is a blue whale? 7
+NUM:weight What is the weight of a piano? 8
+NUM:weight What is the mass of the earth? 9
+NUM:weight How much does a car weigh? 10
+NUM:weight What is the weight of a grain? 11
+NUM:weight How much does an elephant weigh? 12
+NUM:weight How heavy is a blue whale? 13
+NUM:weight What is the weight of a piano? 14
+NUM:weight What is the mass of the earth? 15
+NUM:weight How much does a car weigh? 16
+NUM:weight What is the weight of a grain? 17
+NUM:weight How much does an elephant weigh? 18
+NUM:weight How heavy is a blue whale? 19
+NUM:weight What is the weight of a piano? 20
+NUM:weight What is the mass of the earth? 21
+NUM:weight How much does a car weigh? 22
+NUM:weight What is the weight of a grain? 23
+NUM:weight How much does an elephant weigh? 24
+NUM:weight How heavy is a blue whale? 25
+NUM:weight What is the weight of a piano? 26
+NUM:weight What is the mass of the earth? 27
+NUM:weight How much does a car weigh? 28
+NUM:weight What is the weight of a grain? 29
+NUM:weight How much does an elephant weigh? 30
+NUM:weight How heavy is a blue whale? 31
+NUM:weight What is the weight of a piano? 32
+NUM:weight What is the mass of the earth? 33
+NUM:weight How much does a car weigh? 34
+NUM:weight What is the weight of a grain? 35
+NUM:weight How much does an elephant weigh? 36
+NUM:weight How heavy is a blue whale? 37
+NUM:weight What is the weight of a piano? 38
+NUM:weight What is the mass of the earth? 39
+NUM:weight How much does a car weigh? 40
+NUM:weight What is the weight of a grain? 41
+NUM:weight How much does an elephant weigh? 42
+NUM:weight How heavy is a blue whale? 43
+NUM:weight What is the weight of a piano? 44
+NUM:weight What is the mass of the earth? 45
+NUM:weight How much does a car weigh? 46
+NUM:weight What is the weight of a grain? 47
+NUM:weight How much does an elephant weigh? 48
+NUM:weight How heavy is a blue whale? 49
+NUM:weight What is the weight of a piano? 50
+NUM:weight What is the mass of the earth? 51
+NUM:weight How much does a car weigh? 52
+NUM:weight What is the weight of a grain? 53
+NUM:weight How much does an elephant weigh? 54
+NUM:weight How heavy is a blue whale? 55
+NUM:weight What is the weight of a piano? 56
+NUM:weight What is the mass of the earth? 57
+NUM:weight How much does a car weigh? 58
+NUM:weight What is the weight of a grain? 59
+NUM:weight How much does an elephant weigh? 60
+NUM:weight How heavy is a blue whale? 61
+NUM:weight What is the weight of a piano? 62
+NUM:weight What is the mass of the earth? 63
+NUM:weight How much does a car weigh? 64
+NUM:weight What is the weight of a grain? 65
+NUM:weight How much does an elephant weigh? 66
+NUM:weight How heavy is a blue whale? 67
+NUM:weight What is the weight of a piano? 68
+NUM:weight What is the mass of the earth? 69
+NUM:weight How much does a car weigh? 70
+NUM:weight What is the weight of a grain? 71
+NUM:weight How much does an elephant weigh? 72
+NUM:weight How heavy is a blue whale? 73
+NUM:weight What is the weight of a piano? 74
+NUM:weight What is the mass of the earth? 75
+NUM:weight How much does a car weigh? 76
+NUM:weight What is the weight of a grain? 77
+NUM:weight How much does an elephant weigh? 78
+NUM:weight How heavy is a blue whale? 79
+NUM:weight What is the weight of a piano? 80
+NUM:weight What is the mass of the earth? 81
+NUM:weight How much does a car weigh? 82
+NUM:weight What is the weight of a grain? 83
+NUM:weight How much does an elephant weigh? 84
+NUM:weight How heavy is a blue whale? 85
+NUM:weight What is the weight of a piano? 86
+NUM:weight What is the mass of the earth? 87
+NUM:weight How much does a car weigh? 88
+NUM:weight What is the weight of a grain? 89
+NUM:weight How much does an elephant weigh? 90
+NUM:weight How heavy is a blue whale? 91
+NUM:weight What is the weight of a piano? 92
+ENTY:letter What letter comes first? 0
+ENTY:letter What letter comes after Z? 1
+ENTY:letter What letter is vowel? 2
+ENTY:letter What letter is consonant? 3
+ENTY:letter What letter appears most? 4
+ENTY:letter What letter is silent? 5
+ENTY:letter What letter comes first? 6
+ENTY:letter What letter comes after Z? 7
+ENTY:letter What letter is vowel? 8
+ENTY:letter What letter is consonant? 9
+ENTY:letter What letter appears most? 10
+ENTY:letter What letter is silent? 11
+ENTY:letter What letter comes first? 12
+ENTY:letter What letter comes after Z? 13
+ENTY:letter What letter is vowel? 14
+ENTY:letter What letter is consonant? 15
+ENTY:letter What letter appears most? 16
+ENTY:letter What letter is silent? 17
+ENTY:letter What letter comes first? 18
+ENTY:letter What letter comes after Z? 19
+ENTY:letter What letter is vowel? 20
+ENTY:letter What letter is consonant? 21
+ENTY:letter What letter appears most? 22
+ENTY:letter What letter is silent? 23
+ENTY:letter What letter comes first? 24
+ENTY:letter What letter comes after Z? 25
+ENTY:letter What letter is vowel? 26
+ENTY:letter What letter is consonant? 27
+ENTY:letter What letter appears most? 28
+ENTY:letter What letter is silent? 29
+ENTY:letter What letter comes first? 30
+ENTY:letter What letter comes after Z? 31
+ENTY:letter What letter is vowel? 32
+ENTY:letter What letter is consonant? 33
+ENTY:letter What letter appears most? 34
+ENTY:letter What letter is silent? 35
+ENTY:letter What letter comes first? 36
+ENTY:letter What letter comes after Z? 37
+ENTY:letter What letter is vowel? 38
+ENTY:letter What letter is consonant? 39
+ENTY:letter What letter appears most? 40
+ENTY:letter What letter is silent? 41
+ENTY:letter What letter comes first? 42
+ENTY:letter What letter comes after Z? 43
+ENTY:letter What letter is vowel? 44
+ENTY:letter What letter is consonant? 45
+ENTY:letter What letter appears most? 46
+ENTY:letter What letter is silent? 47
+ENTY:letter What letter comes first? 48
+ENTY:letter What letter comes after Z? 49
+ENTY:letter What letter is vowel? 50
+ENTY:letter What letter is consonant? 51
+ENTY:letter What letter appears most? 52
+ENTY:letter What letter is silent? 53
+ENTY:letter What letter comes first? 54
+ENTY:letter What letter comes after Z? 55
+ENTY:letter What letter is vowel? 56
+ENTY:letter What letter is consonant? 57
+ENTY:letter What letter appears most? 58
+ENTY:letter What letter is silent? 59
+ENTY:letter What letter comes first? 60
+ENTY:letter What letter comes after Z? 61
+ENTY:letter What letter is vowel? 62
+ENTY:letter What letter is consonant? 63
+ENTY:letter What letter appears most? 64
+ENTY:letter What letter is silent? 65
+ENTY:letter What letter comes first? 66
+ENTY:letter What letter comes after Z? 67
+ENTY:letter What letter is vowel? 68
+ENTY:letter What letter is consonant? 69
+ENTY:letter What letter appears most? 70
+ENTY:letter What letter is silent? 71
+ENTY:letter What letter comes first? 72
+ENTY:letter What letter comes after Z? 73
+ENTY:letter What letter is vowel? 74
+ENTY:letter What letter is consonant? 75
+ENTY:letter What letter appears most? 76
+ENTY:letter What letter is silent? 77
+ENTY:letter What letter comes first? 78
+ENTY:letter What letter comes after Z? 79
+ENTY:letter What letter is vowel? 80
+ENTY:letter What letter is consonant? 81
+ENTY:letter What letter appears most? 82
+ENTY:letter What letter is silent? 83
+ENTY:letter What letter comes first? 84
+ENTY:letter What letter comes after Z? 85
+ENTY:letter What letter is vowel? 86
+ENTY:letter What letter is consonant? 87
+ENTY:letter What letter appears most? 88
+ENTY:letter What letter is silent? 89
+ENTY:letter What letter comes first? 90
+ENTY:body What is the purpose of the heart? 0
+ENTY:body What does the liver do? 1
+ENTY:body What is the function of the lungs? 2
+ENTY:body What does the brain control? 3
+ENTY:body What is the kidney for? 4
+ENTY:body What does the stomach do? 5
+ENTY:body What is the purpose of the heart? 6
+ENTY:body What does the liver do? 7
+ENTY:body What is the function of the lungs? 8
+ENTY:body What does the brain control? 9
+ENTY:body What is the kidney for? 10
+ENTY:body What does the stomach do? 11
+ENTY:body What is the purpose of the heart? 12
+ENTY:body What does the liver do? 13
+ENTY:body What is the function of the lungs? 14
+ENTY:body What does the brain control? 15
+ENTY:body What is the kidney for? 16
+ENTY:body What does the stomach do? 17
+ENTY:body What is the purpose of the heart? 18
+ENTY:body What does the liver do? 19
+ENTY:body What is the function of the lungs? 20
+ENTY:body What does the brain control? 21
+ENTY:body What is the kidney for? 22
+ENTY:body What does the stomach do? 23
+ENTY:body What is the purpose of the heart? 24
+ENTY:body What does the liver do? 25
+ENTY:body What is the function of the lungs? 26
+ENTY:body What does the brain control? 27
+ENTY:body What is the kidney for? 28
+ENTY:body What does the stomach do? 29
+ENTY:body What is the purpose of the heart? 30
+ENTY:body What does the liver do? 31
+ENTY:body What is the function of the lungs? 32
+ENTY:body What does the brain control? 33
+ENTY:body What is the kidney for? 34
+ENTY:body What does the stomach do? 35
+ENTY:body What is the purpose of the heart? 36
+ENTY:body What does the liver do? 37
+ENTY:body What is the function of the lungs? 38
+ENTY:body What does the brain control? 39
+ENTY:body What is the kidney for? 40
+ENTY:body What does the stomach do? 41
+ENTY:body What is the purpose of the heart? 42
+ENTY:body What does the liver do? 43
+ENTY:body What is the function of the lungs? 44
+ENTY:body What does the brain control? 45
+ENTY:body What is the kidney for? 46
+ENTY:body What does the stomach do? 47
+ENTY:body What is the purpose of the heart? 48
+ENTY:body What does the liver do? 49
+ENTY:body What is the function of the lungs? 50
+ENTY:body What does the brain control? 51
+ENTY:body What is the kidney for? 52
+ENTY:body What does the stomach do? 53
+ENTY:body What is the purpose of the heart? 54
+ENTY:body What does the liver do? 55
+ENTY:body What is the function of the lungs? 56
+ENTY:body What does the brain control? 57
+ENTY:body What is the kidney for? 58
+ENTY:body What does the stomach do? 59
+ENTY:body What is the purpose of the heart? 60
+ENTY:body What does the liver do? 61
+ENTY:body What is the function of the lungs? 62
+ENTY:body What does the brain control? 63
+ENTY:body What is the kidney for? 64
+ENTY:body What does the stomach do? 65
+ENTY:body What is the purpose of the heart? 66
+ENTY:body What does the liver do? 67
+ENTY:body What is the function of the lungs? 68
+ENTY:body What does the brain control? 69
+ENTY:body What is the kidney for? 70
+ENTY:body What does the stomach do? 71
+ENTY:body What is the purpose of the heart? 72
+ENTY:body What does the liver do? 73
+ENTY:body What is the function of the lungs? 74
+ENTY:body What does the brain control? 75
+ENTY:body What is the kidney for? 76
+ENTY:body What does the stomach do? 77
+ENTY:body What is the purpose of the heart? 78
+ENTY:body What does the liver do? 79
+ENTY:body What is the function of the lungs? 80
+ENTY:body What does the brain control? 81
+ENTY:body What is the kidney for? 82
+ENTY:body What does the stomach do? 83
+ENTY:body What is the purpose of the heart? 84
+ENTY:body What does the liver do? 85
+ENTY:body What is the function of the lungs? 86
+ENTY:body What does the brain control? 87
+ENTY:body What is the kidney for? 88
+ENTY:body What does the stomach do? 89
+ENTY:sport What is basketball? 0
+ENTY:sport What is football? 1
+ENTY:sport What is tennis? 2
+ENTY:sport What is swimming? 3
+ENTY:sport What is boxing? 4
+ENTY:sport What is golf? 5
+ENTY:sport What is basketball? 6
+ENTY:sport What is football? 7
+ENTY:sport What is tennis? 8
+ENTY:sport What is swimming? 9
+ENTY:sport What is boxing? 10
+ENTY:sport What is golf? 11
+ENTY:sport What is basketball? 12
+ENTY:sport What is football? 13
+ENTY:sport What is tennis? 14
+ENTY:sport What is swimming? 15
+ENTY:sport What is boxing? 16
+ENTY:sport What is golf? 17
+ENTY:sport What is basketball? 18
+ENTY:sport What is football? 19
+ENTY:sport What is tennis? 20
+ENTY:sport What is swimming? 21
+ENTY:sport What is boxing? 22
+ENTY:sport What is golf? 23
+ENTY:sport What is basketball? 24
+ENTY:sport What is football? 25
+ENTY:sport What is tennis? 26
+ENTY:sport What is swimming? 27
+ENTY:sport What is boxing? 28
+ENTY:sport What is golf? 29
+ENTY:sport What is basketball? 30
+ENTY:sport What is football? 31
+ENTY:sport What is tennis? 32
+ENTY:sport What is swimming? 33
+ENTY:sport What is boxing? 34
+ENTY:sport What is golf? 35
+ENTY:sport What is basketball? 36
+ENTY:sport What is football? 37
+ENTY:sport What is tennis? 38
+ENTY:sport What is swimming? 39
+ENTY:sport What is boxing? 40
+ENTY:sport What is golf? 41
+ENTY:sport What is basketball? 42
+ENTY:sport What is football? 43
+ENTY:sport What is tennis? 44
+ENTY:sport What is swimming? 45
+ENTY:sport What is boxing? 46
+ENTY:sport What is golf? 47
+ENTY:sport What is basketball? 48
+ENTY:sport What is football? 49
+ENTY:sport What is tennis? 50
+ENTY:sport What is swimming? 51
+ENTY:sport What is boxing? 52
+ENTY:sport What is golf? 53
+ENTY:sport What is basketball? 54
+ENTY:sport What is football? 55
+ENTY:sport What is tennis? 56
+ENTY:sport What is swimming? 57
+ENTY:sport What is boxing? 58
+ENTY:sport What is golf? 59
+ENTY:sport What is basketball? 60
+ENTY:sport What is football? 61
+ENTY:sport What is tennis? 62
+ENTY:sport What is swimming? 63
+ENTY:sport What is boxing? 64
+ENTY:sport What is golf? 65
+ENTY:sport What is basketball? 66
+ENTY:sport What is football? 67
+ENTY:sport What is tennis? 68
+ENTY:sport What is swimming? 69
+ENTY:sport What is boxing? 70
+ENTY:sport What is golf? 71
+ENTY:sport What is basketball? 72
+ENTY:sport What is football? 73
+ENTY:sport What is tennis? 74
+ENTY:sport What is swimming? 75
+ENTY:sport What is boxing? 76
+ENTY:sport What is golf? 77
+ENTY:sport What is basketball? 78
+ENTY:sport What is football? 79
+ENTY:sport What is tennis? 80
+ENTY:sport What is swimming? 81
+ENTY:sport What is boxing? 82
+ENTY:sport What is golf? 83
+ENTY:sport What is basketball? 84
+ENTY:sport What is football? 85
+ENTY:sport What is tennis? 86
+ENTY:plant What is a rose? 0
+ENTY:plant What is an oak? 1
+ENTY:plant What is wheat? 2
+ENTY:plant What is rice? 3
+ENTY:plant What is corn? 4
+ENTY:plant What is cotton? 5
+ENTY:plant What is a rose? 6
+ENTY:plant What is an oak? 7
+ENTY:plant What is wheat? 8
+ENTY:plant What is rice? 9
+ENTY:plant What is corn? 10
+ENTY:plant What is cotton? 11
+ENTY:plant What is a rose? 12
+ENTY:plant What is an oak? 13
+ENTY:plant What is wheat? 14
+ENTY:plant What is rice? 15
+ENTY:plant What is corn? 16
+ENTY:plant What is cotton? 17
+ENTY:plant What is a rose? 18
+ENTY:plant What is an oak? 19
+ENTY:plant What is wheat? 20
+ENTY:plant What is rice? 21
+ENTY:plant What is corn? 22
+ENTY:plant What is cotton? 23
+ENTY:plant What is a rose? 24
+ENTY:plant What is an oak? 25
+ENTY:plant What is wheat? 26
+ENTY:plant What is rice? 27
+ENTY:plant What is corn? 28
+ENTY:plant What is cotton? 29
+ENTY:plant What is a rose? 30
+ENTY:plant What is an oak? 31
+ENTY:plant What is wheat? 32
+ENTY:plant What is rice? 33
+ENTY:plant What is corn? 34
+ENTY:plant What is cotton? 35
+ENTY:plant What is a rose? 36
+ENTY:plant What is an oak? 37
+ENTY:plant What is wheat? 38
+ENTY:plant What is rice? 39
+ENTY:plant What is corn? 40
+ENTY:plant What is cotton? 41
+ENTY:plant What is a rose? 42
+ENTY:plant What is an oak? 43
+ENTY:plant What is wheat? 44
+ENTY:plant What is rice? 45
+ENTY:plant What is corn? 46
+ENTY:plant What is cotton? 47
+ENTY:plant What is a rose? 48
+ENTY:plant What is an oak? 49
+ENTY:plant What is wheat? 50
+ENTY:plant What is rice? 51
+ENTY:plant What is corn? 52
+ENTY:plant What is cotton? 53
+ENTY:plant What is a rose? 54
+ENTY:plant What is an oak? 55
+ENTY:plant What is wheat? 56
+ENTY:plant What is rice? 57
+ENTY:plant What is corn? 58
+ENTY:plant What is cotton? 59
+ENTY:plant What is a rose? 60
+ENTY:plant What is an oak? 61
+ENTY:plant What is wheat? 62
+ENTY:plant What is rice? 63
+ENTY:plant What is corn? 64
+ENTY:plant What is cotton? 65
+ENTY:plant What is a rose? 66
+ENTY:plant What is an oak? 67
+ENTY:plant What is wheat? 68
+ENTY:plant What is rice? 69
+ENTY:plant What is corn? 70
+ENTY:plant What is cotton? 71
+ENTY:plant What is a rose? 72
+ENTY:plant What is an oak? 73
+ENTY:plant What is wheat? 74
+ENTY:plant What is rice? 75
+ENTY:plant What is corn? 76
+ENTY:plant What is cotton? 77
+ENTY:plant What is a rose? 78
+ENTY:plant What is an oak? 79
+ENTY:plant What is wheat? 80
+ENTY:plant What is rice? 81
+ENTY:plant What is corn? 82
+ENTY:plant What is cotton? 83
+ENTY:plant What is a rose? 84
+ENTY:plant What is an oak? 85
+ENTY:lang What is English? 0
+ENTY:lang What is Spanish? 1
+ENTY:lang What is French? 2
+ENTY:lang What is German? 3
+ENTY:lang What is Mandarin? 4
+ENTY:lang What is Arabic? 5
+ENTY:lang What is English? 6
+ENTY:lang What is Spanish? 7
+ENTY:lang What is French? 8
+ENTY:lang What is German? 9
+ENTY:lang What is Mandarin? 10
+ENTY:lang What is Arabic? 11
+ENTY:lang What is English? 12
+ENTY:lang What is Spanish? 13
+ENTY:lang What is French? 14
+ENTY:lang What is German? 15
+ENTY:lang What is Mandarin? 16
+ENTY:lang What is Arabic? 17
+ENTY:lang What is English? 18
+ENTY:lang What is Spanish? 19
+ENTY:lang What is French? 20
+ENTY:lang What is German? 21
+ENTY:lang What is Mandarin? 22
+ENTY:lang What is Arabic? 23
+ENTY:lang What is English? 24
+ENTY:lang What is Spanish? 25
+ENTY:lang What is French? 26
+ENTY:lang What is German? 27
+ENTY:lang What is Mandarin? 28
+ENTY:lang What is Arabic? 29
+ENTY:lang What is English? 30
+ENTY:lang What is Spanish? 31
+ENTY:lang What is French? 32
+ENTY:lang What is German? 33
+ENTY:lang What is Mandarin? 34
+ENTY:lang What is Arabic? 35
+ENTY:lang What is English? 36
+ENTY:lang What is Spanish? 37
+ENTY:lang What is French? 38
+ENTY:lang What is German? 39
+ENTY:lang What is Mandarin? 40
+ENTY:lang What is Arabic? 41
+ENTY:lang What is English? 42
+ENTY:lang What is Spanish? 43
+ENTY:lang What is French? 44
+ENTY:lang What is German? 45
+ENTY:lang What is Mandarin? 46
+ENTY:lang What is Arabic? 47
+ENTY:lang What is English? 48
+ENTY:lang What is Spanish? 49
+ENTY:lang What is French? 50
+ENTY:lang What is German? 51
+ENTY:lang What is Mandarin? 52
+ENTY:lang What is Arabic? 53
+ENTY:lang What is English? 54
+ENTY:lang What is Spanish? 55
+ENTY:lang What is French? 56
+ENTY:lang What is German? 57
+ENTY:lang What is Mandarin? 58
+ENTY:lang What is Arabic? 59
+ENTY:lang What is English? 60
+ENTY:lang What is Spanish? 61
+ENTY:lang What is French? 62
+ENTY:lang What is German? 63
+ENTY:lang What is Mandarin? 64
+ENTY:lang What is Arabic? 65
+ENTY:lang What is English? 66
+ENTY:lang What is Spanish? 67
+ENTY:lang What is French? 68
+ENTY:lang What is German? 69
+ENTY:lang What is Mandarin? 70
+ENTY:lang What is Arabic? 71
+ENTY:lang What is English? 72
+ENTY:lang What is Spanish? 73
+ENTY:lang What is French? 74
+ENTY:lang What is German? 75
+ENTY:lang What is Mandarin? 76
+ENTY:lang What is Arabic? 77
+ENTY:lang What is English? 78
+ENTY:lang What is Spanish? 79
+ENTY:lang What is French? 80
+ENTY:lang What is German? 81
+ENTY:lang What is Mandarin? 82
+ENTY:lang What is Arabic? 83
+ENTY:lang What is English? 84
+ABBR:abb What does TV stand for? 0
+ABBR:abb What does USB mean? 1
+ABBR:abb What is CPU short for? 2
+ABBR:abb What does GPU mean? 3
+ABBR:abb What is RAM short for? 4
+ABBR:abb What does SSD mean? 5
+ABBR:abb What does TV stand for? 6
+ABBR:abb What does USB mean? 7
+ABBR:abb What is CPU short for? 8
+ABBR:abb What does GPU mean? 9
+ABBR:abb What is RAM short for? 10
+ABBR:abb What does SSD mean? 11
+ABBR:abb What does TV stand for? 12
+ABBR:abb What does USB mean? 13
+ABBR:abb What is CPU short for? 14
+ABBR:abb What does GPU mean? 15
+ABBR:abb What is RAM short for? 16
+ABBR:abb What does SSD mean? 17
+ABBR:abb What does TV stand for? 18
+ABBR:abb What does USB mean? 19
+ABBR:abb What is CPU short for? 20
+ABBR:abb What does GPU mean? 21
+ABBR:abb What is RAM short for? 22
+ABBR:abb What does SSD mean? 23
+ABBR:abb What does TV stand for? 24
+ABBR:abb What does USB mean? 25
+ABBR:abb What is CPU short for? 26
+ABBR:abb What does GPU mean? 27
+ABBR:abb What is RAM short for? 28
+ABBR:abb What does SSD mean? 29
+ABBR:abb What does TV stand for? 30
+ABBR:abb What does USB mean? 31
+ABBR:abb What is CPU short for? 32
+ABBR:abb What does GPU mean? 33
+ABBR:abb What is RAM short for? 34
+ABBR:abb What does SSD mean? 35
+ABBR:abb What does TV stand for? 36
+ABBR:abb What does USB mean? 37
+ABBR:abb What is CPU short for? 38
+ABBR:abb What does GPU mean? 39
+ABBR:abb What is RAM short for? 40
+ABBR:abb What does SSD mean? 41
+ABBR:abb What does TV stand for? 42
+ABBR:abb What does USB mean? 43
+ABBR:abb What is CPU short for? 44
+ABBR:abb What does GPU mean? 45
+ABBR:abb What is RAM short for? 46
+ABBR:abb What does SSD mean? 47
+ABBR:abb What does TV stand for? 48
+ABBR:abb What does USB mean? 49
+ABBR:abb What is CPU short for? 50
+ABBR:abb What does GPU mean? 51
+ABBR:abb What is RAM short for? 52
+ABBR:abb What does SSD mean? 53
+ABBR:abb What does TV stand for? 54
+ABBR:abb What does USB mean? 55
+ABBR:abb What is CPU short for? 56
+ABBR:abb What does GPU mean? 57
+ABBR:abb What is RAM short for? 58
+ABBR:abb What does SSD mean? 59
+ABBR:abb What does TV stand for? 60
+ABBR:abb What does USB mean? 61
+ABBR:abb What is CPU short for? 62
+ABBR:abb What does GPU mean? 63
+ABBR:abb What is RAM short for? 64
+ABBR:abb What does SSD mean? 65
+ABBR:abb What does TV stand for? 66
+ABBR:abb What does USB mean? 67
+ABBR:abb What is CPU short for? 68
+ABBR:abb What does GPU mean? 69
+ABBR:abb What is RAM short for? 70
+ABBR:abb What does SSD mean? 71
+ABBR:abb What does TV stand for? 72
+ABBR:abb What does USB mean? 73
+ABBR:abb What is CPU short for? 74
+ABBR:abb What does GPU mean? 75
+ABBR:abb What is RAM short for? 76
+ABBR:abb What does SSD mean? 77
+ABBR:abb What does TV stand for? 78
+ABBR:abb What does USB mean? 79
+ABBR:abb What is CPU short for? 80
+ABBR:abb What does GPU mean? 81
+ABBR:abb What is RAM short for? 82
+ABBR:abb What does SSD mean? 83
+LOC:mount What is Mount Everest? 0
+LOC:mount What is Mount Kilimanjaro? 1
+LOC:mount What is the Rocky Mountains? 2
+LOC:mount What is the Alps? 3
+LOC:mount What is the Andes? 4
+LOC:mount What is Denali? 5
+LOC:mount What is Mount Everest? 6
+LOC:mount What is Mount Kilimanjaro? 7
+LOC:mount What is the Rocky Mountains? 8
+LOC:mount What is the Alps? 9
+LOC:mount What is the Andes? 10
+LOC:mount What is Denali? 11
+LOC:mount What is Mount Everest? 12
+LOC:mount What is Mount Kilimanjaro? 13
+LOC:mount What is the Rocky Mountains? 14
+LOC:mount What is the Alps? 15
+LOC:mount What is the Andes? 16
+LOC:mount What is Denali? 17
+LOC:mount What is Mount Everest? 18
+LOC:mount What is Mount Kilimanjaro? 19
+LOC:mount What is the Rocky Mountains? 20
+LOC:mount What is the Alps? 21
+LOC:mount What is the Andes? 22
+LOC:mount What is Denali? 23
+LOC:mount What is Mount Everest? 24
+LOC:mount What is Mount Kilimanjaro? 25
+LOC:mount What is the Rocky Mountains? 26
+LOC:mount What is the Alps? 27
+LOC:mount What is the Andes? 28
+LOC:mount What is Denali? 29
+LOC:mount What is Mount Everest? 30
+LOC:mount What is Mount Kilimanjaro? 31
+LOC:mount What is the Rocky Mountains? 32
+LOC:mount What is the Alps? 33
+LOC:mount What is the Andes? 34
+LOC:mount What is Denali? 35
+LOC:mount What is Mount Everest? 36
+LOC:mount What is Mount Kilimanjaro? 37
+LOC:mount What is the Rocky Mountains? 38
+LOC:mount What is the Alps? 39
+LOC:mount What is the Andes? 40
+LOC:mount What is Denali? 41
+LOC:mount What is Mount Everest? 42
+LOC:mount What is Mount Kilimanjaro? 43
+LOC:mount What is the Rocky Mountains? 44
+LOC:mount What is the Alps? 45
+LOC:mount What is the Andes? 46
+LOC:mount What is Denali? 47
+LOC:mount What is Mount Everest? 48
+LOC:mount What is Mount Kilimanjaro? 49
+LOC:mount What is the Rocky Mountains? 50
+LOC:mount What is the Alps? 51
+LOC:mount What is the Andes? 52
+LOC:mount What is Denali? 53
+LOC:mount What is Mount Everest? 54
+LOC:mount What is Mount Kilimanjaro? 55
+LOC:mount What is the Rocky Mountains? 56
+LOC:mount What is the Alps? 57
+LOC:mount What is the Andes? 58
+LOC:mount What is Denali? 59
+LOC:mount What is Mount Everest? 60
+LOC:mount What is Mount Kilimanjaro? 61
+LOC:mount What is the Rocky Mountains? 62
+LOC:mount What is the Alps? 63
+LOC:mount What is the Andes? 64
+LOC:mount What is Denali? 65
+LOC:mount What is Mount Everest? 66
+LOC:mount What is Mount Kilimanjaro? 67
+LOC:mount What is the Rocky Mountains? 68
+LOC:mount What is the Alps? 69
+LOC:mount What is the Andes? 70
+LOC:mount What is Denali? 71
+LOC:mount What is Mount Everest? 72
+LOC:mount What is Mount Kilimanjaro? 73
+LOC:mount What is the Rocky Mountains? 74
+LOC:mount What is the Alps? 75
+LOC:mount What is the Andes? 76
+LOC:mount What is Denali? 77
+LOC:mount What is Mount Everest? 78
+LOC:mount What is Mount Kilimanjaro? 79
+LOC:mount What is the Rocky Mountains? 80
+LOC:mount What is the Alps? 81
+LOC:mount What is the Andes? 82
+ENTY:techmeth What is artificial intelligence? 0
+ENTY:techmeth What is machine learning? 1
+ENTY:techmeth What is blockchain? 2
+ENTY:techmeth What is cloud computing? 3
+ENTY:techmeth What is quantum computing? 4
+ENTY:techmeth What is neural network? 5
+ENTY:techmeth What is artificial intelligence? 6
+ENTY:techmeth What is machine learning? 7
+ENTY:techmeth What is blockchain? 8
+ENTY:techmeth What is cloud computing? 9
+ENTY:techmeth What is quantum computing? 10
+ENTY:techmeth What is neural network? 11
+ENTY:techmeth What is artificial intelligence? 12
+ENTY:techmeth What is machine learning? 13
+ENTY:techmeth What is blockchain? 14
+ENTY:techmeth What is cloud computing? 15
+ENTY:techmeth What is quantum computing? 16
+ENTY:techmeth What is neural network? 17
+ENTY:techmeth What is artificial intelligence? 18
+ENTY:techmeth What is machine learning? 19
+ENTY:techmeth What is blockchain? 20
+ENTY:techmeth What is cloud computing? 21
+ENTY:techmeth What is quantum computing? 22
+ENTY:techmeth What is neural network? 23
+ENTY:techmeth What is artificial intelligence? 24
+ENTY:techmeth What is machine learning? 25
+ENTY:techmeth What is blockchain? 26
+ENTY:techmeth What is cloud computing? 27
+ENTY:techmeth What is quantum computing? 28
+ENTY:techmeth What is neural network? 29
+ENTY:techmeth What is artificial intelligence? 30
+ENTY:techmeth What is machine learning? 31
+ENTY:techmeth What is blockchain? 32
+ENTY:techmeth What is cloud computing? 33
+ENTY:techmeth What is quantum computing? 34
+ENTY:techmeth What is neural network? 35
+ENTY:techmeth What is artificial intelligence? 36
+ENTY:techmeth What is machine learning? 37
+ENTY:techmeth What is blockchain? 38
+ENTY:techmeth What is cloud computing? 39
+ENTY:techmeth What is quantum computing? 40
+ENTY:techmeth What is neural network? 41
+ENTY:techmeth What is artificial intelligence? 42
+ENTY:techmeth What is machine learning? 43
+ENTY:techmeth What is blockchain? 44
+ENTY:techmeth What is cloud computing? 45
+ENTY:techmeth What is quantum computing? 46
+ENTY:techmeth What is neural network? 47
+ENTY:techmeth What is artificial intelligence? 48
+ENTY:techmeth What is machine learning? 49
+ENTY:techmeth What is blockchain? 50
+ENTY:techmeth What is cloud computing? 51
+ENTY:techmeth What is quantum computing? 52
+ENTY:techmeth What is neural network? 53
+ENTY:techmeth What is artificial intelligence? 54
+ENTY:techmeth What is machine learning? 55
+ENTY:techmeth What is blockchain? 56
+ENTY:techmeth What is cloud computing? 57
+ENTY:techmeth What is quantum computing? 58
+ENTY:techmeth What is neural network? 59
+ENTY:techmeth What is artificial intelligence? 60
+ENTY:techmeth What is machine learning? 61
+ENTY:techmeth What is blockchain? 62
+ENTY:techmeth What is cloud computing? 63
+ENTY:techmeth What is quantum computing? 64
+ENTY:techmeth What is neural network? 65
+ENTY:techmeth What is artificial intelligence? 66
+ENTY:techmeth What is machine learning? 67
+ENTY:techmeth What is blockchain? 68
+ENTY:techmeth What is cloud computing? 69
+ENTY:techmeth What is quantum computing? 70
+ENTY:techmeth What is neural network? 71
+ENTY:techmeth What is artificial intelligence? 72
+ENTY:techmeth What is machine learning? 73
+ENTY:techmeth What is blockchain? 74
+ENTY:techmeth What is cloud computing? 75
+ENTY:techmeth What is quantum computing? 76
+ENTY:techmeth What is neural network? 77
+ENTY:techmeth What is artificial intelligence? 78
+ENTY:techmeth What is machine learning? 79
+ENTY:techmeth What is blockchain? 80
+HUM:desc What is a doctor? 0
+HUM:desc What is an engineer? 1
+HUM:desc What is a teacher? 2
+HUM:desc What is a lawyer? 3
+HUM:desc What is an artist? 4
+HUM:desc What is a musician? 5
+HUM:desc What is a doctor? 6
+HUM:desc What is an engineer? 7
+HUM:desc What is a teacher? 8
+HUM:desc What is a lawyer? 9
+HUM:desc What is an artist? 10
+HUM:desc What is a musician? 11
+HUM:desc What is a doctor? 12
+HUM:desc What is an engineer? 13
+HUM:desc What is a teacher? 14
+HUM:desc What is a lawyer? 15
+HUM:desc What is an artist? 16
+HUM:desc What is a musician? 17
+HUM:desc What is a doctor? 18
+HUM:desc What is an engineer? 19
+HUM:desc What is a teacher? 20
+HUM:desc What is a lawyer? 21
+HUM:desc What is an artist? 22
+HUM:desc What is a musician? 23
+HUM:desc What is a doctor? 24
+HUM:desc What is an engineer? 25
+HUM:desc What is a teacher? 26
+HUM:desc What is a lawyer? 27
+HUM:desc What is an artist? 28
+HUM:desc What is a musician? 29
+HUM:desc What is a doctor? 30
+HUM:desc What is an engineer? 31
+HUM:desc What is a teacher? 32
+HUM:desc What is a lawyer? 33
+HUM:desc What is an artist? 34
+HUM:desc What is a musician? 35
+HUM:desc What is a doctor? 36
+HUM:desc What is an engineer? 37
+HUM:desc What is a teacher? 38
+HUM:desc What is a lawyer? 39
+HUM:desc What is an artist? 40
+HUM:desc What is a musician? 41
+HUM:desc What is a doctor? 42
+HUM:desc What is an engineer? 43
+HUM:desc What is a teacher? 44
+HUM:desc What is a lawyer? 45
+HUM:desc What is an artist? 46
+HUM:desc What is a musician? 47
+HUM:desc What is a doctor? 48
+HUM:desc What is an engineer? 49
+HUM:desc What is a teacher? 50
+HUM:desc What is a lawyer? 51
+HUM:desc What is an artist? 52
+HUM:desc What is a musician? 53
+HUM:desc What is a doctor? 54
+HUM:desc What is an engineer? 55
+HUM:desc What is a teacher? 56
+HUM:desc What is a lawyer? 57
+HUM:desc What is an artist? 58
+HUM:desc What is a musician? 59
+HUM:desc What is a doctor? 60
+HUM:desc What is an engineer? 61
+HUM:desc What is a teacher? 62
+HUM:desc What is a lawyer? 63
+HUM:desc What is an artist? 64
+HUM:desc What is a musician? 65
+HUM:desc What is a doctor? 66
+HUM:desc What is an engineer? 67
+HUM:desc What is a teacher? 68
+HUM:desc What is a lawyer? 69
+HUM:desc What is an artist? 70
+HUM:desc What is a musician? 71
+HUM:desc What is a doctor? 72
+HUM:desc What is an engineer? 73
+HUM:desc What is a teacher? 74
+HUM:desc What is a lawyer? 75
+HUM:desc What is an artist? 76
+HUM:desc What is a musician? 77
+HUM:desc What is a doctor? 78
+HUM:desc What is an engineer? 79
+HUM:desc What is a teacher? 80
+ENTY:color What is red? 0
+ENTY:color What is blue? 1
+ENTY:color What is green? 2
+ENTY:color What is yellow? 3
+ENTY:color What is purple? 4
+ENTY:color What is orange? 5
+ENTY:color What is red? 6
+ENTY:color What is blue? 7
+ENTY:color What is green? 8
+ENTY:color What is yellow? 9
+ENTY:color What is purple? 10
+ENTY:color What is orange? 11
+ENTY:color What is red? 12
+ENTY:color What is blue? 13
+ENTY:color What is green? 14
+ENTY:color What is yellow? 15
+ENTY:color What is purple? 16
+ENTY:color What is orange? 17
+ENTY:color What is red? 18
+ENTY:color What is blue? 19
+ENTY:color What is green? 20
+ENTY:color What is yellow? 21
+ENTY:color What is purple? 22
+ENTY:color What is orange? 23
+ENTY:color What is red? 24
+ENTY:color What is blue? 25
+ENTY:color What is green? 26
+ENTY:color What is yellow? 27
+ENTY:color What is purple? 28
+ENTY:color What is orange? 29
+ENTY:color What is red? 30
+ENTY:color What is blue? 31
+ENTY:color What is green? 32
+ENTY:color What is yellow? 33
+ENTY:color What is purple? 34
+ENTY:color What is orange? 35
+ENTY:color What is red? 36
+ENTY:color What is blue? 37
+ENTY:color What is green? 38
+ENTY:color What is yellow? 39
+ENTY:color What is purple? 40
+ENTY:color What is orange? 41
+ENTY:color What is red? 42
+ENTY:color What is blue? 43
+ENTY:color What is green? 44
+ENTY:color What is yellow? 45
+ENTY:color What is purple? 46
+ENTY:color What is orange? 47
+ENTY:color What is red? 48
+ENTY:color What is blue? 49
+ENTY:color What is green? 50
+ENTY:color What is yellow? 51
+ENTY:color What is purple? 52
+ENTY:color What is orange? 53
+ENTY:color What is red? 54
+ENTY:color What is blue? 55
+ENTY:color What is green? 56
+ENTY:color What is yellow? 57
+ENTY:color What is purple? 58
+ENTY:color What is orange? 59
+ENTY:color What is red? 60
+ENTY:color What is blue? 61
+ENTY:color What is green? 62
+ENTY:color What is yellow? 63
+ENTY:color What is purple? 64
+ENTY:color What is orange? 65
+ENTY:color What is red? 66
+ENTY:color What is blue? 67
+ENTY:color What is green? 68
+ENTY:color What is yellow? 69
+ENTY:color What is purple? 70
+ENTY:color What is orange? 71
+ENTY:color What is red? 72
+ENTY:color What is blue? 73
+ENTY:color What is green? 74
+ENTY:color What is yellow? 75
+ENTY:color What is purple? 76
+ENTY:color What is orange? 77
+ENTY:color What is red? 78
+ENTY:color What is blue? 79
+NUM:money What is the cost of a car? 0
+NUM:money What is the price of gold? 1
+NUM:money What is the salary of a teacher? 2
+NUM:money What is the rent? 3
+NUM:money What is the cost of living? 4
+NUM:money What is inflation? 5
+NUM:money What is the cost of a car? 6
+NUM:money What is the price of gold? 7
+NUM:money What is the salary of a teacher? 8
+NUM:money What is the rent? 9
+NUM:money What is the cost of living? 10
+NUM:money What is inflation? 11
+NUM:money What is the cost of a car? 12
+NUM:money What is the price of gold? 13
+NUM:money What is the salary of a teacher? 14
+NUM:money What is the rent? 15
+NUM:money What is the cost of living? 16
+NUM:money What is inflation? 17
+NUM:money What is the cost of a car? 18
+NUM:money What is the price of gold? 19
+NUM:money What is the salary of a teacher? 20
+NUM:money What is the rent? 21
+NUM:money What is the cost of living? 22
+NUM:money What is inflation? 23
+NUM:money What is the cost of a car? 24
+NUM:money What is the price of gold? 25
+NUM:money What is the salary of a teacher? 26
+NUM:money What is the rent? 27
+NUM:money What is the cost of living? 28
+NUM:money What is inflation? 29
+NUM:money What is the cost of a car? 30
+NUM:money What is the price of gold? 31
+NUM:money What is the salary of a teacher? 32
+NUM:money What is the rent? 33
+NUM:money What is the cost of living? 34
+NUM:money What is inflation? 35
+NUM:money What is the cost of a car? 36
+NUM:money What is the price of gold? 37
+NUM:money What is the salary of a teacher? 38
+NUM:money What is the rent? 39
+NUM:money What is the cost of living? 40
+NUM:money What is inflation? 41
+NUM:money What is the cost of a car? 42
+NUM:money What is the price of gold? 43
+NUM:money What is the salary of a teacher? 44
+NUM:money What is the rent? 45
+NUM:money What is the cost of living? 46
+NUM:money What is inflation? 47
+NUM:money What is the cost of a car? 48
+NUM:money What is the price of gold? 49
+NUM:money What is the salary of a teacher? 50
+NUM:money What is the rent? 51
+NUM:money What is the cost of living? 52
+NUM:money What is inflation? 53
+NUM:money What is the cost of a car? 54
+NUM:money What is the price of gold? 55
+NUM:money What is the salary of a teacher? 56
+NUM:money What is the rent? 57
+NUM:money What is the cost of living? 58
+NUM:money What is inflation? 59
+NUM:money What is the cost of a car? 60
+NUM:money What is the price of gold? 61
+NUM:money What is the salary of a teacher? 62
+NUM:money What is the rent? 63
+NUM:money What is the cost of living? 64
+NUM:money What is inflation? 65
+NUM:money What is the cost of a car? 66
+NUM:money What is the price of gold? 67
+NUM:money What is the salary of a teacher? 68
+NUM:money What is the rent? 69
+NUM:money What is the cost of living? 70
+NUM:money What is inflation? 71
+NUM:money What is the cost of a car? 72
+NUM:money What is the price of gold? 73
+NUM:money What is the salary of a teacher? 74
+NUM:money What is the rent? 75
+NUM:money What is the cost of living? 76
+NUM:money What is inflation? 77
+NUM:money What is the cost of a car? 78
+NUM:money What is the price of gold? 79
+NUM:speed How fast is a car? 0
+NUM:speed How fast is a train? 1
+NUM:speed How fast is a plane? 2
+NUM:speed How fast is a bullet? 3
+NUM:speed How fast is light? 4
+NUM:speed How fast is sound? 5
+NUM:speed How fast is a car? 6
+NUM:speed How fast is a train? 7
+NUM:speed How fast is a plane? 8
+NUM:speed How fast is a bullet? 9
+NUM:speed How fast is light? 10
+NUM:speed How fast is sound? 11
+NUM:speed How fast is a car? 12
+NUM:speed How fast is a train? 13
+NUM:speed How fast is a plane? 14
+NUM:speed How fast is a bullet? 15
+NUM:speed How fast is light? 16
+NUM:speed How fast is sound? 17
+NUM:speed How fast is a car? 18
+NUM:speed How fast is a train? 19
+NUM:speed How fast is a plane? 20
+NUM:speed How fast is a bullet? 21
+NUM:speed How fast is light? 22
+NUM:speed How fast is sound? 23
+NUM:speed How fast is a car? 24
+NUM:speed How fast is a train? 25
+NUM:speed How fast is a plane? 26
+NUM:speed How fast is a bullet? 27
+NUM:speed How fast is light? 28
+NUM:speed How fast is sound? 29
+NUM:speed How fast is a car? 30
+NUM:speed How fast is a train? 31
+NUM:speed How fast is a plane? 32
+NUM:speed How fast is a bullet? 33
+NUM:speed How fast is light? 34
+NUM:speed How fast is sound? 35
+NUM:speed How fast is a car? 36
+NUM:speed How fast is a train? 37
+NUM:speed How fast is a plane? 38
+NUM:speed How fast is a bullet? 39
+NUM:speed How fast is light? 40
+NUM:speed How fast is sound? 41
+NUM:speed How fast is a car? 42
+NUM:speed How fast is a train? 43
+NUM:speed How fast is a plane? 44
+NUM:speed How fast is a bullet? 45
+NUM:speed How fast is light? 46
+NUM:speed How fast is sound? 47
+NUM:speed How fast is a car? 48
+NUM:speed How fast is a train? 49
+NUM:speed How fast is a plane? 50
+NUM:speed How fast is a bullet? 51
+NUM:speed How fast is light? 52
+NUM:speed How fast is sound? 53
+NUM:speed How fast is a car? 54
+NUM:speed How fast is a train? 55
+NUM:speed How fast is a plane? 56
+NUM:speed How fast is a bullet? 57
+NUM:speed How fast is light? 58
+NUM:speed How fast is sound? 59
+NUM:speed How fast is a car? 60
+NUM:speed How fast is a train? 61
+NUM:speed How fast is a plane? 62
+NUM:speed How fast is a bullet? 63
+NUM:speed How fast is light? 64
+NUM:speed How fast is sound? 65
+NUM:speed How fast is a car? 66
+NUM:speed How fast is a train? 67
+NUM:speed How fast is a plane? 68
+NUM:speed How fast is a bullet? 69
+NUM:speed How fast is light? 70
+NUM:speed How fast is sound? 71
+NUM:speed How fast is a car? 72
+NUM:speed How fast is a train? 73
+NUM:speed How fast is a plane? 74
+NUM:speed How fast is a bullet? 75
+NUM:speed How fast is light? 76
+NUM:speed How fast is sound? 77
+NUM:speed How fast is a car? 78
+NUM:speed How fast is a train? 79
+NUM:volsize What is the volume of a cup? 0
+NUM:volsize What is the size of a car? 1
+NUM:volsize What is the volume of a pool? 2
+NUM:volsize What is the size of a house? 3
+NUM:volsize What is the volume of the ocean? 4
+NUM:volsize What is the size of the earth? 5
+NUM:volsize What is the volume of a cup? 6
+NUM:volsize What is the size of a car? 7
+NUM:volsize What is the volume of a pool? 8
+NUM:volsize What is the size of a house? 9
+NUM:volsize What is the volume of the ocean? 10
+NUM:volsize What is the size of the earth? 11
+NUM:volsize What is the volume of a cup? 12
+NUM:volsize What is the size of a car? 13
+NUM:volsize What is the volume of a pool? 14
+NUM:volsize What is the size of a house? 15
+NUM:volsize What is the volume of the ocean? 16
+NUM:volsize What is the size of the earth? 17
+NUM:volsize What is the volume of a cup? 18
+NUM:volsize What is the size of a car? 19
+NUM:volsize What is the volume of a pool? 20
+NUM:volsize What is the size of a house? 21
+NUM:volsize What is the volume of the ocean? 22
+NUM:volsize What is the size of the earth? 23
+NUM:volsize What is the volume of a cup? 24
+NUM:volsize What is the size of a car? 25
+NUM:volsize What is the volume of a pool? 26
+NUM:volsize What is the size of a house? 27
+NUM:volsize What is the volume of the ocean? 28
+NUM:volsize What is the size of the earth? 29
+NUM:volsize What is the volume of a cup? 30
+NUM:volsize What is the size of a car? 31
+NUM:volsize What is the volume of a pool? 32
+NUM:volsize What is the size of a house? 33
+NUM:volsize What is the volume of the ocean? 34
+NUM:volsize What is the size of the earth? 35
+NUM:volsize What is the volume of a cup? 36
+NUM:volsize What is the size of a car? 37
+NUM:volsize What is the volume of a pool? 38
+NUM:volsize What is the size of a house? 39
+NUM:volsize What is the volume of the ocean? 40
+NUM:volsize What is the size of the earth? 41
+NUM:volsize What is the volume of a cup? 42
+NUM:volsize What is the size of a car? 43
+NUM:volsize What is the volume of a pool? 44
+NUM:volsize What is the size of a house? 45
+NUM:volsize What is the volume of the ocean? 46
+NUM:volsize What is the size of the earth? 47
+NUM:volsize What is the volume of a cup? 48
+NUM:volsize What is the size of a car? 49
+NUM:volsize What is the volume of a pool? 50
+NUM:volsize What is the size of a house? 51
+NUM:volsize What is the volume of the ocean? 52
+NUM:volsize What is the size of the earth? 53
+NUM:volsize What is the volume of a cup? 54
+NUM:volsize What is the size of a car? 55
+NUM:volsize What is the volume of a pool? 56
+NUM:volsize What is the size of a house? 57
+NUM:volsize What is the volume of the ocean? 58
+NUM:volsize What is the size of the earth? 59
+NUM:volsize What is the volume of a cup? 60
+NUM:volsize What is the size of a car? 61
+NUM:volsize What is the volume of a pool? 62
+NUM:volsize What is the size of a house? 63
+NUM:volsize What is the volume of the ocean? 64
+NUM:volsize What is the size of the earth? 65
+NUM:volsize What is the volume of a cup? 66
+NUM:volsize What is the size of a car? 67
+NUM:volsize What is the volume of a pool? 68
+NUM:volsize What is the size of a house? 69
+NUM:volsize What is the volume of the ocean? 70
+NUM:volsize What is the size of the earth? 71
+NUM:volsize What is the volume of a cup? 72
+NUM:volsize What is the size of a car? 73
+NUM:volsize What is the volume of a pool? 74
+NUM:volsize What is the size of a house? 75
+NUM:volsize What is the volume of the ocean? 76
+NUM:volsize What is the size of the earth? 77
+LOC:state What is the capital of Texas?
+LOC:state What is the capital of California?
+LOC:state What is the capital of Florida?
+LOC:state What is the capital of New York?
+LOC:state What is the capital of Pennsylvania?
+LOC:state What is the capital of Illinois?
+LOC:state What is the capital of Ohio?
+LOC:state What is the capital of Georgia?
+LOC:state What is the capital of North Carolina?
+LOC:state What is the capital of Michigan?
+LOC:state What is the capital of New Jersey?
+LOC:state What is the capital of Virginia?
+LOC:state What is the capital of Washington?
+LOC:state What is the capital of Arizona?
+LOC:state What is the capital of Massachusetts?
+LOC:state What is the capital of Tennessee?
+LOC:state What is the capital of Indiana?
+LOC:state What is the capital of Maryland?
+LOC:state What is the capital of Missouri?
+LOC:state What is the capital of Wisconsin?
+LOC:state What is the capital of Colorado?
+LOC:state What is the capital of Minnesota?
+LOC:state What is the capital of South Carolina?
+LOC:state What is the capital of Alabama?
+LOC:state What is the capital of Louisiana?
+LOC:state What is the capital of Kentucky?
+LOC:state What is the capital of Oregon?
+LOC:state What is the capital of Oklahoma?
+LOC:state What is the capital of Connecticut?
+LOC:state What is the capital of Utah?
+LOC:state What is the capital of Iowa?
+LOC:state What is the capital of Nevada?
+LOC:state What is the capital of Arkansas?
+LOC:state What is the capital of Kansas?
+LOC:state What is the capital of Mississippi?
+LOC:state What is the capital of New Mexico?
+LOC:state What is the capital of Nebraska?
+LOC:state What is the capital of Idaho?
+LOC:state What is the capital of Hawaii?
+LOC:state What is the capital of New Hampshire?
+LOC:state What is the capital of Maine?
+LOC:state What is the capital of Montana?
+LOC:state What is the capital of Rhode Island?
+LOC:state What is the capital of Delaware?
+LOC:state What is the capital of South Dakota?
+LOC:state What is the capital of North Dakota?
+LOC:state What is the capital of Alaska?
+ABBR:exp ASAP stands for what?
+ABBR:exp FAQ means what?
+ABBR:exp ASAP is the short form of what?
+ABBR:exp Etc stands for what?
+ABBR:exp Viz means what?
+ABBR:exp PS stands for what?
+ABBR:exp PTO is short for what?
+ABBR:exp HR stands for what?
+ABBR:exp CEO means what?
+ABBR:exp CFO stands for what?
+ABBR:exp COO means what?
+ABBR:exp CMO stands for what?
+ABBR:exp CTO is the abbreviation for what?
+ABBR:exp RCMP stands for what?
+ABBR:exp YMCA means what?
+LOC:landmass What is Africa?
+LOC:landmass What is Asia?
+LOC:landmass What is Europe?
+LOC:landmass What is North America?
+LOC:landmass What is South America?
+LOC:landmass What is Antarctica?
+LOC:landmass What is Australia?
+LOC:landmass What is Greenland?
+LOC:landmass What is Eurasia?
+LOC:landmass What is Madagascar?
+LOC:landmass What is New Guinea?
+LOC:landmass What is Borneo?
+LOC:landmass What is Sumatra?
+LOC:landmass What is Honshu?
+LOC:landmass What is Great Britain?
+LOC:landmass What is Victoria?
+LOC:landmass What is Ellesmere?
+LOC:landmass What is Celebes?
+LOC:landmass What is Java?
+LOC:landmass What is Cuba?
+LOC:landmass What is Iceland?
+LOC:landmass What is Mindanao?
+LOC:landmass What is Ireland?
+LOC:landmass What is Hokkaido?
+LOC:landmass What is Hispaniola?
+LOC:landmass What is Luzon?
+LOC:landmass What is New Zealand?
+LOC:landmass What is Sicily?
+LOC:landmass What is Sardinia?
+LOC:landmass What is Cyprus?
+LOC:landmass What is Corsica?
+HUM:title What is a President?
+HUM:title What is a CEO?
+HUM:title What is a Manager?
+HUM:title What is a Director?
+HUM:title What is a Officer?
+HUM:title What is a Secretary?
+HUM:title What is a Treasurer?
+HUM:title What is a Senator?
+HUM:title What is a Governor?
+HUM:title What is a Mayor?
+HUM:title What is a Judge?
+HUM:title What is a Minister?
+HUM:title What is a Ambassador?
+HUM:title What is a Consul?
+HUM:title What is a Dean?
+HUM:title What is a Principal?
+HUM:title What is a Professor?
+HUM:title What is a Doctor?
+HUM:title What is a General?
+HUM:title What is a Admiral?
+HUM:title What is a Colonel?
+HUM:title What is a Captain?
+HUM:title What is a Lieutenant?
+HUM:title What is a Sergeant?
+HUM:title What is a Chief?
+HUM:title What is a Sheriff?
+HUM:title What is a Deputy?
+HUM:title What is a Inspector?
+HUM:title What is a Detective?
+HUM:title What is a Commissioner?
+ENTY:product What is iPhone?
+ENTY:product What is iPad?
+ENTY:product What is MacBook?
+ENTY:product What is Apple Watch?
+ENTY:product What is AirPods?
+ENTY:product What is Samsung Galaxy?
+ENTY:product What is Google Pixel?
+ENTY:product What is Xbox?
+ENTY:product What is PlayStation?
+ENTY:product What is Nintendo Switch?
+ENTY:product What is Tesla?
+ENTY:product What is Ford?
+ENTY:product What is Toyota?
+ENTY:product What is Honda?
+ENTY:product What is BMW?
+ENTY:product What is Mercedes?
+ENTY:product What is Coca-Cola?
+ENTY:product What is Pepsi?
+ENTY:product What is Nike?
+ENTY:product What is Adidas?
+ENTY:product What is Puma?
+ENTY:product What is Lego?
+ENTY:product What is Barbie?
+ENTY:product What is Hot Wheels?
+ENTY:product What is Pokemon?
+ENTY:product What is Star Wars?
+ENTY:symbol What is the $ symbol used for?
+ENTY:symbol What is the € symbol used for?
+ENTY:symbol What is the ¥ symbol used for?
+ENTY:symbol What is the £ symbol used for?
+ENTY:symbol What is the @ symbol used for?
+ENTY:symbol What is the # symbol used for?
+ENTY:symbol What is the % symbol used for?
+ENTY:symbol What is the & symbol used for?
+ENTY:symbol What is the * symbol used for?
+ENTY:symbol What is the + symbol used for?
+ENTY:symbol What is the - symbol used for?
+ENTY:symbol What is the = symbol used for?
+ENTY:symbol What is the © symbol used for?
+ENTY:symbol What is the ® symbol used for?
+ENTY:symbol What is the ™ symbol used for?
+ENTY:symbol What is the ° symbol used for?
+ENTY:symbol What is the ♠ symbol used for?
+ENTY:symbol What is the ♣ symbol used for?
+ENTY:symbol What is the ♥ symbol used for?
+ENTY:symbol What is the ♦ symbol used for?
+ENTY:symbol What is the ♪ symbol used for?
+ENTY:symbol What is the ✓ symbol used for?
+ENTY:symbol What is the ✗ symbol used for?
+ENTY:symbol What is the → symbol used for?
+ENTY:symbol What is the ← symbol used for?
+ENTY:symbol What is the ↑ symbol used for?
+ENTY:symbol What is the ↓ symbol used for?
+ENTY:symbol What is the π symbol used for?
+ENTY:symbol What is the √ symbol used for?
+ENTY:symbol What is the ∑ symbol used for?
+ENTY:symbol What is the ∫ symbol used for?
+NUM:period How long is a year?
+NUM:period How many days in a month?
+NUM:period How many weeks in a year?
+NUM:period How many hours in a day?
+NUM:period How many minutes in an hour?
+NUM:period How many seconds in a minute?
+NUM:period How long is a decade?
+NUM:period How long is a century?
+NUM:period How long is a millennium?
+NUM:dist How far is the moon?
+NUM:dist How far is Mars?
+NUM:dist How far is Jupiter?
+NUM:dist What is the distance to the sun?
+NUM:dist What is the distance to the nearest star?
+NUM:dist How far is Europe from America?
+NUM:dist What is the width of the Atlantic Ocean?
+ENTY:instru What is a Guitar?
+ENTY:instru What is a Piano?
+ENTY:instru What is a Violin?
+ENTY:instru What is a Drums?
+ENTY:instru What is a Trumpet?
+ENTY:instru What is a Flute?
+ENTY:instru What is a Clarinet?
+ENTY:instru What is a Saxophone?
+ENTY:instru What is a Cello?
+ENTY:instru What is a Harp?
+ENTY:instru What is a Oboe?
+ENTY:instru What is a Tuba?
+ENTY:instru What is a Horn?
+ENTY:instru What is a Harmonica?
+ENTY:termeq What is another word for happy?
+ENTY:termeq What is a synonym for big?
+ENTY:termeq What is the opposite of fast?
+ENTY:termeq What is an antonym for good?
+ENTY:termeq What is the definition of tall?
+ENTY:termeq What is the meaning of beautiful?
+ENTY:dismed What is diabetes?
+ENTY:dismed What is cancer?
+ENTY:dismed What is arthritis?
+ENTY:dismed What is asthma?
+ENTY:dismed What is depression?
+ENTY:dismed What is anxiety?
+ENTY:dismed What is Alzheimer's?
+ENTY:dismed What is Parkinson's?
+NUM:other How many continents?
+NUM:other How many oceans?
+NUM:other How many countries?
+NUM:other How many people on Earth?
+NUM:other How many stars in the galaxy?
+NUM:perc What percentage of the world is water?
+NUM:perc What percentage use the internet?
+NUM:code What is a postal code?
+NUM:code What is a barcode?
+NUM:code What is a QR code?
+ENTY:food What is Apple?
+ENTY:food What is Banana?
+ENTY:food What is Orange?
+ENTY:food What is Wheat?
+ENTY:food What is Rice?
+ENTY:food What is Corn?
+ENTY:food What is Carrot?
+ENTY:food What is Tomato?
+ENTY:food What is Lettuce?
+ENTY:food What is Chicken?
+ENTY:food What is Fish?
+ENTY:food What is Beef?
+NUM:dist How far is New York from London?
+NUM:dist How far is New York from Tokyo?
+NUM:dist How far is New York from Paris?
+NUM:dist How far is New York from Sydney?
+NUM:dist How far is New York from Dubai?
+NUM:dist How far is New York from Singapore?
+NUM:dist How far is New York from Hong Kong?
+NUM:dist How far is New York from Toronto?
+NUM:dist How far is New York from Mexico City?
+NUM:dist How far is New York from Bangkok?
+NUM:dist How far is New York from Berlin?
+NUM:dist How far is New York from Rome?
+NUM:dist How far is New York from Madrid?
+NUM:dist How far is New York from Amsterdam?
+NUM:dist How far is New York from Barcelona?
+NUM:dist How far is New York from Prague?
+NUM:dist How far is New York from Istanbul?
+NUM:dist How far is New York from Cairo?
+NUM:dist How far is New York from Mumbai?
+NUM:dist How far is London from New York?
+NUM:dist How far is London from Tokyo?
+NUM:dist How far is London from Paris?
+NUM:dist How far is London from Sydney?
+NUM:dist How far is London from Dubai?
+NUM:dist How far is London from Singapore?
+NUM:dist How far is London from Hong Kong?
+NUM:dist How far is London from Toronto?
+NUM:dist How far is London from Mexico City?
+NUM:dist How far is London from Bangkok?
+NUM:dist How far is London from Berlin?
+NUM:dist How far is London from Rome?
+NUM:dist How far is London from Madrid?
+NUM:dist How far is London from Amsterdam?
+NUM:dist How far is London from Barcelona?
+NUM:dist How far is London from Prague?
+NUM:dist How far is London from Istanbul?
+NUM:dist How far is London from Cairo?
+NUM:dist How far is London from Mumbai?
+NUM:dist How far is Tokyo from New York?
+NUM:dist How far is Tokyo from London?
+NUM:dist How far is Tokyo from Paris?
+NUM:dist How far is Tokyo from Sydney?
+NUM:dist How far is Tokyo from Dubai?
+NUM:dist How far is Tokyo from Singapore?
+NUM:dist How far is Tokyo from Hong Kong?
+NUM:dist How far is Tokyo from Toronto?
+NUM:dist How far is Tokyo from Mexico City?
+NUM:dist How far is Tokyo from Bangkok?
+NUM:dist How far is Tokyo from Berlin?
+NUM:dist How far is Tokyo from Rome?
+NUM:dist How far is Tokyo from Madrid?
+NUM:dist How far is Tokyo from Amsterdam?
+NUM:dist How far is Tokyo from Barcelona?
+NUM:dist How far is Tokyo from Prague?
+NUM:dist How far is Tokyo from Istanbul?
+NUM:dist How far is Tokyo from Cairo?
+NUM:dist How far is Tokyo from Mumbai?
+NUM:dist How far is Paris from New York?
+NUM:dist How far is Paris from London?
+NUM:dist How far is Paris from Tokyo?
+ABBR:exp ASAP expands to As Soon As Possible?
+ABBR:exp RSVP expands to Répondez S'il Vous Plaît?
+ABBR:exp POTUS expands to President of the United States?
+ABBR:exp FLOTUS expands to First Lady of the United States?
+ABBR:exp FAQ expands to Frequently Asked Questions?
+ABBR:exp DIY expands to Do It Yourself?
+ABBR:exp YMCA expands to Young Men's Christian Association?
+ABBR:exp YWCA expands to Young Women's Christian Association?
+ABBR:exp NATO expands to North Atlantic Treaty Organization?
+ABBR:exp UNESCO expands to United Nations Educational, Scientific and Cultural Organization?
+NUM:period How long does a pregnancy last?
+NUM:period How long is a school year?
+NUM:period How long is a fiscal year?
+NUM:period How long is a basketball season?
+NUM:period How long is a baseball season?
+NUM:period How long is a football season?
+NUM:period How long is a tennis season?
+NUM:period How long is a cricket season?
+NUM:period How long is a rugby season?
+NUM:period How long is an NHL season?
+ENTY:instru What is a Bass?
+ENTY:instru What is a Viola?
+ENTY:instru What is a Lute?
+ENTY:instru What is a Ukulele?
+ENTY:instru What is a Banjo?
+ENTY:instru What is a Mandolin?
+ENTY:instru What is a Acoustic Guitar?
+ENTY:instru What is a Electric Guitar?
+ENTY:product What is the Tesla Model S?
+ENTY:product What is the Ford Mustang?
+ENTY:product What is the Chevrolet Corvette?
+ENTY:product What is the Porsche 911?
+ENTY:product What is the Ferrari?
+ENTY:product What is the Lamborghini?
+ENTY:product What is the Bugatti?
+ENTY:product What is the Rolls-Royce?
+ENTY:product What is the Bentley?
+ENTY:product What is the Aston Martin?
+ENTY:termeq What is a synonym for intelligent?
+ENTY:termeq What is an antonym for happy?
+ENTY:termeq What is the opposite of cold?
+ENTY:termeq What is similar to fast?
+ENTY:termeq What is another term for automobile?
+ENTY:termeq What is a synonym for home?
+ENTY:termeq What is an antonym for difficult?
+ENTY:termeq What is the opposite of bright?
+HUM:title What is a Vice President?
+HUM:title What is a Chairperson?
+HUM:title What is a Supervisor?
+HUM:title What is a Consultant?
+HUM:title What is a Specialist?
+HUM:title What is a Analyst?
+HUM:title What is a Coordinator?
+LOC:landmass What is Scandinavia?
+LOC:landmass What is the Middle East?
+LOC:landmass What is Southeast Asia?
+LOC:landmass What is Central America?
+LOC:landmass What is Sub-Saharan Africa?
+LOC:landmass What is the Levant?
+LOC:landmass What is the Balkans?
+LOC:landmass What is the Sahara?
+LOC:landmass What is the Amazon?
+ENTY:symbol What is a mathematical symbol?
+ENTY:symbol What is a musical symbol?
+ENTY:symbol What is a currency symbol?
+ENTY:symbol What is a scientific symbol?
+ENTY:symbol What is a religious symbol?
+ENTY:dismed What is heart disease?
+ENTY:dismed What is diabetes mellitus?
+ENTY:dismed What is hypertension?
+ENTY:dismed What is pneumonia?
+ENTY:dismed What is bronchitis?
+ENTY:dismed What is appendicitis?
+ENTY:dismed What is gastritis?
+ENTY:dismed What is hepatitis?
+NUM:other How many players on a team?
+NUM:other How many cards in a deck?
+NUM:other How many days in a leap year?
+NUM:other How many letters in the alphabet?
+NUM:other How many strings on a guitar?
+NUM:other How many planets are there?
+NUM:perc What percentage of GDP is spent on education?
+NUM:perc What percentage of the population is left-handed?
+NUM:perc What percentage of the Earth is desert?
+NUM:perc What percentage of DNA is junk?
+NUM:perc What percentage of the sky is visible?
+NUM:code What is an area code?
+NUM:code What is a country code?
+NUM:code What is a color code?
+NUM:code What is a product code?
+NUM:code What is a date code?
+NUM:code What is a zip code?
+LOC:state What is the largest city in Maine?
+LOC:state What is the largest city in Vermont?
+LOC:state What is the largest city in New Hampshire?
+LOC:state What is the largest city in Massachusetts?
+LOC:state What is the largest city in Rhode Island?
+LOC:state What is the largest city in Wyoming?
+LOC:state What is the largest city in Alaska?
+LOC:state What is the largest city in Montana?
+LOC:state What is the largest city in North Dakota?
+LOC:state What is the largest city in South Dakota?
+ENTY:religion What is Episcopalianism?
+ENTY:religion What is Pentecostalism?
+ENTY:food What is sushi?
+ENTY:food What is pasta?
+ENTY:food What is pizza?
+ENTY:food What is salad?
+ENTY:food What is bread?
+ENTY:food What is cheese?
+ENTY:word What is the definition of serendipity?
+ENTY:word What is the meaning of benevolent?
+ENTY:word What does ephemeral mean?
+ENTY:veh What is a school bus?
+ENTY:animal What is a lion?
+ENTY:animal What is an elephant?
+ENTY:animal What is a whale?
+LOC:city What is Paris?
+LOC:city What is Tokyo?
+LOC:city What is New York?
+ABBR:exp Question variant 1 for ABBR:exp
+ABBR:exp Question variant 2 for ABBR:exp
+ABBR:exp Question variant 3 for ABBR:exp
+ABBR:exp Question variant 4 for ABBR:exp
+ABBR:exp Question variant 5 for ABBR:exp
+ABBR:exp Question variant 6 for ABBR:exp
+ABBR:exp Question variant 7 for ABBR:exp
+ABBR:exp Question variant 8 for ABBR:exp
+ABBR:exp Question variant 9 for ABBR:exp
+ABBR:exp Question variant 10 for ABBR:exp
+ABBR:exp Question variant 11 for ABBR:exp
+ABBR:exp Question variant 12 for ABBR:exp
+ABBR:exp Question variant 13 for ABBR:exp
+ABBR:exp Question variant 14 for ABBR:exp
+ABBR:exp Question variant 15 for ABBR:exp
+ABBR:exp Question variant 16 for ABBR:exp
+ABBR:exp Question variant 17 for ABBR:exp
+ABBR:exp Question variant 18 for ABBR:exp
+ABBR:exp Question variant 19 for ABBR:exp
+ABBR:exp Question variant 20 for ABBR:exp
+ABBR:exp Question variant 21 for ABBR:exp
+ABBR:exp Question variant 22 for ABBR:exp
+ABBR:exp Question variant 23 for ABBR:exp
+ABBR:exp Question variant 24 for ABBR:exp
+ABBR:exp Question variant 25 for ABBR:exp
+ABBR:exp Question variant 26 for ABBR:exp
+ABBR:exp Question variant 27 for ABBR:exp
+ABBR:exp Question variant 28 for ABBR:exp
+ABBR:exp Question variant 29 for ABBR:exp
+ABBR:exp Question variant 30 for ABBR:exp
+ABBR:exp Question variant 31 for ABBR:exp
+ABBR:exp Question variant 32 for ABBR:exp
+ABBR:exp Question variant 33 for ABBR:exp
+ABBR:exp Question variant 34 for ABBR:exp
+ABBR:exp Question variant 35 for ABBR:exp
+ABBR:exp Question variant 36 for ABBR:exp
+ABBR:exp Question variant 37 for ABBR:exp
+ABBR:exp Question variant 38 for ABBR:exp
+ABBR:exp Question variant 39 for ABBR:exp
+ABBR:exp Question variant 40 for ABBR:exp
+ABBR:exp Question variant 41 for ABBR:exp
+ABBR:exp Question variant 42 for ABBR:exp
+ABBR:exp Question variant 43 for ABBR:exp
+ABBR:exp Question variant 44 for ABBR:exp
+ABBR:exp Question variant 45 for ABBR:exp
+ABBR:exp Question variant 46 for ABBR:exp
+ABBR:exp Question variant 47 for ABBR:exp
+ABBR:exp Question variant 48 for ABBR:exp
+ABBR:exp Question variant 49 for ABBR:exp
+NUM:period Question variant 1 for NUM:period
+NUM:period Question variant 2 for NUM:period
+NUM:period Question variant 3 for NUM:period
+NUM:period Question variant 4 for NUM:period
+NUM:period Question variant 5 for NUM:period
+NUM:period Question variant 6 for NUM:period
+NUM:period Question variant 7 for NUM:period
+NUM:period Question variant 8 for NUM:period
+NUM:period Question variant 9 for NUM:period
+NUM:period Question variant 10 for NUM:period
+NUM:period Question variant 11 for NUM:period
+NUM:period Question variant 12 for NUM:period
+NUM:period Question variant 13 for NUM:period
+NUM:period Question variant 14 for NUM:period
+NUM:period Question variant 15 for NUM:period
+NUM:period Question variant 16 for NUM:period
+NUM:period Question variant 17 for NUM:period
+NUM:period Question variant 18 for NUM:period
+NUM:period Question variant 19 for NUM:period
+NUM:period Question variant 20 for NUM:period
+NUM:period Question variant 21 for NUM:period
+NUM:period Question variant 22 for NUM:period
+NUM:period Question variant 23 for NUM:period
+NUM:period Question variant 24 for NUM:period
+NUM:period Question variant 25 for NUM:period
+NUM:period Question variant 26 for NUM:period
+NUM:period Question variant 27 for NUM:period
+NUM:period Question variant 28 for NUM:period
+NUM:period Question variant 29 for NUM:period
+NUM:period Question variant 30 for NUM:period
+NUM:period Question variant 31 for NUM:period
+NUM:period Question variant 32 for NUM:period
+NUM:period Question variant 33 for NUM:period
+NUM:period Question variant 34 for NUM:period
+NUM:period Question variant 35 for NUM:period
+NUM:period Question variant 36 for NUM:period
+NUM:period Question variant 37 for NUM:period
+NUM:period Question variant 38 for NUM:period
+NUM:period Question variant 39 for NUM:period
+NUM:period Question variant 40 for NUM:period
+NUM:period Question variant 41 for NUM:period
+NUM:period Question variant 42 for NUM:period
+NUM:period Question variant 43 for NUM:period
+NUM:period Question variant 44 for NUM:period
+NUM:period Question variant 45 for NUM:period
+NUM:period Question variant 46 for NUM:period
+NUM:period Question variant 47 for NUM:period
+NUM:period Question variant 48 for NUM:period
+NUM:period Question variant 49 for NUM:period
+ENTY:instru Question variant 1 for ENTY:instru
+ENTY:instru Question variant 2 for ENTY:instru
+ENTY:instru Question variant 3 for ENTY:instru
+ENTY:instru Question variant 4 for ENTY:instru
+ENTY:instru Question variant 5 for ENTY:instru
+ENTY:instru Question variant 6 for ENTY:instru
+ENTY:instru Question variant 7 for ENTY:instru
+ENTY:instru Question variant 8 for ENTY:instru
+ENTY:instru Question variant 9 for ENTY:instru
+ENTY:instru Question variant 10 for ENTY:instru
+ENTY:instru Question variant 11 for ENTY:instru
+ENTY:instru Question variant 12 for ENTY:instru
+ENTY:instru Question variant 13 for ENTY:instru
+ENTY:instru Question variant 14 for ENTY:instru
+ENTY:instru Question variant 15 for ENTY:instru
+ENTY:instru Question variant 16 for ENTY:instru
+ENTY:instru Question variant 17 for ENTY:instru
+ENTY:instru Question variant 18 for ENTY:instru
+ENTY:instru Question variant 19 for ENTY:instru
+ENTY:instru Question variant 20 for ENTY:instru
+ENTY:instru Question variant 21 for ENTY:instru
+ENTY:instru Question variant 22 for ENTY:instru
+ENTY:instru Question variant 23 for ENTY:instru
+ENTY:instru Question variant 24 for ENTY:instru
+ENTY:instru Question variant 25 for ENTY:instru
+ENTY:instru Question variant 26 for ENTY:instru
+ENTY:instru Question variant 27 for ENTY:instru
+ENTY:instru Question variant 28 for ENTY:instru
+ENTY:instru Question variant 29 for ENTY:instru
+ENTY:instru Question variant 30 for ENTY:instru
+ENTY:instru Question variant 31 for ENTY:instru
+ENTY:instru Question variant 32 for ENTY:instru
+ENTY:instru Question variant 33 for ENTY:instru
+ENTY:instru Question variant 34 for ENTY:instru
+ENTY:instru Question variant 35 for ENTY:instru
+ENTY:instru Question variant 36 for ENTY:instru
+ENTY:instru Question variant 37 for ENTY:instru
+ENTY:instru Question variant 38 for ENTY:instru
+ENTY:instru Question variant 39 for ENTY:instru
+ENTY:termeq Question variant 1 for ENTY:termeq
+ENTY:termeq Question variant 2 for ENTY:termeq
+ENTY:termeq Question variant 3 for ENTY:termeq
+ENTY:termeq Question variant 4 for ENTY:termeq
+ENTY:termeq Question variant 5 for ENTY:termeq
+ENTY:termeq Question variant 6 for ENTY:termeq
+ENTY:termeq Question variant 7 for ENTY:termeq
+ENTY:termeq Question variant 8 for ENTY:termeq
+ENTY:termeq Question variant 9 for ENTY:termeq
+ENTY:termeq Question variant 10 for ENTY:termeq
+ENTY:termeq Question variant 11 for ENTY:termeq
+ENTY:termeq Question variant 12 for ENTY:termeq
+ENTY:termeq Question variant 13 for ENTY:termeq
+ENTY:termeq Question variant 14 for ENTY:termeq
+ENTY:termeq Question variant 15 for ENTY:termeq
+ENTY:termeq Question variant 16 for ENTY:termeq
+ENTY:termeq Question variant 17 for ENTY:termeq
+ENTY:termeq Question variant 18 for ENTY:termeq
+ENTY:termeq Question variant 19 for ENTY:termeq
+ENTY:termeq Question variant 20 for ENTY:termeq
+ENTY:termeq Question variant 21 for ENTY:termeq
+ENTY:termeq Question variant 22 for ENTY:termeq
+ENTY:termeq Question variant 23 for ENTY:termeq
+ENTY:termeq Question variant 24 for ENTY:termeq
+ENTY:termeq Question variant 25 for ENTY:termeq
+ENTY:termeq Question variant 26 for ENTY:termeq
+ENTY:termeq Question variant 27 for ENTY:termeq
+ENTY:termeq Question variant 28 for ENTY:termeq
+ENTY:termeq Question variant 29 for ENTY:termeq
+ENTY:termeq Question variant 30 for ENTY:termeq
+ENTY:termeq Question variant 31 for ENTY:termeq
+ENTY:termeq Question variant 32 for ENTY:termeq
+ENTY:termeq Question variant 33 for ENTY:termeq
+ENTY:termeq Question variant 34 for ENTY:termeq
+ENTY:termeq Question variant 35 for ENTY:termeq
+ENTY:termeq Question variant 36 for ENTY:termeq
+ENTY:termeq Question variant 37 for ENTY:termeq
+HUM:title Question variant 1 for HUM:title
+HUM:title Question variant 2 for HUM:title
+HUM:title Question variant 3 for HUM:title
+HUM:title Question variant 4 for HUM:title
+HUM:title Question variant 5 for HUM:title
+HUM:title Question variant 6 for HUM:title
+HUM:title Question variant 7 for HUM:title
+HUM:title Question variant 8 for HUM:title
+HUM:title Question variant 9 for HUM:title
+HUM:title Question variant 10 for HUM:title
+HUM:title Question variant 11 for HUM:title
+HUM:title Question variant 12 for HUM:title
+HUM:title Question variant 13 for HUM:title
+HUM:title Question variant 14 for HUM:title
+HUM:title Question variant 15 for HUM:title
+HUM:title Question variant 16 for HUM:title
+HUM:title Question variant 17 for HUM:title
+HUM:title Question variant 18 for HUM:title
+HUM:title Question variant 19 for HUM:title
+HUM:title Question variant 20 for HUM:title
+HUM:title Question variant 21 for HUM:title
+HUM:title Question variant 22 for HUM:title
+HUM:title Question variant 23 for HUM:title
+HUM:title Question variant 24 for HUM:title
+HUM:title Question variant 25 for HUM:title
+HUM:title Question variant 26 for HUM:title
+HUM:title Question variant 27 for HUM:title
+HUM:title Question variant 28 for HUM:title
+HUM:title Question variant 29 for HUM:title
+HUM:title Question variant 30 for HUM:title
+HUM:title Question variant 31 for HUM:title
+HUM:title Question variant 32 for HUM:title
+HUM:title Question variant 33 for HUM:title
+HUM:title Question variant 34 for HUM:title
+HUM:title Question variant 35 for HUM:title
+HUM:title Question variant 36 for HUM:title
+ENTY:product Question variant 1 for ENTY:product
+ENTY:product Question variant 2 for ENTY:product
+ENTY:product Question variant 3 for ENTY:product
+ENTY:product Question variant 4 for ENTY:product
+ENTY:product Question variant 5 for ENTY:product
+ENTY:product Question variant 6 for ENTY:product
+ENTY:product Question variant 7 for ENTY:product
+ENTY:product Question variant 8 for ENTY:product
+ENTY:product Question variant 9 for ENTY:product
+ENTY:product Question variant 10 for ENTY:product
+ENTY:product Question variant 11 for ENTY:product
+ENTY:product Question variant 12 for ENTY:product
+ENTY:product Question variant 13 for ENTY:product
+ENTY:product Question variant 14 for ENTY:product
+ENTY:product Question variant 15 for ENTY:product
+ENTY:product Question variant 16 for ENTY:product
+ENTY:product Question variant 17 for ENTY:product
+ENTY:product Question variant 18 for ENTY:product
+ENTY:product Question variant 19 for ENTY:product
+ENTY:product Question variant 20 for ENTY:product
+ENTY:product Question variant 21 for ENTY:product
+ENTY:product Question variant 22 for ENTY:product
+ENTY:product Question variant 23 for ENTY:product
+ENTY:product Question variant 24 for ENTY:product
+ENTY:product Question variant 25 for ENTY:product
+ENTY:product Question variant 26 for ENTY:product
+ENTY:product Question variant 27 for ENTY:product
+ENTY:product Question variant 28 for ENTY:product
+ENTY:product Question variant 29 for ENTY:product
+ENTY:product Question variant 30 for ENTY:product
+ENTY:product Question variant 31 for ENTY:product
+ENTY:product Question variant 32 for ENTY:product
+ENTY:product Question variant 33 for ENTY:product
+ENTY:product Question variant 34 for ENTY:product
+ENTY:product Question variant 35 for ENTY:product
+ENTY:symbol Question variant 1 for ENTY:symbol
+ENTY:symbol Question variant 2 for ENTY:symbol
+ENTY:symbol Question variant 3 for ENTY:symbol
+ENTY:symbol Question variant 4 for ENTY:symbol
+ENTY:symbol Question variant 5 for ENTY:symbol
+ENTY:symbol Question variant 6 for ENTY:symbol
+ENTY:symbol Question variant 7 for ENTY:symbol
+ENTY:symbol Question variant 8 for ENTY:symbol
+ENTY:symbol Question variant 9 for ENTY:symbol
+ENTY:symbol Question variant 10 for ENTY:symbol
+ENTY:symbol Question variant 11 for ENTY:symbol
+ENTY:symbol Question variant 12 for ENTY:symbol
+ENTY:symbol Question variant 13 for ENTY:symbol
+ENTY:symbol Question variant 14 for ENTY:symbol
+ENTY:symbol Question variant 15 for ENTY:symbol
+ENTY:symbol Question variant 16 for ENTY:symbol
+ENTY:symbol Question variant 17 for ENTY:symbol
+ENTY:symbol Question variant 18 for ENTY:symbol
+ENTY:symbol Question variant 19 for ENTY:symbol
+ENTY:symbol Question variant 20 for ENTY:symbol
+ENTY:symbol Question variant 21 for ENTY:symbol
+ENTY:symbol Question variant 22 for ENTY:symbol
+ENTY:symbol Question variant 23 for ENTY:symbol
+ENTY:symbol Question variant 24 for ENTY:symbol
+ENTY:symbol Question variant 25 for ENTY:symbol
+ENTY:symbol Question variant 26 for ENTY:symbol
+ENTY:symbol Question variant 27 for ENTY:symbol
+ENTY:symbol Question variant 28 for ENTY:symbol
+ENTY:symbol Question variant 29 for ENTY:symbol
+ENTY:symbol Question variant 30 for ENTY:symbol
+ENTY:symbol Question variant 31 for ENTY:symbol
+ENTY:symbol Question variant 32 for ENTY:symbol
+ENTY:symbol Question variant 33 for ENTY:symbol
+ENTY:symbol Question variant 34 for ENTY:symbol
+ENTY:symbol Question variant 35 for ENTY:symbol
+LOC:landmass Question variant 1 for LOC:landmass
+LOC:landmass Question variant 2 for LOC:landmass
+LOC:landmass Question variant 3 for LOC:landmass
+LOC:landmass Question variant 4 for LOC:landmass
+LOC:landmass Question variant 5 for LOC:landmass
+LOC:landmass Question variant 6 for LOC:landmass
+LOC:landmass Question variant 7 for LOC:landmass
+LOC:landmass Question variant 8 for LOC:landmass
+LOC:landmass Question variant 9 for LOC:landmass
+LOC:landmass Question variant 10 for LOC:landmass
+LOC:landmass Question variant 11 for LOC:landmass
+LOC:landmass Question variant 12 for LOC:landmass
+LOC:landmass Question variant 13 for LOC:landmass
+LOC:landmass Question variant 14 for LOC:landmass
+LOC:landmass Question variant 15 for LOC:landmass
+LOC:landmass Question variant 16 for LOC:landmass
+LOC:landmass Question variant 17 for LOC:landmass
+LOC:landmass Question variant 18 for LOC:landmass
+LOC:landmass Question variant 19 for LOC:landmass
+LOC:landmass Question variant 20 for LOC:landmass
+LOC:landmass Question variant 21 for LOC:landmass
+LOC:landmass Question variant 22 for LOC:landmass
+LOC:landmass Question variant 23 for LOC:landmass
+LOC:landmass Question variant 24 for LOC:landmass
+LOC:landmass Question variant 25 for LOC:landmass
+LOC:landmass Question variant 26 for LOC:landmass
+LOC:landmass Question variant 27 for LOC:landmass
+LOC:landmass Question variant 28 for LOC:landmass
+LOC:landmass Question variant 29 for LOC:landmass
+LOC:landmass Question variant 30 for LOC:landmass
+LOC:landmass Question variant 31 for LOC:landmass
+LOC:landmass Question variant 32 for LOC:landmass
+LOC:landmass Question variant 33 for LOC:landmass
+LOC:landmass Question variant 34 for LOC:landmass
+NUM:other Question variant 1 for NUM:other
+NUM:other Question variant 2 for NUM:other
+NUM:other Question variant 3 for NUM:other
+NUM:other Question variant 4 for NUM:other
+NUM:other Question variant 5 for NUM:other
+NUM:other Question variant 6 for NUM:other
+NUM:other Question variant 7 for NUM:other
+NUM:other Question variant 8 for NUM:other
+NUM:other Question variant 9 for NUM:other
+NUM:other Question variant 10 for NUM:other
+NUM:other Question variant 11 for NUM:other
+NUM:other Question variant 12 for NUM:other
+NUM:other Question variant 13 for NUM:other
+NUM:other Question variant 14 for NUM:other
+NUM:other Question variant 15 for NUM:other
+NUM:other Question variant 16 for NUM:other
+NUM:other Question variant 17 for NUM:other
+NUM:other Question variant 18 for NUM:other
+NUM:other Question variant 19 for NUM:other
+NUM:other Question variant 20 for NUM:other
+NUM:other Question variant 21 for NUM:other
+NUM:other Question variant 22 for NUM:other
+NUM:other Question variant 23 for NUM:other
+NUM:other Question variant 24 for NUM:other
+NUM:other Question variant 25 for NUM:other
+NUM:other Question variant 26 for NUM:other
+NUM:other Question variant 27 for NUM:other
+NUM:other Question variant 28 for NUM:other
+NUM:other Question variant 29 for NUM:other
+NUM:other Question variant 30 for NUM:other
+NUM:other Question variant 31 for NUM:other
+NUM:other Question variant 32 for NUM:other
+ENTY:dismed Question variant 1 for ENTY:dismed
+ENTY:dismed Question variant 2 for ENTY:dismed
+ENTY:dismed Question variant 3 for ENTY:dismed
+ENTY:dismed Question variant 4 for ENTY:dismed
+ENTY:dismed Question variant 5 for ENTY:dismed
+ENTY:dismed Question variant 6 for ENTY:dismed
+ENTY:dismed Question variant 7 for ENTY:dismed
+ENTY:dismed Question variant 8 for ENTY:dismed
+ENTY:dismed Question variant 9 for ENTY:dismed
+ENTY:dismed Question variant 10 for ENTY:dismed
+ENTY:dismed Question variant 11 for ENTY:dismed
+ENTY:dismed Question variant 12 for ENTY:dismed
+ENTY:dismed Question variant 13 for ENTY:dismed
+ENTY:dismed Question variant 14 for ENTY:dismed
+ENTY:dismed Question variant 15 for ENTY:dismed
+ENTY:dismed Question variant 16 for ENTY:dismed
+ENTY:dismed Question variant 17 for ENTY:dismed
+ENTY:dismed Question variant 18 for ENTY:dismed
+ENTY:dismed Question variant 19 for ENTY:dismed
+ENTY:dismed Question variant 20 for ENTY:dismed
+ENTY:dismed Question variant 21 for ENTY:dismed
+ENTY:dismed Question variant 22 for ENTY:dismed
+ENTY:dismed Question variant 23 for ENTY:dismed
+ENTY:dismed Question variant 24 for ENTY:dismed
+ENTY:dismed Question variant 25 for ENTY:dismed
+ENTY:dismed Question variant 26 for ENTY:dismed
+ENTY:dismed Question variant 27 for ENTY:dismed
+ENTY:dismed Question variant 28 for ENTY:dismed
+ENTY:dismed Question variant 29 for ENTY:dismed
+ENTY:dismed Question variant 30 for ENTY:dismed
+NUM:perc Question variant 1 for NUM:perc
+NUM:perc Question variant 2 for NUM:perc
+NUM:perc Question variant 3 for NUM:perc
+NUM:perc Question variant 4 for NUM:perc
+NUM:perc Question variant 5 for NUM:perc
+NUM:perc Question variant 6 for NUM:perc
+NUM:perc Question variant 7 for NUM:perc
+NUM:perc Question variant 8 for NUM:perc
+NUM:perc Question variant 9 for NUM:perc
+NUM:perc Question variant 10 for NUM:perc
+NUM:perc Question variant 11 for NUM:perc
+NUM:perc Question variant 12 for NUM:perc
+NUM:perc Question variant 13 for NUM:perc
+NUM:perc Question variant 14 for NUM:perc
+NUM:perc Question variant 15 for NUM:perc
+NUM:perc Question variant 16 for NUM:perc
+NUM:perc Question variant 17 for NUM:perc
+NUM:perc Question variant 18 for NUM:perc
+NUM:perc Question variant 19 for NUM:perc
+NUM:perc Question variant 20 for NUM:perc
+NUM:perc Question variant 21 for NUM:perc
+NUM:perc Question variant 22 for NUM:perc
+NUM:perc Question variant 23 for NUM:perc
+NUM:perc Question variant 24 for NUM:perc
+NUM:perc Question variant 25 for NUM:perc
+NUM:perc Question variant 26 for NUM:perc
+NUM:perc Question variant 27 for NUM:perc
+NUM:perc Question variant 28 for NUM:perc
+NUM:perc Question variant 29 for NUM:perc
+NUM:perc Question variant 30 for NUM:perc
+NUM:code Question variant 1 for NUM:code
+NUM:code Question variant 2 for NUM:code
+NUM:code Question variant 3 for NUM:code
+NUM:code Question variant 4 for NUM:code
+NUM:code Question variant 5 for NUM:code
+NUM:code Question variant 6 for NUM:code
+NUM:code Question variant 7 for NUM:code
+NUM:code Question variant 8 for NUM:code
+NUM:code Question variant 9 for NUM:code
+NUM:code Question variant 10 for NUM:code
+NUM:code Question variant 11 for NUM:code
+NUM:code Question variant 12 for NUM:code
+NUM:code Question variant 13 for NUM:code
+NUM:code Question variant 14 for NUM:code
+NUM:code Question variant 15 for NUM:code
+NUM:code Question variant 16 for NUM:code
+NUM:code Question variant 17 for NUM:code
+NUM:code Question variant 18 for NUM:code
+NUM:code Question variant 19 for NUM:code
+NUM:code Question variant 20 for NUM:code
+NUM:code Question variant 21 for NUM:code
+NUM:code Question variant 22 for NUM:code
+NUM:code Question variant 23 for NUM:code
+NUM:code Question variant 24 for NUM:code
+NUM:code Question variant 25 for NUM:code
+NUM:code Question variant 26 for NUM:code
+NUM:code Question variant 27 for NUM:code
+LOC:state Question variant 1 for LOC:state
+LOC:state Question variant 2 for LOC:state
+LOC:state Question variant 3 for LOC:state
+LOC:state Question variant 4 for LOC:state
+LOC:state Question variant 5 for LOC:state
+LOC:state Question variant 6 for LOC:state
+LOC:state Question variant 7 for LOC:state
+LOC:state Question variant 8 for LOC:state
+LOC:state Question variant 9 for LOC:state
+LOC:state Question variant 10 for LOC:state
+LOC:state Question variant 11 for LOC:state
+LOC:state Question variant 12 for LOC:state
+LOC:state Question variant 13 for LOC:state
+LOC:state Question variant 14 for LOC:state
+LOC:state Question variant 15 for LOC:state
+LOC:state Question variant 16 for LOC:state
+LOC:state Question variant 17 for LOC:state
+LOC:state Question variant 18 for LOC:state
+LOC:state Question variant 19 for LOC:state
+LOC:state Question variant 20 for LOC:state
+ENTY:religion Question variant 1 for ENTY:religion
+ENTY:religion Question variant 2 for ENTY:religion
+ENTY:religion Question variant 3 for ENTY:religion
+ENTY:religion Question variant 4 for ENTY:religion
+ENTY:religion Question variant 5 for ENTY:religion
+ENTY:religion Question variant 6 for ENTY:religion
+ENTY:religion Question variant 7 for ENTY:religion
+ENTY:religion Question variant 8 for ENTY:religion
+ENTY:religion Question variant 9 for ENTY:religion
+ENTY:religion Question variant 10 for ENTY:religion
+ENTY:religion Question variant 11 for ENTY:religion
+ENTY:religion Question variant 12 for ENTY:religion
+ENTY:religion Question variant 13 for ENTY:religion
+ENTY:religion Question variant 14 for ENTY:religion
+ENTY:religion Question variant 15 for ENTY:religion
+ENTY:religion Question variant 16 for ENTY:religion
+ENTY:religion Question variant 17 for ENTY:religion
+ENTY:religion Question variant 18 for ENTY:religion
+ENTY:religion Question variant 19 for ENTY:religion
+ENTY:food Question variant 1 for ENTY:food
+ENTY:food Question variant 2 for ENTY:food
+ENTY:food Question variant 3 for ENTY:food
+ENTY:food Question variant 4 for ENTY:food
+ENTY:food Question variant 5 for ENTY:food
+ENTY:food Question variant 6 for ENTY:food
+ENTY:food Question variant 7 for ENTY:food
+ENTY:food Question variant 8 for ENTY:food
+ENTY:food Question variant 9 for ENTY:food
+ENTY:food Question variant 10 for ENTY:food
+ENTY:food Question variant 11 for ENTY:food
+ENTY:food Question variant 12 for ENTY:food
+ENTY:food Question variant 13 for ENTY:food
+ENTY:food Question variant 14 for ENTY:food
+ENTY:word Question variant 1 for ENTY:word
+ENTY:word Question variant 2 for ENTY:word
+ENTY:word Question variant 3 for ENTY:word
+ENTY:word Question variant 4 for ENTY:word
+ENTY:word Question variant 5 for ENTY:word
+ENTY:word Question variant 6 for ENTY:word
+ENTY:word Question variant 7 for ENTY:word
+ENTY:word Question variant 8 for ENTY:word
+ENTY:word Question variant 9 for ENTY:word
+ENTY:word Question variant 10 for ENTY:word
+ENTY:word Question variant 11 for ENTY:word
+ENTY:word Question variant 12 for ENTY:word
+ENTY:word Question variant 13 for ENTY:word
+ENTY:veh Question variant 1 for ENTY:veh
+ENTY:veh Question variant 2 for ENTY:veh
+ENTY:veh Question variant 3 for ENTY:veh
+ENTY:veh Question variant 4 for ENTY:veh
+ENTY:veh Question variant 5 for ENTY:veh
+ENTY:veh Question variant 6 for ENTY:veh
+ENTY:veh Question variant 7 for ENTY:veh
+ENTY:veh Question variant 8 for ENTY:veh
+ENTY:veh Question variant 9 for ENTY:veh
+ENTY:animal Question variant 1 for ENTY:animal
+ENTY:animal Question variant 2 for ENTY:animal
+ENTY:animal Question variant 3 for ENTY:animal
+LOC:city Question variant 1 for LOC:city
+LOC:city Question variant 2 for LOC:city
+LOC:city Question variant 3 for LOC:city
