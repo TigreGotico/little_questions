@@ -7798,3 +7798,3741 @@ ENTY:animal Question variant 3 for ENTY:animal
 LOC:city Question variant 1 for LOC:city
 LOC:city Question variant 2 for LOC:city
 LOC:city Question variant 3 for LOC:city
+ABBR:abb What does API stand for?
+ABBR:abb What is the meaning of API?
+ABBR:abb API is an abbreviation for what?
+ABBR:abb What does HTTP stand for?
+ABBR:abb What is the meaning of HTTP?
+ABBR:abb HTTP is an abbreviation for what?
+ABBR:abb What does JSON stand for?
+ABBR:abb What is the meaning of JSON?
+ABBR:abb JSON is an abbreviation for what?
+ABBR:abb What does REST stand for?
+ABBR:abb What is the meaning of REST?
+ABBR:abb REST is an abbreviation for what?
+ABBR:abb What does SOAP stand for?
+ABBR:abb What is the meaning of SOAP?
+ABBR:abb SOAP is an abbreviation for what?
+ABBR:abb What does CRUD stand for?
+ABBR:abb What is the meaning of CRUD?
+ABBR:abb CRUD is an abbreviation for what?
+ABBR:abb What does ORM stand for?
+ABBR:abb What is the meaning of ORM?
+ABBR:abb ORM is an abbreviation for what?
+ABBR:abb What does MVC stand for?
+ABBR:abb What is the meaning of MVC?
+ABBR:abb MVC is an abbreviation for what?
+ABBR:abb What does MVP stand for?
+ABBR:abb What is the meaning of MVP?
+ABBR:abb MVP is an abbreviation for what?
+ABBR:abb What does PWA stand for?
+ABBR:abb What is the meaning of PWA?
+ABBR:abb PWA is an abbreviation for what?
+ABBR:abb What does NATO stand for?
+ABBR:abb What is the meaning of NATO?
+ABBR:abb NATO is an abbreviation for what?
+ABBR:abb What does UNESCO stand for?
+ABBR:abb What is the meaning of UNESCO?
+ABBR:abb UNESCO is an abbreviation for what?
+ABBR:abb What does WHO stand for?
+ABBR:abb What is the meaning of WHO?
+ABBR:abb WHO is an abbreviation for what?
+ABBR:abb What does IMF stand for?
+ABBR:abb What is the meaning of IMF?
+ABBR:abb IMF is an abbreviation for what?
+ABBR:abb What does SEC stand for?
+ABBR:abb What is the meaning of SEC?
+ABBR:abb SEC is an abbreviation for what?
+ABBR:abb What does FDA stand for?
+ABBR:abb What is the meaning of FDA?
+ABBR:abb FDA is an abbreviation for what?
+ABBR:abb What does EPA stand for?
+ABBR:abb What is the meaning of EPA?
+ABBR:abb EPA is an abbreviation for what?
+ABBR:abb What does NSA stand for?
+ABBR:abb What is the meaning of NSA?
+ABBR:abb NSA is an abbreviation for what?
+ABBR:abb What does FBI stand for?
+ABBR:abb What is the meaning of FBI?
+ABBR:abb FBI is an abbreviation for what?
+ABBR:abb What does CIA stand for?
+ABBR:abb What is the meaning of CIA?
+ABBR:abb CIA is an abbreviation for what?
+ABBR:abb What does DNA stand for?
+ABBR:abb What is the meaning of DNA?
+ABBR:abb DNA is an abbreviation for what?
+ABBR:abb What does RNA stand for?
+ABBR:abb What is the meaning of RNA?
+ABBR:abb RNA is an abbreviation for what?
+ABBR:abb What does ATP stand for?
+ABBR:abb What is the meaning of ATP?
+ABBR:abb ATP is an abbreviation for what?
+ABBR:abb What does pH stand for?
+ABBR:abb What is the meaning of pH?
+ABBR:abb pH is an abbreviation for what?
+ABBR:abb What does UV stand for?
+ABBR:abb What is the meaning of UV?
+ABBR:abb UV is an abbreviation for what?
+ABBR:abb What does IR stand for?
+ABBR:abb What is the meaning of IR?
+ABBR:abb IR is an abbreviation for what?
+ABBR:abb What does RF stand for?
+ABBR:abb What is the meaning of RF?
+ABBR:abb RF is an abbreviation for what?
+ABBR:abb What does Hz stand for?
+ABBR:abb What is the meaning of Hz?
+ABBR:abb Hz is an abbreviation for what?
+ABBR:abb What does dB stand for?
+ABBR:abb What is the meaning of dB?
+ABBR:abb dB is an abbreviation for what?
+ABBR:abb What does LASER stand for?
+ABBR:abb What is the meaning of LASER?
+ABBR:abb LASER is an abbreviation for what?
+ABBR:exp Expand the acronym API
+ABBR:exp What does API expand to?
+ABBR:exp API stands for what exactly?
+ABBR:exp Expand the acronym HTTP
+ABBR:exp What does HTTP expand to?
+ABBR:exp HTTP stands for what exactly?
+ABBR:exp Expand the acronym JSON
+ABBR:exp What does JSON expand to?
+ABBR:exp JSON stands for what exactly?
+ABBR:exp Expand the acronym REST
+ABBR:exp What does REST expand to?
+ABBR:exp REST stands for what exactly?
+ABBR:exp Expand the acronym SOAP
+ABBR:exp What does SOAP expand to?
+ABBR:exp SOAP stands for what exactly?
+ABBR:exp Expand the acronym CRUD
+ABBR:exp What does CRUD expand to?
+ABBR:exp CRUD stands for what exactly?
+ABBR:exp Expand the acronym ORM
+ABBR:exp What does ORM expand to?
+ABBR:exp ORM stands for what exactly?
+ABBR:exp Expand the acronym MVC
+ABBR:exp What does MVC expand to?
+ABBR:exp MVC stands for what exactly?
+ABBR:exp Expand the acronym MVP
+ABBR:exp What does MVP expand to?
+ABBR:exp MVP stands for what exactly?
+ABBR:exp Expand the acronym PWA
+ABBR:exp What does PWA expand to?
+ABBR:exp PWA stands for what exactly?
+ABBR:exp Expand the acronym NATO
+ABBR:exp What does NATO expand to?
+ABBR:exp NATO stands for what exactly?
+ABBR:exp Expand the acronym UNESCO
+ABBR:exp What does UNESCO expand to?
+ABBR:exp UNESCO stands for what exactly?
+ABBR:exp Expand the acronym WHO
+ABBR:exp What does WHO expand to?
+ABBR:exp WHO stands for what exactly?
+ABBR:exp Expand the acronym IMF
+ABBR:exp What does IMF expand to?
+ABBR:exp IMF stands for what exactly?
+ABBR:exp Expand the acronym SEC
+ABBR:exp What does SEC expand to?
+ABBR:exp SEC stands for what exactly?
+ABBR:exp Expand the acronym FDA
+ABBR:exp What does FDA expand to?
+ABBR:exp FDA stands for what exactly?
+ABBR:exp Expand the acronym EPA
+ABBR:exp What does EPA expand to?
+ABBR:exp EPA stands for what exactly?
+ABBR:exp Expand the acronym NSA
+ABBR:exp What does NSA expand to?
+ABBR:exp NSA stands for what exactly?
+ABBR:exp Expand the acronym FBI
+ABBR:exp What does FBI expand to?
+ABBR:exp FBI stands for what exactly?
+ABBR:exp Expand the acronym CIA
+ABBR:exp What does CIA expand to?
+ABBR:exp CIA stands for what exactly?
+ABBR:exp Expand the acronym DNA
+ABBR:exp What does DNA expand to?
+ABBR:exp DNA stands for what exactly?
+ABBR:exp Expand the acronym RNA
+ABBR:exp What does RNA expand to?
+ABBR:exp RNA stands for what exactly?
+ABBR:exp Expand the acronym ATP
+ABBR:exp What does ATP expand to?
+ABBR:exp ATP stands for what exactly?
+ABBR:exp Expand the acronym pH
+ABBR:exp What does pH expand to?
+ABBR:exp pH stands for what exactly?
+ABBR:exp Expand the acronym UV
+ABBR:exp What does UV expand to?
+ABBR:exp UV stands for what exactly?
+ABBR:exp Expand the acronym IR
+ABBR:exp What does IR expand to?
+ABBR:exp IR stands for what exactly?
+ABBR:exp Expand the acronym RF
+ABBR:exp What does RF expand to?
+ABBR:exp RF stands for what exactly?
+ABBR:exp Expand the acronym Hz
+ABBR:exp What does Hz expand to?
+ABBR:exp Hz stands for what exactly?
+ABBR:exp Expand the acronym dB
+ABBR:exp What does dB expand to?
+ABBR:exp dB stands for what exactly?
+ABBR:exp Expand the acronym LASER
+ABBR:exp What does LASER expand to?
+ABBR:exp LASER stands for what exactly?
+DESC:def What is the definition of philosophy?
+DESC:def How would you define philosophy?
+DESC:def What do we mean by philosophy?
+DESC:def What is the definition of democracy?
+DESC:def How would you define democracy?
+DESC:def What do we mean by democracy?
+DESC:def What is the definition of capitalism?
+DESC:def How would you define capitalism?
+DESC:def What do we mean by capitalism?
+DESC:def What is the definition of socialism?
+DESC:def How would you define socialism?
+DESC:def What do we mean by socialism?
+DESC:def What is the definition of communism?
+DESC:def How would you define communism?
+DESC:def What do we mean by communism?
+DESC:def What is the definition of metaphor?
+DESC:def How would you define metaphor?
+DESC:def What do we mean by metaphor?
+DESC:def What is the definition of paradox?
+DESC:def How would you define paradox?
+DESC:def What do we mean by paradox?
+DESC:def What is the definition of irony?
+DESC:def How would you define irony?
+DESC:def What do we mean by irony?
+DESC:def What is the definition of analogy?
+DESC:def How would you define analogy?
+DESC:def What do we mean by analogy?
+DESC:def What is the definition of synecdoche?
+DESC:def How would you define synecdoche?
+DESC:def What do we mean by synecdoche?
+DESC:def What is the definition of photosynthesis?
+DESC:def How would you define photosynthesis?
+DESC:def What do we mean by photosynthesis?
+DESC:def What is the definition of osmosis?
+DESC:def How would you define osmosis?
+DESC:def What do we mean by osmosis?
+DESC:def What is the definition of gravity?
+DESC:def How would you define gravity?
+DESC:def What do we mean by gravity?
+DESC:def What is the definition of entropy?
+DESC:def How would you define entropy?
+DESC:def What do we mean by entropy?
+DESC:def What is the definition of quantum?
+DESC:def How would you define quantum?
+DESC:def What do we mean by quantum?
+DESC:def What is the definition of algorithm?
+DESC:def How would you define algorithm?
+DESC:def What do we mean by algorithm?
+DESC:def What is the definition of encryption?
+DESC:def How would you define encryption?
+DESC:def What do we mean by encryption?
+DESC:def What is the definition of firewall?
+DESC:def How would you define firewall?
+DESC:def What do we mean by firewall?
+DESC:def What is the definition of bandwidth?
+DESC:def How would you define bandwidth?
+DESC:def What do we mean by bandwidth?
+DESC:def What is the definition of latency?
+DESC:def How would you define latency?
+DESC:def What do we mean by latency?
+DESC:def What is the definition of metabolism?
+DESC:def How would you define metabolism?
+DESC:def What do we mean by metabolism?
+DESC:def What is the definition of mitochondria?
+DESC:def How would you define mitochondria?
+DESC:def What do we mean by mitochondria?
+DESC:def What is the definition of enzyme?
+DESC:def How would you define enzyme?
+DESC:def What do we mean by enzyme?
+DESC:def What is the definition of hormone?
+DESC:def How would you define hormone?
+DESC:def What do we mean by hormone?
+DESC:def What is the definition of antibody?
+DESC:def How would you define antibody?
+DESC:def What do we mean by antibody?
+DESC:desc Describe the Eiffel Tower
+DESC:desc What is the Eiffel Tower like?
+DESC:desc Can you describe the Eiffel Tower?
+DESC:desc Tell me about the Eiffel Tower
+DESC:desc Describe the Great Wall of China
+DESC:desc What is the Great Wall of China like?
+DESC:desc Can you describe the Great Wall of China?
+DESC:desc Tell me about the Great Wall of China
+DESC:desc Describe the Statue of Liberty
+DESC:desc What is the Statue of Liberty like?
+DESC:desc Can you describe the Statue of Liberty?
+DESC:desc Tell me about the Statue of Liberty
+DESC:desc Describe the Mona Lisa
+DESC:desc What is the Mona Lisa like?
+DESC:desc Can you describe the Mona Lisa?
+DESC:desc Tell me about the Mona Lisa
+DESC:desc Describe Big Ben
+DESC:desc What is Big Ben like?
+DESC:desc Can you describe Big Ben?
+DESC:desc Tell me about Big Ben
+DESC:desc Describe the Colosseum
+DESC:desc What is the Colosseum like?
+DESC:desc Can you describe the Colosseum?
+DESC:desc Tell me about the Colosseum
+DESC:desc Describe the Taj Mahal
+DESC:desc What is the Taj Mahal like?
+DESC:desc Can you describe the Taj Mahal?
+DESC:desc Tell me about the Taj Mahal
+DESC:desc Describe Mount Everest
+DESC:desc What is Mount Everest like?
+DESC:desc Can you describe Mount Everest?
+DESC:desc Tell me about Mount Everest
+DESC:desc Describe the Grand Canyon
+DESC:desc What is the Grand Canyon like?
+DESC:desc Can you describe the Grand Canyon?
+DESC:desc Tell me about the Grand Canyon
+DESC:desc Describe the Sahara Desert
+DESC:desc What is the Sahara Desert like?
+DESC:desc Can you describe the Sahara Desert?
+DESC:desc Tell me about the Sahara Desert
+DESC:desc Describe the Amazon River
+DESC:desc What is the Amazon River like?
+DESC:desc Can you describe the Amazon River?
+DESC:desc Tell me about the Amazon River
+DESC:desc Describe Niagara Falls
+DESC:desc What is Niagara Falls like?
+DESC:desc Can you describe Niagara Falls?
+DESC:desc Tell me about Niagara Falls
+DESC:desc Describe the Aurora Borealis
+DESC:desc What is the Aurora Borealis like?
+DESC:desc Can you describe the Aurora Borealis?
+DESC:desc Tell me about the Aurora Borealis
+DESC:desc Describe a black hole
+DESC:desc What is a black hole like?
+DESC:desc Can you describe a black hole?
+DESC:desc Tell me about a black hole
+DESC:desc Describe a solar eclipse
+DESC:desc What is a solar eclipse like?
+DESC:desc Can you describe a solar eclipse?
+DESC:desc Tell me about a solar eclipse
+DESC:desc Describe a supernova
+DESC:desc What is a supernova like?
+DESC:desc Can you describe a supernova?
+DESC:desc Tell me about a supernova
+DESC:manner How do you bake a cake?
+DESC:manner What is the way to bake a cake?
+DESC:manner Describe how to bake a cake
+DESC:manner What is the method for bake a cake?
+DESC:manner How do you ride a bicycle?
+DESC:manner What is the way to ride a bicycle?
+DESC:manner Describe how to ride a bicycle
+DESC:manner What is the method for ride a bicycle?
+DESC:manner How do you tie a knot?
+DESC:manner What is the way to tie a knot?
+DESC:manner Describe how to tie a knot
+DESC:manner What is the method for tie a knot?
+DESC:manner How do you cook pasta?
+DESC:manner What is the way to cook pasta?
+DESC:manner Describe how to cook pasta
+DESC:manner What is the method for cook pasta?
+DESC:manner How do you change a tire?
+DESC:manner What is the way to change a tire?
+DESC:manner Describe how to change a tire
+DESC:manner What is the method for change a tire?
+DESC:manner How do you write a letter?
+DESC:manner What is the way to write a letter?
+DESC:manner Describe how to write a letter
+DESC:manner What is the method for write a letter?
+DESC:manner How do you plant a seed?
+DESC:manner What is the way to plant a seed?
+DESC:manner Describe how to plant a seed
+DESC:manner What is the method for plant a seed?
+DESC:manner How do you catch a fish?
+DESC:manner What is the way to catch a fish?
+DESC:manner Describe how to catch a fish
+DESC:manner What is the method for catch a fish?
+DESC:manner How do you build a bookshelf?
+DESC:manner What is the way to build a bookshelf?
+DESC:manner Describe how to build a bookshelf
+DESC:manner What is the method for build a bookshelf?
+DESC:manner How do you take a photograph?
+DESC:manner What is the way to take a photograph?
+DESC:manner Describe how to take a photograph
+DESC:manner What is the method for take a photograph?
+DESC:manner How do you paint a wall?
+DESC:manner What is the way to paint a wall?
+DESC:manner Describe how to paint a wall
+DESC:manner What is the method for paint a wall?
+DESC:manner How do you learn a language?
+DESC:manner What is the way to learn a language?
+DESC:manner Describe how to learn a language
+DESC:manner What is the method for learn a language?
+DESC:manner How do you meditation?
+DESC:manner What is the way to meditation?
+DESC:manner Describe how to meditation
+DESC:manner What is the method for meditation?
+DESC:manner How do you yoga?
+DESC:manner What is the way to yoga?
+DESC:manner Describe how to yoga
+DESC:manner What is the method for yoga?
+DESC:manner How do you public speaking?
+DESC:manner What is the way to public speaking?
+DESC:manner Describe how to public speaking
+DESC:manner What is the method for public speaking?
+DESC:reason Why is the sky is blue?
+DESC:reason What is the reason the sky is blue?
+DESC:reason Why does the sky is blue?
+DESC:reason Explain why the sky is blue
+DESC:reason Why is leaves change color in fall?
+DESC:reason What is the reason leaves change color in fall?
+DESC:reason Why does leaves change color in fall?
+DESC:reason Explain why leaves change color in fall
+DESC:reason Why is we need sleep?
+DESC:reason What is the reason we need sleep?
+DESC:reason Why does we need sleep?
+DESC:reason Explain why we need sleep
+DESC:reason Why is water freezes at 0°C?
+DESC:reason What is the reason water freezes at 0°C?
+DESC:reason Why does water freezes at 0°C?
+DESC:reason Explain why water freezes at 0°C
+DESC:reason Why is plants need sunlight?
+DESC:reason What is the reason plants need sunlight?
+DESC:reason Why does plants need sunlight?
+DESC:reason Explain why plants need sunlight
+DESC:reason Why is seasons change?
+DESC:reason What is the reason seasons change?
+DESC:reason Why does seasons change?
+DESC:reason Explain why seasons change
+DESC:reason Why is we have hiccups?
+DESC:reason What is the reason we have hiccups?
+DESC:reason Why does we have hiccups?
+DESC:reason Explain why we have hiccups
+DESC:reason Why is we yawn?
+DESC:reason What is the reason we yawn?
+DESC:reason Why does we yawn?
+DESC:reason Explain why we yawn
+DESC:reason Why is our nails grow?
+DESC:reason What is the reason our nails grow?
+DESC:reason Why does our nails grow?
+DESC:reason Explain why our nails grow
+DESC:reason Why is we dream?
+DESC:reason What is the reason we dream?
+DESC:reason Why does we dream?
+DESC:reason Explain why we dream
+DESC:reason Why is dinosaurs went extinct?
+DESC:reason What is the reason dinosaurs went extinct?
+DESC:reason Why does dinosaurs went extinct?
+DESC:reason Explain why dinosaurs went extinct
+DESC:reason Why is the moon has craters?
+DESC:reason What is the reason the moon has craters?
+DESC:reason Why does the moon has craters?
+DESC:reason Explain why the moon has craters
+DESC:reason Why is eclipses happen?
+DESC:reason What is the reason eclipses happen?
+DESC:reason Why does eclipses happen?
+DESC:reason Explain why eclipses happen
+HUM:desc What is a surgeon?
+HUM:desc Describe a typical surgeon
+HUM:desc What does a surgeon do?
+HUM:desc What is a architect?
+HUM:desc Describe a typical architect
+HUM:desc What does a architect do?
+HUM:desc What is a astronaut?
+HUM:desc Describe a typical astronaut
+HUM:desc What does a astronaut do?
+HUM:desc What is a pilot?
+HUM:desc Describe a typical pilot
+HUM:desc What does a pilot do?
+HUM:desc What is a chef?
+HUM:desc Describe a typical chef
+HUM:desc What does a chef do?
+HUM:desc What is a journalist?
+HUM:desc Describe a typical journalist
+HUM:desc What does a journalist do?
+HUM:desc What is a musician?
+HUM:desc Describe a typical musician
+HUM:desc What does a musician do?
+HUM:desc What is a sculptor?
+HUM:desc Describe a typical sculptor
+HUM:desc What does a sculptor do?
+HUM:desc What is a dancer?
+HUM:desc Describe a typical dancer
+HUM:desc What does a dancer do?
+HUM:desc What is a composer?
+HUM:desc Describe a typical composer
+HUM:desc What does a composer do?
+HUM:desc What is a novelist?
+HUM:desc Describe a typical novelist
+HUM:desc What does a novelist do?
+HUM:desc What is a playwright?
+HUM:desc Describe a typical playwright
+HUM:desc What does a playwright do?
+HUM:desc What is a actor?
+HUM:desc Describe a typical actor
+HUM:desc What does a actor do?
+HUM:desc Describe a typical director
+HUM:desc What does a director do?
+HUM:desc What is a cinematographer?
+HUM:desc Describe a typical cinematographer
+HUM:desc What does a cinematographer do?
+HUM:desc What is a editor?
+HUM:desc Describe a typical editor
+HUM:desc What does a editor do?
+HUM:desc What is a producer?
+HUM:desc Describe a typical producer
+HUM:desc What does a producer do?
+HUM:desc What is a engineer?
+HUM:desc Describe a typical engineer
+HUM:desc What does a engineer do?
+HUM:desc What is a programmer?
+HUM:desc Describe a typical programmer
+HUM:desc What does a programmer do?
+HUM:desc What is a designer?
+HUM:desc Describe a typical designer
+HUM:desc What does a designer do?
+HUM:desc What is a biologist?
+HUM:desc Describe a typical biologist
+HUM:desc What does a biologist do?
+HUM:desc What is a physicist?
+HUM:desc Describe a typical physicist
+HUM:desc What does a physicist do?
+HUM:desc What is a chemist?
+HUM:desc Describe a typical chemist
+HUM:desc What does a chemist do?
+HUM:desc What is a geologist?
+HUM:desc Describe a typical geologist
+HUM:desc What does a geologist do?
+HUM:desc What is a archaeologist?
+HUM:desc Describe a typical archaeologist
+HUM:desc What does a archaeologist do?
+HUM:desc What is a anthropologist?
+HUM:desc Describe a typical anthropologist
+HUM:desc What does a anthropologist do?
+HUM:desc What is a teacher?
+HUM:desc Describe a typical teacher
+HUM:desc What does a teacher do?
+HUM:desc Describe a typical professor
+HUM:desc What does a professor do?
+HUM:desc What is a lecturer?
+HUM:desc Describe a typical lecturer
+HUM:desc What does a lecturer do?
+HUM:desc What is a tutor?
+HUM:desc Describe a typical tutor
+HUM:desc What does a tutor do?
+HUM:desc What is a counselor?
+HUM:desc Describe a typical counselor
+HUM:desc What does a counselor do?
+HUM:desc What is a lawyer?
+HUM:desc Describe a typical lawyer
+HUM:desc What does a lawyer do?
+HUM:desc Describe a typical judge
+HUM:desc What does a judge do?
+HUM:desc What is a prosecutor?
+HUM:desc Describe a typical prosecutor
+HUM:desc What does a prosecutor do?
+HUM:desc What is a attorney?
+HUM:desc Describe a typical attorney
+HUM:desc What does a attorney do?
+HUM:desc Describe a typical doctor
+HUM:desc What does a doctor do?
+HUM:desc What is a nurse?
+HUM:desc Describe a typical nurse
+HUM:desc What does a nurse do?
+HUM:desc What is a veterinarian?
+HUM:desc Describe a typical veterinarian
+HUM:desc What does a veterinarian do?
+HUM:desc What is a dentist?
+HUM:desc Describe a typical dentist
+HUM:desc What does a dentist do?
+HUM:desc What is a therapist?
+HUM:desc Describe a typical therapist
+HUM:desc What does a therapist do?
+HUM:gr What is a millennials?
+HUM:gr What do we call millennials?
+HUM:gr Who are the millennials?
+HUM:gr What is a baby boomers?
+HUM:gr What do we call baby boomers?
+HUM:gr Who are the baby boomers?
+HUM:gr What is a Generation Z?
+HUM:gr What do we call Generation Z?
+HUM:gr Who are the Generation Z?
+HUM:gr What is a Gen X?
+HUM:gr What do we call Gen X?
+HUM:gr Who are the Gen X?
+HUM:gr What is a nobility?
+HUM:gr What do we call nobility?
+HUM:gr Who are the nobility?
+HUM:gr What is a peasants?
+HUM:gr What do we call peasants?
+HUM:gr Who are the peasants?
+HUM:gr What is a clergy?
+HUM:gr What do we call clergy?
+HUM:gr Who are the clergy?
+HUM:gr What is a knights?
+HUM:gr What do we call knights?
+HUM:gr Who are the knights?
+HUM:gr What is a citizens?
+HUM:gr What do we call citizens?
+HUM:gr Who are the citizens?
+HUM:gr What is a refugees?
+HUM:gr What do we call refugees?
+HUM:gr Who are the refugees?
+HUM:gr What is a immigrants?
+HUM:gr What do we call immigrants?
+HUM:gr Who are the immigrants?
+HUM:gr What is a natives?
+HUM:gr What do we call natives?
+HUM:gr Who are the natives?
+HUM:gr What is a atheists?
+HUM:gr What do we call atheists?
+HUM:gr Who are the atheists?
+HUM:gr What is a theists?
+HUM:gr What do we call theists?
+HUM:gr Who are the theists?
+HUM:gr What is a agnostics?
+HUM:gr What do we call agnostics?
+HUM:gr Who are the agnostics?
+HUM:gr What is a believers?
+HUM:gr What do we call believers?
+HUM:gr Who are the believers?
+HUM:gr What is a activists?
+HUM:gr What do we call activists?
+HUM:gr Who are the activists?
+HUM:gr What is a politicians?
+HUM:gr What do we call politicians?
+HUM:gr Who are the politicians?
+HUM:gr What is a senators?
+HUM:gr What do we call senators?
+HUM:gr Who are the senators?
+HUM:gr What is a representatives?
+HUM:gr What do we call representatives?
+HUM:gr Who are the representatives?
+HUM:gr What is a employees?
+HUM:gr What do we call employees?
+HUM:gr Who are the employees?
+HUM:gr What is a employers?
+HUM:gr What do we call employers?
+HUM:gr Who are the employers?
+HUM:gr What is a contractors?
+HUM:gr What do we call contractors?
+HUM:gr Who are the contractors?
+HUM:gr What is a freelancers?
+HUM:gr What do we call freelancers?
+HUM:gr Who are the freelancers?
+HUM:gr What is a students?
+HUM:gr What do we call students?
+HUM:gr Who are the students?
+HUM:gr What is a graduates?
+HUM:gr What do we call graduates?
+HUM:gr Who are the graduates?
+HUM:gr What is a alumni?
+HUM:gr What do we call alumni?
+HUM:gr Who are the alumni?
+HUM:gr What is a faculty?
+HUM:gr What do we call faculty?
+HUM:gr Who are the faculty?
+HUM:ind Who was Leonardo da Vinci?
+HUM:ind What did Leonardo da Vinci do?
+HUM:ind Tell me about Leonardo da Vinci
+HUM:ind Who was Marie Curie?
+HUM:ind What did Marie Curie do?
+HUM:ind Tell me about Marie Curie
+HUM:ind Who was Albert Einstein?
+HUM:ind What did Albert Einstein do?
+HUM:ind Tell me about Albert Einstein
+HUM:ind Who was Isaac Newton?
+HUM:ind What did Isaac Newton do?
+HUM:ind Tell me about Isaac Newton
+HUM:ind Who was Charles Darwin?
+HUM:ind What did Charles Darwin do?
+HUM:ind Tell me about Charles Darwin
+HUM:ind Who was Galileo Galilei?
+HUM:ind What did Galileo Galilei do?
+HUM:ind Tell me about Galileo Galilei
+HUM:ind Who was Stephen Hawking?
+HUM:ind What did Stephen Hawking do?
+HUM:ind Tell me about Stephen Hawking
+HUM:ind Who was Carl Sagan?
+HUM:ind What did Carl Sagan do?
+HUM:ind Tell me about Carl Sagan
+HUM:ind Who was Richard Feynman?
+HUM:ind What did Richard Feynman do?
+HUM:ind Tell me about Richard Feynman
+HUM:ind Who was Shakespeare?
+HUM:ind What did Shakespeare do?
+HUM:ind Tell me about Shakespeare
+HUM:ind Who was Dante?
+HUM:ind What did Dante do?
+HUM:ind Tell me about Dante
+HUM:ind Who was Homer?
+HUM:ind What did Homer do?
+HUM:ind Tell me about Homer
+HUM:ind Who was Napoleon Bonaparte?
+HUM:ind What did Napoleon Bonaparte do?
+HUM:ind Tell me about Napoleon Bonaparte
+HUM:ind Who was Alexander the Great?
+HUM:ind What did Alexander the Great do?
+HUM:ind Tell me about Alexander the Great
+HUM:ind Who was Julius Caesar?
+HUM:ind What did Julius Caesar do?
+HUM:ind Tell me about Julius Caesar
+HUM:ind Who was George Washington?
+HUM:ind What did George Washington do?
+HUM:ind Tell me about George Washington
+HUM:ind Who was Abraham Lincoln?
+HUM:ind What did Abraham Lincoln do?
+HUM:ind Tell me about Abraham Lincoln
+HUM:ind Who was Winston Churchill?
+HUM:ind What did Winston Churchill do?
+HUM:ind Tell me about Winston Churchill
+HUM:ind Who was Mahatma Gandhi?
+HUM:ind What did Mahatma Gandhi do?
+HUM:ind Tell me about Mahatma Gandhi
+HUM:ind Who was Martin Luther King Jr?
+HUM:ind What did Martin Luther King Jr do?
+HUM:ind Tell me about Martin Luther King Jr
+HUM:ind Who was Nelson Mandela?
+HUM:ind What did Nelson Mandela do?
+HUM:ind Tell me about Nelson Mandela
+HUM:ind Who was Aristotle?
+HUM:ind What did Aristotle do?
+HUM:ind Tell me about Aristotle
+HUM:ind Who was Plato?
+HUM:ind What did Plato do?
+HUM:ind Tell me about Plato
+HUM:ind Who was Socrates?
+HUM:ind What did Socrates do?
+HUM:ind Tell me about Socrates
+HUM:title What is a Pope?
+HUM:title What rank is Pope?
+HUM:title Who holds the title of Pope?
+HUM:title What is a Patriarch?
+HUM:title What rank is Patriarch?
+HUM:title Who holds the title of Patriarch?
+HUM:title What is a Archbishop?
+HUM:title What rank is Archbishop?
+HUM:title Who holds the title of Archbishop?
+HUM:title What is a Bishop?
+HUM:title What rank is Bishop?
+HUM:title Who holds the title of Bishop?
+HUM:title What is a Cardinal?
+HUM:title What rank is Cardinal?
+HUM:title Who holds the title of Cardinal?
+HUM:title What is a Emperor?
+HUM:title What rank is Emperor?
+HUM:title Who holds the title of Emperor?
+HUM:title What is a Empress?
+HUM:title What rank is Empress?
+HUM:title Who holds the title of Empress?
+HUM:title What is a King?
+HUM:title What rank is King?
+HUM:title Who holds the title of King?
+HUM:title What is a Queen?
+HUM:title What rank is Queen?
+HUM:title Who holds the title of Queen?
+HUM:title What is a Prince?
+HUM:title What rank is Prince?
+HUM:title Who holds the title of Prince?
+HUM:title What is a Princess?
+HUM:title What rank is Princess?
+HUM:title Who holds the title of Princess?
+HUM:title What is a Duke?
+HUM:title What rank is Duke?
+HUM:title Who holds the title of Duke?
+HUM:title What is a Duchess?
+HUM:title What rank is Duchess?
+HUM:title Who holds the title of Duchess?
+HUM:title What is a Earl?
+HUM:title What rank is Earl?
+HUM:title Who holds the title of Earl?
+HUM:title What is a Countess?
+HUM:title What rank is Countess?
+HUM:title Who holds the title of Countess?
+HUM:title What is a Baron?
+HUM:title What rank is Baron?
+HUM:title Who holds the title of Baron?
+HUM:title What is a Baroness?
+HUM:title What rank is Baroness?
+HUM:title Who holds the title of Baroness?
+HUM:title What rank is Admiral?
+HUM:title Who holds the title of Admiral?
+HUM:title What rank is General?
+HUM:title Who holds the title of General?
+HUM:title What rank is Colonel?
+HUM:title Who holds the title of Colonel?
+HUM:title What rank is Captain?
+HUM:title Who holds the title of Captain?
+HUM:title What rank is Lieutenant?
+HUM:title Who holds the title of Lieutenant?
+HUM:title What rank is Sergeant?
+HUM:title Who holds the title of Sergeant?
+HUM:title What is a Corporal?
+HUM:title What rank is Corporal?
+HUM:title Who holds the title of Corporal?
+HUM:title What is a Private?
+HUM:title What rank is Private?
+HUM:title Who holds the title of Private?
+HUM:title What is a Marshal?
+HUM:title What rank is Marshal?
+HUM:title Who holds the title of Marshal?
+HUM:title What rank is Dean?
+HUM:title Who holds the title of Dean?
+HUM:title What is a Chancellor?
+HUM:title What rank is Chancellor?
+HUM:title Who holds the title of Chancellor?
+HUM:title What is a Provost?
+HUM:title What rank is Provost?
+HUM:title Who holds the title of Provost?
+HUM:title What is a Rector?
+HUM:title What rank is Rector?
+HUM:title Who holds the title of Rector?
+HUM:title What rank is President?
+HUM:title Who holds the title of President?
+HUM:title What is a Chief Justice?
+HUM:title What rank is Chief Justice?
+HUM:title Who holds the title of Chief Justice?
+HUM:title What is a Associate Justice?
+HUM:title What rank is Associate Justice?
+HUM:title Who holds the title of Associate Justice?
+HUM:title What rank is Judge?
+HUM:title Who holds the title of Judge?
+LOC:city Where is New York?
+LOC:city Tell me about New York
+LOC:city What country is New York in?
+LOC:city Where is Los Angeles?
+LOC:city What is Los Angeles?
+LOC:city Tell me about Los Angeles
+LOC:city What country is Los Angeles in?
+LOC:city Where is Chicago?
+LOC:city What is Chicago?
+LOC:city Tell me about Chicago
+LOC:city What country is Chicago in?
+LOC:city Where is Houston?
+LOC:city What is Houston?
+LOC:city Tell me about Houston
+LOC:city What country is Houston in?
+LOC:city Where is Phoenix?
+LOC:city What is Phoenix?
+LOC:city Tell me about Phoenix
+LOC:city What country is Phoenix in?
+LOC:city Where is London?
+LOC:city What is London?
+LOC:city Tell me about London
+LOC:city What country is London in?
+LOC:city Where is Paris?
+LOC:city Tell me about Paris
+LOC:city What country is Paris in?
+LOC:city Where is Tokyo?
+LOC:city Tell me about Tokyo
+LOC:city What country is Tokyo in?
+LOC:city Where is Beijing?
+LOC:city What is Beijing?
+LOC:city Tell me about Beijing
+LOC:city What country is Beijing in?
+LOC:city Where is Mumbai?
+LOC:city What is Mumbai?
+LOC:city Tell me about Mumbai
+LOC:city What country is Mumbai in?
+LOC:city Where is Sydney?
+LOC:city What is Sydney?
+LOC:city Tell me about Sydney
+LOC:city What country is Sydney in?
+LOC:city Where is Toronto?
+LOC:city What is Toronto?
+LOC:city Tell me about Toronto
+LOC:city What country is Toronto in?
+LOC:city Where is Moscow?
+LOC:city What is Moscow?
+LOC:city Tell me about Moscow
+LOC:city What country is Moscow in?
+LOC:city Where is Dubai?
+LOC:city What is Dubai?
+LOC:city Tell me about Dubai
+LOC:city What country is Dubai in?
+LOC:city Where is Singapore?
+LOC:city What is Singapore?
+LOC:city Tell me about Singapore
+LOC:city What country is Singapore in?
+LOC:city Where is Amsterdam?
+LOC:city What is Amsterdam?
+LOC:city Tell me about Amsterdam
+LOC:city What country is Amsterdam in?
+LOC:city Where is Berlin?
+LOC:city What is Berlin?
+LOC:city Tell me about Berlin
+LOC:city What country is Berlin in?
+LOC:city Where is Rome?
+LOC:city What is Rome?
+LOC:city Tell me about Rome
+LOC:city What country is Rome in?
+LOC:city Where is Madrid?
+LOC:city What is Madrid?
+LOC:city Tell me about Madrid
+LOC:city What country is Madrid in?
+LOC:city Where is Barcelona?
+LOC:city What is Barcelona?
+LOC:city Tell me about Barcelona
+LOC:city What country is Barcelona in?
+LOC:city Where is Istanbul?
+LOC:city What is Istanbul?
+LOC:city Tell me about Istanbul
+LOC:city What country is Istanbul in?
+LOC:city Where is Cairo?
+LOC:city What is Cairo?
+LOC:city Tell me about Cairo
+LOC:city What country is Cairo in?
+LOC:city Where is Bangkok?
+LOC:city What is Bangkok?
+LOC:city Tell me about Bangkok
+LOC:city What country is Bangkok in?
+LOC:city Where is Seoul?
+LOC:city What is Seoul?
+LOC:city Tell me about Seoul
+LOC:city What country is Seoul in?
+LOC:city Where is Hong Kong?
+LOC:city What is Hong Kong?
+LOC:city Tell me about Hong Kong
+LOC:city What country is Hong Kong in?
+LOC:city Where is Vienna?
+LOC:city What is Vienna?
+LOC:city Tell me about Vienna
+LOC:city What country is Vienna in?
+LOC:city Where is Prague?
+LOC:city What is Prague?
+LOC:city Tell me about Prague
+LOC:city What country is Prague in?
+LOC:city Where is Venice?
+LOC:city What is Venice?
+LOC:city Tell me about Venice
+LOC:city What country is Venice in?
+LOC:city Where is Athens?
+LOC:city What is Athens?
+LOC:city Tell me about Athens
+LOC:city What country is Athens in?
+LOC:city Where is Dublin?
+LOC:city What is Dublin?
+LOC:city Tell me about Dublin
+LOC:city What country is Dublin in?
+LOC:country Where is France?
+LOC:country What is the capital of France?
+LOC:country What continent is France in?
+LOC:country Tell me about France
+LOC:country Where is Germany?
+LOC:country What is the capital of Germany?
+LOC:country What continent is Germany in?
+LOC:country Tell me about Germany
+LOC:country Where is Italy?
+LOC:country What is the capital of Italy?
+LOC:country What continent is Italy in?
+LOC:country Tell me about Italy
+LOC:country Where is Spain?
+LOC:country What is the capital of Spain?
+LOC:country What continent is Spain in?
+LOC:country Tell me about Spain
+LOC:country Where is Portugal?
+LOC:country What is the capital of Portugal?
+LOC:country What continent is Portugal in?
+LOC:country Tell me about Portugal
+LOC:country Where is Greece?
+LOC:country What is the capital of Greece?
+LOC:country What continent is Greece in?
+LOC:country Tell me about Greece
+LOC:country Where is Japan?
+LOC:country What is the capital of Japan?
+LOC:country What continent is Japan in?
+LOC:country Tell me about Japan
+LOC:country Where is South Korea?
+LOC:country What is the capital of South Korea?
+LOC:country What continent is South Korea in?
+LOC:country Tell me about South Korea
+LOC:country Where is China?
+LOC:country What is the capital of China?
+LOC:country What continent is China in?
+LOC:country Tell me about China
+LOC:country Where is India?
+LOC:country What is the capital of India?
+LOC:country What continent is India in?
+LOC:country Tell me about India
+LOC:country Where is Australia?
+LOC:country What is the capital of Australia?
+LOC:country What continent is Australia in?
+LOC:country Tell me about Australia
+LOC:country Where is Canada?
+LOC:country What is the capital of Canada?
+LOC:country What continent is Canada in?
+LOC:country Tell me about Canada
+LOC:country Where is Brazil?
+LOC:country What is the capital of Brazil?
+LOC:country What continent is Brazil in?
+LOC:country Tell me about Brazil
+LOC:country Where is Mexico?
+LOC:country What is the capital of Mexico?
+LOC:country What continent is Mexico in?
+LOC:country Tell me about Mexico
+LOC:country Where is Argentina?
+LOC:country What is the capital of Argentina?
+LOC:country What continent is Argentina in?
+LOC:country Tell me about Argentina
+LOC:country Where is New Zealand?
+LOC:country What is the capital of New Zealand?
+LOC:country What continent is New Zealand in?
+LOC:country Tell me about New Zealand
+LOC:country Where is South Africa?
+LOC:country What is the capital of South Africa?
+LOC:country What continent is South Africa in?
+LOC:country Tell me about South Africa
+LOC:country Where is Egypt?
+LOC:country What is the capital of Egypt?
+LOC:country What continent is Egypt in?
+LOC:country Tell me about Egypt
+LOC:country Where is Nigeria?
+LOC:country What is the capital of Nigeria?
+LOC:country What continent is Nigeria in?
+LOC:country Tell me about Nigeria
+LOC:country Where is Kenya?
+LOC:country What is the capital of Kenya?
+LOC:country What continent is Kenya in?
+LOC:country Tell me about Kenya
+LOC:country Where is Morocco?
+LOC:country What is the capital of Morocco?
+LOC:country What continent is Morocco in?
+LOC:country Tell me about Morocco
+LOC:country Where is Algeria?
+LOC:country What is the capital of Algeria?
+LOC:country What continent is Algeria in?
+LOC:country Tell me about Algeria
+LOC:country Where is Saudi Arabia?
+LOC:country What is the capital of Saudi Arabia?
+LOC:country What continent is Saudi Arabia in?
+LOC:country Tell me about Saudi Arabia
+LOC:country Where is Israel?
+LOC:country What is the capital of Israel?
+LOC:country What continent is Israel in?
+LOC:country Tell me about Israel
+LOC:country Where is Turkey?
+LOC:country What is the capital of Turkey?
+LOC:country What continent is Turkey in?
+LOC:country Tell me about Turkey
+LOC:country Where is Iran?
+LOC:country What is the capital of Iran?
+LOC:country What continent is Iran in?
+LOC:country Tell me about Iran
+LOC:country Where is Russia?
+LOC:country What is the capital of Russia?
+LOC:country What continent is Russia in?
+LOC:country Tell me about Russia
+LOC:country Where is Ukraine?
+LOC:country What is the capital of Ukraine?
+LOC:country What continent is Ukraine in?
+LOC:country Tell me about Ukraine
+LOC:country Where is Poland?
+LOC:country What is the capital of Poland?
+LOC:country What continent is Poland in?
+LOC:country Tell me about Poland
+LOC:country Where is Czech Republic?
+LOC:country What is the capital of Czech Republic?
+LOC:country What continent is Czech Republic in?
+LOC:country Tell me about Czech Republic
+LOC:country Where is Hungary?
+LOC:country What is the capital of Hungary?
+LOC:country What continent is Hungary in?
+LOC:country Tell me about Hungary
+LOC:landmass Where is Africa?
+LOC:landmass What countries are in Africa?
+LOC:landmass Where is Asia?
+LOC:landmass What countries are in Asia?
+LOC:landmass Where is Europe?
+LOC:landmass What countries are in Europe?
+LOC:landmass Where is North America?
+LOC:landmass What countries are in North America?
+LOC:landmass Where is South America?
+LOC:landmass What countries are in South America?
+LOC:landmass What countries are in Australia?
+LOC:landmass Where is Antarctica?
+LOC:landmass What countries are in Antarctica?
+LOC:landmass Where is Greenland?
+LOC:landmass What countries are in Greenland?
+LOC:landmass Where is Madagascar?
+LOC:landmass What countries are in Madagascar?
+LOC:landmass Where is Iceland?
+LOC:landmass What countries are in Iceland?
+LOC:landmass Where is Great Britain?
+LOC:landmass What countries are in Great Britain?
+LOC:landmass Where is Ireland?
+LOC:landmass What countries are in Ireland?
+LOC:landmass Where is Scandinavia?
+LOC:landmass What countries are in Scandinavia?
+LOC:landmass Where is Iberian Peninsula?
+LOC:landmass What is Iberian Peninsula?
+LOC:landmass What countries are in Iberian Peninsula?
+LOC:landmass Where is Balkan Peninsula?
+LOC:landmass What is Balkan Peninsula?
+LOC:landmass What countries are in Balkan Peninsula?
+LOC:landmass Where is Balkans?
+LOC:landmass What is Balkans?
+LOC:landmass What countries are in Balkans?
+LOC:landmass Where is Caucasus?
+LOC:landmass What is Caucasus?
+LOC:landmass What countries are in Caucasus?
+LOC:mount Where is Mount Everest?
+LOC:mount What is the height of Mount Everest?
+LOC:mount What country has Mount Everest?
+LOC:mount Where is K2?
+LOC:mount What is the height of K2?
+LOC:mount What country has K2?
+LOC:mount Where is Mount Kilimanjaro?
+LOC:mount What is the height of Mount Kilimanjaro?
+LOC:mount What country has Mount Kilimanjaro?
+LOC:mount Where is Mount Denali?
+LOC:mount What is the height of Mount Denali?
+LOC:mount What country has Mount Denali?
+LOC:mount Where is Mount Fuji?
+LOC:mount What is the height of Mount Fuji?
+LOC:mount What country has Mount Fuji?
+LOC:mount Where is Mount Blanc?
+LOC:mount What is the height of Mount Blanc?
+LOC:mount What country has Mount Blanc?
+LOC:mount Where is Mount Elbrus?
+LOC:mount What is the height of Mount Elbrus?
+LOC:mount What country has Mount Elbrus?
+LOC:mount Where is Mount Aconcagua?
+LOC:mount What is the height of Mount Aconcagua?
+LOC:mount What country has Mount Aconcagua?
+LOC:mount Where is Mount Rushmore?
+LOC:mount What is the height of Mount Rushmore?
+LOC:mount What country has Mount Rushmore?
+LOC:mount Where is Ben Nevis?
+LOC:mount What is the height of Ben Nevis?
+LOC:mount What country has Ben Nevis?
+LOC:mount Where is Snowdon?
+LOC:mount What is the height of Snowdon?
+LOC:mount What country has Snowdon?
+LOC:mount Where is Scafell Pike?
+LOC:mount What is the height of Scafell Pike?
+LOC:mount What country has Scafell Pike?
+LOC:mount Where is Rocky Mountains?
+LOC:mount What is the height of Rocky Mountains?
+LOC:mount What country has Rocky Mountains?
+LOC:mount Where is Appalachian Mountains?
+LOC:mount What is the height of Appalachian Mountains?
+LOC:mount What country has Appalachian Mountains?
+LOC:mount Where is Himalayas?
+LOC:mount What is the height of Himalayas?
+LOC:mount What country has Himalayas?
+LOC:mount Where is Andes Mountains?
+LOC:mount What is the height of Andes Mountains?
+LOC:mount What country has Andes Mountains?
+LOC:mount Where is Sierra Nevada?
+LOC:mount What is the height of Sierra Nevada?
+LOC:mount What country has Sierra Nevada?
+LOC:mount Where is Cascade Range?
+LOC:mount What is the height of Cascade Range?
+LOC:mount What country has Cascade Range?
+LOC:state Where is California?
+LOC:state What is California known for?
+LOC:state Where is Texas?
+LOC:state What is Texas known for?
+LOC:state Where is Florida?
+LOC:state What is Florida known for?
+LOC:state What is New York known for?
+LOC:state Where is Pennsylvania?
+LOC:state What is Pennsylvania known for?
+LOC:state Where is Illinois?
+LOC:state What is Illinois known for?
+LOC:state Where is Ohio?
+LOC:state What is Ohio known for?
+LOC:state Where is Georgia?
+LOC:state What is Georgia known for?
+LOC:state Where is North Carolina?
+LOC:state What is North Carolina known for?
+LOC:state Where is Michigan?
+LOC:state What is Michigan known for?
+LOC:state Where is New Jersey?
+LOC:state What is New Jersey known for?
+LOC:state Where is Virginia?
+LOC:state What is Virginia known for?
+LOC:state Where is Washington?
+LOC:state What is Washington known for?
+LOC:state Where is Arizona?
+LOC:state What is Arizona known for?
+LOC:state Where is Massachusetts?
+LOC:state What is Massachusetts known for?
+LOC:state Where is Tennessee?
+LOC:state What is Tennessee known for?
+LOC:state Where is Indiana?
+LOC:state What is Indiana known for?
+LOC:state Where is Maryland?
+LOC:state What is Maryland known for?
+LOC:state Where is Missouri?
+LOC:state What is Missouri known for?
+LOC:state Where is Wisconsin?
+LOC:state What is Wisconsin known for?
+LOC:water Where is the Amazon River?
+LOC:water What is the Amazon River?
+LOC:water What connects to the Amazon River?
+LOC:water Where is the Nile River?
+LOC:water What is the Nile River?
+LOC:water What connects to the Nile River?
+LOC:water Where is the Yangtze River?
+LOC:water What is the Yangtze River?
+LOC:water What connects to the Yangtze River?
+LOC:water Where is the Mississippi River?
+LOC:water What is the Mississippi River?
+LOC:water What connects to the Mississippi River?
+LOC:water Where is the Pacific Ocean?
+LOC:water What is the Pacific Ocean?
+LOC:water What connects to the Pacific Ocean?
+LOC:water Where is the Atlantic Ocean?
+LOC:water What is the Atlantic Ocean?
+LOC:water What connects to the Atlantic Ocean?
+LOC:water Where is the Indian Ocean?
+LOC:water What is the Indian Ocean?
+LOC:water What connects to the Indian Ocean?
+LOC:water Where is the Arctic Ocean?
+LOC:water What is the Arctic Ocean?
+LOC:water What connects to the Arctic Ocean?
+LOC:water Where is the Dead Sea?
+LOC:water What is the Dead Sea?
+LOC:water What connects to the Dead Sea?
+LOC:water Where is the Great Salt Lake?
+LOC:water What is the Great Salt Lake?
+LOC:water What connects to the Great Salt Lake?
+LOC:water Where is the Lake Baikal?
+LOC:water What is the Lake Baikal?
+LOC:water What connects to the Lake Baikal?
+LOC:water Where is the Lake Superior?
+LOC:water What is the Lake Superior?
+LOC:water What connects to the Lake Superior?
+LOC:water Where is the Mediterranean Sea?
+LOC:water What is the Mediterranean Sea?
+LOC:water What connects to the Mediterranean Sea?
+LOC:water Where is the Caribbean Sea?
+LOC:water What is the Caribbean Sea?
+LOC:water What connects to the Caribbean Sea?
+LOC:water Where is the Black Sea?
+LOC:water What is the Black Sea?
+LOC:water What connects to the Black Sea?
+LOC:water Where is the Baltic Sea?
+LOC:water What is the Baltic Sea?
+LOC:water What connects to the Baltic Sea?
+LOC:water Where is the English Channel?
+LOC:water What is the English Channel?
+LOC:water What connects to the English Channel?
+LOC:water Where is the Strait of Gibraltar?
+LOC:water What is the Strait of Gibraltar?
+LOC:water What connects to the Strait of Gibraltar?
+LOC:water Where is the Panama Canal?
+LOC:water What is the Panama Canal?
+LOC:water What connects to the Panama Canal?
+LOC:other What is an obscure geographical location?
+LOC:other Where is this place situated?
+ENTY:animal Tell me about lion
+ENTY:animal What do lions eat?
+ENTY:animal Where do lions live?
+ENTY:animal How big is a lion?
+ENTY:animal What is a tiger?
+ENTY:animal How big is a tiger?
+ENTY:animal What is a elephant?
+ENTY:animal How big is a elephant?
+ENTY:animal What is a giraffe?
+ENTY:animal How big is a giraffe?
+ENTY:animal What is a zebra?
+ENTY:animal How big is a zebra?
+ENTY:animal What is a rhinoceros?
+ENTY:animal How big is a rhinoceros?
+ENTY:animal What is a hippopotamus?
+ENTY:animal How big is a hippopotamus?
+ENTY:animal What is a cheetah?
+ENTY:animal How big is a cheetah?
+ENTY:animal What is a leopard?
+ENTY:animal How big is a leopard?
+ENTY:animal What is a bear?
+ENTY:animal How big is a bear?
+ENTY:animal What is a wolf?
+ENTY:animal How big is a wolf?
+ENTY:animal What is a deer?
+ENTY:animal How big is a deer?
+ENTY:animal What is a moose?
+ENTY:animal How big is a moose?
+ENTY:animal What is a elk?
+ENTY:animal How big is a elk?
+ENTY:animal What is a reindeer?
+ENTY:animal How big is a reindeer?
+ENTY:animal What is a antelope?
+ENTY:animal How big is a antelope?
+ENTY:animal What is a buffalo?
+ENTY:animal How big is a buffalo?
+ENTY:animal What is a wildebeest?
+ENTY:animal How big is a wildebeest?
+ENTY:animal What is a eagle?
+ENTY:animal How big is a eagle?
+ENTY:animal What is a hawk?
+ENTY:animal How big is a hawk?
+ENTY:animal What is a falcon?
+ENTY:animal How big is a falcon?
+ENTY:animal What is a owl?
+ENTY:animal How big is a owl?
+ENTY:animal What is a penguin?
+ENTY:animal How big is a penguin?
+ENTY:animal What is a panda?
+ENTY:animal How big is a panda?
+ENTY:animal What is a koala?
+ENTY:animal How big is a koala?
+ENTY:animal What is a kangaroo?
+ENTY:animal How big is a kangaroo?
+ENTY:animal What is a emu?
+ENTY:animal How big is a emu?
+ENTY:animal What is a ostrich?
+ENTY:animal How big is a ostrich?
+ENTY:animal What is a flamingo?
+ENTY:animal How big is a flamingo?
+ENTY:animal What is a dolphin?
+ENTY:animal How big is a dolphin?
+ENTY:animal How big is a whale?
+ENTY:animal What is a shark?
+ENTY:animal How big is a shark?
+ENTY:animal What is a salmon?
+ENTY:animal How big is a salmon?
+ENTY:animal What is a trout?
+ENTY:animal How big is a trout?
+ENTY:animal What is a snake?
+ENTY:animal How big is a snake?
+ENTY:animal What is a lizard?
+ENTY:animal How big is a lizard?
+ENTY:animal What is a crocodile?
+ENTY:animal How big is a crocodile?
+ENTY:animal What is a tortoise?
+ENTY:animal How big is a tortoise?
+ENTY:animal What is a turtle?
+ENTY:animal How big is a turtle?
+ENTY:body What is the heart?
+ENTY:body What does the heart do?
+ENTY:body Where is the heart?
+ENTY:body What is the function of the heart?
+ENTY:body What is the lung?
+ENTY:body What does the lung do?
+ENTY:body Where is the lung?
+ENTY:body What is the function of the lung?
+ENTY:body What is the liver?
+ENTY:body What does the liver do?
+ENTY:body Where is the liver?
+ENTY:body What is the function of the liver?
+ENTY:body What is the kidney?
+ENTY:body What does the kidney do?
+ENTY:body Where is the kidney?
+ENTY:body What is the function of the kidney?
+ENTY:body What is the pancreas?
+ENTY:body What does the pancreas do?
+ENTY:body Where is the pancreas?
+ENTY:body What is the function of the pancreas?
+ENTY:body What is the spleen?
+ENTY:body What does the spleen do?
+ENTY:body Where is the spleen?
+ENTY:body What is the function of the spleen?
+ENTY:body What is the brain?
+ENTY:body What does the brain do?
+ENTY:body Where is the brain?
+ENTY:body What is the function of the brain?
+ENTY:body What is the cerebellum?
+ENTY:body What does the cerebellum do?
+ENTY:body Where is the cerebellum?
+ENTY:body What is the function of the cerebellum?
+ENTY:body What is the spinal cord?
+ENTY:body What does the spinal cord do?
+ENTY:body Where is the spinal cord?
+ENTY:body What is the function of the spinal cord?
+ENTY:body What is the nerve?
+ENTY:body What does the nerve do?
+ENTY:body Where is the nerve?
+ENTY:body What is the function of the nerve?
+ENTY:body What is the muscle?
+ENTY:body What does the muscle do?
+ENTY:body Where is the muscle?
+ENTY:body What is the function of the muscle?
+ENTY:body What is the bone?
+ENTY:body What does the bone do?
+ENTY:body Where is the bone?
+ENTY:body What is the function of the bone?
+ENTY:body What is the skeleton?
+ENTY:body What does the skeleton do?
+ENTY:body Where is the skeleton?
+ENTY:body What is the function of the skeleton?
+ENTY:body What is the skull?
+ENTY:body What does the skull do?
+ENTY:body Where is the skull?
+ENTY:body What is the function of the skull?
+ENTY:body What is the spine?
+ENTY:body What does the spine do?
+ENTY:body Where is the spine?
+ENTY:body What is the function of the spine?
+ENTY:body What is the rib?
+ENTY:body What does the rib do?
+ENTY:body Where is the rib?
+ENTY:body What is the function of the rib?
+ENTY:body What is the vertebra?
+ENTY:body What does the vertebra do?
+ENTY:body Where is the vertebra?
+ENTY:body What is the function of the vertebra?
+ENTY:body What is the skin?
+ENTY:body What does the skin do?
+ENTY:body Where is the skin?
+ENTY:body What is the function of the skin?
+ENTY:body What is the hair?
+ENTY:body What does the hair do?
+ENTY:body Where is the hair?
+ENTY:body What is the function of the hair?
+ENTY:body What is the nail?
+ENTY:body What does the nail do?
+ENTY:body Where is the nail?
+ENTY:body What is the function of the nail?
+ENTY:body What is the tooth?
+ENTY:body What does the tooth do?
+ENTY:body Where is the tooth?
+ENTY:body What is the function of the tooth?
+ENTY:body What is the tongue?
+ENTY:body What does the tongue do?
+ENTY:body Where is the tongue?
+ENTY:body What is the function of the tongue?
+ENTY:body What is the eye?
+ENTY:body What does the eye do?
+ENTY:body Where is the eye?
+ENTY:body What is the function of the eye?
+ENTY:body What is the ear?
+ENTY:body What does the ear do?
+ENTY:body Where is the ear?
+ENTY:body What is the function of the ear?
+ENTY:body What is the nose?
+ENTY:body What does the nose do?
+ENTY:body Where is the nose?
+ENTY:body What is the function of the nose?
+ENTY:body What is the mouth?
+ENTY:body What does the mouth do?
+ENTY:body Where is the mouth?
+ENTY:body What is the function of the mouth?
+ENTY:body What is the throat?
+ENTY:body What does the throat do?
+ENTY:body Where is the throat?
+ENTY:body What is the function of the throat?
+ENTY:body What is the arm?
+ENTY:body What does the arm do?
+ENTY:body Where is the arm?
+ENTY:body What is the function of the arm?
+ENTY:body What is the leg?
+ENTY:body What does the leg do?
+ENTY:body Where is the leg?
+ENTY:body What is the function of the leg?
+ENTY:body What is the hand?
+ENTY:body What does the hand do?
+ENTY:body Where is the hand?
+ENTY:body What is the function of the hand?
+ENTY:body What is the foot?
+ENTY:body What does the foot do?
+ENTY:body Where is the foot?
+ENTY:body What is the function of the foot?
+ENTY:body What is the finger?
+ENTY:body What does the finger do?
+ENTY:body Where is the finger?
+ENTY:body What is the function of the finger?
+ENTY:body What is the toe?
+ENTY:body What does the toe do?
+ENTY:body Where is the toe?
+ENTY:body What is the function of the toe?
+ENTY:body What is the stomach?
+ENTY:body What does the stomach do?
+ENTY:body Where is the stomach?
+ENTY:body What is the function of the stomach?
+ENTY:body What is the intestine?
+ENTY:body What does the intestine do?
+ENTY:body Where is the intestine?
+ENTY:body What is the function of the intestine?
+ENTY:body What is the colon?
+ENTY:body What does the colon do?
+ENTY:body Where is the colon?
+ENTY:body What is the function of the colon?
+ENTY:body What is the bladder?
+ENTY:body What does the bladder do?
+ENTY:body Where is the bladder?
+ENTY:body What is the function of the bladder?
+ENTY:body What is the prostate?
+ENTY:body What does the prostate do?
+ENTY:body Where is the prostate?
+ENTY:body What is the function of the prostate?
+ENTY:body What is the heart chamber?
+ENTY:body What does the heart chamber do?
+ENTY:body Where is the heart chamber?
+ENTY:body What is the function of the heart chamber?
+ENTY:body What is the artery?
+ENTY:body What does the artery do?
+ENTY:body Where is the artery?
+ENTY:body What is the function of the artery?
+ENTY:body What is the vein?
+ENTY:body What does the vein do?
+ENTY:body Where is the vein?
+ENTY:body What is the function of the vein?
+ENTY:body What is the capillary?
+ENTY:body What does the capillary do?
+ENTY:body Where is the capillary?
+ENTY:body What is the function of the capillary?
+ENTY:color What color is red?
+ENTY:color What is red?
+ENTY:color What is a common red item?
+ENTY:color What color is blue?
+ENTY:color What is blue?
+ENTY:color What is a common blue item?
+ENTY:color What color is green?
+ENTY:color What is green?
+ENTY:color What is a common green item?
+ENTY:color What color is yellow?
+ENTY:color What is yellow?
+ENTY:color What is a common yellow item?
+ENTY:color What color is orange?
+ENTY:color What is a common orange item?
+ENTY:color What color is purple?
+ENTY:color What is purple?
+ENTY:color What is a common purple item?
+ENTY:color What color is pink?
+ENTY:color What is pink?
+ENTY:color What is a common pink item?
+ENTY:color What color is brown?
+ENTY:color What is brown?
+ENTY:color What is a common brown item?
+ENTY:color What color is black?
+ENTY:color What is black?
+ENTY:color What is a common black item?
+ENTY:color What color is white?
+ENTY:color What is white?
+ENTY:color What is a common white item?
+ENTY:color What color is gray?
+ENTY:color What is gray?
+ENTY:color What is a common gray item?
+ENTY:color What color is cyan?
+ENTY:color What is cyan?
+ENTY:color What is a common cyan item?
+ENTY:color What color is magenta?
+ENTY:color What is magenta?
+ENTY:color What is a common magenta item?
+ENTY:color What color is turquoise?
+ENTY:color What is turquoise?
+ENTY:color What is a common turquoise item?
+ENTY:color What color is indigo?
+ENTY:color What is indigo?
+ENTY:color What is a common indigo item?
+ENTY:color What color is violet?
+ENTY:color What is violet?
+ENTY:color What is a common violet item?
+ENTY:color What color is crimson?
+ENTY:color What is crimson?
+ENTY:color What is a common crimson item?
+ENTY:color What color is scarlet?
+ENTY:color What is scarlet?
+ENTY:color What is a common scarlet item?
+ENTY:color What color is navy?
+ENTY:color What is navy?
+ENTY:color What is a common navy item?
+ENTY:color What color is maroon?
+ENTY:color What is maroon?
+ENTY:color What is a common maroon item?
+ENTY:color What color is olive?
+ENTY:color What is olive?
+ENTY:color What is a common olive item?
+ENTY:color What color is teal?
+ENTY:color What is teal?
+ENTY:color What is a common teal item?
+ENTY:color What color is coral?
+ENTY:color What is coral?
+ENTY:color What is a common coral item?
+ENTY:color What color is salmon?
+ENTY:color What is salmon?
+ENTY:color What is a common salmon item?
+ENTY:color What color is khaki?
+ENTY:color What is khaki?
+ENTY:color What is a common khaki item?
+ENTY:color What color is beige?
+ENTY:color What is beige?
+ENTY:color What is a common beige item?
+ENTY:color What color is gold?
+ENTY:color What is gold?
+ENTY:color What is a common gold item?
+ENTY:color What color is silver?
+ENTY:color What is silver?
+ENTY:color What is a common silver item?
+ENTY:color What color is bronze?
+ENTY:color What is bronze?
+ENTY:color What is a common bronze item?
+ENTY:color What color is a cardinal?
+ENTY:color What color is a jay?
+ENTY:color What color is a parrot?
+ENTY:color What color is a peacock?
+ENTY:color What color is a flamingo?
+ENTY:color What color is a rose?
+ENTY:color What color is a sunflower?
+ENTY:color What color is a daffodil?
+ENTY:color What color is a violet?
+ENTY:color What color is a bluebell?
+ENTY:color What color is a tomato?
+ENTY:color What color is a lemon?
+ENTY:color What color is a orange?
+ENTY:color What color is a grape?
+ENTY:color What color is a blueberry?
+ENTY:cremat What is cremation?
+ENTY:cremat What is the purpose of cremation?
+ENTY:cremat Tell me about cremation
+ENTY:cremat What is funeral?
+ENTY:cremat What is the purpose of funeral?
+ENTY:cremat Tell me about funeral
+ENTY:cremat What is burial?
+ENTY:cremat What is the purpose of burial?
+ENTY:cremat Tell me about burial
+ENTY:cremat What is mausoleum?
+ENTY:cremat What is the purpose of mausoleum?
+ENTY:cremat Tell me about mausoleum
+ENTY:cremat What is cemetery?
+ENTY:cremat What is the purpose of cemetery?
+ENTY:cremat Tell me about cemetery
+ENTY:cremat What is memorial service?
+ENTY:cremat What is the purpose of memorial service?
+ENTY:cremat Tell me about memorial service
+ENTY:cremat What is wake?
+ENTY:cremat What is the purpose of wake?
+ENTY:cremat Tell me about wake
+ENTY:cremat What is requiem?
+ENTY:cremat What is the purpose of requiem?
+ENTY:cremat Tell me about requiem
+ENTY:cremat What is epitaph?
+ENTY:cremat What is the purpose of epitaph?
+ENTY:cremat Tell me about epitaph
+ENTY:currency What is the dollar?
+ENTY:currency Which country uses the dollar?
+ENTY:currency What is the symbol for dollar?
+ENTY:currency What is the euro?
+ENTY:currency Which country uses the euro?
+ENTY:currency What is the symbol for euro?
+ENTY:currency What is the pound?
+ENTY:currency Which country uses the pound?
+ENTY:currency What is the symbol for pound?
+ENTY:currency What is the yen?
+ENTY:currency Which country uses the yen?
+ENTY:currency What is the symbol for yen?
+ENTY:currency What is the yuan?
+ENTY:currency Which country uses the yuan?
+ENTY:currency What is the symbol for yuan?
+ENTY:currency What is the rupee?
+ENTY:currency Which country uses the rupee?
+ENTY:currency What is the symbol for rupee?
+ENTY:currency What is the peso?
+ENTY:currency Which country uses the peso?
+ENTY:currency What is the symbol for peso?
+ENTY:currency What is the franc?
+ENTY:currency Which country uses the franc?
+ENTY:currency What is the symbol for franc?
+ENTY:currency What is the drachma?
+ENTY:currency Which country uses the drachma?
+ENTY:currency What is the symbol for drachma?
+ENTY:currency What is the ruble?
+ENTY:currency Which country uses the ruble?
+ENTY:currency What is the symbol for ruble?
+ENTY:currency What is the krona?
+ENTY:currency Which country uses the krona?
+ENTY:currency What is the symbol for krona?
+ENTY:currency What is the dinar?
+ENTY:currency Which country uses the dinar?
+ENTY:currency What is the symbol for dinar?
+ENTY:currency What is the dirham?
+ENTY:currency Which country uses the dirham?
+ENTY:currency What is the symbol for dirham?
+ENTY:currency What is the shekel?
+ENTY:currency Which country uses the shekel?
+ENTY:currency What is the symbol for shekel?
+ENTY:currency What is the baht?
+ENTY:currency Which country uses the baht?
+ENTY:currency What is the symbol for baht?
+ENTY:currency What is the won?
+ENTY:currency Which country uses the won?
+ENTY:currency What is the symbol for won?
+ENTY:currency What is the dong?
+ENTY:currency Which country uses the dong?
+ENTY:currency What is the symbol for dong?
+ENTY:currency What is the ringgit?
+ENTY:currency Which country uses the ringgit?
+ENTY:currency What is the symbol for ringgit?
+ENTY:currency What is the lira?
+ENTY:currency Which country uses the lira?
+ENTY:currency What is the symbol for lira?
+ENTY:currency What is the guilder?
+ENTY:currency Which country uses the guilder?
+ENTY:currency What is the symbol for guilder?
+ENTY:currency What is the kroner?
+ENTY:currency Which country uses the kroner?
+ENTY:currency What is the symbol for kroner?
+ENTY:currency What is the zloty?
+ENTY:currency Which country uses the zloty?
+ENTY:currency What is the symbol for zloty?
+ENTY:dismed How is diabetes treated?
+ENTY:dismed What causes diabetes?
+ENTY:dismed How is cancer treated?
+ENTY:dismed What causes cancer?
+ENTY:dismed How is heart disease treated?
+ENTY:dismed What causes heart disease?
+ENTY:dismed What is stroke?
+ENTY:dismed How is stroke treated?
+ENTY:dismed What causes stroke?
+ENTY:dismed How is arthritis treated?
+ENTY:dismed What causes arthritis?
+ENTY:dismed How is asthma treated?
+ENTY:dismed What causes asthma?
+ENTY:dismed How is pneumonia treated?
+ENTY:dismed What causes pneumonia?
+ENTY:dismed How is bronchitis treated?
+ENTY:dismed What causes bronchitis?
+ENTY:dismed What is tuberculosis?
+ENTY:dismed How is tuberculosis treated?
+ENTY:dismed What causes tuberculosis?
+ENTY:dismed What is malaria?
+ENTY:dismed How is malaria treated?
+ENTY:dismed What causes malaria?
+ENTY:dismed What is dengue?
+ENTY:dismed How is dengue treated?
+ENTY:dismed What causes dengue?
+ENTY:dismed What is Ebola?
+ENTY:dismed How is Ebola treated?
+ENTY:dismed What causes Ebola?
+ENTY:dismed What is AIDS?
+ENTY:dismed How is AIDS treated?
+ENTY:dismed What causes AIDS?
+ENTY:dismed What is COVID-19?
+ENTY:dismed How is COVID-19 treated?
+ENTY:dismed What causes COVID-19?
+ENTY:dismed What is flu?
+ENTY:dismed How is flu treated?
+ENTY:dismed What causes flu?
+ENTY:dismed What is common cold?
+ENTY:dismed How is common cold treated?
+ENTY:dismed What causes common cold?
+ENTY:dismed What is measles?
+ENTY:dismed How is measles treated?
+ENTY:dismed What causes measles?
+ENTY:dismed What is mumps?
+ENTY:dismed How is mumps treated?
+ENTY:dismed What causes mumps?
+ENTY:dismed What is chickenpox?
+ENTY:dismed How is chickenpox treated?
+ENTY:dismed What causes chickenpox?
+ENTY:dismed What is whooping cough?
+ENTY:dismed How is whooping cough treated?
+ENTY:dismed What causes whooping cough?
+ENTY:dismed How is hypertension treated?
+ENTY:dismed What causes hypertension?
+ENTY:dismed What is obesity?
+ENTY:dismed How is obesity treated?
+ENTY:dismed What causes obesity?
+ENTY:dismed How is depression treated?
+ENTY:dismed What causes depression?
+ENTY:dismed How is anxiety treated?
+ENTY:dismed What causes anxiety?
+ENTY:dismed What is autism?
+ENTY:dismed How is autism treated?
+ENTY:dismed What causes autism?
+ENTY:dismed What is Parkinson's disease?
+ENTY:dismed How is Parkinson's disease treated?
+ENTY:dismed What causes Parkinson's disease?
+ENTY:dismed What is Alzheimer's disease?
+ENTY:dismed How is Alzheimer's disease treated?
+ENTY:dismed What causes Alzheimer's disease?
+ENTY:dismed What is dementia?
+ENTY:dismed How is dementia treated?
+ENTY:dismed What causes dementia?
+ENTY:dismed What is cystic fibrosis?
+ENTY:dismed How is cystic fibrosis treated?
+ENTY:dismed What causes cystic fibrosis?
+ENTY:dismed What is sickle cell disease?
+ENTY:dismed How is sickle cell disease treated?
+ENTY:dismed What causes sickle cell disease?
+ENTY:dismed What is hemophilia?
+ENTY:dismed How is hemophilia treated?
+ENTY:dismed What causes hemophilia?
+ENTY:dismed What is aspirin?
+ENTY:dismed What is aspirin used for?
+ENTY:dismed What is ibuprofen?
+ENTY:dismed What is ibuprofen used for?
+ENTY:dismed What is penicillin?
+ENTY:dismed What is penicillin used for?
+ENTY:dismed What is insulin?
+ENTY:dismed What is insulin used for?
+ENTY:dismed What is metformin?
+ENTY:dismed What is metformin used for?
+ENTY:dismed What is lisinopril?
+ENTY:dismed What is lisinopril used for?
+ENTY:dismed What is atorvastatin?
+ENTY:dismed What is atorvastatin used for?
+ENTY:dismed What is omeprazole?
+ENTY:dismed What is omeprazole used for?
+ENTY:dismed What is amoxicillin?
+ENTY:dismed What is amoxicillin used for?
+ENTY:event What was World War I?
+ENTY:event When did World War I occur?
+ENTY:event What happened during World War I?
+ENTY:event Tell me about World War I
+ENTY:event What was World War II?
+ENTY:event When did World War II occur?
+ENTY:event What happened during World War II?
+ENTY:event Tell me about World War II
+ENTY:event What was the Cold War?
+ENTY:event When did the Cold War occur?
+ENTY:event What happened during the Cold War?
+ENTY:event Tell me about the Cold War
+ENTY:event What was the Vietnam War?
+ENTY:event When did the Vietnam War occur?
+ENTY:event What happened during the Vietnam War?
+ENTY:event Tell me about the Vietnam War
+ENTY:event What was the American Revolution?
+ENTY:event When did the American Revolution occur?
+ENTY:event What happened during the American Revolution?
+ENTY:event Tell me about the American Revolution
+ENTY:event What was the French Revolution?
+ENTY:event When did the French Revolution occur?
+ENTY:event What happened during the French Revolution?
+ENTY:event Tell me about the French Revolution
+ENTY:event What was the Industrial Revolution?
+ENTY:event When did the Industrial Revolution occur?
+ENTY:event What happened during the Industrial Revolution?
+ENTY:event Tell me about the Industrial Revolution
+ENTY:event What was the Renaissance?
+ENTY:event When did the Renaissance occur?
+ENTY:event What happened during the Renaissance?
+ENTY:event Tell me about the Renaissance
+ENTY:event What was the Dark Ages?
+ENTY:event When did the Dark Ages occur?
+ENTY:event What happened during the Dark Ages?
+ENTY:event Tell me about the Dark Ages
+ENTY:event What was the Reformation?
+ENTY:event When did the Reformation occur?
+ENTY:event What happened during the Reformation?
+ENTY:event Tell me about the Reformation
+ENTY:event What was the moon landing?
+ENTY:event When did the moon landing occur?
+ENTY:event What happened during the moon landing?
+ENTY:event Tell me about the moon landing
+ENTY:event What was Woodstock?
+ENTY:event When did Woodstock occur?
+ENTY:event What happened during Woodstock?
+ENTY:event Tell me about Woodstock
+ENTY:event What was the fall of the Berlin Wall?
+ENTY:event When did the fall of the Berlin Wall occur?
+ENTY:event What happened during the fall of the Berlin Wall?
+ENTY:event Tell me about the fall of the Berlin Wall
+ENTY:event What was the September 11 attacks?
+ENTY:event When did the September 11 attacks occur?
+ENTY:event What happened during the September 11 attacks?
+ENTY:event Tell me about the September 11 attacks
+ENTY:event What was the 2008 financial crisis?
+ENTY:event When did the 2008 financial crisis occur?
+ENTY:event What happened during the 2008 financial crisis?
+ENTY:event Tell me about the 2008 financial crisis
+ENTY:event What was the COVID-19 pandemic?
+ENTY:event When did the COVID-19 pandemic occur?
+ENTY:event What happened during the COVID-19 pandemic?
+ENTY:event Tell me about the COVID-19 pandemic
+ENTY:event What was the 2016 presidential election?
+ENTY:event When did the 2016 presidential election occur?
+ENTY:event What happened during the 2016 presidential election?
+ENTY:event Tell me about the 2016 presidential election
+ENTY:event What was the Olympics?
+ENTY:event When did the Olympics occur?
+ENTY:event What happened during the Olympics?
+ENTY:event Tell me about the Olympics
+ENTY:event What was the World Cup?
+ENTY:event When did the World Cup occur?
+ENTY:event What happened during the World Cup?
+ENTY:event Tell me about the World Cup
+ENTY:event What was the Super Bowl?
+ENTY:event When did the Super Bowl occur?
+ENTY:event What happened during the Super Bowl?
+ENTY:event Tell me about the Super Bowl
+ENTY:event What was the Oscars?
+ENTY:event When did the Oscars occur?
+ENTY:event What happened during the Oscars?
+ENTY:event Tell me about the Oscars
+ENTY:event What was Cannes Film Festival?
+ENTY:event When did Cannes Film Festival occur?
+ENTY:event What happened during Cannes Film Festival?
+ENTY:event Tell me about Cannes Film Festival
+ENTY:event What was Coachella?
+ENTY:event When did Coachella occur?
+ENTY:event What happened during Coachella?
+ENTY:event Tell me about Coachella
+ENTY:food What is bread made from?
+ENTY:food Where does bread come from?
+ENTY:food What is pasta made from?
+ENTY:food Where does pasta come from?
+ENTY:food What is rice made from?
+ENTY:food Where does rice come from?
+ENTY:food What is cereal?
+ENTY:food What is cereal made from?
+ENTY:food Where does cereal come from?
+ENTY:food What is pizza made from?
+ENTY:food Where does pizza come from?
+ENTY:food What is hamburger?
+ENTY:food What is hamburger made from?
+ENTY:food Where does hamburger come from?
+ENTY:food What is hot dog?
+ENTY:food What is hot dog made from?
+ENTY:food Where does hot dog come from?
+ENTY:food What is apple made from?
+ENTY:food Where does apple come from?
+ENTY:food What is banana made from?
+ENTY:food Where does banana come from?
+ENTY:food What is orange made from?
+ENTY:food Where does orange come from?
+ENTY:food What is grape?
+ENTY:food What is grape made from?
+ENTY:food Where does grape come from?
+ENTY:food What is strawberry?
+ENTY:food What is strawberry made from?
+ENTY:food Where does strawberry come from?
+ENTY:food What is blueberry?
+ENTY:food What is blueberry made from?
+ENTY:food Where does blueberry come from?
+ENTY:food What is watermelon?
+ENTY:food What is watermelon made from?
+ENTY:food Where does watermelon come from?
+ENTY:food What is carrot made from?
+ENTY:food Where does carrot come from?
+ENTY:food What is broccoli?
+ENTY:food What is broccoli made from?
+ENTY:food Where does broccoli come from?
+ENTY:food What is spinach?
+ENTY:food What is spinach made from?
+ENTY:food Where does spinach come from?
+ENTY:food What is lettuce made from?
+ENTY:food Where does lettuce come from?
+ENTY:food What is tomato made from?
+ENTY:food Where does tomato come from?
+ENTY:food What is cucumber?
+ENTY:food What is cucumber made from?
+ENTY:food Where does cucumber come from?
+ENTY:food What is pepper?
+ENTY:food What is pepper made from?
+ENTY:food Where does pepper come from?
+ENTY:food What is chicken made from?
+ENTY:food Where does chicken come from?
+ENTY:food What is beef made from?
+ENTY:food Where does beef come from?
+ENTY:food What is pork?
+ENTY:food What is pork made from?
+ENTY:food Where does pork come from?
+ENTY:food What is fish made from?
+ENTY:food Where does fish come from?
+ENTY:food What is salmon made from?
+ENTY:food Where does salmon come from?
+ENTY:food What is tuna?
+ENTY:food What is tuna made from?
+ENTY:food Where does tuna come from?
+ENTY:food What is shrimp?
+ENTY:food What is shrimp made from?
+ENTY:food Where does shrimp come from?
+ENTY:food What is egg?
+ENTY:food What is egg made from?
+ENTY:food Where does egg come from?
+ENTY:food What is cheese made from?
+ENTY:food Where does cheese come from?
+ENTY:food What is milk?
+ENTY:food What is milk made from?
+ENTY:food Where does milk come from?
+ENTY:food What is yogurt?
+ENTY:food What is yogurt made from?
+ENTY:food Where does yogurt come from?
+ENTY:food What is butter?
+ENTY:food What is butter made from?
+ENTY:food Where does butter come from?
+ENTY:food What is cream?
+ENTY:food What is cream made from?
+ENTY:food Where does cream come from?
+ENTY:food What is chocolate?
+ENTY:food What is chocolate made from?
+ENTY:food Where does chocolate come from?
+ENTY:food What is candy?
+ENTY:food What is candy made from?
+ENTY:food Where does candy come from?
+ENTY:food What is cookie?
+ENTY:food What is cookie made from?
+ENTY:food Where does cookie come from?
+ENTY:food What is cake?
+ENTY:food What is cake made from?
+ENTY:food Where does cake come from?
+ENTY:food What is pie?
+ENTY:food What is pie made from?
+ENTY:food Where does pie come from?
+ENTY:food What is ice cream?
+ENTY:food What is ice cream made from?
+ENTY:food Where does ice cream come from?
+ENTY:food What is coffee?
+ENTY:food What is coffee made from?
+ENTY:food Where does coffee come from?
+ENTY:food What is tea?
+ENTY:food What is tea made from?
+ENTY:food Where does tea come from?
+ENTY:food What is juice?
+ENTY:food What is juice made from?
+ENTY:food Where does juice come from?
+ENTY:food What is soda?
+ENTY:food What is soda made from?
+ENTY:food Where does soda come from?
+ENTY:food What is water?
+ENTY:food What is water made from?
+ENTY:food Where does water come from?
+ENTY:food What is wine?
+ENTY:food What is wine made from?
+ENTY:food Where does wine come from?
+ENTY:food What is beer?
+ENTY:food What is beer made from?
+ENTY:food Where does beer come from?
+ENTY:instru What is a hammer?
+ENTY:instru What is a hammer used for?
+ENTY:instru How do you use a hammer?
+ENTY:instru What is a wrench?
+ENTY:instru What is a wrench used for?
+ENTY:instru How do you use a wrench?
+ENTY:instru What is a screwdriver?
+ENTY:instru What is a screwdriver used for?
+ENTY:instru How do you use a screwdriver?
+ENTY:instru What is a saw?
+ENTY:instru What is a saw used for?
+ENTY:instru How do you use a saw?
+ENTY:instru What is a drill?
+ENTY:instru What is a drill used for?
+ENTY:instru How do you use a drill?
+ENTY:instru What is a axe?
+ENTY:instru What is a axe used for?
+ENTY:instru How do you use a axe?
+ENTY:instru What is a knife?
+ENTY:instru What is a knife used for?
+ENTY:instru How do you use a knife?
+ENTY:instru What is a fork?
+ENTY:instru What is a fork used for?
+ENTY:instru How do you use a fork?
+ENTY:instru What is a spoon?
+ENTY:instru What is a spoon used for?
+ENTY:instru How do you use a spoon?
+ENTY:instru What is a measuring cup?
+ENTY:instru What is a measuring cup used for?
+ENTY:instru How do you use a measuring cup?
+ENTY:instru What is a scale?
+ENTY:instru What is a scale used for?
+ENTY:instru How do you use a scale?
+ENTY:instru What is a ruler?
+ENTY:instru What is a ruler used for?
+ENTY:instru How do you use a ruler?
+ENTY:instru What is a compass?
+ENTY:instru What is a compass used for?
+ENTY:instru How do you use a compass?
+ENTY:instru What is a protractor?
+ENTY:instru What is a protractor used for?
+ENTY:instru How do you use a protractor?
+ENTY:instru What is a microscope?
+ENTY:instru What is a microscope used for?
+ENTY:instru How do you use a microscope?
+ENTY:instru What is a telescope?
+ENTY:instru What is a telescope used for?
+ENTY:instru How do you use a telescope?
+ENTY:instru What is a stethoscope?
+ENTY:instru What is a stethoscope used for?
+ENTY:instru How do you use a stethoscope?
+ENTY:instru What is a thermometer?
+ENTY:instru What is a thermometer used for?
+ENTY:instru How do you use a thermometer?
+ENTY:instru What is a blood pressure cuff?
+ENTY:instru What is a blood pressure cuff used for?
+ENTY:instru How do you use a blood pressure cuff?
+ENTY:instru What is a guitar used for?
+ENTY:instru How do you use a guitar?
+ENTY:instru What is a piano used for?
+ENTY:instru How do you use a piano?
+ENTY:instru What is a violin used for?
+ENTY:instru How do you use a violin?
+ENTY:instru What is a flute used for?
+ENTY:instru How do you use a flute?
+ENTY:instru What is a trumpet used for?
+ENTY:instru How do you use a trumpet?
+ENTY:instru What is a drums used for?
+ENTY:instru How do you use a drums?
+ENTY:instru What is a saxophone used for?
+ENTY:instru How do you use a saxophone?
+ENTY:instru What is a harmonica used for?
+ENTY:instru How do you use a harmonica?
+ENTY:instru What is a accordion?
+ENTY:instru What is a accordion used for?
+ENTY:instru How do you use a accordion?
+ENTY:instru What is a banjo used for?
+ENTY:instru How do you use a banjo?
+ENTY:lang What is English?
+ENTY:lang Where is English spoken?
+ENTY:lang How many people speak English?
+ENTY:lang What is English known for?
+ENTY:lang What is Spanish?
+ENTY:lang Where is Spanish spoken?
+ENTY:lang How many people speak Spanish?
+ENTY:lang What is Spanish known for?
+ENTY:lang What is French?
+ENTY:lang Where is French spoken?
+ENTY:lang How many people speak French?
+ENTY:lang What is French known for?
+ENTY:lang What is German?
+ENTY:lang Where is German spoken?
+ENTY:lang How many people speak German?
+ENTY:lang What is German known for?
+ENTY:lang What is Italian?
+ENTY:lang Where is Italian spoken?
+ENTY:lang How many people speak Italian?
+ENTY:lang What is Italian known for?
+ENTY:lang What is Portuguese?
+ENTY:lang Where is Portuguese spoken?
+ENTY:lang How many people speak Portuguese?
+ENTY:lang What is Portuguese known for?
+ENTY:lang What is Russian?
+ENTY:lang Where is Russian spoken?
+ENTY:lang How many people speak Russian?
+ENTY:lang What is Russian known for?
+ENTY:lang What is Chinese?
+ENTY:lang Where is Chinese spoken?
+ENTY:lang How many people speak Chinese?
+ENTY:lang What is Chinese known for?
+ENTY:lang What is Japanese?
+ENTY:lang Where is Japanese spoken?
+ENTY:lang How many people speak Japanese?
+ENTY:lang What is Japanese known for?
+ENTY:lang What is Korean?
+ENTY:lang Where is Korean spoken?
+ENTY:lang How many people speak Korean?
+ENTY:lang What is Korean known for?
+ENTY:lang What is Arabic?
+ENTY:lang Where is Arabic spoken?
+ENTY:lang How many people speak Arabic?
+ENTY:lang What is Arabic known for?
+ENTY:lang What is Hindi?
+ENTY:lang Where is Hindi spoken?
+ENTY:lang How many people speak Hindi?
+ENTY:lang What is Hindi known for?
+ENTY:lang What is Bengali?
+ENTY:lang Where is Bengali spoken?
+ENTY:lang How many people speak Bengali?
+ENTY:lang What is Bengali known for?
+ENTY:lang What is Vietnamese?
+ENTY:lang Where is Vietnamese spoken?
+ENTY:lang How many people speak Vietnamese?
+ENTY:lang What is Vietnamese known for?
+ENTY:lang What is Turkish?
+ENTY:lang Where is Turkish spoken?
+ENTY:lang How many people speak Turkish?
+ENTY:lang What is Turkish known for?
+ENTY:lang What is Thai?
+ENTY:lang Where is Thai spoken?
+ENTY:lang How many people speak Thai?
+ENTY:lang What is Thai known for?
+ENTY:lang What is Dutch?
+ENTY:lang Where is Dutch spoken?
+ENTY:lang How many people speak Dutch?
+ENTY:lang What is Dutch known for?
+ENTY:lang What is Polish?
+ENTY:lang Where is Polish spoken?
+ENTY:lang How many people speak Polish?
+ENTY:lang What is Polish known for?
+ENTY:lang What is Greek?
+ENTY:lang Where is Greek spoken?
+ENTY:lang How many people speak Greek?
+ENTY:lang What is Greek known for?
+ENTY:lang What is Swedish?
+ENTY:lang Where is Swedish spoken?
+ENTY:lang How many people speak Swedish?
+ENTY:lang What is Swedish known for?
+ENTY:lang What is Norwegian?
+ENTY:lang Where is Norwegian spoken?
+ENTY:lang How many people speak Norwegian?
+ENTY:lang What is Norwegian known for?
+ENTY:lang What is Danish?
+ENTY:lang Where is Danish spoken?
+ENTY:lang How many people speak Danish?
+ENTY:lang What is Danish known for?
+ENTY:lang What is Finnish?
+ENTY:lang Where is Finnish spoken?
+ENTY:lang How many people speak Finnish?
+ENTY:lang What is Finnish known for?
+ENTY:lang What is Hungarian?
+ENTY:lang Where is Hungarian spoken?
+ENTY:lang How many people speak Hungarian?
+ENTY:lang What is Hungarian known for?
+ENTY:letter What is a letter?
+ENTY:letter What is the letter in grammar?
+ENTY:letter How many letters are in English?
+ENTY:letter What is a alphabet?
+ENTY:letter What is the alphabet in grammar?
+ENTY:letter How many alphabets are in English?
+ENTY:letter What is a vowel?
+ENTY:letter What is the vowel in grammar?
+ENTY:letter How many vowels are in English?
+ENTY:letter What is a consonant?
+ENTY:letter What is the consonant in grammar?
+ENTY:letter How many consonants are in English?
+ENTY:letter What is a syllable?
+ENTY:letter What is the syllable in grammar?
+ENTY:letter How many syllables are in English?
+ENTY:letter What is a phoneme?
+ENTY:letter What is the phoneme in grammar?
+ENTY:letter How many phonemes are in English?
+ENTY:letter What is a script?
+ENTY:letter What is the script in grammar?
+ENTY:letter How many scripts are in English?
+ENTY:letter What is a font?
+ENTY:letter What is the font in grammar?
+ENTY:letter How many fonts are in English?
+ENTY:letter What is a typeface?
+ENTY:letter What is the typeface in grammar?
+ENTY:letter How many typefaces are in English?
+ENTY:letter What is a handwriting?
+ENTY:letter What is the handwriting in grammar?
+ENTY:letter How many handwritings are in English?
+ENTY:letter What is a calligraphy?
+ENTY:letter What is the calligraphy in grammar?
+ENTY:letter How many calligraphys are in English?
+ENTY:other What is an undefined entity type 0?
+ENTY:other What is an undefined entity type 1?
+ENTY:other What is an undefined entity type 2?
+ENTY:other What is an undefined entity type 3?
+ENTY:other What is an undefined entity type 4?
+ENTY:other What is an undefined entity type 5?
+ENTY:other What is an undefined entity type 6?
+ENTY:other What is an undefined entity type 7?
+ENTY:other What is an undefined entity type 8?
+ENTY:other What is an undefined entity type 9?
+ENTY:other What is an undefined entity type 10?
+ENTY:other What is an undefined entity type 11?
+ENTY:other What is an undefined entity type 12?
+ENTY:other What is an undefined entity type 13?
+ENTY:other What is an undefined entity type 14?
+ENTY:other What is an undefined entity type 15?
+ENTY:other What is an undefined entity type 16?
+ENTY:other What is an undefined entity type 17?
+ENTY:other What is an undefined entity type 18?
+ENTY:other What is an undefined entity type 19?
+ENTY:other What is an undefined entity type 20?
+ENTY:other What is an undefined entity type 21?
+ENTY:other What is an undefined entity type 22?
+ENTY:other What is an undefined entity type 23?
+ENTY:other What is an undefined entity type 24?
+ENTY:other What is an undefined entity type 25?
+ENTY:other What is an undefined entity type 26?
+ENTY:other What is an undefined entity type 27?
+ENTY:other What is an undefined entity type 28?
+ENTY:other What is an undefined entity type 29?
+ENTY:other What is an undefined entity type 30?
+ENTY:other What is an undefined entity type 31?
+ENTY:other What is an undefined entity type 32?
+ENTY:other What is an undefined entity type 33?
+ENTY:other What is an undefined entity type 34?
+ENTY:other What is an undefined entity type 35?
+ENTY:other What is an undefined entity type 36?
+ENTY:other What is an undefined entity type 37?
+ENTY:other What is an undefined entity type 38?
+ENTY:other What is an undefined entity type 39?
+ENTY:other What is an undefined entity type 40?
+ENTY:other What is an undefined entity type 41?
+ENTY:other What is an undefined entity type 42?
+ENTY:other What is an undefined entity type 43?
+ENTY:other What is an undefined entity type 44?
+ENTY:other What is an undefined entity type 45?
+ENTY:other What is an undefined entity type 46?
+ENTY:other What is an undefined entity type 47?
+ENTY:other What is an undefined entity type 48?
+ENTY:other What is an undefined entity type 49?
+ENTY:other What is an undefined entity type 50?
+ENTY:other What is an undefined entity type 51?
+ENTY:other What is an undefined entity type 52?
+ENTY:other What is an undefined entity type 53?
+ENTY:other What is an undefined entity type 54?
+ENTY:other What is an undefined entity type 55?
+ENTY:other What is an undefined entity type 56?
+ENTY:other What is an undefined entity type 57?
+ENTY:other What is an undefined entity type 58?
+ENTY:other What is an undefined entity type 59?
+ENTY:other What is an undefined entity type 60?
+ENTY:other What is an undefined entity type 61?
+ENTY:other What is an undefined entity type 62?
+ENTY:other What is an undefined entity type 63?
+ENTY:other What is an undefined entity type 64?
+ENTY:other What is an undefined entity type 65?
+ENTY:other What is an undefined entity type 66?
+ENTY:other What is an undefined entity type 67?
+ENTY:other What is an undefined entity type 68?
+ENTY:other What is an undefined entity type 69?
+ENTY:other What is an undefined entity type 70?
+ENTY:other What is an undefined entity type 71?
+ENTY:other What is an undefined entity type 72?
+ENTY:other What is an undefined entity type 73?
+ENTY:other What is an undefined entity type 74?
+ENTY:other What is an undefined entity type 75?
+ENTY:other What is an undefined entity type 76?
+ENTY:other What is an undefined entity type 77?
+ENTY:other What is an undefined entity type 78?
+ENTY:other What is an undefined entity type 79?
+ENTY:other What is an undefined entity type 80?
+ENTY:other What is an undefined entity type 81?
+ENTY:other What is an undefined entity type 82?
+ENTY:other What is an undefined entity type 83?
+ENTY:other What is an undefined entity type 84?
+ENTY:other What is an undefined entity type 85?
+ENTY:other What is an undefined entity type 86?
+ENTY:other What is an undefined entity type 87?
+ENTY:other What is an undefined entity type 88?
+ENTY:other What is an undefined entity type 89?
+ENTY:other What is an undefined entity type 90?
+ENTY:other What is an undefined entity type 91?
+ENTY:other What is an undefined entity type 92?
+ENTY:other What is an undefined entity type 93?
+ENTY:other What is an undefined entity type 94?
+ENTY:other What is an undefined entity type 95?
+ENTY:other What is an undefined entity type 96?
+ENTY:other What is an undefined entity type 97?
+ENTY:other What is an undefined entity type 98?
+ENTY:other What is an undefined entity type 99?
+ENTY:other What is an undefined entity type 100?
+ENTY:other What is an undefined entity type 101?
+ENTY:other What is an undefined entity type 102?
+ENTY:other What is an undefined entity type 103?
+ENTY:other What is an undefined entity type 104?
+ENTY:other What is an undefined entity type 105?
+ENTY:other What is an undefined entity type 106?
+ENTY:other What is an undefined entity type 107?
+ENTY:other What is an undefined entity type 108?
+ENTY:other What is an undefined entity type 109?
+ENTY:other What is an undefined entity type 110?
+ENTY:other What is an undefined entity type 111?
+ENTY:other What is an undefined entity type 112?
+ENTY:other What is an undefined entity type 113?
+ENTY:other What is an undefined entity type 114?
+ENTY:other What is an undefined entity type 115?
+ENTY:other What is an undefined entity type 116?
+ENTY:other What is an undefined entity type 117?
+ENTY:other What is an undefined entity type 118?
+ENTY:other What is an undefined entity type 119?
+ENTY:other What is an undefined entity type 120?
+ENTY:other What is an undefined entity type 121?
+ENTY:other What is an undefined entity type 122?
+ENTY:other What is an undefined entity type 123?
+ENTY:other What is an undefined entity type 124?
+ENTY:other What is an undefined entity type 125?
+ENTY:other What is an undefined entity type 126?
+ENTY:other What is an undefined entity type 127?
+ENTY:other What is an undefined entity type 128?
+ENTY:other What is an undefined entity type 129?
+ENTY:other What is an undefined entity type 130?
+ENTY:other What is an undefined entity type 131?
+ENTY:other What is an undefined entity type 132?
+ENTY:other What is an undefined entity type 133?
+ENTY:other What is an undefined entity type 134?
+ENTY:other What is an undefined entity type 135?
+ENTY:other What is an undefined entity type 136?
+ENTY:other What is an undefined entity type 137?
+ENTY:other What is an undefined entity type 138?
+ENTY:other What is an undefined entity type 139?
+ENTY:other What is an undefined entity type 140?
+ENTY:other What is an undefined entity type 141?
+ENTY:other What is an undefined entity type 142?
+ENTY:other What is an undefined entity type 143?
+ENTY:other What is an undefined entity type 144?
+ENTY:other What is an undefined entity type 145?
+ENTY:other What is an undefined entity type 146?
+ENTY:other What is an undefined entity type 147?
+ENTY:other What is an undefined entity type 148?
+ENTY:other What is an undefined entity type 149?
+ENTY:other What is an undefined entity type 150?
+ENTY:other What is an undefined entity type 151?
+ENTY:other What is an undefined entity type 152?
+ENTY:other What is an undefined entity type 153?
+ENTY:other What is an undefined entity type 154?
+ENTY:other What is an undefined entity type 155?
+ENTY:other What is an undefined entity type 156?
+ENTY:other What is an undefined entity type 157?
+ENTY:other What is an undefined entity type 158?
+ENTY:other What is an undefined entity type 159?
+ENTY:other What is an undefined entity type 160?
+ENTY:other What is an undefined entity type 161?
+ENTY:other What is an undefined entity type 162?
+ENTY:other What is an undefined entity type 163?
+ENTY:other What is an undefined entity type 164?
+ENTY:other What is an undefined entity type 165?
+ENTY:other What is an undefined entity type 166?
+ENTY:other What is an undefined entity type 167?
+ENTY:other What is an undefined entity type 168?
+ENTY:other What is an undefined entity type 169?
+ENTY:other What is an undefined entity type 170?
+ENTY:other What is an undefined entity type 171?
+ENTY:other What is an undefined entity type 172?
+ENTY:other What is an undefined entity type 173?
+ENTY:other What is an undefined entity type 174?
+ENTY:other What is an undefined entity type 175?
+ENTY:other What is an undefined entity type 176?
+ENTY:other What is an undefined entity type 177?
+ENTY:other What is an undefined entity type 178?
+ENTY:other What is an undefined entity type 179?
+ENTY:other What is an undefined entity type 180?
+ENTY:other What is an undefined entity type 181?
+ENTY:other What is an undefined entity type 182?
+ENTY:other What is an undefined entity type 183?
+ENTY:other What is an undefined entity type 184?
+ENTY:other What is an undefined entity type 185?
+ENTY:other What is an undefined entity type 186?
+ENTY:other What is an undefined entity type 187?
+ENTY:other What is an undefined entity type 188?
+ENTY:other What is an undefined entity type 189?
+ENTY:other What is an undefined entity type 190?
+ENTY:other What is an undefined entity type 191?
+ENTY:other What is an undefined entity type 192?
+ENTY:other What is an undefined entity type 193?
+ENTY:other What is an undefined entity type 194?
+ENTY:other What is an undefined entity type 195?
+ENTY:other What is an undefined entity type 196?
+ENTY:other What is an undefined entity type 197?
+ENTY:other What is an undefined entity type 198?
+ENTY:other What is an undefined entity type 199?
+ENTY:plant What is a oak?
+ENTY:plant Where do oaks grow?
+ENTY:plant What does a oak look like?
+ENTY:plant What is a pine?
+ENTY:plant Where do pines grow?
+ENTY:plant What does a pine look like?
+ENTY:plant What is a birch?
+ENTY:plant Where do birchs grow?
+ENTY:plant What does a birch look like?
+ENTY:plant What is a willow?
+ENTY:plant Where do willows grow?
+ENTY:plant What does a willow look like?
+ENTY:plant What is a maple?
+ENTY:plant Where do maples grow?
+ENTY:plant What does a maple look like?
+ENTY:plant What is a elm?
+ENTY:plant Where do elms grow?
+ENTY:plant What does a elm look like?
+ENTY:plant What is a rose?
+ENTY:plant Where do roses grow?
+ENTY:plant What does a rose look like?
+ENTY:plant What is a tulip?
+ENTY:plant Where do tulips grow?
+ENTY:plant What does a tulip look like?
+ENTY:plant What is a daisy?
+ENTY:plant Where do daisys grow?
+ENTY:plant What does a daisy look like?
+ENTY:plant What is a lily?
+ENTY:plant Where do lilys grow?
+ENTY:plant What does a lily look like?
+ENTY:plant What is a sunflower?
+ENTY:plant Where do sunflowers grow?
+ENTY:plant What does a sunflower look like?
+ENTY:plant What is a violet?
+ENTY:plant Where do violets grow?
+ENTY:plant What does a violet look like?
+ENTY:plant What is a wheat?
+ENTY:plant Where do wheats grow?
+ENTY:plant What does a wheat look like?
+ENTY:plant What is a corn?
+ENTY:plant Where do corns grow?
+ENTY:plant What does a corn look like?
+ENTY:plant What is a rice?
+ENTY:plant Where do rices grow?
+ENTY:plant What does a rice look like?
+ENTY:plant What is a barley?
+ENTY:plant Where do barleys grow?
+ENTY:plant What does a barley look like?
+ENTY:plant What is a oats?
+ENTY:plant Where do oatss grow?
+ENTY:plant What does a oats look like?
+ENTY:plant What is a rye?
+ENTY:plant Where do ryes grow?
+ENTY:plant What does a rye look like?
+ENTY:plant What is a apple?
+ENTY:plant Where do apples grow?
+ENTY:plant What does a apple look like?
+ENTY:plant What is a orange?
+ENTY:plant Where do oranges grow?
+ENTY:plant What does a orange look like?
+ENTY:plant What is a lemon?
+ENTY:plant Where do lemons grow?
+ENTY:plant What does a lemon look like?
+ENTY:plant What is a banana?
+ENTY:plant Where do bananas grow?
+ENTY:plant What does a banana look like?
+ENTY:plant What is a grape?
+ENTY:plant Where do grapes grow?
+ENTY:plant What does a grape look like?
+ENTY:plant What is a peach?
+ENTY:plant Where do peachs grow?
+ENTY:plant What does a peach look like?
+ENTY:plant What is a carrot?
+ENTY:plant Where do carrots grow?
+ENTY:plant What does a carrot look like?
+ENTY:plant What is a broccoli?
+ENTY:plant Where do broccolis grow?
+ENTY:plant What does a broccoli look like?
+ENTY:plant What is a spinach?
+ENTY:plant Where do spinachs grow?
+ENTY:plant What does a spinach look like?
+ENTY:plant What is a lettuce?
+ENTY:plant Where do lettuces grow?
+ENTY:plant What does a lettuce look like?
+ENTY:plant What is a pumpkin?
+ENTY:plant Where do pumpkins grow?
+ENTY:plant What does a pumpkin look like?
+ENTY:plant What is a squash?
+ENTY:plant Where do squashs grow?
+ENTY:plant What does a squash look like?
+ENTY:plant What is a cactus?
+ENTY:plant Where do cactuss grow?
+ENTY:plant What does a cactus look like?
+ENTY:plant What is a fern?
+ENTY:plant Where do ferns grow?
+ENTY:plant What does a fern look like?
+ENTY:plant What is a moss?
+ENTY:plant Where do mosss grow?
+ENTY:plant What does a moss look like?
+ENTY:plant What is a lichen?
+ENTY:plant Where do lichens grow?
+ENTY:plant What does a lichen look like?
+ENTY:plant What is a algae?
+ENTY:plant Where do algaes grow?
+ENTY:plant What does a algae look like?
+ENTY:plant What is a seaweed?
+ENTY:plant Where do seaweeds grow?
+ENTY:plant What does a seaweed look like?
+ENTY:product What is a car?
+ENTY:product What is a car made of?
+ENTY:product What do you use a car for?
+ENTY:product What is a truck made of?
+ENTY:product What do you use a truck for?
+ENTY:product What is a bicycle made of?
+ENTY:product What do you use a bicycle for?
+ENTY:product What is a motorcycle made of?
+ENTY:product What do you use a motorcycle for?
+ENTY:product What is a airplane?
+ENTY:product What is a airplane made of?
+ENTY:product What do you use a airplane for?
+ENTY:product What is a boat made of?
+ENTY:product What do you use a boat for?
+ENTY:product What is a phone?
+ENTY:product What is a phone made of?
+ENTY:product What do you use a phone for?
+ENTY:product What is a computer?
+ENTY:product What is a computer made of?
+ENTY:product What do you use a computer for?
+ENTY:product What is a laptop?
+ENTY:product What is a laptop made of?
+ENTY:product What do you use a laptop for?
+ENTY:product What is a tablet?
+ENTY:product What is a tablet made of?
+ENTY:product What do you use a tablet for?
+ENTY:product What is a smartwatch?
+ENTY:product What is a smartwatch made of?
+ENTY:product What do you use a smartwatch for?
+ENTY:product What is a headphones?
+ENTY:product What is a headphones made of?
+ENTY:product What do you use a headphones for?
+ENTY:product What is a television?
+ENTY:product What is a television made of?
+ENTY:product What do you use a television for?
+ENTY:product What is a radio?
+ENTY:product What is a radio made of?
+ENTY:product What do you use a radio for?
+ENTY:product What is a camera?
+ENTY:product What is a camera made of?
+ENTY:product What do you use a camera for?
+ENTY:product What is a printer?
+ENTY:product What is a printer made of?
+ENTY:product What do you use a printer for?
+ENTY:product What is a monitor?
+ENTY:product What is a monitor made of?
+ENTY:product What do you use a monitor for?
+ENTY:product What is a keyboard?
+ENTY:product What is a keyboard made of?
+ENTY:product What do you use a keyboard for?
+ENTY:product What is a refrigerator?
+ENTY:product What is a refrigerator made of?
+ENTY:product What do you use a refrigerator for?
+ENTY:product What is a oven?
+ENTY:product What is a oven made of?
+ENTY:product What do you use a oven for?
+ENTY:product What is a microwave?
+ENTY:product What is a microwave made of?
+ENTY:product What do you use a microwave for?
+ENTY:product What is a dishwasher?
+ENTY:product What is a dishwasher made of?
+ENTY:product What do you use a dishwasher for?
+ENTY:product What is a washing machine?
+ENTY:product What is a washing machine made of?
+ENTY:product What do you use a washing machine for?
+ENTY:product What is a bed?
+ENTY:product What is a bed made of?
+ENTY:product What do you use a bed for?
+ENTY:product What is a chair?
+ENTY:product What is a chair made of?
+ENTY:product What do you use a chair for?
+ENTY:product What is a table?
+ENTY:product What is a table made of?
+ENTY:product What do you use a table for?
+ENTY:product What is a desk?
+ENTY:product What is a desk made of?
+ENTY:product What do you use a desk for?
+ENTY:product What is a bookshelf?
+ENTY:product What is a bookshelf made of?
+ENTY:product What do you use a bookshelf for?
+ENTY:product What is a lamp?
+ENTY:product What is a lamp made of?
+ENTY:product What do you use a lamp for?
+ENTY:product What is a toothbrush?
+ENTY:product What is a toothbrush made of?
+ENTY:product What do you use a toothbrush for?
+ENTY:product What is a hairbrush?
+ENTY:product What is a hairbrush made of?
+ENTY:product What do you use a hairbrush for?
+ENTY:product What is a comb?
+ENTY:product What is a comb made of?
+ENTY:product What do you use a comb for?
+ENTY:product What is a scissors?
+ENTY:product What is a scissors made of?
+ENTY:product What do you use a scissors for?
+ENTY:product What is a mirror?
+ENTY:product What is a mirror made of?
+ENTY:product What do you use a mirror for?
+ENTY:religion What is Christianity?
+ENTY:religion What do Christianity followers believe?
+ENTY:religion What is Christianity based on?
+ENTY:religion What do Islam followers believe?
+ENTY:religion What is Islam based on?
+ENTY:religion What is Judaism?
+ENTY:religion What do Judaism followers believe?
+ENTY:religion What is Judaism based on?
+ENTY:religion What is Hinduism?
+ENTY:religion What do Hinduism followers believe?
+ENTY:religion What is Hinduism based on?
+ENTY:religion What is Buddhism?
+ENTY:religion What do Buddhism followers believe?
+ENTY:religion What do Sikhism followers believe?
+ENTY:religion What is Sikhism based on?
+ENTY:religion What is Jainism?
+ENTY:religion What do Jainism followers believe?
+ENTY:religion What do Taoism followers believe?
+ENTY:religion What is Taoism based on?
+ENTY:religion What do Confucianism followers believe?
+ENTY:religion What is Confucianism based on?
+ENTY:religion What is Shinto?
+ENTY:religion What do Shinto followers believe?
+ENTY:religion What is Shinto based on?
+ENTY:religion What is Zoroastrianism?
+ENTY:religion What do Zoroastrianism followers believe?
+ENTY:religion What is Zoroastrianism based on?
+ENTY:religion What is Baha'i Faith?
+ENTY:religion What do Baha'i Faith followers believe?
+ENTY:religion What is Baha'i Faith based on?
+ENTY:religion What do Scientology followers believe?
+ENTY:religion What is Scientology based on?
+ENTY:religion What is Mormonism?
+ENTY:religion What do Mormonism followers believe?
+ENTY:religion What is Mormonism based on?
+ENTY:religion What do Pentecostalism followers believe?
+ENTY:religion What is Pentecostalism based on?
+ENTY:religion What do Catholicism followers believe?
+ENTY:religion What is Catholicism based on?
+ENTY:religion What is Protestantism?
+ENTY:religion What do Protestantism followers believe?
+ENTY:religion What is Protestantism based on?
+ENTY:religion What is Orthodoxy?
+ENTY:religion What do Orthodoxy followers believe?
+ENTY:religion What is Orthodoxy based on?
+ENTY:sport What is football?
+ENTY:sport How is football played?
+ENTY:sport What are the rules of football?
+ENTY:sport What is basketball?
+ENTY:sport How is basketball played?
+ENTY:sport What are the rules of basketball?
+ENTY:sport What is baseball?
+ENTY:sport How is baseball played?
+ENTY:sport What are the rules of baseball?
+ENTY:sport What is tennis?
+ENTY:sport How is tennis played?
+ENTY:sport What are the rules of tennis?
+ENTY:sport What is golf?
+ENTY:sport How is golf played?
+ENTY:sport What are the rules of golf?
+ENTY:sport What is soccer?
+ENTY:sport How is soccer played?
+ENTY:sport What are the rules of soccer?
+ENTY:sport What is hockey?
+ENTY:sport How is hockey played?
+ENTY:sport What are the rules of hockey?
+ENTY:sport What is cricket?
+ENTY:sport How is cricket played?
+ENTY:sport What are the rules of cricket?
+ENTY:sport What is rugby?
+ENTY:sport How is rugby played?
+ENTY:sport What are the rules of rugby?
+ENTY:sport What is volleyball?
+ENTY:sport How is volleyball played?
+ENTY:sport What are the rules of volleyball?
+ENTY:sport What is badminton?
+ENTY:sport How is badminton played?
+ENTY:sport What are the rules of badminton?
+ENTY:sport What is boxing?
+ENTY:sport How is boxing played?
+ENTY:sport What are the rules of boxing?
+ENTY:sport What is wrestling?
+ENTY:sport How is wrestling played?
+ENTY:sport What are the rules of wrestling?
+ENTY:sport What is weightlifting?
+ENTY:sport How is weightlifting played?
+ENTY:sport What are the rules of weightlifting?
+ENTY:sport What is gymnastics?
+ENTY:sport How is gymnastics played?
+ENTY:sport What are the rules of gymnastics?
+ENTY:sport What is swimming?
+ENTY:sport How is swimming played?
+ENTY:sport What are the rules of swimming?
+ENTY:sport What is diving?
+ENTY:sport How is diving played?
+ENTY:sport What are the rules of diving?
+ENTY:sport What is surfing?
+ENTY:sport How is surfing played?
+ENTY:sport What are the rules of surfing?
+ENTY:sport What is skiing?
+ENTY:sport How is skiing played?
+ENTY:sport What are the rules of skiing?
+ENTY:sport What is snowboarding?
+ENTY:sport How is snowboarding played?
+ENTY:sport What are the rules of snowboarding?
+ENTY:sport What is cycling?
+ENTY:sport How is cycling played?
+ENTY:sport What are the rules of cycling?
+ENTY:sport What is marathon?
+ENTY:sport How is marathon played?
+ENTY:sport What are the rules of marathon?
+ENTY:sport What is sprinting?
+ENTY:sport How is sprinting played?
+ENTY:sport What are the rules of sprinting?
+ENTY:sport What is long jump?
+ENTY:sport How is long jump played?
+ENTY:sport What are the rules of long jump?
+ENTY:sport What is high jump?
+ENTY:sport How is high jump played?
+ENTY:sport What are the rules of high jump?
+ENTY:substance What are the properties of water?
+ENTY:substance What is water used for?
+ENTY:substance What is oxygen?
+ENTY:substance What are the properties of oxygen?
+ENTY:substance What is oxygen used for?
+ENTY:substance What is nitrogen?
+ENTY:substance What are the properties of nitrogen?
+ENTY:substance What is nitrogen used for?
+ENTY:substance What is carbon dioxide?
+ENTY:substance What are the properties of carbon dioxide?
+ENTY:substance What is carbon dioxide used for?
+ENTY:substance What is hydrogen?
+ENTY:substance What are the properties of hydrogen?
+ENTY:substance What is hydrogen used for?
+ENTY:substance What is iron?
+ENTY:substance What are the properties of iron?
+ENTY:substance What is iron used for?
+ENTY:substance What are the properties of gold?
+ENTY:substance What is gold used for?
+ENTY:substance What are the properties of silver?
+ENTY:substance What is silver used for?
+ENTY:substance What is copper?
+ENTY:substance What are the properties of copper?
+ENTY:substance What is copper used for?
+ENTY:substance What is aluminum?
+ENTY:substance What are the properties of aluminum?
+ENTY:substance What is aluminum used for?
+ENTY:substance What is lead?
+ENTY:substance What are the properties of lead?
+ENTY:substance What is lead used for?
+ENTY:substance What is glass?
+ENTY:substance What are the properties of glass?
+ENTY:substance What is glass used for?
+ENTY:substance What is plastic?
+ENTY:substance What are the properties of plastic?
+ENTY:substance What is plastic used for?
+ENTY:substance What is rubber?
+ENTY:substance What are the properties of rubber?
+ENTY:substance What is rubber used for?
+ENTY:substance What is concrete?
+ENTY:substance What are the properties of concrete?
+ENTY:substance What is concrete used for?
+ENTY:substance What is wood?
+ENTY:substance What are the properties of wood?
+ENTY:substance What is wood used for?
+ENTY:substance What is salt?
+ENTY:substance What are the properties of salt?
+ENTY:substance What is salt used for?
+ENTY:substance What is sugar?
+ENTY:substance What are the properties of sugar?
+ENTY:substance What is sugar used for?
+ENTY:substance What is flour?
+ENTY:substance What are the properties of flour?
+ENTY:substance What is flour used for?
+ENTY:substance What is oil?
+ENTY:substance What are the properties of oil?
+ENTY:substance What is oil used for?
+ENTY:substance What is vinegar?
+ENTY:substance What are the properties of vinegar?
+ENTY:substance What is vinegar used for?
+ENTY:substance What is hydrogen peroxide?
+ENTY:substance What are the properties of hydrogen peroxide?
+ENTY:substance What is hydrogen peroxide used for?
+ENTY:substance What is bleach?
+ENTY:substance What are the properties of bleach?
+ENTY:substance What is bleach used for?
+ENTY:substance What is ammonia?
+ENTY:substance What are the properties of ammonia?
+ENTY:substance What is ammonia used for?
+ENTY:substance What is acetone?
+ENTY:substance What are the properties of acetone?
+ENTY:substance What is acetone used for?
+ENTY:symbol What is the heart symbol?
+ENTY:symbol What does the heart represent?
+ENTY:symbol Where is the heart symbol used?
+ENTY:symbol What is the star symbol?
+ENTY:symbol What does the star represent?
+ENTY:symbol Where is the star symbol used?
+ENTY:symbol What is the moon symbol?
+ENTY:symbol What does the moon represent?
+ENTY:symbol Where is the moon symbol used?
+ENTY:symbol What is the sun symbol?
+ENTY:symbol What does the sun represent?
+ENTY:symbol Where is the sun symbol used?
+ENTY:symbol What is the cross symbol?
+ENTY:symbol What does the cross represent?
+ENTY:symbol Where is the cross symbol used?
+ENTY:symbol What is the crescent symbol?
+ENTY:symbol What does the crescent represent?
+ENTY:symbol Where is the crescent symbol used?
+ENTY:symbol What is the swastika symbol?
+ENTY:symbol What does the swastika represent?
+ENTY:symbol Where is the swastika symbol used?
+ENTY:symbol What is the yin-yang symbol?
+ENTY:symbol What does the yin-yang represent?
+ENTY:symbol Where is the yin-yang symbol used?
+ENTY:symbol What is the peace sign symbol?
+ENTY:symbol What does the peace sign represent?
+ENTY:symbol Where is the peace sign symbol used?
+ENTY:symbol What is the smiley face symbol?
+ENTY:symbol What does the smiley face represent?
+ENTY:symbol Where is the smiley face symbol used?
+ENTY:symbol What is the skull and crossbones symbol?
+ENTY:symbol What does the skull and crossbones represent?
+ENTY:symbol Where is the skull and crossbones symbol used?
+ENTY:symbol What is the dollar sign symbol?
+ENTY:symbol What does the dollar sign represent?
+ENTY:symbol Where is the dollar sign symbol used?
+ENTY:symbol What is the euro sign symbol?
+ENTY:symbol What does the euro sign represent?
+ENTY:symbol Where is the euro sign symbol used?
+ENTY:symbol What is the pound sign symbol?
+ENTY:symbol What does the pound sign represent?
+ENTY:symbol Where is the pound sign symbol used?
+ENTY:symbol What is the at sign symbol?
+ENTY:symbol What does the at sign represent?
+ENTY:symbol Where is the at sign symbol used?
+ENTY:symbol What is the hash tag symbol?
+ENTY:symbol What does the hash tag represent?
+ENTY:symbol Where is the hash tag symbol used?
+ENTY:symbol What is the ampersand symbol?
+ENTY:symbol What does the ampersand represent?
+ENTY:symbol Where is the ampersand symbol used?
+ENTY:symbol What is the percent sign symbol?
+ENTY:symbol What does the percent sign represent?
+ENTY:symbol Where is the percent sign symbol used?
+ENTY:symbol What is the copyright symbol symbol?
+ENTY:symbol What does the copyright symbol represent?
+ENTY:symbol Where is the copyright symbol symbol used?
+ENTY:symbol What is the registered trademark symbol?
+ENTY:symbol What does the registered trademark represent?
+ENTY:symbol Where is the registered trademark symbol used?
+ENTY:symbol What is the degree symbol symbol?
+ENTY:symbol What does the degree symbol represent?
+ENTY:symbol Where is the degree symbol symbol used?
+ENTY:techmeth What is artificial intelligence?
+ENTY:techmeth How does artificial intelligence work?
+ENTY:techmeth What is {tech} used for?
+ENTY:techmeth What is machine learning?
+ENTY:techmeth How does machine learning work?
+ENTY:techmeth What is blockchain?
+ENTY:techmeth How does blockchain work?
+ENTY:techmeth What is cryptocurrency?
+ENTY:techmeth How does cryptocurrency work?
+ENTY:techmeth What is quantum computing?
+ENTY:techmeth How does quantum computing work?
+ENTY:techmeth What is cloud computing?
+ENTY:techmeth How does cloud computing work?
+ENTY:techmeth What is 5G?
+ENTY:techmeth How does 5G work?
+ENTY:techmeth What is augmented reality?
+ENTY:techmeth How does augmented reality work?
+ENTY:techmeth What is virtual reality?
+ENTY:techmeth How does virtual reality work?
+ENTY:techmeth What is Internet of Things?
+ENTY:techmeth How does Internet of Things work?
+ENTY:techmeth What is robotics?
+ENTY:techmeth How does robotics work?
+ENTY:techmeth What is nanotechnology?
+ENTY:techmeth How does nanotechnology work?
+ENTY:techmeth What is CRISPR?
+ENTY:techmeth How does CRISPR work?
+ENTY:techmeth What is gene therapy?
+ENTY:techmeth How does gene therapy work?
+ENTY:techmeth What is stem cells?
+ENTY:techmeth How does stem cells work?
+ENTY:techmeth What is  3D printing?
+ENTY:techmeth How does  3D printing work?
+ENTY:techmeth What is neural network?
+ENTY:techmeth How does neural network work?
+ENTY:techmeth What is deep learning?
+ENTY:techmeth How does deep learning work?
+ENTY:techmeth What is natural language processing?
+ENTY:techmeth How does natural language processing work?
+ENTY:termeq What is another word for automobile?
+ENTY:termeq What is a synonym for automobile?
+ENTY:termeq What do we call automobile in other words?
+ENTY:termeq What is another word for dwelling?
+ENTY:termeq What is a synonym for dwelling?
+ENTY:termeq What do we call dwelling in other words?
+ENTY:termeq What is another word for physician?
+ENTY:termeq What is a synonym for physician?
+ENTY:termeq What do we call physician in other words?
+ENTY:termeq What is another word for attorney?
+ENTY:termeq What is a synonym for attorney?
+ENTY:termeq What do we call attorney in other words?
+ENTY:termeq What is another word for couch?
+ENTY:termeq What is a synonym for couch?
+ENTY:termeq What do we call couch in other words?
+ENTY:termeq What is another word for till?
+ENTY:termeq What is a synonym for till?
+ENTY:termeq What do we call till in other words?
+ENTY:termeq What is another word for autumn?
+ENTY:termeq What is a synonym for autumn?
+ENTY:termeq What do we call autumn in other words?
+ENTY:termeq What is another word for lift?
+ENTY:termeq What is a synonym for lift?
+ENTY:termeq What do we call lift in other words?
+ENTY:veh What is a {veh} used for?
+ENTY:veh What does a {veh} look like?
+ENTY:veh What is a tank?
+ENTY:veh What is a ambulance?
+ENTY:veh What is a van?
+ENTY:veh What is a RV?
+ENTY:veh What is a semi-truck?
+ENTY:word What is a noun?
+ENTY:word What is an example of a {wt}?
+ENTY:word How do you identify a {wt}?
+ENTY:word What is a verb?
+ENTY:word What is a adjective?
+ENTY:word What is a adverb?
+ENTY:word What is a preposition?
+ENTY:word What is a conjunction?
+ENTY:word What is a interjection?
+ENTY:word What is a pronoun?
+ENTY:word What is a article?
+ENTY:word What is a synonym?
+ENTY:word What is a antonym?
+ENTY:word What is a homophone?
+ENTY:word What is a homonym?
+ENTY:word What is a palindrome?
+NUM:code What is a version code?
+NUM:code What is a source code?
+NUM:code What is machine code?
+NUM:code What is binary code?
+NUM:code What is ASCII code?
+NUM:code What is hexadecimal code?
+NUM:code What is Unicode?
+NUM:count How many stars are there?
+NUM:count What is the number of stars?
+NUM:count Count the stars
+NUM:count What is the number of planets?
+NUM:count Count the planets
+NUM:count How many continents are there?
+NUM:count What is the number of continents?
+NUM:count Count the continents
+NUM:count How many oceans are there?
+NUM:count What is the number of oceans?
+NUM:count Count the oceans
+NUM:count How many countries are there?
+NUM:count What is the number of countries?
+NUM:count Count the countries
+NUM:count How many states are there?
+NUM:count What is the number of states?
+NUM:count Count the states
+NUM:count How many islands are there?
+NUM:count What is the number of islands?
+NUM:count Count the islands
+NUM:count How many mountains are there?
+NUM:count What is the number of mountains?
+NUM:count Count the mountains
+NUM:count How many people are there?
+NUM:count What is the number of people?
+NUM:count Count the people
+NUM:count How many animals are there?
+NUM:count What is the number of animals?
+NUM:count Count the animals
+NUM:count How many plants are there?
+NUM:count What is the number of plants?
+NUM:count Count the plants
+NUM:count How many species are there?
+NUM:count What is the number of species?
+NUM:count Count the species
+NUM:count How many languages are there?
+NUM:count What is the number of languages?
+NUM:count Count the languages
+NUM:count How many religions are there?
+NUM:count What is the number of religions?
+NUM:count Count the religions
+NUM:count How many sports are there?
+NUM:count What is the number of sports?
+NUM:count Count the sports
+NUM:count How many colours are there?
+NUM:count What is the number of colours?
+NUM:count Count the colours
+NUM:count How many letters in the alphabet are there?
+NUM:count What is the number of letters in the alphabet?
+NUM:count Count the letters in the alphabet
+NUM:count How many days in a year are there?
+NUM:count What is the number of days in a year?
+NUM:count Count the days in a year
+NUM:count How many weeks in a year are there?
+NUM:count What is the number of weeks in a year?
+NUM:count Count the weeks in a year
+NUM:count How many months in a year are there?
+NUM:count What is the number of months in a year?
+NUM:count Count the months in a year
+NUM:count How many hours in a day are there?
+NUM:count What is the number of hours in a day?
+NUM:count Count the hours in a day
+NUM:count How many minutes in an hour are there?
+NUM:count What is the number of minutes in an hour?
+NUM:count Count the minutes in an hour
+NUM:count How many seconds in a minute are there?
+NUM:count What is the number of seconds in a minute?
+NUM:count Count the seconds in a minute
+NUM:count How many bones in the body are there?
+NUM:count What is the number of bones in the body?
+NUM:count Count the bones in the body
+NUM:count How many muscles in the body are there?
+NUM:count What is the number of muscles in the body?
+NUM:count Count the muscles in the body
+NUM:count How many organs in the body are there?
+NUM:count What is the number of organs in the body?
+NUM:count Count the organs in the body
+NUM:count How many teeth in an adult are there?
+NUM:count What is the number of teeth in an adult?
+NUM:count Count the teeth in an adult
+NUM:count How many strings on a guitar are there?
+NUM:count What is the number of strings on a guitar?
+NUM:count Count the strings on a guitar
+NUM:count How many keys on a piano are there?
+NUM:count What is the number of keys on a piano?
+NUM:count Count the keys on a piano
+NUM:count How many sides of a die are there?
+NUM:count What is the number of sides of a die?
+NUM:count Count the sides of a die
+NUM:date What year was World War I?
+NUM:date When was World War I?
+NUM:date What year was World War II?
+NUM:date When was World War II?
+NUM:date What year was the moon landing?
+NUM:date When was the moon landing?
+NUM:date What year was the American Revolution?
+NUM:date When was the American Revolution?
+NUM:date What year was the French Revolution?
+NUM:date When was the French Revolution?
+NUM:date What year was the fall of the Berlin Wall?
+NUM:date When was the fall of the Berlin Wall?
+NUM:date When did the Civil War occur?
+NUM:date What year was the Civil War?
+NUM:date When was the Civil War?
+NUM:date What year was the Renaissance?
+NUM:date When was the Renaissance?
+NUM:date What year was the Industrial Revolution?
+NUM:date When was the Industrial Revolution?
+NUM:date When did the signing of the Magna Carta occur?
+NUM:date What year was the signing of the Magna Carta?
+NUM:date When was the signing of the Magna Carta?
+NUM:date When did the invention of the printing press occur?
+NUM:date What year was the invention of the printing press?
+NUM:date When was the invention of the printing press?
+NUM:date When is Christmas?
+NUM:date What date is Christmas?
+NUM:date On what day is Christmas?
+NUM:date When is New Year's Day?
+NUM:date What date is New Year's Day?
+NUM:date On what day is New Year's Day?
+NUM:date When is Thanksgiving?
+NUM:date What date is Thanksgiving?
+NUM:date On what day is Thanksgiving?
+NUM:date When is Easter?
+NUM:date What date is Easter?
+NUM:date On what day is Easter?
+NUM:date When is Halloween?
+NUM:date What date is Halloween?
+NUM:date On what day is Halloween?
+NUM:date When is Valentine's Day?
+NUM:date What date is Valentine's Day?
+NUM:date On what day is Valentine's Day?
+NUM:date When is Independence Day?
+NUM:date What date is Independence Day?
+NUM:date On what day is Independence Day?
+NUM:date When is Labor Day?
+NUM:date What date is Labor Day?
+NUM:date On what day is Labor Day?
+NUM:dist How far is New York and Los Angeles?
+NUM:dist What is the distance between New York and Los Angeles?
+NUM:dist How many miles between New York and Los Angeles?
+NUM:dist How far is London and Paris?
+NUM:dist What is the distance between London and Paris?
+NUM:dist How many miles between London and Paris?
+NUM:dist How far is Tokyo and Beijing?
+NUM:dist What is the distance between Tokyo and Beijing?
+NUM:dist How many miles between Tokyo and Beijing?
+NUM:dist How far is Sydney and Auckland?
+NUM:dist What is the distance between Sydney and Auckland?
+NUM:dist How many miles between Sydney and Auckland?
+NUM:dist How far is Earth and Moon?
+NUM:dist What is the distance between Earth and Moon?
+NUM:dist How many miles between Earth and Moon?
+NUM:dist How far is Earth and Sun?
+NUM:dist What is the distance between Earth and Sun?
+NUM:dist How many miles between Earth and Sun?
+NUM:dist How far is North and South Pole?
+NUM:dist What is the distance between North and South Pole?
+NUM:dist How many miles between North and South Pole?
+NUM:dist How far is Atlantic and Pacific?
+NUM:dist What is the distance between Atlantic and Pacific?
+NUM:dist How many miles between Atlantic and Pacific?
+NUM:money How much does a cup of coffee cost?
+NUM:money What is the price of {item}?
+NUM:money How expensive is {item}?
+NUM:money What is the average cost of {item}?
+NUM:money How much does a hamburger cost?
+NUM:money How much does a movie ticket cost?
+NUM:money How much does a new car cost?
+NUM:money How much does a house cost?
+NUM:money How much does a college degree cost?
+NUM:money How much does a newspaper cost?
+NUM:money How much does a book cost?
+NUM:money How much does a vacation cost?
+NUM:money How much does a smartphone cost?
+NUM:money How much does a laptop cost?
+NUM:money How much does a television cost?
+NUM:money How much does a bicycle cost?
+NUM:money How much does a plane ticket cost?
+NUM:ord What is the first letter of the alphabet?
+NUM:ord Who came in first place?
+NUM:ord What is the first planet?
+NUM:ord What is the first book in the series?
+NUM:ord What is the second letter of the alphabet?
+NUM:ord Who came in second place?
+NUM:ord What is the second planet?
+NUM:ord What is the second book in the series?
+NUM:ord What is the third letter of the alphabet?
+NUM:ord Who came in third place?
+NUM:ord What is the third planet?
+NUM:ord What is the third book in the series?
+NUM:ord What is the fourth letter of the alphabet?
+NUM:ord Who came in fourth place?
+NUM:ord What is the fourth planet?
+NUM:ord What is the fourth book in the series?
+NUM:ord What is the fifth letter of the alphabet?
+NUM:ord Who came in fifth place?
+NUM:ord What is the fifth planet?
+NUM:ord What is the fifth book in the series?
+NUM:ord What is the sixth letter of the alphabet?
+NUM:ord Who came in sixth place?
+NUM:ord What is the sixth planet?
+NUM:ord What is the sixth book in the series?
+NUM:ord What is the seventh letter of the alphabet?
+NUM:ord Who came in seventh place?
+NUM:ord What is the seventh planet?
+NUM:ord What is the seventh book in the series?
+NUM:ord What is the eighth letter of the alphabet?
+NUM:ord Who came in eighth place?
+NUM:ord What is the eighth planet?
+NUM:ord What is the eighth book in the series?
+NUM:ord What is the ninth letter of the alphabet?
+NUM:ord Who came in ninth place?
+NUM:ord What is the ninth planet?
+NUM:ord What is the ninth book in the series?
+NUM:ord What is the tenth letter of the alphabet?
+NUM:ord Who came in tenth place?
+NUM:ord What is the tenth planet?
+NUM:ord What is the tenth book in the series?
+NUM:ord What is the eleventh letter of the alphabet?
+NUM:ord Who came in eleventh place?
+NUM:ord What is the eleventh planet?
+NUM:ord What is the eleventh book in the series?
+NUM:ord What is the twelfth letter of the alphabet?
+NUM:ord Who came in twelfth place?
+NUM:ord What is the twelfth planet?
+NUM:ord What is the twelfth book in the series?
+NUM:ord What is the thirteenth letter of the alphabet?
+NUM:ord Who came in thirteenth place?
+NUM:ord What is the thirteenth planet?
+NUM:ord What is the thirteenth book in the series?
+NUM:ord What is the fourteenth letter of the alphabet?
+NUM:ord Who came in fourteenth place?
+NUM:ord What is the fourteenth planet?
+NUM:ord What is the fourteenth book in the series?
+NUM:ord What is the fifteenth letter of the alphabet?
+NUM:ord Who came in fifteenth place?
+NUM:ord What is the fifteenth planet?
+NUM:ord What is the fifteenth book in the series?
+NUM:ord What is the twentieth letter of the alphabet?
+NUM:ord Who came in twentieth place?
+NUM:ord What is the twentieth planet?
+NUM:ord What is the twentieth book in the series?
+NUM:ord What is the twenty-first letter of the alphabet?
+NUM:ord Who came in twenty-first place?
+NUM:ord What is the twenty-first planet?
+NUM:ord What is the twenty-first book in the series?
+NUM:ord What is the twenty-second letter of the alphabet?
+NUM:ord Who came in twenty-second place?
+NUM:ord What is the twenty-second planet?
+NUM:ord What is the twenty-second book in the series?
+NUM:ord What is the thirtieth letter of the alphabet?
+NUM:ord Who came in thirtieth place?
+NUM:ord What is the thirtieth planet?
+NUM:ord What is the thirtieth book in the series?
+NUM:other What is a prime number?
+NUM:other What is a perfect number?
+NUM:other What is the golden ratio?
+NUM:other What is pi?
+NUM:other What is Euler's number?
+NUM:other What is infinity?
+NUM:other What is a factorial?
+NUM:other What is a logarithm?
+NUM:other What is a derivative?
+NUM:other What is an integral?
+NUM:other What is a matrix?
+NUM:other What is a vector?
+NUM:other What is a fraction?
+NUM:other What is a percentage?
+NUM:other What is a proportion?
+NUM:other What is a ratio?
+NUM:perc What percentage is {perc}?
+NUM:perc What percent {perc}?
+NUM:perc How many percent {perc}?
+NUM:period How long is {period}?
+NUM:period What is the duration of {period}?
+NUM:period How many days is {period}?
+NUM:speed How fast is {subject}?
+NUM:speed What is the speed of {subject}?
+NUM:speed What is the velocity of {subject}?
+NUM:temp What is the temperature where {temp}?
+NUM:temp How hot is {temp}?
+NUM:temp What is the temperature of {temp}?
+NUM:volsize What is the volume of {topic}?
+NUM:volsize What is the size of {topic}?
+NUM:volsize What is the mass of {topic}?
+NUM:weight How much does {item} weigh?
+NUM:weight What is the weight of {item}?
+NUM:weight What is the mass of {item}?
+LOC:other What is a geographic location at coordinates -73, -159?
+LOC:other What is a geographic location at coordinates 26, 101?
+LOC:other What is a geographic location at coordinates -23, -60?
+LOC:other What is a geographic location at coordinates -77, 131?
+LOC:other What is a geographic location at coordinates -71, -57?
+LOC:other What is a geographic location at coordinates 13, -69?
+LOC:other What is a geographic location at coordinates -45, 83?
+LOC:other What is a geographic location at coordinates -36, 166?
+LOC:other What is a geographic location at coordinates 30, -96?
+LOC:other What is a geographic location at coordinates -73, -42?
+LOC:other What is a geographic location at coordinates -17, -35?
+LOC:other What is a geographic location at coordinates 79, 53?
+LOC:other What is a geographic location at coordinates -51, 7?
+LOC:other What is a geographic location at coordinates -45, 48?
+LOC:other What is a geographic location at coordinates 5, 12?
+LOC:other What is a geographic location at coordinates -66, 158?
+LOC:other What is a geographic location at coordinates -21, -147?
+LOC:other What is a geographic location at coordinates -39, -74?
+LOC:other What is a geographic location at coordinates -68, -165?
+LOC:other What is a geographic location at coordinates 65, -56?
+LOC:other What is a geographic location at coordinates -67, -165?
+LOC:other What is a geographic location at coordinates -58, 159?
+LOC:other What is a geographic location at coordinates 56, 138?
+LOC:other What is a geographic location at coordinates 75, -50?
+LOC:other What is a geographic location at coordinates 85, 120?
+LOC:other What is a geographic location at coordinates 12, -135?
+LOC:other What is a geographic location at coordinates 65, 176?
+LOC:other What is a geographic location at coordinates -21, -168?
+LOC:other What is a geographic location at coordinates 28, 108?
+LOC:other What is a geographic location at coordinates -38, -158?
+LOC:other What is a geographic location at coordinates 42, 62?
+LOC:other What is a geographic location at coordinates 46, 43?
+LOC:other What is a geographic location at coordinates 52, -102?
+LOC:other What is a geographic location at coordinates 90, 25?
+LOC:other What is a geographic location at coordinates 12, 156?
+LOC:other What is a geographic location at coordinates 54, -149?
+LOC:other What is a geographic location at coordinates 67, 100?
+LOC:other What is a geographic location at coordinates -6, -3?
+LOC:other What is a geographic location at coordinates -23, 127?
+LOC:other What is a geographic location at coordinates 79, -125?
+LOC:other What is a geographic location at coordinates -51, -174?
+LOC:other What is a geographic location at coordinates 19, -149?
+LOC:other What is a geographic location at coordinates 78, -119?
+LOC:other What is a geographic location at coordinates 48, 6?
+LOC:other What is a geographic location at coordinates -26, 156?
+LOC:other What is a geographic location at coordinates -4, 86?
+LOC:other What is a geographic location at coordinates -61, -179?
+LOC:other What is a geographic location at coordinates 79, 13?
+LOC:other What is a geographic location at coordinates -20, -111?
+LOC:other What is a geographic location at coordinates -87, -132?
+LOC:other What is a geographic location at coordinates 63, -55?
+LOC:other What is a geographic location at coordinates 59, 32?
+LOC:other What is a geographic location at coordinates -42, -21?
+LOC:other What is a geographic location at coordinates -36, 175?
+LOC:other What is a geographic location at coordinates 77, 14?
+LOC:other What is a geographic location at coordinates 57, -15?
+LOC:other What is a geographic location at coordinates -55, 136?
+LOC:other What is a geographic location at coordinates 23, -175?
+LOC:other What is a geographic location at coordinates -32, -139?
+LOC:other What is a geographic location at coordinates -23, 147?
+LOC:other What is a geographic location at coordinates 46, -103?
+LOC:other What is a geographic location at coordinates 27, -54?
+LOC:other What is a geographic location at coordinates -88, 3?
+LOC:other What is a geographic location at coordinates -87, -62?
+LOC:other What is a geographic location at coordinates -21, -117?
+LOC:other What is a geographic location at coordinates 52, -163?
+LOC:other What is a geographic location at coordinates -55, 162?
+LOC:other What is a geographic location at coordinates -1, -62?
+LOC:other What is a geographic location at coordinates 87, -72?
+LOC:other What is a geographic location at coordinates 15, 150?
+LOC:other What is a geographic location at coordinates -85, 29?
+LOC:other What is a geographic location at coordinates -19, -80?
+LOC:other What is a geographic location at coordinates 60, -167?
+LOC:other What is a geographic location at coordinates -64, 98?
+LOC:other What is a geographic location at coordinates 18, 120?
+LOC:other What is a geographic location at coordinates 16, -8?
+LOC:other What is a geographic location at coordinates -23, 153?
+LOC:other What is a geographic location at coordinates 42, 59?
+LOC:other What is a geographic location at coordinates 49, -100?
+LOC:other What is a geographic location at coordinates 45, -152?
+LOC:other What is a geographic location at coordinates 27, 178?
+LOC:other What is a geographic location at coordinates -26, -39?
+LOC:other What is a geographic location at coordinates 86, 62?
+LOC:other What is a geographic location at coordinates 40, -3?
+LOC:other What is a geographic location at coordinates 29, 88?
+LOC:other What is a geographic location at coordinates 20, 105?
+LOC:other What is a geographic location at coordinates -89, 79?
+LOC:other What is a geographic location at coordinates -19, 149?
+LOC:other What is a geographic location at coordinates -6, -170?
+LOC:other What is a geographic location at coordinates -90, -43?
+LOC:other What is a geographic location at coordinates 87, -111?
+LOC:other What is a geographic location at coordinates 56, 107?
+LOC:other What is a geographic location at coordinates 52, 132?
+LOC:other What is a geographic location at coordinates -34, 36?
+LOC:other What is a geographic location at coordinates -85, 145?
+LOC:other What is a geographic location at coordinates -64, 107?
+LOC:other What is a geographic location at coordinates -17, -55?
+LOC:other What is a geographic location at coordinates 63, -66?
+LOC:other What is a geographic location at coordinates -63, -120?
+LOC:other What is a geographic location at coordinates -59, -115?
+LOC:other What is a geographic location at coordinates -6, -141?
+LOC:other What is a geographic location at coordinates -1, -71?
+LOC:other What is a geographic location at coordinates -21, -154?
+LOC:other What is a geographic location at coordinates -17, 93?
+LOC:other What is a geographic location at coordinates 59, -7?
+LOC:other What is a geographic location at coordinates -70, 143?
+LOC:other What is a geographic location at coordinates 54, -67?
+LOC:other What is a geographic location at coordinates -35, -13?
+LOC:other What is a geographic location at coordinates 55, -119?
+LOC:other What is a geographic location at coordinates -76, 165?
+LOC:other What is a geographic location at coordinates -13, 114?
+LOC:other What is a geographic location at coordinates -90, -80?
+LOC:other What is a geographic location at coordinates 19, 37?
+LOC:other What is a geographic location at coordinates -31, 13?
+LOC:other What is a geographic location at coordinates -22, -121?
+LOC:other What is a geographic location at coordinates 87, -139?
+LOC:other What is a geographic location at coordinates 65, 22?
+LOC:other What is a geographic location at coordinates 46, 25?
+LOC:other What is a geographic location at coordinates -55, -114?
+LOC:other What is a geographic location at coordinates -66, -127?
+LOC:other What is a geographic location at coordinates 50, 175?
+LOC:other What is a geographic location at coordinates -36, 89?
+LOC:other What is a geographic location at coordinates 31, -172?
+LOC:other What is a geographic location at coordinates -15, 134?
+LOC:other What is a geographic location at coordinates -53, 121?
+LOC:other What is a geographic location at coordinates 75, 82?
+LOC:other What is a geographic location at coordinates 77, -33?
+LOC:other What is a geographic location at coordinates 1, -11?
+LOC:other What is a geographic location at coordinates -71, 81?
+LOC:other What is a geographic location at coordinates -62, -71?
+LOC:other What is a geographic location at coordinates -6, -145?
+LOC:other What is a geographic location at coordinates 60, 42?
+LOC:other What is a geographic location at coordinates -60, -66?
+LOC:other What is a geographic location at coordinates 0, -96?
+LOC:other What is a geographic location at coordinates -63, -166?
+LOC:other What is a geographic location at coordinates 40, -54?
+LOC:other What is a geographic location at coordinates -73, -18?
+LOC:other What is a geographic location at coordinates -29, -156?
+LOC:other What is a geographic location at coordinates -61, -44?
+LOC:other What is a geographic location at coordinates -12, -90?
+LOC:other What is a geographic location at coordinates -55, -134?
+LOC:other What is a geographic location at coordinates 31, 68?
+LOC:other What is a geographic location at coordinates 89, -56?
+LOC:other What is a geographic location at coordinates 20, 7?
+LOC:other What is a geographic location at coordinates 61, 159?
+LOC:other What is a geographic location at coordinates 76, 53?
+LOC:other What is a geographic location at coordinates -58, 21?
+LOC:other What is a geographic location at coordinates 46, 162?
+LOC:other What is a geographic location at coordinates 49, -73?
+LOC:other What is a geographic location at coordinates 46, 160?
+LOC:other What is a geographic location at coordinates 66, 42?
+LOC:other What is a geographic location at coordinates -32, 25?
+LOC:other What is a geographic location at coordinates -48, -99?
+LOC:other What is a geographic location at coordinates -4, 158?
+LOC:other What is a geographic location at coordinates 17, 167?
+LOC:other What is a geographic location at coordinates -23, -111?
+LOC:other What is a geographic location at coordinates -55, -136?
+LOC:other What is a geographic location at coordinates -13, -87?
+LOC:other What is a geographic location at coordinates -76, 28?
+LOC:other What is a geographic location at coordinates -45, 139?
+LOC:other What is a geographic location at coordinates -5, 145?
+LOC:other What is a geographic location at coordinates 28, -156?
+LOC:other What is a geographic location at coordinates -12, -63?
+LOC:other What is a geographic location at coordinates 59, 139?
+LOC:other What is a geographic location at coordinates -31, -164?
+LOC:other What is a geographic location at coordinates 67, 151?
+LOC:other What is a geographic location at coordinates -1, -35?
+LOC:other What is a geographic location at coordinates -63, -57?
+LOC:other What is a geographic location at coordinates 26, 32?
+LOC:other What is a geographic location at coordinates -69, 144?
+LOC:other What is a geographic location at coordinates 26, 3?
+LOC:other What is a geographic location at coordinates -20, 26?
+LOC:other What is a geographic location at coordinates -45, 46?
+LOC:other What is a geographic location at coordinates -63, 44?
+LOC:other What is a geographic location at coordinates -77, 180?
+LOC:other What is a geographic location at coordinates -60, 83?
+LOC:other What is a geographic location at coordinates -79, 93?
+LOC:other What is a geographic location at coordinates 62, 9?
+LOC:other What is a geographic location at coordinates 39, 35?
+LOC:other What is a geographic location at coordinates 8, -128?
+LOC:other What is a geographic location at coordinates 31, 64?
+LOC:other What is a geographic location at coordinates -2, -75?
+LOC:other What is a geographic location at coordinates -47, -156?
+LOC:other What is a geographic location at coordinates 18, 115?
+LOC:other What is a geographic location at coordinates -1, -40?
+LOC:other What is a geographic location at coordinates -47, 165?
+LOC:other What is a geographic location at coordinates -31, -21?
+LOC:other What is a geographic location at coordinates -28, -16?
+LOC:other What is a geographic location at coordinates -22, 24?
+LOC:other What is a geographic location at coordinates -6, 118?
+LOC:other What is a geographic location at coordinates -5, -157?
+LOC:other What is a geographic location at coordinates -36, 20?
+LOC:other What is a geographic location at coordinates -20, 160?
+LOC:other What is a geographic location at coordinates 82, -58?
+LOC:other What is a geographic location at coordinates -5, 122?
+LOC:other What is a geographic location at coordinates -62, 139?
+LOC:other What is a geographic location at coordinates -32, -26?
+LOC:other What is a geographic location at coordinates -26, 113?
+LOC:other What is a geographic location at coordinates -68, 71?
+LOC:other What is a geographic location at coordinates 42, 126?
+LOC:other What is a geographic location at coordinates 35, -134?
+LOC:other What is a geographic location at coordinates -28, -136?
+LOC:other What is a geographic location at coordinates 68, 86?
+LOC:other What is a geographic location at coordinates -63, -139?
+LOC:other What is a geographic location at coordinates 18, 88?
+LOC:other What is a geographic location at coordinates -47, -98?
+LOC:other What is a geographic location at coordinates -80, -10?
+LOC:other What is a geographic location at coordinates -85, 61?
+LOC:other What is a geographic location at coordinates 4, 141?
+LOC:other What is a geographic location at coordinates -87, -1?
+LOC:other What is a geographic location at coordinates 1, 116?
+LOC:other What is a geographic location at coordinates 51, 68?
+LOC:other What is a geographic location at coordinates 75, 171?
+LOC:other What is a geographic location at coordinates 71, 161?
+LOC:other What is a geographic location at coordinates -88, -7?
+LOC:other What is a geographic location at coordinates -11, -45?
+LOC:other What is a geographic location at coordinates 50, -107?
+LOC:other What is a geographic location at coordinates 69, 19?
+LOC:other What is a geographic location at coordinates -70, -24?
+LOC:other What is a geographic location at coordinates 67, 119?
+LOC:other What is a geographic location at coordinates -23, -34?
+LOC:other What is a geographic location at coordinates -65, -36?
+LOC:other What is a geographic location at coordinates -12, 123?
+LOC:other What is a geographic location at coordinates -22, 33?
+LOC:other What is a geographic location at coordinates 83, 138?
+LOC:other What is a geographic location at coordinates 80, -117?
+LOC:other What is a geographic location at coordinates -65, 95?
+LOC:other What is a geographic location at coordinates -71, 26?
+LOC:other What is a geographic location at coordinates -64, 5?
+LOC:other What is a geographic location at coordinates -55, -143?
+LOC:other What is a geographic location at coordinates -18, -168?
+LOC:other What is a geographic location at coordinates -90, 46?
+LOC:other What is a geographic location at coordinates -44, -108?
+LOC:other What is a geographic location at coordinates -21, 146?
+LOC:other What is a geographic location at coordinates 9, -33?
+LOC:other What is a geographic location at coordinates -17, -92?
+LOC:other What is a geographic location at coordinates 30, -41?
+LOC:other What is a geographic location at coordinates -8, 2?
+LOC:other What is a geographic location at coordinates 20, 32?
+LOC:other What is a geographic location at coordinates 14, -29?
+LOC:other What is a geographic location at coordinates 36, 96?
+LOC:other What is a geographic location at coordinates 66, -70?
+LOC:other What is a geographic location at coordinates -36, -10?
+LOC:other What is a geographic location at coordinates -80, 91?
+LOC:other What is a geographic location at coordinates -38, -40?
+LOC:other What is a geographic location at coordinates 80, -149?
+LOC:other What is a geographic location at coordinates -55, -122?
+LOC:other What is a geographic location at coordinates -17, -143?
+LOC:other What is a geographic location at coordinates -5, 0?
+LOC:other What is a geographic location at coordinates 81, 27?
+LOC:other What is a geographic location at coordinates 57, -57?
+LOC:other What is a geographic location at coordinates 4, -100?
+LOC:other What is a geographic location at coordinates -19, -12?
+LOC:other What is a geographic location at coordinates 90, -139?
+LOC:other What is a geographic location at coordinates -80, 70?
+LOC:other What is a geographic location at coordinates 69, 132?
+LOC:other What is a geographic location at coordinates 59, 178?
+LOC:other What is a geographic location at coordinates 25, 158?
+LOC:other What is a geographic location at coordinates 77, -161?
+LOC:other What is a geographic location at coordinates -85, 148?
+LOC:other What is a geographic location at coordinates -1, 139?
+LOC:other What is a geographic location at coordinates -27, 141?
+LOC:other What is a geographic location at coordinates 78, 117?
+LOC:other What is a geographic location at coordinates -45, -48?
+LOC:other What is a geographic location at coordinates -28, 44?
+LOC:other What is a geographic location at coordinates -54, -155?
+LOC:other What is a geographic location at coordinates -43, -89?
+LOC:other What is a geographic location at coordinates 67, -173?
+LOC:other What is a geographic location at coordinates 82, -179?
+LOC:other What is a geographic location at coordinates -30, -146?
+LOC:other What is a geographic location at coordinates -78, 9?
+LOC:other What is a geographic location at coordinates 54, 78?
+LOC:other What is a geographic location at coordinates 3, 39?
+LOC:other What is a geographic location at coordinates 29, 55?
+LOC:other What is a geographic location at coordinates 38, 48?
+LOC:other What is a geographic location at coordinates 41, 30?
+LOC:other What is a geographic location at coordinates -8, -156?
+LOC:other What is a geographic location at coordinates -19, 44?
+LOC:other What is a geographic location at coordinates -89, 58?
+LOC:other What is a geographic location at coordinates -18, 151?
+LOC:other What is a geographic location at coordinates 16, -154?
+LOC:other What is a geographic location at coordinates -26, 132?
+LOC:other What is a geographic location at coordinates -17, 94?
+LOC:other What is a geographic location at coordinates 41, -59?
+LOC:other What is a geographic location at coordinates -65, -163?
+LOC:other What is a geographic location at coordinates 64, 55?
+LOC:other What is a geographic location at coordinates 55, 124?
+LOC:other What is a geographic location at coordinates -88, -109?
+LOC:other What is a geographic location at coordinates -80, -56?
+LOC:other What is a geographic location at coordinates -90, -117?
+LOC:other What is a geographic location at coordinates -66, 112?
+LOC:other What is a geographic location at coordinates -71, 75?
+LOC:other What is a geographic location at coordinates -88, -23?
+LOC:other What is a geographic location at coordinates 40, -155?
+LOC:other What is a geographic location at coordinates 56, -138?
+LOC:other What is a geographic location at coordinates 39, -23?
+LOC:other What is a geographic location at coordinates -55, -4?
+LOC:other What is a geographic location at coordinates 8, 131?
+LOC:other What is a geographic location at coordinates -52, -97?
+LOC:other What is a geographic location at coordinates 40, 172?
+LOC:other What is a geographic location at coordinates 56, -154?
+LOC:other What is a geographic location at coordinates 77, 97?
+LOC:other What is a geographic location at coordinates 77, 151?
+LOC:other What is a geographic location at coordinates 26, 54?
+LOC:other What is a geographic location at coordinates -76, -98?
+LOC:other What is a geographic location at coordinates 19, 131?
+LOC:other What is a geographic location at coordinates -2, -146?
+LOC:other What is a geographic location at coordinates 24, -36?
+LOC:other What is a geographic location at coordinates -83, 35?
+LOC:other What is a geographic location at coordinates 16, 65?
+LOC:other What is a geographic location at coordinates 77, -70?
+LOC:other What is a geographic location at coordinates -60, -85?
+LOC:other What is a geographic location at coordinates 9, -10?
+LOC:other What is a geographic location at coordinates -60, 26?
+LOC:other What is a geographic location at coordinates 3, -18?
+LOC:other What is a geographic location at coordinates 70, -105?
+LOC:other What is a geographic location at coordinates 51, -166?
+LOC:other What is a geographic location at coordinates 84, 17?
+LOC:other What is a geographic location at coordinates 53, 120?
+LOC:other What is a geographic location at coordinates 16, 71?
+LOC:other What is a geographic location at coordinates 44, 25?
+LOC:other What is a geographic location at coordinates 47, -52?
+LOC:other What is a geographic location at coordinates 59, -110?
+LOC:other What is a geographic location at coordinates -20, -25?
+LOC:other What is a geographic location at coordinates -20, 38?
+LOC:other What is a geographic location at coordinates -30, 149?
+LOC:other What is a geographic location at coordinates -79, -52?
+LOC:other What is a geographic location at coordinates 79, -38?
+LOC:other What is a geographic location at coordinates 48, 109?
+LOC:other What is a geographic location at coordinates 79, -91?
+LOC:other What is a geographic location at coordinates -59, -70?
+LOC:other What is a geographic location at coordinates 43, -122?
+LOC:other What is a geographic location at coordinates 68, 44?
+LOC:other What is a geographic location at coordinates 12, 145?
+LOC:other What is a geographic location at coordinates -16, 106?
+LOC:other What is a geographic location at coordinates 75, -4?
+LOC:other What is a geographic location at coordinates -26, -124?
+LOC:other What is a geographic location at coordinates -74, 137?
+LOC:other What is a geographic location at coordinates -81, 130?
+LOC:other What is a geographic location at coordinates -50, 89?
+LOC:other What is a geographic location at coordinates 37, 101?
+LOC:other What is a geographic location at coordinates 10, -115?
+LOC:other What is a geographic location at coordinates -54, -13?
+LOC:other What is a geographic location at coordinates -7, 19?
+LOC:other What is a geographic location at coordinates 43, -37?
+LOC:other What is a geographic location at coordinates 18, -123?
+LOC:other What is a geographic location at coordinates -54, -165?
+LOC:other What is a geographic location at coordinates -73, 10?
+LOC:other What is a geographic location at coordinates -20, 134?
+NUM:perc What is the percentage of something unknown?
+NUM:period How long is an unspecified duration?
+NUM:speed What is the speed of something moving?
+NUM:temp What is the temperature in an unknown location?
+NUM:volsize What is the volume of an undefined object?
+NUM:weight How much does an unknown item weigh?
+ENTY:veh What is a all-terrain vehicle?
+ENTY:veh How does a all-terrain vehicle work?
+ENTY:veh What is a all-terrain vehicle used for?
+ENTY:veh What is a snowmobile?
+ENTY:veh How does a snowmobile work?
+ENTY:veh What is a snowmobile used for?
+ENTY:veh How does a jet ski work?
+ENTY:veh What is a jet ski used for?
+ENTY:veh How does a kayak work?
+ENTY:veh What is a kayak used for?
+ENTY:veh How does a canoe work?
+ENTY:veh What is a canoe used for?
+ENTY:veh How does a sailboat work?
+ENTY:veh What is a sailboat used for?
+ENTY:veh How does a yacht work?
+ENTY:veh What is a yacht used for?
+ENTY:veh What is a cruise ship?
+ENTY:veh How does a cruise ship work?
+ENTY:veh What is a cruise ship used for?
+ENTY:veh What is a cargo ship?
+ENTY:veh How does a cargo ship work?
+ENTY:veh What is a cargo ship used for?
+ENTY:veh How does a submarine work?
+ENTY:veh What is a submarine used for?
+ENTY:veh How does a glider work?
+ENTY:veh What is a glider used for?
+ENTY:veh How does a blimp work?
+ENTY:veh What is a blimp used for?
+ENTY:veh How does a hot air balloon work?
+ENTY:veh What is a hot air balloon used for?
+ENTY:veh What is a fighter jet?
+ENTY:veh How does a fighter jet work?
+ENTY:veh What is a fighter jet used for?
+ENTY:veh What is a cargo plane?
+ENTY:veh How does a cargo plane work?
+ENTY:veh What is a cargo plane used for?
+ENTY:veh What is a space shuttle?
+ENTY:veh How does a space shuttle work?
+ENTY:veh What is a space shuttle used for?
+ENTY:veh How does a rocket work?
+ENTY:veh What is a rocket used for?
+ENTY:veh How does a tank work?
+ENTY:veh What is a tank used for?
+ENTY:veh How does a bulldozer work?
+ENTY:veh What is a bulldozer used for?
+ENTY:veh What is a excavator?
+ENTY:veh How does a excavator work?
+ENTY:veh What is a excavator used for?
+ENTY:veh How does a crane work?
+ENTY:veh What is a crane used for?
+ENTY:veh How does a forklift work?
+ENTY:veh What is a forklift used for?
+ENTY:veh What is a combine harvester?
+ENTY:veh How does a combine harvester work?
+ENTY:veh What is a combine harvester used for?
+ENTY:veh What is a tractor?
+ENTY:veh How does a tractor work?
+ENTY:veh What is a tractor used for?
+ENTY:veh What is a trailer?
+ENTY:veh How does a trailer work?
+ENTY:veh What is a trailer used for?
+ENTY:termeq What is a term equivalent to sofa?
+ENTY:termeq Is couch the same as sofa?
+ENTY:termeq What is another word for sofa starting with c?
+ENTY:termeq What is a term equivalent to couch?
+ENTY:termeq Is sofa the same as couch?
+ENTY:termeq What is another word for couch starting with s?
+ENTY:termeq What is a term equivalent to automobile?
+ENTY:termeq Is car the same as automobile?
+ENTY:termeq What is another word for automobile starting with c?
+ENTY:termeq What is a term equivalent to dwelling?
+ENTY:termeq Is house the same as dwelling?
+ENTY:termeq What is another word for dwelling starting with h?
+ENTY:termeq What is a term equivalent to residence?
+ENTY:termeq Is home the same as residence?
+ENTY:termeq What is another word for residence starting with h?
+ENTY:termeq What is a term equivalent to physician?
+ENTY:termeq Is doctor the same as physician?
+ENTY:termeq What is another word for physician starting with d?
+ENTY:termeq What is a term equivalent to attorney?
+ENTY:termeq Is lawyer the same as attorney?
+ENTY:termeq What is another word for attorney starting with l?
+ENTY:termeq What is a term equivalent to infant?
+ENTY:termeq Is baby the same as infant?
+ENTY:termeq What is another word for infant starting with b?
+ENTY:termeq What is a term equivalent to adolescent?
+ENTY:termeq Is teenager the same as adolescent?
+ENTY:termeq What is another word for adolescent starting with t?
+ENTY:termeq What is a term equivalent to elderly?
+ENTY:termeq Is senior the same as elderly?
+ENTY:termeq What is another word for elderly starting with s?
+ENTY:termeq What is a term equivalent to sick?
+ENTY:termeq Is ill the same as sick?
+ENTY:termeq What is another word for sick starting with i?
+ENTY:termeq What is a term equivalent to happy?
+ENTY:termeq Is joyful the same as happy?
+ENTY:termeq What is another word for happy starting with j?
+ENTY:termeq What is a term equivalent to sad?
+ENTY:termeq Is unhappy the same as sad?
+ENTY:termeq What is another word for sad starting with u?
+ENTY:termeq What is a term equivalent to large?
+ENTY:termeq Is big the same as large?
+ENTY:termeq What is another word for large starting with b?
+ENTY:termeq What is a term equivalent to small?
+ENTY:termeq Is little the same as small?
+ENTY:termeq What is another word for small starting with l?
+ENTY:termeq What is a term equivalent to fast?
+ENTY:termeq Is quick the same as fast?
+ENTY:termeq What is another word for fast starting with q?
+ENTY:termeq What is a term equivalent to slow?
+ENTY:termeq Is sluggish the same as slow?
+ENTY:termeq What is another word for slow starting with s?
+ENTY:termeq What is a term equivalent to bright?
+ENTY:termeq Is luminous the same as bright?
+ENTY:termeq What is another word for bright starting with l?
+ENTY:termeq What is a term equivalent to dark?
+ENTY:termeq Is dim the same as dark?
+ENTY:termeq What is another word for dark starting with d?
+ENTY:termeq What is a term equivalent to loud?
+ENTY:termeq Is noisy the same as loud?
+ENTY:termeq What is another word for loud starting with n?
+ENTY:termeq What is a term equivalent to quiet?
+ENTY:termeq Is silent the same as quiet?
+ENTY:termeq What is another word for quiet starting with s?
+ENTY:word What is an adjective?
+ENTY:word What is a gerund?
+ENTY:word What is a participle?
+ENTY:word What is an infinitive?
+ENTY:word What is a clause?
+ENTY:word What is a phrase?
+ENTY:word What is a sentence?
+NUM:code What code system is used?
+NUM:code What is an alphanumeric code?
+NUM:dist What is the distance between two points?
+NUM:dist How far can something travel?
+NUM:money What is the monetary value?
+NUM:money What is the financial cost?
+ENTY:religion What is a spiritual belief system?
+ENTY:religion What is a faith tradition?
+ENTY:cremat What is a funeral practice?
+ENTY:cremat What is a death ritual?
+DESC:def What is the conceptual definition?
+DESC:desc How would you characterize this?
+DESC:manner What is the procedural method?
+DESC:reason What is the causal explanation?
+ABBR:abb What does an abbreviation stand for?
+ABBR:exp What is the expansion of an acronym?
