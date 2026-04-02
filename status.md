@@ -12,8 +12,8 @@
 - [x] Train and evaluate all 8 languages; measure F1 improvement vs. TF-IDF-only
 - [x] Verify feature count ≤ 100 per language; fix if exceeded
 - [x] Export final EN+all-langs pipelines to ONNX
-- [ ] Validate ONNX inference: predictions match sklearn on 100 random samples per language
-- [ ] Generate evaluation reports and commit all changes
+- [x] Validate ONNX inference: predictions match sklearn on 100 random samples per language
+- [x] Generate evaluation reports and commit all changes
 
 ## Blockers
 
