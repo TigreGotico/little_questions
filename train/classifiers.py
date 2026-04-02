@@ -18,7 +18,7 @@ from typing import List, Optional
 
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.pipeline import Pipeline
+from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.svm import LinearSVC as _LinearSVC
 from sklearn.linear_model import LogisticRegression as _LogisticRegression
 from sklearn.naive_bayes import MultinomialNB as _MultinomialNB
@@ -143,12 +143,34 @@ class TrainableClassifier:
 
 
 class LinearSVCClassifier(TrainableClassifier):
-    """Linear SVM text classifier."""
+    """Linear SVM text classifier with optional categorical features.
+
+    Args:
+        pipeline_id: Identifier for the pipeline (default "linear-svc")
+        categorical_transformer: Optional sklearn transformer for categorical features.
+            If provided, uses FeatureUnion([TF-IDF, categorical]) instead of TF-IDF alone.
+    """
+
+    def __init__(self, pipeline_id: str = "linear-svc", categorical_transformer=None) -> None:
+        super().__init__(pipeline_id)
+        self.categorical_transformer = categorical_transformer
 
     @property
     def pipeline(self) -> list:
+        tfidf = TfidfVectorizer(ngram_range=(1, 2), min_df=1, max_df=0.4)
+
+        if self.categorical_transformer is None:
+            # Standard: TF-IDF only
+            features = tfidf
+        else:
+            # FeatureUnion: TF-IDF + categorical features
+            features = FeatureUnion([
+                ("tfidf", tfidf),
+                ("categorical", self.categorical_transformer),
+            ])
+
         return [
-            ("tfidf", TfidfVectorizer(ngram_range=(1, 2), min_df=1, max_df=0.4)),
+            ("features", features),
             ("clf", _LinearSVC()),
         ]
 
