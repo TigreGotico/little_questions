@@ -59,3 +59,8 @@ version = {attr = "little_questions.version.__version__"}
 include = ["little_questions*"]
 exclude = ["train*", "test*"]
 
+[dependency-groups]
+dev = [
+    "matplotlib>=3.10.8",
+]
+

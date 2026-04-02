@@ -34,10 +34,10 @@ DATA_DIR = join(dirname(__file__), "clean_data")
 REPORTS_DIR = join(dirname(__file__), "reports")
 MODEL_DIR = XDG.save_data_path("little_questions")
 
-LANGS = ["en", "es", "pt", "ca", "fr", "de", "it", "nl"]
+LANGS = ["en", "es", "fr", "de", "it", "pt", "nl"]
 SUFFIX = {lang: lang.upper() for lang in LANGS}
 
-VALID_LABELS = frozenset({"question", "command", "statement", "exclamation", "request"})
+VALID_LABELS = frozenset({"command", "exclamation", "polar_question", "request", "statement", "wh_question"})
 
 
 def load_data(path: str) -> tuple[list[str], list[str]]:
