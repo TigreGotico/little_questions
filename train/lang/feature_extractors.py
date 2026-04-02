@@ -109,13 +109,6 @@ class LanguageFeatureExtractor_EN(LanguageFeatureExtractor):
         feats["ends_question"] = float(text.rstrip().endswith("?"))
         feats["ends_exclamation"] = float(text.rstrip().endswith("!"))
         feats["ends_period"] = float(text.rstrip().endswith("."))
-        feats["has_ellipsis"] = float("..." in text)
-        feats["multiple_punctuation"] = float(
-            sum(1 for c in text if c in "?!") > 1
-        )
-
-        # ---- Negation ----
-        feats["has_negation"] = float(any(w in tokens for w in self.NEGATION_WORDS))
 
         # ---- Lexical features ----
         feats["sentence_length"] = float(len(tokens))
@@ -215,13 +208,6 @@ class LanguageFeatureExtractor_ES(LanguageFeatureExtractor):
             text.rstrip().endswith("!") or text.rstrip().endswith("!»")
         )
         feats["ends_period"] = float(text.rstrip().endswith("."))
-        feats["has_ellipsis"] = float("..." in text)
-        feats["multiple_punctuation"] = float(
-            sum(1 for c in text if c in "?!") > 1
-        )
-
-        # ---- Negation ----
-        feats["has_negation"] = float(any(w in tokens for w in self.NEGATION_WORDS))
 
         # ---- Lexical features ----
         feats["sentence_length"] = float(len(tokens))
