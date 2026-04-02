@@ -20,6 +20,9 @@ from abc import ABC, abstractmethod
 from typing import Dict
 import re
 
+from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.feature_extraction import DictVectorizer
+
 
 class LanguageFeatureExtractor(ABC):
     """Abstract base for language-specific feature extractors.
@@ -256,3 +259,60 @@ def get_feature_extractor(lang: str) -> LanguageFeatureExtractor:
     lang = lang.lower()
     extractor_class = FEATURE_EXTRACTORS.get(lang, LanguageFeatureExtractor_EN)
     return extractor_class()
+
+
+class LanguageFeatureTransformer(BaseEstimator, TransformerMixin):
+    """Sklearn transformer wrapping language-specific feature extraction.
+
+    Converts list of texts → feature matrix via DictVectorizer.
+    Compatible with Pipeline and FeatureUnion for composition with TF-IDF.
+
+    Args:
+        lang: Language code (en, es, fr, etc.)
+        sparse: Return sparse matrix (default True, compatible with TF-IDF + LinearSVC)
+    """
+
+    def __init__(self, lang: str = "en", sparse: bool = True) -> None:
+        self.lang = lang.lower()
+        self.sparse = sparse
+        self._extractor: LanguageFeatureExtractor | None = None
+        self._vectorizer: DictVectorizer | None = None
+
+    def fit(self, X: list[str], y=None) -> LanguageFeatureTransformer:
+        """Fit the feature extractor and DictVectorizer.
+
+        Args:
+            X: List of text samples
+            y: Labels (unused, for sklearn compatibility)
+
+        Returns:
+            self
+        """
+        from sklearn.feature_extraction import DictVectorizer
+
+        self._extractor = get_feature_extractor(self.lang)
+        dicts = [self._extractor.extract(text) for text in X]
+        self._vectorizer = DictVectorizer(sparse=self.sparse)
+        self._vectorizer.fit(dicts)
+        return self
+
+    def transform(self, X: list[str]):
+        """Transform texts to feature matrix.
+
+        Args:
+            X: List of text samples
+
+        Returns:
+            Feature matrix (sparse or dense, shape (n_samples, n_features))
+        """
+        if self._extractor is None or self._vectorizer is None:
+            raise RuntimeError("Call fit() before transform().")
+
+        dicts = [self._extractor.extract(text) for text in X]
+        return self._vectorizer.transform(dicts)
+
+    def get_feature_names_out(self, input_features=None):
+        """Return feature names for ONNX export."""
+        if self._vectorizer is None:
+            raise RuntimeError("Call fit() before get_feature_names_out().")
+        return self._vectorizer.get_feature_names_out(input_features)
