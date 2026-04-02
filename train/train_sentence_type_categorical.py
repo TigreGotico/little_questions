@@ -44,7 +44,7 @@ LANG_CONFIG: dict[str, dict[str, str]] = {
 def load_sentence_type_data(path: str) -> tuple[list[str], list[str]]:
     """Load sentence-type dataset.
 
-    File format: one sample per line, ``LABEL text``
+    File format: one sample per line, ``LABEL: text`` or ``ID: LABEL text``
 
     Returns:
         Tuple of (texts, labels)
@@ -56,10 +56,24 @@ def load_sentence_type_data(path: str) -> tuple[list[str], list[str]]:
             line = line.strip()
             if not line:
                 continue
-            parts = line.split(" ", 1)
+            # Handle both "LABEL: text" and "ID: LABEL text" formats
+            parts = line.split(": ", 1)
             if len(parts) != 2:
                 continue
-            label, text = parts
+
+            left, right = parts
+            # Check if left part is a digit (ID format)
+            if left.isdigit():
+                # Format: ID: LABEL text
+                subparts = right.split(" ", 1)
+                if len(subparts) == 2:
+                    label, text = subparts
+                else:
+                    continue
+            else:
+                # Format: LABEL: text
+                label, text = left, right
+
             texts.append(text)
             labels.append(label)
     return texts, labels
