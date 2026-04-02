@@ -4,8 +4,8 @@
    exclamation       1.00      1.00      1.00       247
 polar_question       0.94      0.96      0.95       248
        request       0.97      0.94      0.96       248
-     statement       0.92      0.88      0.90       248
-   wh_question       0.97      0.96      0.97       247
+     statement       0.92      0.87      0.89       248
+   wh_question       0.97      0.97      0.97       247
 
       accuracy                           0.94      1485
      macro avg       0.95      0.94      0.94      1485

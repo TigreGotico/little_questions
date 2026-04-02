@@ -4,7 +4,7 @@
    exclamation       1.00      1.00      1.00       247
 polar_question       0.96      0.95      0.96       248
        request       0.95      0.97      0.96       248
-     statement       0.87      0.77      0.82       248
+     statement       0.88      0.77      0.82       248
    wh_question       1.00      0.99      1.00       247
 
       accuracy                           0.93      1485
