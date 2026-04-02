@@ -157,13 +157,13 @@ class LinearSVCClassifier(TrainableClassifier):
 
     @property
     def pipeline(self) -> list:
-        # Cap TF-IDF vocabulary to keep total features <= 100 when combined with categorical
-        # With 14 categorical features, target ~80 TF-IDF features = 94 total
+        # Cap TF-IDF vocabulary to keep total features <= 200 when combined with categorical
+        # With 14 categorical features, target ~180 TF-IDF features = 194 total
         tfidf = TfidfVectorizer(
             ngram_range=(1, 2),
-            min_df=2,  # Increased from 1
-            max_df=0.3,  # Reduced from 0.4
-            max_features=80,  # New: cap vocabulary size
+            min_df=1,  # Back to 1 for better signal
+            max_df=0.4,  # Back to 0.4
+            max_features=180,  # Cap vocabulary size
         )
 
         if self.categorical_transformer is None:

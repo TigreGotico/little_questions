@@ -11,7 +11,7 @@
 - [x] Implement ES, CA, FR, DE, IT, NL, PT extractors with language-tuned keywords
 - [x] Train and evaluate all 8 languages; measure F1 improvement vs. TF-IDF-only
 - [x] Verify feature count ≤ 100 per language; fix if exceeded
-- [ ] Export final EN+all-langs pipelines to ONNX
+- [x] Export final EN+all-langs pipelines to ONNX
 - [ ] Validate ONNX inference: predictions match sklearn on 100 random samples per language
 - [ ] Generate evaluation reports and commit all changes
 

@@ -67,5 +67,5 @@ for lang, filename in LANGS.items():
 
 print("\n" + "=" * 70)
 print("Note: Feature count may vary slightly depending on train/test split")
-print("Expected: TF-IDF 50-80 features + 14 categorical = 64-94 total")
+print("Expected: TF-IDF 180 features + 14 categorical = 194 total (<=200 limit)")
 print("=" * 70)
