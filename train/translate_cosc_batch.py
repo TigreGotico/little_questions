@@ -27,7 +27,7 @@ LANGUAGES = {
     "nl": "Dutch",
 }
 
-BASE_DIR = Path("/home/miro/PycharmProjects/DEPRECATED/little_questions/train/clean_data")
+BASE_DIR = Path(__file__).parent / "clean_data"
 EN_FILE = BASE_DIR / "raw_questions_EN_balanced_0.8.0.txt"
 
 BATCH_SIZE = 5
