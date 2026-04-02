@@ -46,7 +46,20 @@ class LanguageFeatureExtractor(ABC):
 
 
 class LanguageFeatureExtractor_EN(LanguageFeatureExtractor):
-    """English sentence-type feature extractor."""
+    """English sentence-type feature extractor.
+
+    Extracts 14 categorical features optimized for English:
+    - Intent signals: starts_wh, starts_polite, starts_command, starts_exclamation
+    - Punctuation: ends_question, ends_exclamation, ends_period
+    - Lexical: sentence_length, unique_token_count, lexical_diversity, avg_token_length
+    - Structural: has_polite_words, is_short, is_long
+
+    Language-specific keywords capture English syntactic patterns:
+    - WH_STARTERS: "what", "where", "when", "why", "how", "who", "which", "whom", "whose"
+    - COMMAND_VERBS: imperative forms "go", "come", "stop", "start", etc.
+    - POLITE_STARTERS: modal verbs "would", "could", "can", "may", "might", "please"
+    - EXCLAMATION_MARKERS: "what", "how" (pattern: "What a..." / "How beautiful...")
+    """
 
     lang = "en"
 
@@ -129,7 +142,20 @@ class LanguageFeatureExtractor_EN(LanguageFeatureExtractor):
 
 
 class LanguageFeatureExtractor_ES(LanguageFeatureExtractor):
-    """Spanish sentence-type feature extractor."""
+    """Spanish sentence-type feature extractor.
+
+    Extracts 14 categorical features optimized for Spanish:
+    - Intent signals: starts_wh, starts_polite, starts_command, starts_exclamation
+    - Punctuation: ends_question, ends_exclamation, ends_period
+    - Lexical: sentence_length, unique_token_count, lexical_diversity, avg_token_length
+    - Structural: has_polite_words, is_short, is_long
+
+    Language-specific keywords capture Spanish syntactic patterns:
+    - WH_STARTERS: "qué", "dónde", "cuándo", "por qué", "cómo", "quién", "cuál", "cuáles"
+    - COMMAND_VERBS: imperative/subjunctive forms "ve", "vaya", "corre", "haz", "da", "abre"
+    - POLITE_STARTERS: conditional modals "podría", "podría", "pudiera"
+    - EXCLAMATION_MARKERS: "¡Qué..." / "¡Cómo..." patterns
+    """
 
     lang = "es"
 
@@ -228,7 +254,19 @@ class LanguageFeatureExtractor_ES(LanguageFeatureExtractor):
 
 
 class LanguageFeatureExtractor_FR(LanguageFeatureExtractor):
-    """French sentence-type feature extractor."""
+    """French sentence-type feature extractor.
+
+    Extracts 14 categorical features optimized for French:
+    - Intent signals: starts_wh, starts_polite, starts_command, starts_exclamation
+    - Punctuation: ends_question, ends_exclamation, ends_period
+    - Lexical: sentence_length, unique_token_count, lexical_diversity, avg_token_length
+    - Structural: has_polite_words, is_short, is_long
+
+    Language-specific keywords capture French syntactic patterns:
+    - WH_STARTERS: "quoi", "où", "quand", "pourquoi", "comment", "qui", "quel", "quelle"
+    - COMMAND_VERBS: imperative forms "va", "viens", "commence", "fais", "donne", "aide"
+    - POLITE_STARTERS: conditional modals "pourriez", "pourrait", "s'il vous plaît", "s'il te plaît"
+    """
 
     lang = "fr"
 
@@ -305,7 +343,19 @@ class LanguageFeatureExtractor_FR(LanguageFeatureExtractor):
 
 
 class LanguageFeatureExtractor_DE(LanguageFeatureExtractor):
-    """German sentence-type feature extractor."""
+    """German sentence-type feature extractor.
+
+    Extracts 14 categorical features optimized for German:
+    - Intent signals: starts_wh, starts_polite, starts_command, starts_exclamation
+    - Punctuation: ends_question, ends_exclamation, ends_period
+    - Lexical: sentence_length, unique_token_count, lexical_diversity, avg_token_length
+    - Structural: has_polite_words, is_short, is_long
+
+    Language-specific keywords capture German syntactic patterns:
+    - WH_STARTERS: "was", "wo", "wann", "warum", "wie", "wer", "welcher", "welche", "welches"
+    - COMMAND_VERBS: imperative forms "geh", "komm", "stopp", "start", "mach", "gib", "hilf"
+    - POLITE_STARTERS: conditional modals "würden", "könnte", "darf", "möchte", "bitte"
+    """
 
     lang = "de"
 
@@ -383,7 +433,19 @@ class LanguageFeatureExtractor_DE(LanguageFeatureExtractor):
 
 
 class LanguageFeatureExtractor_IT(LanguageFeatureExtractor):
-    """Italian sentence-type feature extractor."""
+    """Italian sentence-type feature extractor.
+
+    Extracts 14 categorical features optimized for Italian:
+    - Intent signals: starts_wh, starts_polite, starts_command, starts_exclamation
+    - Punctuation: ends_question, ends_exclamation, ends_period
+    - Lexical: sentence_length, unique_token_count, lexical_diversity, avg_token_length
+    - Structural: has_polite_words, is_short, is_long
+
+    Language-specific keywords capture Italian syntactic patterns:
+    - WH_STARTERS: "cosa", "dove", "quando", "perché", "come", "chi", "quale", "quali"
+    - COMMAND_VERBS: imperative forms "va", "vieni", "fermati", "inizia", "fai", "dammi"
+    - POLITE_STARTERS: conditional modals "potrebbe", "potremmo", "per favore", "per piacere"
+    """
 
     lang = "it"
 
@@ -463,7 +525,19 @@ class LanguageFeatureExtractor_IT(LanguageFeatureExtractor):
 
 
 class LanguageFeatureExtractor_NL(LanguageFeatureExtractor):
-    """Dutch sentence-type feature extractor."""
+    """Dutch sentence-type feature extractor.
+
+    Extracts 14 categorical features optimized for Dutch:
+    - Intent signals: starts_wh, starts_polite, starts_command, starts_exclamation
+    - Punctuation: ends_question, ends_exclamation, ends_period
+    - Lexical: sentence_length, unique_token_count, lexical_diversity, avg_token_length
+    - Structural: has_polite_words, is_short, is_long
+
+    Language-specific keywords capture Dutch syntactic patterns:
+    - WH_STARTERS: "wat", "waar", "wanneer", "waarom", "hoe", "wie", "welke", "welk"
+    - COMMAND_VERBS: imperative forms "ga", "kom", "stop", "start", "doe", "geef", "help"
+    - POLITE_STARTERS: conditional modals "zou", "kan", "mag", "alsjeblieft"
+    """
 
     lang = "nl"
 
@@ -542,7 +616,19 @@ class LanguageFeatureExtractor_NL(LanguageFeatureExtractor):
 
 
 class LanguageFeatureExtractor_PT(LanguageFeatureExtractor):
-    """Portuguese sentence-type feature extractor."""
+    """Portuguese sentence-type feature extractor.
+
+    Extracts 14 categorical features optimized for Portuguese:
+    - Intent signals: starts_wh, starts_polite, starts_command, starts_exclamation
+    - Punctuation: ends_question, ends_exclamation, ends_period
+    - Lexical: sentence_length, unique_token_count, lexical_diversity, avg_token_length
+    - Structural: has_polite_words, is_short, is_long
+
+    Language-specific keywords capture Portuguese syntactic patterns:
+    - WH_STARTERS: "o que", "onde", "quando", "por que", "como", "quem", "qual", "quais"
+    - COMMAND_VERBS: imperative forms "vai", "vem", "pare", "comece", "faça", "dê", "ajude"
+    - POLITE_STARTERS: conditional modals "poderia", "podemos", "por favor", "por gentileza"
+    """
 
     lang = "pt"
 

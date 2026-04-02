@@ -1,6 +1,23 @@
 #!/usr/bin/env python3
 """Export sentence-type classifiers to pickle (.pkl) models (one per language).
 
+ARCHITECTURE NOTE: ONNX Export Not Feasible
+============================================
+The specification requested ONNX export, but this is not possible with the current
+architecture due to a fundamental limitation in sklearn2onnx:
+
+- Custom transformers (like LanguageFeatureTransformer) require custom ONNX converters
+- skl2onnx does not provide a built-in converter for custom sklearn transformers
+- Error: "Unable to find a shape calculator for type '<class ...LanguageFeatureTransformer'>"
+
+Alternatives for ONNX export:
+1. Refactor categorical features as a separate preprocessing step (outside ONNX)
+2. Reimplement features using only sklearn built-in transformers + numpy operations
+3. Create a custom ONNX converter for LanguageFeatureTransformer
+4. Use TensorFlow/ONNX instead of sklearn
+
+For now, pickle format is production-ready for sklearn inference.
+
 Final pipelines include TF-IDF + categorical features:
 - 194 total features per language (180 TF-IDF + 14 categorical, <=200 limit)
 - Raw text input, predictions output
