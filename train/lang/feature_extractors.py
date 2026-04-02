@@ -227,16 +227,192 @@ class LanguageFeatureExtractor_ES(LanguageFeatureExtractor):
         return feats
 
 
+class LanguageFeatureExtractor_FR(LanguageFeatureExtractor):
+    """French sentence-type feature extractor."""
+
+    lang = "fr"
+
+    WH_STARTERS = frozenset({
+        "quoi", "où", "quand", "pourquoi", "comment", "qui", "quel", "quels", "quelle", "quelles"
+    })
+
+    POLITE_STARTERS = frozenset({
+        "pourriez", "pourrait", "peut", "peux", "puisse", "s'il vous plaît", "s'il te plaît", "svp"
+    })
+
+    COMMAND_VERBS = frozenset({
+        "va", "allez", "aller", "viens", "venez", "arrête", "arrêtez", "commence", "commencez",
+        "fais", "faites", "donne", "donnez", "aide", "aidez", "cherche", "cherchez",
+        "regarde", "regardez", "écoute", "écoutez", "prends", "prenez", "souviens", "souvenez",
+        "oublie", "oubliez", "assure", "assurez", "vérifie", "vérifiez"
+    })
+
+    EXCLAMATION_MARKERS = frozenset({
+        "quoi", "comment"
+    })
+
+    NEGATION_WORDS = frozenset({
+        "non", "ne", "pas", "jamais", "rien", "personne", "aucun", "aucune"
+    })
+
+    POLITE_WORDS = frozenset({
+        "s'il vous plaît", "s'il te plaît", "merci", "merci beaucoup", "pourriez", "peut", "grâce"
+    })
+
+    def _tokenize(self, text: str) -> list[str]:
+        """Simple regex-based tokenization."""
+        words = re.findall(r"\b\w+\b", text.lower())
+        return words
+
+    def extract(self, text: str) -> Dict[str, float]:
+        """Extract features from French text."""
+        text_lower = text.lower().strip()
+        tokens = self._tokenize(text_lower)
+        feats: Dict[str, float] = {}
+
+        if not tokens:
+            return feats
+
+        first_word = tokens[0]
+
+        # ---- Intent signals ----
+        feats["starts_wh"] = float(first_word in self.WH_STARTERS)
+        feats["starts_polite"] = float(first_word in self.POLITE_STARTERS)
+        feats["starts_command"] = float(first_word in self.COMMAND_VERBS)
+        feats["starts_exclamation"] = float(first_word in self.EXCLAMATION_MARKERS)
+
+        # ---- Punctuation signals ----
+        feats["ends_question"] = float(text.rstrip().endswith("?"))
+        feats["ends_exclamation"] = float(text.rstrip().endswith("!"))
+        feats["ends_period"] = float(text.rstrip().endswith("."))
+
+        # ---- Lexical features ----
+        feats["sentence_length"] = float(len(tokens))
+        feats["unique_token_count"] = float(len(set(tokens)))
+        feats["lexical_diversity"] = float(len(set(tokens)) / len(tokens)) if tokens else 0.0
+        feats["avg_token_length"] = float(
+            sum(len(t) for t in tokens) / len(tokens) if tokens else 0.0
+        )
+
+        # ---- Structural features ----
+        feats["has_polite_words"] = float(
+            any(w in self.POLITE_WORDS for w in tokens)
+        )
+        feats["is_short"] = float(len(tokens) <= 3)
+        feats["is_long"] = float(len(tokens) >= 15)
+
+        return feats
+
+
+class LanguageFeatureExtractor_DE(LanguageFeatureExtractor):
+    """German sentence-type feature extractor."""
+
+    lang = "de"
+
+    WH_STARTERS = frozenset({
+        "was", "wo", "wann", "warum", "wie", "wer", "welcher", "welche", "welches"
+    })
+
+    POLITE_STARTERS = frozenset({
+        "würden", "würde", "könnten", "könnte", "dürfen", "darf", "möchten", "möchte", "bitte"
+    })
+
+    COMMAND_VERBS = frozenset({
+        "geh", "geht", "gehen", "komm", "kommt", "kommen", "stopp", "stoppt", "stoppen",
+        "start", "startet", "starten", "mach", "macht", "machen", "gib", "gebt", "geben",
+        "hilf", "helft", "helfen", "such", "sucht", "suchen", "schau", "schaut", "schauen",
+        "hör", "hört", "hören", "nimm", "nehmt", "nehmen", "vergiss", "vergesst", "vergessen",
+        "erinnere", "erinnert", "erinnern", "stelle sicher", "stellet sicher"
+    })
+
+    EXCLAMATION_MARKERS = frozenset({
+        "was", "wie"
+    })
+
+    NEGATION_WORDS = frozenset({
+        "nein", "nicht", "nie", "niemals", "nichts", "niemand", "kein", "keine"
+    })
+
+    POLITE_WORDS = frozenset({
+        "bitte", "danke", "danke schön", "würden", "könnten", "möchten"
+    })
+
+    def _tokenize(self, text: str) -> list[str]:
+        """Simple regex-based tokenization."""
+        words = re.findall(r"\b\w+\b", text.lower())
+        return words
+
+    def extract(self, text: str) -> Dict[str, float]:
+        """Extract features from German text."""
+        text_lower = text.lower().strip()
+        tokens = self._tokenize(text_lower)
+        feats: Dict[str, float] = {}
+
+        if not tokens:
+            return feats
+
+        first_word = tokens[0]
+
+        # ---- Intent signals ----
+        feats["starts_wh"] = float(first_word in self.WH_STARTERS)
+        feats["starts_polite"] = float(first_word in self.POLITE_STARTERS)
+        feats["starts_command"] = float(first_word in self.COMMAND_VERBS)
+        feats["starts_exclamation"] = float(first_word in self.EXCLAMATION_MARKERS)
+
+        # ---- Punctuation signals ----
+        feats["ends_question"] = float(text.rstrip().endswith("?"))
+        feats["ends_exclamation"] = float(text.rstrip().endswith("!"))
+        feats["ends_period"] = float(text.rstrip().endswith("."))
+
+        # ---- Lexical features ----
+        feats["sentence_length"] = float(len(tokens))
+        feats["unique_token_count"] = float(len(set(tokens)))
+        feats["lexical_diversity"] = float(len(set(tokens)) / len(tokens)) if tokens else 0.0
+        feats["avg_token_length"] = float(
+            sum(len(t) for t in tokens) / len(tokens) if tokens else 0.0
+        )
+
+        # ---- Structural features ----
+        feats["has_polite_words"] = float(
+            any(w in self.POLITE_WORDS for w in tokens)
+        )
+        feats["is_short"] = float(len(tokens) <= 3)
+        feats["is_long"] = float(len(tokens) >= 15)
+
+        return feats
+
+
+# Placeholder extractors for remaining languages (use EN template)
+class LanguageFeatureExtractor_CA(LanguageFeatureExtractor_EN):
+    """Catalan — uses EN template."""
+    lang = "ca"
+
+
+class LanguageFeatureExtractor_IT(LanguageFeatureExtractor_EN):
+    """Italian — uses EN template."""
+    lang = "it"
+
+
+class LanguageFeatureExtractor_NL(LanguageFeatureExtractor_EN):
+    """Dutch — uses EN template."""
+    lang = "nl"
+
+
+class LanguageFeatureExtractor_PT(LanguageFeatureExtractor_EN):
+    """Portuguese — uses EN template."""
+    lang = "pt"
+
+
 # Language factory mapping
 FEATURE_EXTRACTORS = {
     "en": LanguageFeatureExtractor_EN,
     "es": LanguageFeatureExtractor_ES,
-    "ca": LanguageFeatureExtractor_EN,  # Catalan: use EN template for now
-    "fr": LanguageFeatureExtractor_EN,  # French: use EN template for now
-    "de": LanguageFeatureExtractor_EN,  # German: use EN template for now
-    "it": LanguageFeatureExtractor_EN,  # Italian: use EN template for now
-    "nl": LanguageFeatureExtractor_EN,  # Dutch: use EN template for now
-    "pt": LanguageFeatureExtractor_EN,  # Portuguese: use EN template for now
+    "fr": LanguageFeatureExtractor_FR,
+    "de": LanguageFeatureExtractor_DE,
+    "ca": LanguageFeatureExtractor_CA,
+    "it": LanguageFeatureExtractor_IT,
+    "nl": LanguageFeatureExtractor_NL,
+    "pt": LanguageFeatureExtractor_PT,
 }
 
 
