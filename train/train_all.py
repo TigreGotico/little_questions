@@ -34,13 +34,13 @@ MODEL_DIR = XDG.save_data_path("little_questions")
 
 LANG_CONFIG: dict[str, dict[str, str]] = {
     "en": {"dataset": "raw_questions_EN_balanced_0.8.0.txt", "suffix": "EN"},
-    "es": {"dataset": "raw_questions_ES_googtx0.7.0a1.txt",  "suffix": "ES"},
+    "es": {"dataset": "raw_questions_ES_balanced_0.8.0.txt",  "suffix": "ES"},
     "ca": {"dataset": "raw_questions_CA_apertiumtx0.7.0a1.txt", "suffix": "CA"},
-    "pt": {"dataset": "raw_questions_PT_googtx0.7.0a1.txt",  "suffix": "PT"},
-    "fr": {"dataset": "raw_questions_FR_googtx0.7.0a1.txt",  "suffix": "FR"},
-    "de": {"dataset": "raw_questions_DE_0.8.0.txt",          "suffix": "DE"},
-    "it": {"dataset": "raw_questions_IT_0.8.0.txt",          "suffix": "IT"},
-    "nl": {"dataset": "raw_questions_NL_0.8.0.txt",          "suffix": "NL"},
+    "pt": {"dataset": "raw_questions_PT_balanced_0.8.0.txt",  "suffix": "PT"},
+    "fr": {"dataset": "raw_questions_FR_balanced_0.8.0.txt",  "suffix": "FR"},
+    "de": {"dataset": "raw_questions_DE_balanced_0.8.0.txt",  "suffix": "DE"},
+    "it": {"dataset": "raw_questions_IT_balanced_0.8.0.txt",  "suffix": "IT"},
+    "nl": {"dataset": "raw_questions_NL_balanced_0.8.0.txt",  "suffix": "NL"},
 }
 
 
