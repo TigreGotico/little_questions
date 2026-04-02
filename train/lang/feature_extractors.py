@@ -52,11 +52,13 @@ class LanguageFeatureExtractor(ABC):
 class LanguageFeatureExtractor_EN(LanguageFeatureExtractor):
     """English sentence-type feature extractor.
 
-    Extracts 14 categorical features optimized for English:
+    Extracts 18 categorical features optimized for English:
     - Intent signals: starts_wh, starts_polite, starts_command, starts_exclamation
     - Punctuation: ends_question, ends_exclamation, ends_period
+    - Punctuation counts: question_mark_count, exclamation_mark_count, ellipsis_count
     - Lexical: sentence_length, unique_token_count, lexical_diversity, avg_token_length
     - Structural: has_polite_words, is_short, is_long
+    - Negation: has_negation
 
     Language-specific keywords capture English syntactic patterns:
     - WH_STARTERS: "what", "where", "when", "why", "how", "who", "which", "whom", "whose"
@@ -136,17 +138,27 @@ class LanguageFeatureExtractor_EN(LanguageFeatureExtractor):
         feats["is_short"] = float(len(tokens) <= 3)
         feats["is_long"] = float(len(tokens) >= 15)
 
+        # ---- Punctuation counts ----
+        feats["question_mark_count"] = float(text.count("?"))
+        feats["exclamation_mark_count"] = float(text.count("!"))
+        feats["ellipsis_count"] = float(text.count("...") + text.count("…"))
+
+        # ---- Negation ----
+        feats["has_negation"] = float(any(w in self.NEGATION_WORDS for w in tokens))
+
         return feats
 
 
 class LanguageFeatureExtractor_ES(LanguageFeatureExtractor):
     """Spanish sentence-type feature extractor.
 
-    Extracts 14 categorical features optimized for Spanish:
+    Extracts 18 categorical features optimized for Spanish:
     - Intent signals: starts_wh, starts_polite, starts_command, starts_exclamation
     - Punctuation: ends_question, ends_exclamation, ends_period
+    - Punctuation counts: question_mark_count, exclamation_mark_count, ellipsis_count
     - Lexical: sentence_length, unique_token_count, lexical_diversity, avg_token_length
     - Structural: has_polite_words, is_short, is_long
+    - Negation: has_negation
 
     Language-specific keywords capture Spanish syntactic patterns:
     - WH_STARTERS: "qué", "dónde", "cuándo", "por qué", "cómo", "quién", "cuál", "cuáles"
@@ -243,17 +255,27 @@ class LanguageFeatureExtractor_ES(LanguageFeatureExtractor):
         feats["is_short"] = float(len(tokens) <= 3)
         feats["is_long"] = float(len(tokens) >= 15)
 
+        # ---- Punctuation counts ----
+        feats["question_mark_count"] = float(text.count("?"))
+        feats["exclamation_mark_count"] = float(text.count("!"))
+        feats["ellipsis_count"] = float(text.count("...") + text.count("…"))
+
+        # ---- Negation ----
+        feats["has_negation"] = float(any(w in self.NEGATION_WORDS for w in tokens))
+
         return feats
 
 
 class LanguageFeatureExtractor_FR(LanguageFeatureExtractor):
     """French sentence-type feature extractor.
 
-    Extracts 14 categorical features optimized for French:
+    Extracts 18 categorical features optimized for French:
     - Intent signals: starts_wh, starts_polite, starts_command, starts_exclamation
     - Punctuation: ends_question, ends_exclamation, ends_period
+    - Punctuation counts: question_mark_count, exclamation_mark_count, ellipsis_count
     - Lexical: sentence_length, unique_token_count, lexical_diversity, avg_token_length
     - Structural: has_polite_words, is_short, is_long
+    - Negation: has_negation
 
     Language-specific keywords capture French syntactic patterns:
     - WH_STARTERS: "quoi", "où", "quand", "pourquoi", "comment", "qui", "quel", "quelle"
@@ -327,17 +349,27 @@ class LanguageFeatureExtractor_FR(LanguageFeatureExtractor):
         feats["is_short"] = float(len(tokens) <= 3)
         feats["is_long"] = float(len(tokens) >= 15)
 
+        # ---- Punctuation counts ----
+        feats["question_mark_count"] = float(text.count("?"))
+        feats["exclamation_mark_count"] = float(text.count("!"))
+        feats["ellipsis_count"] = float(text.count("...") + text.count("…"))
+
+        # ---- Negation ----
+        feats["has_negation"] = float(any(w in self.NEGATION_WORDS for w in tokens))
+
         return feats
 
 
 class LanguageFeatureExtractor_DE(LanguageFeatureExtractor):
     """German sentence-type feature extractor.
 
-    Extracts 14 categorical features optimized for German:
+    Extracts 18 categorical features optimized for German:
     - Intent signals: starts_wh, starts_polite, starts_command, starts_exclamation
     - Punctuation: ends_question, ends_exclamation, ends_period
+    - Punctuation counts: question_mark_count, exclamation_mark_count, ellipsis_count
     - Lexical: sentence_length, unique_token_count, lexical_diversity, avg_token_length
     - Structural: has_polite_words, is_short, is_long
+    - Negation: has_negation
 
     Language-specific keywords capture German syntactic patterns:
     - WH_STARTERS: "was", "wo", "wann", "warum", "wie", "wer", "welcher", "welche", "welches"
@@ -412,17 +444,27 @@ class LanguageFeatureExtractor_DE(LanguageFeatureExtractor):
         feats["is_short"] = float(len(tokens) <= 3)
         feats["is_long"] = float(len(tokens) >= 15)
 
+        # ---- Punctuation counts ----
+        feats["question_mark_count"] = float(text.count("?"))
+        feats["exclamation_mark_count"] = float(text.count("!"))
+        feats["ellipsis_count"] = float(text.count("...") + text.count("…"))
+
+        # ---- Negation ----
+        feats["has_negation"] = float(any(w in self.NEGATION_WORDS for w in tokens))
+
         return feats
 
 
 class LanguageFeatureExtractor_IT(LanguageFeatureExtractor):
     """Italian sentence-type feature extractor.
 
-    Extracts 14 categorical features optimized for Italian:
+    Extracts 18 categorical features optimized for Italian:
     - Intent signals: starts_wh, starts_polite, starts_command, starts_exclamation
     - Punctuation: ends_question, ends_exclamation, ends_period
+    - Punctuation counts: question_mark_count, exclamation_mark_count, ellipsis_count
     - Lexical: sentence_length, unique_token_count, lexical_diversity, avg_token_length
     - Structural: has_polite_words, is_short, is_long
+    - Negation: has_negation
 
     Language-specific keywords capture Italian syntactic patterns:
     - WH_STARTERS: "cosa", "dove", "quando", "perché", "come", "chi", "quale", "quali"
@@ -499,17 +541,27 @@ class LanguageFeatureExtractor_IT(LanguageFeatureExtractor):
         feats["is_short"] = float(len(tokens) <= 3)
         feats["is_long"] = float(len(tokens) >= 15)
 
+        # ---- Punctuation counts ----
+        feats["question_mark_count"] = float(text.count("?"))
+        feats["exclamation_mark_count"] = float(text.count("!"))
+        feats["ellipsis_count"] = float(text.count("...") + text.count("…"))
+
+        # ---- Negation ----
+        feats["has_negation"] = float(any(w in self.NEGATION_WORDS for w in tokens))
+
         return feats
 
 
 class LanguageFeatureExtractor_NL(LanguageFeatureExtractor):
     """Dutch sentence-type feature extractor.
 
-    Extracts 14 categorical features optimized for Dutch:
+    Extracts 18 categorical features optimized for Dutch:
     - Intent signals: starts_wh, starts_polite, starts_command, starts_exclamation
     - Punctuation: ends_question, ends_exclamation, ends_period
+    - Punctuation counts: question_mark_count, exclamation_mark_count, ellipsis_count
     - Lexical: sentence_length, unique_token_count, lexical_diversity, avg_token_length
     - Structural: has_polite_words, is_short, is_long
+    - Negation: has_negation
 
     Language-specific keywords capture Dutch syntactic patterns:
     - WH_STARTERS: "wat", "waar", "wanneer", "waarom", "hoe", "wie", "welke", "welk"
@@ -585,17 +637,27 @@ class LanguageFeatureExtractor_NL(LanguageFeatureExtractor):
         feats["is_short"] = float(len(tokens) <= 3)
         feats["is_long"] = float(len(tokens) >= 15)
 
+        # ---- Punctuation counts ----
+        feats["question_mark_count"] = float(text.count("?"))
+        feats["exclamation_mark_count"] = float(text.count("!"))
+        feats["ellipsis_count"] = float(text.count("...") + text.count("…"))
+
+        # ---- Negation ----
+        feats["has_negation"] = float(any(w in self.NEGATION_WORDS for w in tokens))
+
         return feats
 
 
 class LanguageFeatureExtractor_PT(LanguageFeatureExtractor):
     """Portuguese sentence-type feature extractor.
 
-    Extracts 14 categorical features optimized for Portuguese:
+    Extracts 18 categorical features optimized for Portuguese:
     - Intent signals: starts_wh, starts_polite, starts_command, starts_exclamation
     - Punctuation: ends_question, ends_exclamation, ends_period
+    - Punctuation counts: question_mark_count, exclamation_mark_count, ellipsis_count
     - Lexical: sentence_length, unique_token_count, lexical_diversity, avg_token_length
     - Structural: has_polite_words, is_short, is_long
+    - Negation: has_negation
 
     Language-specific keywords capture Portuguese syntactic patterns:
     - WH_STARTERS: "o que", "onde", "quando", "por que", "como", "quem", "qual", "quais"
@@ -671,6 +733,14 @@ class LanguageFeatureExtractor_PT(LanguageFeatureExtractor):
         )
         feats["is_short"] = float(len(tokens) <= 3)
         feats["is_long"] = float(len(tokens) >= 15)
+
+        # ---- Punctuation counts ----
+        feats["question_mark_count"] = float(text.count("?"))
+        feats["exclamation_mark_count"] = float(text.count("!"))
+        feats["ellipsis_count"] = float(text.count("...") + text.count("…"))
+
+        # ---- Negation ----
+        feats["has_negation"] = float(any(w in self.NEGATION_WORDS for w in tokens))
 
         return feats
 
