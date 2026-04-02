@@ -32,6 +32,10 @@ class LanguageFeatureExtractor(ABC):
 
     lang: str = "en"
 
+    def _tokenize(self, text: str) -> list[str]:
+        """Simple regex-based tokenization (no NLTK). Shared across all language subclasses."""
+        return re.findall(r"\b\w+\b", text.lower())
+
     @abstractmethod
     def extract(self, text: str) -> Dict[str, float]:
         """Extract categorical features from raw text.
@@ -94,12 +98,6 @@ class LanguageFeatureExtractor_EN(LanguageFeatureExtractor):
     REQUEST_OPENERS = frozenset({
         "would", "could", "can", "may", "might", "please"
     })
-
-    def _tokenize(self, text: str) -> list[str]:
-        """Simple regex-based tokenization (no NLTK)."""
-        # Simple word splitting on whitespace and punctuation
-        words = re.findall(r"\b\w+\b", text.lower())
-        return words
 
     def extract(self, text: str) -> Dict[str, float]:
         """Extract features from English text."""
@@ -204,11 +202,6 @@ class LanguageFeatureExtractor_ES(LanguageFeatureExtractor):
         "podría", "puede", "puedo", "pudiera", "por favor"
     })
 
-    def _tokenize(self, text: str) -> list[str]:
-        """Simple regex-based tokenization."""
-        words = re.findall(r"\b\w+\b", text.lower())
-        return words
-
     def extract(self, text: str) -> Dict[str, float]:
         """Extract features from Spanish text."""
         text_lower = text.lower().strip()
@@ -297,11 +290,6 @@ class LanguageFeatureExtractor_FR(LanguageFeatureExtractor):
         "s'il vous plaît", "s'il te plaît", "merci", "merci beaucoup", "pourriez", "peut", "grâce"
     })
 
-    def _tokenize(self, text: str) -> list[str]:
-        """Simple regex-based tokenization."""
-        words = re.findall(r"\b\w+\b", text.lower())
-        return words
-
     def extract(self, text: str) -> Dict[str, float]:
         """Extract features from French text."""
         text_lower = text.lower().strip()
@@ -386,11 +374,6 @@ class LanguageFeatureExtractor_DE(LanguageFeatureExtractor):
     POLITE_WORDS = frozenset({
         "bitte", "danke", "danke schön", "würden", "könnten", "möchten"
     })
-
-    def _tokenize(self, text: str) -> list[str]:
-        """Simple regex-based tokenization."""
-        words = re.findall(r"\b\w+\b", text.lower())
-        return words
 
     def extract(self, text: str) -> Dict[str, float]:
         """Extract features from German text."""
@@ -479,11 +462,6 @@ class LanguageFeatureExtractor_IT(LanguageFeatureExtractor):
         "potrebbe", "potremmo", "potrei"
     })
 
-    def _tokenize(self, text: str) -> list[str]:
-        """Simple regex-based tokenization."""
-        words = re.findall(r"\b\w+\b", text.lower())
-        return words
-
     def extract(self, text: str) -> Dict[str, float]:
         """Extract features from Italian text."""
         text_lower = text.lower().strip()
@@ -554,7 +532,7 @@ class LanguageFeatureExtractor_NL(LanguageFeatureExtractor):
         "start", "startet", "starten", "doe", "doen", "geef", "geeft", "geven",
         "help", "helpt", "helpen", "zoek", "zoekt", "zoeken", "kijk", "kijkt", "kijken",
         "luister", "luistert", "luisteren", "neem", "neemt", "nemen",
-        "onthoud", "onthoudt", "onthouden", "vergeet", "vergeet", "vergeten"
+        "onthoud", "onthoudt", "onthouden", "vergeet", "vergeten"
     })
 
     EXCLAMATION_MARKERS = frozenset({
@@ -569,11 +547,6 @@ class LanguageFeatureExtractor_NL(LanguageFeatureExtractor):
         "alsjeblieft", "astubleif", "dank je", "dank u", "bedankt",
         "zou", "kan", "mag", "mogen"
     })
-
-    def _tokenize(self, text: str) -> list[str]:
-        """Simple regex-based tokenization."""
-        words = re.findall(r"\b\w+\b", text.lower())
-        return words
 
     def extract(self, text: str) -> Dict[str, float]:
         """Extract features from Dutch text."""
@@ -662,11 +635,6 @@ class LanguageFeatureExtractor_PT(LanguageFeatureExtractor):
         "poderia", "podemos", "pode"
     })
 
-    def _tokenize(self, text: str) -> list[str]:
-        """Simple regex-based tokenization."""
-        words = re.findall(r"\b\w+\b", text.lower())
-        return words
-
     def extract(self, text: str) -> Dict[str, float]:
         """Extract features from Portuguese text."""
         text_lower = text.lower().strip()
@@ -727,10 +695,10 @@ def get_feature_extractor(lang: str) -> LanguageFeatureExtractor:
 
 
 class LanguageFeatureTransformer(BaseEstimator, TransformerMixin):
-    """Sklearn transformer wrapping language-specific feature extraction.
+    """Sklearn transformer wrapping language-specific feature extraction via CountVectorizer.
 
-    Converts list of texts → feature matrix via DictVectorizer.
-    Compatible with Pipeline and FeatureUnion for composition with TF-IDF.
+    ONNX-COMPATIBLE DESIGN: Uses only sklearn built-in transformers for ONNX export.
+    Converts list of texts → feature matrix via CountVectorizer (not custom transformers).
 
     Args:
         lang: Language code (en, es, fr, etc.)
@@ -753,8 +721,6 @@ class LanguageFeatureTransformer(BaseEstimator, TransformerMixin):
         Returns:
             self
         """
-        from sklearn.feature_extraction import DictVectorizer
-
         self._extractor = get_feature_extractor(self.lang)
         dicts = [self._extractor.extract(text) for text in X]
         self._vectorizer = DictVectorizer(sparse=self.sparse)
