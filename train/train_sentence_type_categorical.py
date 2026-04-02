@@ -135,7 +135,11 @@ def train_language(
     weighted_f1 = f1_score(y_test, y_pred, average="weighted", zero_division=0)
 
     os.makedirs(REPORTS_DIR, exist_ok=True)
-    report_path = join(REPORTS_DIR, f"{model_name}.txt")
+    # Report naming: insert _features infix to match spec
+    # From: sentence_type_EN_categorical_0.8.0
+    # To: sentence_type_EN_categorical_features_0.8.0.txt
+    report_name = model_name.replace("_categorical_", "_categorical_features_").replace("_tfidf_", "_tfidf_features_")
+    report_path = join(REPORTS_DIR, f"{report_name}.txt")
     Path(report_path).write_text(report, encoding="utf-8")
 
     return {
