@@ -18,7 +18,6 @@ LANGS = {
     "es": "sentence_types_ES.txt",
     "fr": "sentence_types_FR.txt",
     "de": "sentence_types_DE.txt",
-    "ca": "sentence_types_CA.txt",
     "it": "sentence_types_IT.txt",
     "nl": "sentence_types_NL.txt",
     "pt": "sentence_types_PT.txt",

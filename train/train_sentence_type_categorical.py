@@ -32,12 +32,11 @@ REPORTS_DIR = join(dirname(__file__), "reports")
 LANG_CONFIG: dict[str, dict[str, str]] = {
     "en": {"dataset": "sentence_types_EN.txt", "suffix": "EN"},
     "es": {"dataset": "sentence_types_ES.txt", "suffix": "ES"},
-    "ca": {"dataset": "sentence_types_CA.txt", "suffix": "CA"},
-    "pt": {"dataset": "sentence_types_PT.txt", "suffix": "PT"},
     "fr": {"dataset": "sentence_types_FR.txt", "suffix": "FR"},
     "de": {"dataset": "sentence_types_DE.txt", "suffix": "DE"},
     "it": {"dataset": "sentence_types_IT.txt", "suffix": "IT"},
     "nl": {"dataset": "sentence_types_NL.txt", "suffix": "NL"},
+    "pt": {"dataset": "sentence_types_PT.txt", "suffix": "PT"},
 }
 
 
