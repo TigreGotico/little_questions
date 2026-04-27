@@ -15,9 +15,101 @@ from typing import Dict, List, Optional, Union
 
 import numpy as np
 import onnxruntime as ort
-from little_questions.constants import SENTENCE_TYPES, QUESTION_TYPES, SUPPORTED_LANGUAGES
-from little_questions.models import get_sentence_type_model_path, get_model_path
+from little_questions.constants import (
+    SENTENCE_TYPES, EAT_LABELS_53, EAT_LABELS_7, SUPPORTED_LANGUAGES,
+)
 
+# Backward-compat alias used by heuristic classifier
+QUESTION_TYPES = EAT_LABELS_53
+
+
+#################################################################
+# singleton classifiers, this is what should be imported and used
+#################################################################
+class SentenceTypeClassifier:
+    """ONNX-backed sentence-type classifier."""
+    _instances: Dict[str, Union["SentenceTypeClassifier", HeuristicSentenceTypeClassifier]] = {}
+    _instances_lock: Lock = Lock()
+
+    @classmethod
+    def get_instance(cls, lang: str) -> Union["SentenceTypeClassifier", HeuristicSentenceTypeClassifier]:
+        """Return the cached classifier for *lang*, loading the ONNX model on first call."""
+        lang = lang.lower()
+        with cls._instances_lock:
+            if lang not in cls._instances:
+                if lang not in SUPPORTED_LANGUAGES:
+                    cls._instances[lang] = HeuristicSentenceTypeClassifier(lang)
+                else:
+                    # TODO - download from hf once trained
+                    model_path = None
+                    instance = cls(model_path, list(SENTENCE_TYPES))
+                    cls._instances[lang] = instance
+        return cls._instances[lang]
+
+
+class EatClassifier:
+    """Calibrated ONNX-backed EAT question-type classifier (53-class).
+
+    Loads eat53_svm_cal_{LANG_UPPER}_0.9.0.onnx from
+    ~/.local/share/little_questions/eat/.  Falls back to heuristic when the
+    model file is not present.
+    """
+
+    _instances: Dict[str, Union["EatClassifier", "HeuristicQuestionTypeClassifier"]] = {}
+    _instances_lock: Lock = Lock()
+    _MODEL_DIR: str = os.path.expanduser("~/.local/share/little_questions/eat")
+    _VERSION: str = "0.9.0"
+
+    @classmethod
+    def get_instance(cls, lang: str) -> Union["EatClassifier", "HeuristicQuestionTypeClassifier"]:
+        lang = lang.lower()
+        with cls._instances_lock:
+            if lang not in cls._instances:
+                model_path = os.path.join(
+                    cls._MODEL_DIR,
+                    f"eat53_svm_cal_{lang.upper()}_{cls._VERSION}.onnx",
+                )
+                if os.path.isfile(model_path):
+                    cls._instances[lang] = cls(model_path)
+                else:
+                    cls._instances[lang] = HeuristicQuestionTypeClassifier(lang)
+        return cls._instances[lang]
+
+    def __init__(self, model_path: str) -> None:
+        opts = ort.SessionOptions()
+        opts.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_ALL
+        self._session = ort.InferenceSession(model_path, opts)
+        meta = self._session.get_modelmeta().custom_metadata_map
+        self._classes: List[str] = json.loads(meta.get("classes", "[]")) or list(EAT_LABELS_53)
+        self._is_calibrated: bool = meta.get("calibrated") == "true"
+        self._input_name: str = self._session.get_inputs()[0].name
+
+    def predict(self, text: str) -> str:
+        outputs = self._session.run(None, {self._input_name: np.array([text], dtype=object)})
+        raw = outputs[0][0]
+        if isinstance(raw, (int, np.integer)):
+            return self._classes[int(raw)]
+        if isinstance(raw, bytes):
+            return raw.decode("utf-8")
+        return str(raw)
+
+    def score(self, text: str) -> Dict[str, float]:
+        """Return per-class probability dict (values sum to ~1.0)."""
+        outputs = self._session.run(None, {self._input_name: np.array([text], dtype=object)})
+        vals = np.array(outputs[1][0], dtype=np.float64)
+        if not self._is_calibrated:
+            exp_v = np.exp(vals - vals.max())
+            vals = exp_v / exp_v.sum()
+        return {cls: float(vals[i]) for i, cls in enumerate(self._classes)}
+
+
+class QuestionTypeClassifier(EatClassifier):
+    """Backward-compatible alias for EatClassifier."""
+
+
+###################################################
+# resource file handling
+###################################################
 _LOCALE_DIR = os.path.join(os.path.dirname(__file__), "locale")
 _locale_cache: Dict[str, dict] = {}
 
@@ -207,52 +299,3 @@ class HeuristicQuestionTypeClassifier(HeuristicClassifier):
                 scores[label] = scores.get(label, 0.0) + val
 
         return scores
-
-
-###################################################
-# pretrained onnx classifiers
-###################################################
-class SentenceTypeClassifier(OnnxClassifier):
-    """ONNX-backed sentence-type classifier."""
-    _instances: Dict[str, Union["SentenceTypeClassifier", HeuristicSentenceTypeClassifier]] = {}
-    _instances_lock: Lock = Lock()
-
-    def __init__(self, model_path: str, labels: Optional[List[str]] = None) -> None:
-        super().__init__(model_path, labels or list(SENTENCE_TYPES))
-
-    @classmethod
-    def get_instance(cls, lang: str) -> Union["SentenceTypeClassifier", HeuristicSentenceTypeClassifier]:
-        """Return the cached classifier for *lang*, loading the ONNX model on first call."""
-        lang = lang.lower()
-        with cls._instances_lock:
-            if lang not in cls._instances:
-                if lang not in SUPPORTED_LANGUAGES:
-                    cls._instances[lang] = HeuristicSentenceTypeClassifier(lang)
-                else:
-                    model_path = get_sentence_type_model_path(lang)
-                    instance = cls(model_path, list(SENTENCE_TYPES))
-                    cls._instances[lang] = instance
-        return cls._instances[lang]
-
-
-class QuestionTypeClassifier(OnnxClassifier):
-    """ONNX-backed sentence-type classifier."""
-    _instances: Dict[str, Union["QuestionTypeClassifier", HeuristicQuestionTypeClassifier]] = {}
-    _instances_lock: Lock = Lock()
-
-    def __init__(self, model_path: str, labels: Optional[List[str]] = None) -> None:
-        super().__init__(model_path, labels or list(QUESTION_TYPES))
-
-    @classmethod
-    def get_instance(cls, lang: str) -> Union["QuestionTypeClassifier", HeuristicQuestionTypeClassifier]:
-        """Return the cached classifier for *lang*, loading the ONNX model on first call."""
-        lang = lang.lower()
-        with cls._instances_lock:
-            if lang not in cls._instances:
-                if lang not in SUPPORTED_LANGUAGES:
-                    cls._instances[lang] = HeuristicQuestionTypeClassifier(lang)
-                else:
-                    model_path = get_model_path(lang)
-                    instance = cls(model_path, list(QUESTION_TYPES))
-                    cls._instances[lang] = instance
-        return cls._instances[lang]
