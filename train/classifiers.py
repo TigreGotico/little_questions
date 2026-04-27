@@ -203,10 +203,11 @@ class CalibratedLinearSVCClassifier(TrainableClassifier):
     @property
     def pipeline(self) -> list:
         tfidf = TfidfVectorizer(
-            ngram_range=(1, 2), min_df=1, max_df=0.9, sublinear_tf=True
+            ngram_range=(1, 2), min_df=2, max_df=0.9, sublinear_tf=True,
+            max_features=20_000,  # caps vocab at ~20 MB model vs 180 MB unbounded
         )
         clf = CalibratedClassifierCV(
-            _LinearSVC(C=1.0, max_iter=2000), cv=5, method="sigmoid"
+            _LinearSVC(C=1.0, max_iter=2000), cv=3, method="sigmoid"
         )
         return [("tfidf", tfidf), ("clf", clf)]
 
