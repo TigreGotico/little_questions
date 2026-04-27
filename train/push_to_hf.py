@@ -49,18 +49,57 @@ LITTLE_QUESTIONS_URL = "https://github.com/TigreGotico/little_questions"
 # README / BENCHMARKS generators
 # ---------------------------------------------------------------------------
 
+def _load_benchmark_scores() -> dict[str, dict]:
+    """Return {scorer_name: {accuracy, macro_f1, weighted_f1, n_labels}} from JSON reports."""
+    scores = {}
+    if not REPORTS_DIR.exists():
+        return scores
+    for rf in REPORTS_DIR.glob("*_benchmark.json"):
+        try:
+            data = json.loads(rf.read_text())
+            name = data.get("scorer_name", rf.stem.replace("_benchmark", ""))
+            scores[name] = {
+                "accuracy": data.get("accuracy", 0),
+                "macro_f1": data.get("macro_f1", 0),
+                "weighted_f1": data.get("weighted_f1", 0),
+                "n_labels": len(data.get("labels", [])),
+            }
+        except Exception:
+            pass
+    return scores
+
+
 def _generate_readme(onnx_files: list[Path], m2v_dirs: list[Path]) -> str:
+    scores = _load_benchmark_scores()
+
+    # Build ONNX table with benchmark numbers
     onnx_rows = []
     for f in sorted(onnx_files):
-        stem = f.stem  # eat53_svm_cal_EN_0.9.0
+        stem = f.stem
         parts = stem.split("_")
         n_cls = parts[0].replace("eat", "")
         model_type = "_".join(parts[1:-2])
-        lang = parts[-2].lower()
         calibrated = "cal" in model_type
-        prob_note = "✓ calibrated proba" if calibrated else "decision scores"
-        onnx_rows.append(f"| `{f.name}` | {n_cls}-class | {model_type} | {lang} | {prob_note} |")
+        prob_note = "calibrated proba" if calibrated else "decision scores"
+        s = scores.get(stem, {})
+        acc = f"{s['accuracy']:.3f}" if s else "—"
+        mf1 = f"{s['macro_f1']:.3f}" if s else "—"
+        onnx_rows.append(
+            f"| `{f.name}` | {n_cls} | {model_type} | {prob_note} | {acc} | {mf1} |"
+        )
+    # Add 2-stage rows
+    for mt in ("svm", "svm_cal"):
+        key = f"eat53_2stage_{mt}"
+        s = scores.get(key, {})
+        acc = f"{s['accuracy']:.3f}" if s else "—"
+        mf1 = f"{s['macro_f1']:.3f}" if s else "—"
+        calibrated = "cal" in mt
+        prob_note = "calibrated proba" if calibrated else "decision scores"
+        onnx_rows.append(
+            f"| _(two-stage {mt})_ | 53 | {mt} | {prob_note} | {acc} | {mf1} |"
+        )
 
+    # Build M2V table with benchmark numbers
     m2v_rows = []
     for d in sorted(m2v_dirs):
         meta_path = d / "meta.json"
@@ -68,12 +107,15 @@ def _generate_readme(onnx_files: list[Path], m2v_dirs: list[Path]) -> str:
             meta = json.loads(meta_path.read_text())
             n_cls = len(meta.get("classes", []))
             backbone = meta.get("model_name", "").split("/")[-1]
-            fusion = "+tfidf" if meta.get("use_tfidf_fusion") else "plain"
+            fusion = "✓" if meta.get("use_tfidf_fusion") else "—"
         else:
-            n_cls = "?"
-            backbone = d.name
-            fusion = "?"
-        m2v_rows.append(f"| `{d.name}` | {n_cls}-class | {backbone} | {fusion} |")
+            n_cls, backbone, fusion = "?", d.name, "?"
+        s = scores.get(d.name, {})
+        acc = f"{s['accuracy']:.3f}" if s else "—"
+        mf1 = f"{s['macro_f1']:.3f}" if s else "—"
+        m2v_rows.append(
+            f"| `{d.name}` | {n_cls} | {backbone} | {fusion} | {acc} | {mf1} |"
+        )
 
     onnx_table = "\n".join(onnx_rows) or "_No ONNX models found_"
     m2v_table = "\n".join(m2v_rows) or "_No M2V models found_"
@@ -97,25 +139,81 @@ def _generate_readme(onnx_files: list[Path], m2v_dirs: list[Path]) -> str:
 
         # eat-classifiers
 
-        EAT question-type classifiers for English — trained on the
-        [EAT dataset]({EAT_DATASET_URL}) (30K questions, 53 fine-grained labels
-        across 7 main categories: ABBR, BOOL, DESC, ENTY, HUM, LOC, NUM).
+        English question-type classifiers trained on the
+        [EAT (Expected Answer Type) dataset]({EAT_DATASET_URL}) — 30,017 questions
+        labelled with 53 fine-grained answer types across 7 main categories.
 
-        Two model families:
+        Two model families are included:
 
-        - **ONNX** (`models/eat/`) — Platt-calibrated LinearSVC; inference requires only `onnxruntime`.
-        - **Model2Vec** (`models/eat_m2v/`) — static potion-base embeddings ± TF-IDF fusion + LinearSVC.
+        | Family | Location | Inference deps | Best macro F1 (53-class) |
+        |--------|----------|----------------|--------------------------|
+        | **ONNX** (LinearSVC, calibrated) | `models/eat/` | `onnxruntime` only | **0.934** (two-stage svm_cal) |
+        | **Model2Vec** (potion-base + LinearSVC) | `models/eat_m2v/` | `model2vec`, `scikit-learn` | **0.921** (32M+tfidf) |
 
-        Best single model: `m2v-potion-base-32M+tfidf-en-53c` (92.2 % macro F1, 53-class).
-        Best ONNX: `eat53_2stage_svm_cal` two-stage (93.4 % macro F1, 53-class).
+        ---
 
-        ## ONNX Models
+        ## Label taxonomy
 
-        | File | Classes | Backbone | Lang | Output[1] |
-        |------|---------|----------|------|-----------|
+        7 main categories and 53 fine-grained sub-types:
+
+        | Main | Sub-types |
+        |------|-----------|
+        | `ABBR` | `abb`, `exp` |
+        | `BOOL` | `yesno` |
+        | `DESC` | `def`, `desc`, `manner`, `reason` |
+        | `ENTY` | `animal`, `body`, `color`, `cremat`, `currency`, `dismed`, `event`, `food`, `instru`, `lang`, `letter`, `other`, `plant`, `product`, `religion`, `sport`, `substance`, `symbol`, `techmeth`, `termeq`, `veh`, `word` |
+        | `HUM` | `desc`, `gr`, `ind`, `title` |
+        | `LOC` | `city`, `country`, `landmass`, `mount`, `other`, `state`, `water` |
+        | `NUM` | `code`, `count`, `date`, `dist`, `money`, `ord`, `other`, `perc`, `period`, `speed`, `temp`, `volsize`, `weight` |
+
+        ---
+
+        ## ONNX models
+
+        Calibrated models (`_cal`) use Platt sigmoid calibration
+        (`CalibratedClassifierCV(LinearSVC, cv=5, method="sigmoid")`) so that
+        `output[1]` is a true probability vector — values in [0, 1] summing to 1.
+        Uncalibrated models output raw decision-function scores.
+
+        | File | Classes | Type | Output[1] | Accuracy | Macro F1 |
+        |------|---------|------|-----------|----------|----------|
         {onnx_table}
 
-        ### Usage (ONNX)
+        ### Two-stage inference
+
+        Run `eat7_svm_cal` first to predict the main category, then run
+        `eat53_svm_cal`, zero out all labels outside that category, and
+        renormalise the surviving probabilities. This is the highest-accuracy
+        configuration (macro F1 = 0.934 on the held-out test set).
+
+        ```python
+        import onnxruntime as rt
+        import numpy as np, json
+
+        sess7  = rt.InferenceSession("models/eat/eat7_svm_cal_EN_0.9.0.onnx")
+        sess53 = rt.InferenceSession("models/eat/eat53_svm_cal_EN_0.9.0.onnx")
+        classes7  = json.loads(sess7.get_modelmeta().custom_metadata_map["classes"])
+        classes53 = json.loads(sess53.get_modelmeta().custom_metadata_map["classes"])
+        main_of_53 = [c.split(":")[0] for c in classes53]
+
+        def classify(text: str) -> tuple[str, float]:
+            inp = np.array([text], dtype=object)
+            main_idx = int(sess7.run(None, {{"input": inp}})[0][0])
+            main = classes7[main_idx]
+            _, probs53 = sess53.run(None, {{"input": inp}})
+            row = probs53[0].copy()
+            for j, m in enumerate(main_of_53):
+                if m != main:
+                    row[j] = 0.0
+            row /= row.sum()
+            best = int(np.argmax(row))
+            return classes53[best], float(row[best])
+
+        label, confidence = classify("Who invented the telephone?")
+        print(label, confidence)   # HUM:ind  0.96
+        ```
+
+        ### Single-model ONNX inference
 
         ```python
         import onnxruntime as rt
@@ -127,54 +225,75 @@ def _generate_readme(onnx_files: list[Path], m2v_dirs: list[Path]) -> str:
         inp = np.array(["Who invented the telephone?"], dtype=object)
         label_idx, probs = sess.run(None, {{"input": inp}})
         label = classes[int(label_idx[0])]
-        print(label, max(probs[0]))   # e.g. HUM:ind  0.94
+        confidence = float(probs[0].max())
+        print(label, confidence)   # HUM:ind  0.94
         ```
 
-        Calibrated models (`_cal`) output true probabilities in `output[1]`.
-        Two-stage inference: run `eat7_svm_cal` to get the main category, then
-        run `eat53_svm_cal` and zero + renormalise labels outside that category.
+        ---
 
-        ## Model2Vec Models
+        ## Model2Vec models
 
-        | Directory | Classes | Backbone | Fusion |
-        |-----------|---------|----------|--------|
+        Static [model2vec](https://github.com/MinishLab/model2vec) embeddings
+        (potion-base 2M / 8M / 32M) with a LinearSVC classifier on top.
+        The `+tfidf` variants concatenate TF-IDF word (1,2)-gram features with
+        the embeddings before fitting — this consistently adds 5–30 pp macro F1
+        over embeddings alone.
+
+        | Directory | Classes | Backbone | TF-IDF fusion | Accuracy | Macro F1 |
+        |-----------|---------|----------|---------------|----------|----------|
         {m2v_table}
 
         ### Usage (Model2Vec)
 
         ```python
+        from huggingface_hub import snapshot_download
         from train.classifiers import Model2VecClassifier
 
-        clf = Model2VecClassifier.load("models/eat_m2v/m2v-potion-base-8M+tfidf-en-53c")
+        local = snapshot_download("TigreGotico/eat-classifiers")
+        clf = Model2VecClassifier.load(f"{{local}}/models/eat_m2v/m2v-potion-base-8M+tfidf-en-53c")
         print(clf.predict(["Who invented the telephone?"]))
+        # ["HUM:ind"]
         ```
 
+        ---
+
         ## Integration with little_questions
+
+        When installed as part of [little_questions]({LITTLE_QUESTIONS_URL}), the
+        calibrated ONNX model (`eat53_svm_cal`) is loaded automatically and
+        exposed through the `Sentence` API:
 
         ```python
         from little_questions import Sentence
 
         s = Sentence("Who invented the telephone?")
         print(s.classification)          # "HUM:ind"
-        print(s.confidence)              # e.g. 0.94
-        print(s.classification_scores)   # dict[str, float] — all 53 labels
+        print(s.main_label)              # "HUM"
+        print(s.secondary_label)         # "ind"
+        print(s.confidence)              # 0.94
+        print(s.pretty_label)            # "individual (Human)"
+        # Full probability distribution over all 53 labels:
+        print(s.classification_scores)
         ```
+
+        ---
 
         ## Datasets
 
-        Two datasets were built specifically for this project:
+        Both datasets were built specifically for this project:
 
-        - [TigreGotico/EAT]({EAT_DATASET_URL}) — Expected Answer Type taxonomy,
-          30K English questions, 53 fine-grained labels across 7 main categories.
-        - [TigreGotico/sentence-types-multilingual]({SENTENCE_TYPES_DATASET_URL}) —
-          sentence-type taxonomy (question/statement/command/exclamation/request),
-          80K multilingual samples.
+        | Dataset | Task | Size | Labels |
+        |---------|------|------|--------|
+        | [TigreGotico/EAT]({EAT_DATASET_URL}) | Question answer-type | 30K EN | 53 fine-grained / 7 main |
+        | [TigreGotico/sentence-types-multilingual]({SENTENCE_TYPES_DATASET_URL}) | Sentence type | 80K multilingual | 5 types |
 
-        ## Project
+        ---
 
-        [little_questions]({LITTLE_QUESTIONS_URL}) — lightweight NLP question analysis library.
+        ## Benchmarks
 
-        See [BENCHMARKS.md](BENCHMARKS.md) for full results.
+        Full results tables and confusion matrices: [BENCHMARKS.md](BENCHMARKS.md)
+
+        ![Model comparison](benchmarks/eat/benchmark_eat_model_comparison.png)
         """)
 
 
