@@ -201,15 +201,15 @@ class TestStrBehaviour:
 class TestPublicHelpers:
     def test_get_classifier_returns_eat_instance(self):
         from little_questions import get_classifier
-        from little_questions.classifiers import EatClassifier, HeuristicQuestionTypeClassifier
+        from little_questions.classifiers import EatClassifier
         clf = get_classifier("en")
-        assert isinstance(clf, (EatClassifier, HeuristicQuestionTypeClassifier))
+        assert isinstance(clf, EatClassifier)
 
     def test_get_scorer_returns_sentence_type_instance(self):
         from little_questions import get_scorer
-        from little_questions.classifiers import SentenceTypeClassifier, HeuristicSentenceTypeClassifier
+        from little_questions.classifiers import SentenceTypeClassifier
         scorer = get_scorer("en")
-        assert isinstance(scorer, (SentenceTypeClassifier, HeuristicSentenceTypeClassifier))
+        assert isinstance(scorer, SentenceTypeClassifier)
 
     def test_clear_classifier_cache(self):
         from little_questions.classifiers import clear_classifier_cache, EatClassifier

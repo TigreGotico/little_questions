@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Batch translate COSC dataset (5 sentences per request) - much faster."""
-
+from tqdm import tqdm
 import argparse
 import csv
 import json
@@ -30,7 +30,7 @@ LANGUAGES = {
 BASE_DIR = Path(__file__).parent / "clean_data"
 EN_FILE = BASE_DIR / "raw_questions_EN_balanced_0.8.0.txt"
 
-BATCH_SIZE = 5
+BATCH_SIZE = 10
 
 PROMPT_TMPL = (
     "Translate the following English texts to {target_lang} (one per line):\n"
@@ -54,7 +54,7 @@ def load_model(quant, n_gpu_layers, verbose=False):
     model = Llama.from_pretrained(
         repo_id=MODEL_REPO,
         filename=filename,
-        n_ctx=512,
+        n_ctx=8192,
         n_gpu_layers=n_gpu_layers,
         verbose=verbose,
     )
@@ -69,7 +69,7 @@ def translate_batch(model, texts, target_lang):
     try:
         result = model.create_chat_completion(
             messages=[{"role": "user", "content": user_msg}],
-            max_tokens=512,
+            max_tokens=8192,
             temperature=0.0,
             top_p=0.95,
         )
@@ -77,7 +77,7 @@ def translate_batch(model, texts, target_lang):
         
         # Parse numbered responses
         translations = []
-        for line in response.split("\n"):
+        for line in tqdm(response.split("\n")):
             line = line.strip()
             if not line:
                 continue

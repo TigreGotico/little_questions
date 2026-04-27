@@ -24,7 +24,6 @@ from sklearn.metrics import accuracy_score, classification_report, f1_score
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVC
-from xdg import BaseDirectory as XDG
 
 import train.mlflow_config as mlflow_config
 
@@ -32,7 +31,7 @@ LOG = logging.getLogger(__name__)
 
 DATA_DIR = join(dirname(__file__), "clean_data")
 REPORTS_DIR = join(dirname(__file__), "reports")
-MODEL_DIR = XDG.save_data_path("little_questions")
+MODEL_DIR = os.path.expanduser(join("~/.local/share", "little_questions"))
 
 LANGS = ["en", "es", "fr", "de", "it", "pt", "nl"]
 SUFFIX = {lang: lang.upper() for lang in LANGS}

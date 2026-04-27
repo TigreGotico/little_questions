@@ -25,7 +25,6 @@ LANGUAGES = {
     "it": "Italian",
     "pt": "Portuguese (Portugal)",
     "nl": "Dutch",
-    "ca": "Catalan",
 }
 
 BASE_DIR = Path("/home/miro/PycharmProjects/DEPRECATED/little_questions/train/clean_data")

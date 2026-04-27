@@ -1,20 +1,20 @@
 Scorer : m2v-potion-base-32M+tfidf-en-6c
 Dataset: test-split-en-6c  (lang=en)
-Samples: 702
+Samples: 5617
 
               precision    recall  f1-score   support
 
-        ABBR       1.00      0.76      0.86        21
-        DESC       0.87      0.88      0.87        90
-        ENTY       0.88      0.93      0.91       267
-         HUM       0.85      0.67      0.75        67
-         LOC       0.93      0.94      0.94       107
-         NUM       0.95      0.96      0.96       150
+        ABBR       0.95      0.98      0.97       213
+        DESC       0.89      0.85      0.87       427
+        ENTY       0.96      0.97      0.97      2414
+         HUM       0.96      0.92      0.94       425
+         LOC       0.98      0.97      0.98       736
+         NUM       0.98      0.98      0.98      1402
 
-    accuracy                           0.90       702
-   macro avg       0.91      0.86      0.88       702
-weighted avg       0.90      0.90      0.90       702
+    accuracy                           0.96      5617
+   macro avg       0.95      0.95      0.95      5617
+weighted avg       0.96      0.96      0.96      5617
 
-Accuracy : 0.9031
-Macro F1 : 0.8811
-Wtd   F1 : 0.9014
+Accuracy : 0.9615
+Macro F1 : 0.9487
+Wtd   F1 : 0.9613

@@ -81,7 +81,7 @@ DIRTY_DATA = f"{BASE}/question_types_EN.csv"
 OUT_FULL = f"{BASE}/question_types_EN_full.csv"
 OUT_FIXED = f"{BASE}/question_types_EN_fixed.csv"
 OUT_VALIDATED = f"{BASE}/question_types_EN_validated.csv"
-CONCURRENT_REQUESTS = 5
+CONCURRENT_REQUESTS = 2
 
 # Storage
 PROCESSED_QUESTIONS = set()

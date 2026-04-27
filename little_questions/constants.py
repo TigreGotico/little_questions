@@ -28,8 +28,6 @@ EAT_LABELS_53: list[str] = [
     "NUM:period", "NUM:speed", "NUM:temp", "NUM:volsize", "NUM:weight",
 ]
 
-SUPPORTED_LANGUAGES: list[str] = ["en"]
-
 MAIN_LABEL_NAMES: dict[str, str] = {
     "ABBR": "Abbreviation",
     "BOOL": "Boolean",

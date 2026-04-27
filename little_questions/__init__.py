@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from little_questions.constants import MAIN_LABEL_NAMES, SEC_LABEL_NAMES
 from little_questions.classifiers import (
-    EatClassifier, QuestionTypeClassifier, SentenceTypeClassifier,
-    HeuristicSentenceTypeClassifier, HeuristicQuestionTypeClassifier,
+    EatClassifier,
+    SentenceTypeClassifier,
     YesNoClassifier,
 )
 

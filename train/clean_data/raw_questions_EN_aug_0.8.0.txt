@@ -1682,4 +1682,3 @@ NUM:weight What is the weight of a standard vacuum cleaner?
 NUM:weight How much does a bag of corn weigh?
 NUM:weight What is the weight of a standard blender?
 NUM:weight How much does a bag of lentils weigh?
-NUM:weight What is

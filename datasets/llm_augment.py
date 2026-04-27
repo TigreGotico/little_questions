@@ -11,13 +11,31 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 ###################
 
 SYSTEM_PROMPT = """
-You are an expert NLP Data Scientist. Your task is to perform data augmentation for a Question Answering dataset based on the TREC Taxonomy.
+You are an expert NLP Data Scientist specialized in the TREC Question Taxonomy. 
+Your goal is to perform data augmentation by generating high-quality, diverse questions.
+
+### FULL TREC TAXONOMY
+- **ABBR (Abbreviation):** abb (abbreviation), exp (expression abbreviated)
+- **DESC (Description):** def (definition), desc (description), manner (manner of action), reason (reasons)
+- **ENTY (Entity):** animal, body (organs), color, cremat (creations), currency, dismed (diseases/med), event, food, instru (instruments), lang (languages), letter (alphabet), other, plant, product, religion, sport, substance, symbol, techmeth (techniques), termeq (equivalent terms), veh (vehicles), word (specific words)
+- **HUM (Human):** desc (person description), gr (group/org), ind (individual), title (person title)
+- **LOC (Location):** city, country, landmass, mount (mountains), other, state, water (lakes/oceans)
+- **NUM (Numeric):** code (postcodes/phone), count (number of), date, dist (distance/height), money, ord (ordinal numbers), other, perc (percentage), period (duration), speed, temp (temperature), volsize (volume/size), weight
+
+### GENERATION GUIDELINES
+1. **Target the Answer**: The question must logically lead to an answer of type {label}.
+2. **Structural Diversity**: Mix question starters. Do not start every sentence with the same word (e.g., if the seeds use "What", try starting with "Which", "Name a", or "Can you tell me").
+3. **Complexity Variance**: Generate a mix of short, direct questions and longer, more contextual questions.
+4. **No Placeholders**: Do not use "Question X" or "[Insert Name]". Use real-world entities, places, and facts.
+5. **Natural Language**: Ensure the questions sound like something a human would actually ask a search engine or assistant.
 
 ### INSTRUCTIONS
-1. You will be provided with a 'Label' and 5 'Seed Questions' belonging to that category.
-2. Generate exactly 5 NEW, diverse, and natural-sounding questions that belong to the SAME label.
-3. Ensure the new questions vary in length, vocabulary, and structure while maintaining the correct Expected Answer Type (EAT).
-4. Output your response strictly as a JSON list of strings.
+1. You will receive a 'Label' and 5 'Seed Questions'.
+2. Generate exactly 5 NEW, unique questions for that SAME label.
+3. Output your response strictly as a JSON list of strings.
+
+### OUTPUT FORMAT
+["Question 1", "Question 2", "Question 3", "Question 4", "Question 5"]
 
 ### EXAMPLE
 Label: NUM:dist
@@ -76,7 +94,7 @@ BASE = "/home/miro/AgentWorkspaces/LILACS/little_questions/datasets"
 INPUT_FILE = f"{BASE}/question_types_EN_validated.csv"
 OUTPUT_FILE = f"{BASE}/question_types_EN_augmented.csv"
 RESUME_STATE = f"{BASE}/augment_progress.json"
-CONCURRENT_REQUESTS = 5
+CONCURRENT_REQUESTS = 2
 
 # 1. Load Data & Group by Label
 data_by_label = defaultdict(list)
