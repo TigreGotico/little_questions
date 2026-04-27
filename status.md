@@ -8,7 +8,7 @@
 - [x] Update `train/benchmark_eat.py` — `OnnxScorer.score_batch()`, calibrated `TwoStageOnnxScorer`, `M2VEatScorer`, full benchmark loop, regenerate plots
 - [x] Rewrite `little_questions/constants.py` — `EAT_LABELS_7`, `EAT_LABELS_53`, updated label name dicts (add BOOL, remove COSC-only)
 - [x] Add `EatClassifier` singleton to `little_questions/classifiers.py`; update/replace `QuestionTypeClassifier`
-- [ ] Update `little_questions/__init__.py` — wire `EatClassifier`, add `.classification_scores`, `.confidence`; handle `BOOL:yesno` (no secondary label)
+- [x] Update `little_questions/__init__.py` — wire `EatClassifier`, add `.classification_scores`, `.confidence`; handle `BOOL:yesno` (no secondary label)
 - [ ] Retrain ONNX: `python -m train.train_eat --model svm_cal`
 - [ ] Train M2V: `python -m train.train_eat_m2v`
 - [ ] Re-benchmark: `python -m train.benchmark_eat` — verify probs sum to 1, plots updated
