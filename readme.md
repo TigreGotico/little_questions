@@ -1,12 +1,9 @@
 # little_questions
 
-Classify English sentences by type and expected answer category — powered by
-calibrated ONNX models trained on the
-[EAT dataset](https://huggingface.co/datasets/TigreGotico/EAT).
+Classify sentences by **type** (question, command, statement, exclamation, request)
+and, for questions, by **expected answer category** (EAT taxonomy: 7 main, 53 fine-grained).
 
-Models download automatically from
-[TigreGotico/eat-classifiers](https://huggingface.co/TigreGotico/eat-classifiers)
-on first use.
+Both classifiers download their ONNX models automatically from HuggingFace on first use.
 
 ## Install
 
@@ -19,37 +16,75 @@ pip install little-questions
 ```python
 from little_questions import Sentence
 
+# A question
 s = Sentence("Who invented the telephone?")
-
 print(type(s).__name__)          # Question
+print(s.sentence_type)           # question
 print(s.classification)          # HUM:ind
 print(s.main_label)              # HUM
 print(s.secondary_label)         # ind
 print(s.pretty_label)            # individual (Human)
 print(s.confidence)              # 0.94
-print(s.sentence_type)           # question
+
+# A command
+s = Sentence("Play some jazz music.")
+print(type(s).__name__)          # Command
+print(s.sentence_type)           # command
+
+# A statement
+s = Sentence("The sky is blue.")
+print(type(s).__name__)          # Statement
+print(s.sentence_type)           # statement
 ```
 
-## Sentence types
+---
 
-`Sentence(text)` returns the appropriate subclass automatically:
+## Sentence type classification
 
-| Class | sentence_type | Example |
-|-------|--------------|---------|
+`Sentence(text)` returns the appropriate subclass based on sentence type:
+
+| Class | `sentence_type` | Example |
+|-------|----------------|---------|
 | `Question` | `question` | "What is the capital of France?" |
 | `Statement` | `statement` | "The sky is blue." |
 | `Command` | `command` | "Open the door." |
 | `Request` | `request` | "Could you pass the salt?" |
 | `Exclamation` | `exclamation` | "What a beautiful day!" |
 
-`Request` subclasses `Command`, so `isinstance(s, Command)` is `True` for both.
+`Request` subclasses `Command`, so `isinstance(s, Command)` is `True` for requests too.
+
+Sentence-type classification uses ONNX models for **7 languages** (en, de, es, fr, it, nl, pt)
+and locale-rule heuristics for **21 languages** as fallback.
+
+```python
+from little_questions import Sentence, Question, Command, Statement
+
+s = Sentence("Could you help me?")
+assert isinstance(s, Command)   # Request subclasses Command
+assert s.is_request
+assert s.is_command
+
+# Non-question handling — sentence_type tells you what to do with it
+if s.is_question:
+    answer_type = s.main_label   # route to answer-type handler
+elif s.is_command or s.is_request:
+    pass  # route to action handler
+elif s.is_statement:
+    pass  # route to knowledge handler
+```
+
+---
 
 ## Question classification — EAT taxonomy
 
-Questions are classified into **7 main categories** and **53 fine-grained subtypes**:
+For questions, a **two-stage calibrated classifier** determines the expected answer type:
 
-| Main | Description | Subtypes |
-|------|-------------|----------|
+- **Stage 1** — `eat7_svm_cal`: predicts the main category (ABBR, BOOL, DESC, ENTY, HUM, LOC, NUM)
+- **Stage 2** — `eat53_svm_cal`: scores all 53 fine-grained labels; labels outside the
+  stage-1 category are masked and the remaining probabilities are renormalised
+
+| Main | Description | Fine-grained subtypes |
+|------|-------------|-----------------------|
 | `ABBR` | Abbreviation | `abb`, `exp` |
 | `BOOL` | Yes/No question | `yesno` |
 | `DESC` | Description | `def`, `desc`, `manner`, `reason` |
@@ -58,46 +93,33 @@ Questions are classified into **7 main categories** and **53 fine-grained subtyp
 | `LOC` | Location | `city`, `country`, `state`, `mount`, `water`, … |
 | `NUM` | Numeric | `date`, `money`, `dist`, `count`, `temp`, `speed`, … (13 total) |
 
-```python
-from little_questions import Sentence
+### Calibrated confidence scores
 
-examples = [
-    "Is Paris in France?",
-    "Who wrote Hamlet?",
-    "What does NASA stand for?",
-    "How fast does light travel?",
-    "Where is Mount Everest?",
-]
-for text in examples:
-    s = Sentence(text)
-    print(f"{s.classification:<15} {s.confidence:.2f}  {text}")
-```
-
-## Confidence scores
-
-Every `Sentence` exposes calibrated probabilities over all 53 labels:
+Every `Sentence` exposes a calibrated probability distribution over all 53 labels:
 
 ```python
 s = Sentence("When did World War II end?")
-print(s.confidence)              # max probability, e.g. 0.97
+print(s.classification)          # NUM:date
+print(s.confidence)              # 0.97
 print(s.classification_scores)  # {"NUM:date": 0.97, "NUM:period": 0.02, ...}
+# Values are true probabilities (Platt sigmoid): sum ≈ 1.0
 ```
 
-Output[1] of the calibrated ONNX model is a true probability vector
-(Platt sigmoid, values in [0, 1], sum ≈ 1.0).
+---
 
 ## Supported languages
 
-Sentence-type classification (question / statement / command / …) is
-available for:
+| Capability | Languages | Backend |
+|------------|-----------|---------|
+| Sentence-type (question / statement / command / …) | en, de, es, fr, it, nl, pt | ONNX model |
+| Sentence-type (heuristic fallback) | ca, pl, ro, sv, cs, da, hu, tr, ru, uk, el, eu, gl, fa | Locale JSON rules |
+| Question answer-type (EAT 53-class) | en | ONNX model (two-stage) |
+| Question answer-type (heuristic fallback) | all of the above | Locale JSON rules |
 
-`en` `de` `es` `fr` `it` `nl` `pt`
+Multilingual EAT models are planned — translate scripts are in `train/` for when
+the EAT dataset is extended to other languages.
 
-Question-type classification (EAT taxonomy) is English-only in this release.
-Multilingual EAT models are planned.
-
-Heuristic fallbacks (locale JSON rules) cover 21 additional languages when
-ONNX models are unavailable.
+---
 
 ## API reference
 
@@ -109,13 +131,14 @@ from little_questions import (
     get_scorer,       # → SentenceTypeClassifier singleton for a language
 )
 from little_questions.classifiers import (
-    clear_classifier_cache,    # flush cached model instances
+    clear_classifier_cache,    # flush all cached model instances
     list_supported_languages,  # languages with sentence-type ONNX models
 )
 from little_questions.constants import (
     EAT_LABELS_7,    # ["ABBR","BOOL","DESC","ENTY","HUM","LOC","NUM"]
     EAT_LABELS_53,   # full 53-label list
-    MAIN_LABEL_NAMES, SEC_LABEL_NAMES,  # human-readable name dicts
+    SENTENCE_TYPES,  # ["command","exclamation","question","request","statement"]
+    MAIN_LABEL_NAMES, SEC_LABEL_NAMES,
 )
 ```
 
@@ -123,57 +146,51 @@ from little_questions.constants import (
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
-| `classification` | `str` | Full EAT label, e.g. `"HUM:ind"` |
-| `main_label` | `str` | Main category, e.g. `"HUM"` |
-| `secondary_label` | `str \| None` | Sub-type, e.g. `"ind"` |
-| `pretty_label` | `str` | Human-readable, e.g. `"individual (Human)"` |
-| `classification_scores` | `dict[str, float]` | Calibrated probabilities over all 53 labels |
-| `confidence` | `float` | Max value from `classification_scores` |
 | `sentence_type` | `str` | `question` / `statement` / `command` / `request` / `exclamation` |
+| `classification` | `str` | Full EAT label, e.g. `"HUM:ind"` |
+| `main_label` | `str` | Main EAT category, e.g. `"HUM"` |
+| `secondary_label` | `str \| None` | EAT sub-type, e.g. `"ind"` |
+| `pretty_label` | `str` | Human-readable, e.g. `"individual (Human)"` |
+| `classification_scores` | `dict[str, float]` | Calibrated probabilities over all 53 EAT labels |
+| `confidence` | `float` | Max value from `classification_scores` |
 | `lang` | `str` | Language code used at construction |
 
-## Training
+### Boolean properties
 
-Training requires the `[train]` extra:
+`is_question`, `is_statement`, `is_command`, `is_request`, `is_exclamation`
 
-```bash
-pip install little-questions[train]
-```
-
-```bash
-# Train all ONNX baselines (svm, logreg, sgd, svm_cal) at 53 and 7 classes
-python -m train.train_eat
-
-# Train Model2Vec variants (potion-base 2M/8M/32M × plain/+tfidf × 53c/7c)
-python -m train.train_eat_m2v
-
-# Run full benchmark and regenerate plots
-python -m train.benchmark_eat
-
-# Push all models to HuggingFace
-python -m train.push_to_hf
-```
-
-All models are trained on [TigreGotico/EAT](https://huggingface.co/datasets/TigreGotico/EAT)
-and published to [TigreGotico/eat-classifiers](https://huggingface.co/TigreGotico/eat-classifiers).
+---
 
 ## Models
 
-| Model | Size | 53-class macro F1 |
-|-------|------|-------------------|
-| `eat53_svm_cal_EN_0.9.0.onnx` *(default)* | 16 MB | 0.909 |
-| `eat53_svm_EN_0.9.0.onnx` | 41 MB | 0.915 |
-| `m2v-potion-base-32M+tfidf-en-53c` | — | 0.921 |
-| two-stage `svm_cal` *(benchmark only)* | — | 0.934 |
+| Model | Size | Accuracy |
+|-------|------|----------|
+| `eat53_svm_cal_EN_0.9.0.onnx` | 16 MB | 91.0% macro F1 (53-class) |
+| `eat7_svm_cal_EN_0.9.0.onnx` | 2.6 MB | 95.6% macro F1 (7-class) |
+| Two-stage (default runtime) | 18.6 MB total | **93.4%** macro F1 (53-class) |
+| `sentence_type_EN_0.8.0.onnx` | 2.3 MB | — |
 
-## Datasets
+Models are published at
+[TigreGotico/eat-classifiers](https://huggingface.co/TigreGotico/eat-classifiers)
+and [TigreGotico/sentence-types](https://huggingface.co/TigreGotico/sentence-types).
 
-Two datasets were built for this project:
+---
 
-- [TigreGotico/EAT](https://huggingface.co/datasets/TigreGotico/EAT) —
-  Expected Answer Type, 30K English questions, 53 fine-grained labels
-- [TigreGotico/sentence-types-multilingual](https://huggingface.co/datasets/TigreGotico/sentence-types-multilingual) —
-  Sentence type, 80K multilingual samples
+## Training
+
+```bash
+pip install little-questions[train]
+
+python -m train.train_eat           # ONNX baselines (svm, logreg, sgd, svm_cal)
+python -m train.train_eat_m2v       # Model2Vec variants (12 models)
+python -m train.benchmark_eat       # Full benchmark + plots
+python -m train.push_to_hf          # Push to TigreGotico/eat-classifiers
+```
+
+Training data: [TigreGotico/EAT](https://huggingface.co/datasets/TigreGotico/EAT) (30K EN questions, 53 labels)
+and [TigreGotico/sentence-types-multilingual](https://huggingface.co/datasets/TigreGotico/sentence-types-multilingual) (80K multilingual samples).
+
+---
 
 ## Dependencies
 

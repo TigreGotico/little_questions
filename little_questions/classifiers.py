@@ -195,12 +195,47 @@ class HeuristicQuestionTypeClassifier(HeuristicClassifier):
 # ONNX-backed singletons (with HF auto-download)
 ###################################################
 
-class EatClassifier:
-    """Calibrated ONNX-backed EAT question-type classifier (53-class).
+class _OnnxModel:
+    """Thin wrapper around a single ONNX inference session."""
 
-    Downloads eat53_svm_cal_EN_0.9.0.onnx from TigreGotico/eat-classifiers on
-    first use if not already cached locally.  Falls back to heuristic when
-    offline or the model cannot be fetched.
+    def __init__(self, model_path: str) -> None:
+        opts = ort.SessionOptions()
+        opts.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_ALL
+        self._session = ort.InferenceSession(model_path, opts)
+        meta = self._session.get_modelmeta().custom_metadata_map
+        self.classes: List[str] = json.loads(meta.get("classes", "[]"))
+        self.is_calibrated: bool = meta.get("calibrated") == "true"
+        self._input_name: str = self._session.get_inputs()[0].name
+
+    def _raw_scores(self, text: str) -> np.ndarray:
+        inp = np.array([text], dtype=object)
+        return np.array(self._session.run(None, {self._input_name: inp})[1][0], dtype=np.float64)
+
+    def predict(self, text: str) -> str:
+        inp = np.array([text], dtype=object)
+        raw = self._session.run(None, {self._input_name: inp})[0][0]
+        if isinstance(raw, (int, np.integer)):
+            return self.classes[int(raw)]
+        return raw.decode("utf-8") if isinstance(raw, bytes) else str(raw)
+
+    def score(self, text: str) -> Dict[str, float]:
+        vals = self._raw_scores(text)
+        if not self.is_calibrated:
+            exp_v = np.exp(vals - vals.max())
+            vals = exp_v / exp_v.sum()
+        return {cls: float(vals[i]) for i, cls in enumerate(self.classes)}
+
+
+class EatClassifier:
+    """Two-stage calibrated EAT question-type classifier (default) or single-stage fallback.
+
+    Stage 1: eat7_svm_cal predicts the main category (ABBR/BOOL/DESC/ENTY/HUM/LOC/NUM).
+    Stage 2: eat53_svm_cal scores all 53 labels; labels outside the stage-1 category
+             are zeroed and the surviving probabilities are renormalised.
+
+    Both models are downloaded from TigreGotico/eat-classifiers on first use.
+    Falls back to a single-stage 53-class model if the 7-class model is unavailable,
+    and to the heuristic classifier when neither can be fetched.
     """
 
     _instances: Dict[str, Union["EatClassifier", HeuristicQuestionTypeClassifier]] = {}
@@ -218,38 +253,41 @@ class EatClassifier:
     @classmethod
     def _load(cls, lang: str) -> Union["EatClassifier", HeuristicQuestionTypeClassifier]:
         from little_questions.models import get_eat_model_path
-        filename = f"eat53_svm_cal_{lang.upper()}_{cls._VERSION}.onnx"
-        path = get_eat_model_path(filename)
-        if path and os.path.isfile(path):
-            return cls(path)
+        lang_upper = lang.upper()
+        path53 = get_eat_model_path(f"eat53_svm_cal_{lang_upper}_{cls._VERSION}.onnx")
+        path7  = get_eat_model_path(f"eat7_svm_cal_{lang_upper}_{cls._VERSION}.onnx")
+        if path53 and os.path.isfile(path53):
+            m53 = _OnnxModel(path53)
+            m7  = _OnnxModel(path7) if path7 and os.path.isfile(path7) else None
+            return cls(m53, m7)
         return HeuristicQuestionTypeClassifier(lang)
 
-    def __init__(self, model_path: str) -> None:
-        opts = ort.SessionOptions()
-        opts.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_ALL
-        self._session = ort.InferenceSession(model_path, opts)
-        meta = self._session.get_modelmeta().custom_metadata_map
-        self._classes: List[str] = json.loads(meta.get("classes", "[]")) or list(EAT_LABELS_53)
-        self._is_calibrated: bool = meta.get("calibrated") == "true"
-        self._input_name: str = self._session.get_inputs()[0].name
+    def __init__(self, model53: _OnnxModel, model7: Optional[_OnnxModel] = None) -> None:
+        self._m53 = model53
+        self._m7  = model7
+        # Precompute which 53-class index belongs to which 7-class main category
+        self._main_of_53: List[str] = [c.split(":")[0] for c in self._m53.classes]
 
     def predict(self, text: str) -> str:
-        outputs = self._session.run(None, {self._input_name: np.array([text], dtype=object)})
-        raw = outputs[0][0]
-        if isinstance(raw, (int, np.integer)):
-            return self._classes[int(raw)]
-        if isinstance(raw, bytes):
-            return raw.decode("utf-8")
-        return str(raw)
+        scores = self.score(text)
+        return max(scores, key=scores.__getitem__)
 
     def score(self, text: str) -> Dict[str, float]:
-        """Return per-class probability dict (values sum to ~1.0)."""
-        outputs = self._session.run(None, {self._input_name: np.array([text], dtype=object)})
-        vals = np.array(outputs[1][0], dtype=np.float64)
-        if not self._is_calibrated:
+        """Return renormalised calibrated probabilities over all 53 labels."""
+        vals = self._m53._raw_scores(text)
+        if not self._m53.is_calibrated:
             exp_v = np.exp(vals - vals.max())
             vals = exp_v / exp_v.sum()
-        return {cls: float(vals[i]) for i, cls in enumerate(self._classes)}
+
+        if self._m7 is not None:
+            main = self._m7.predict(text)
+            masked = np.where([m == main for m in self._main_of_53], vals, 0.0)
+            total = masked.sum()
+            if total > 0:
+                vals = masked / total
+            # if stage-1 is wrong and total==0, keep original probs as fallback
+
+        return {cls: float(vals[i]) for i, cls in enumerate(self._m53.classes)}
 
 
 # Backward-compat alias
