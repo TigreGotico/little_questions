@@ -127,25 +127,27 @@ class EatClassifier:
     _VERSION: str = "0.9.0"
 
     @classmethod
-    def get_instance(cls, lang: str) -> "EatClassifier":
+    def get_instance(cls, lang: str, punctuated: bool = True) -> "EatClassifier":
         lang = lang.lower()
+        key = f"{lang}:{'punct' if punctuated else 'unpunct'}"
         with cls._instances_lock:
-            if lang not in cls._instances:
-                cls._instances[lang] = cls._load(lang)
-        return cls._instances[lang]
+            if key not in cls._instances:
+                cls._instances[key] = cls._load(lang, punctuated=punctuated)
+        return cls._instances[key]
 
     @classmethod
-    def _load(cls, lang: str) -> "EatClassifier":
+    def _load(cls, lang: str, punctuated: bool = True) -> "EatClassifier":
         from little_questions.models import get_eat_model_path
         lang_upper = lang.upper()
-        path53 = get_eat_model_path(f"eat53_svm_cal_{lang_upper}_{cls._VERSION}.onnx")
-        path7 = get_eat_model_path(f"eat7_svm_cal_{lang_upper}_{cls._VERSION}.onnx")
+        suffix = "" if punctuated else "_unpunct"
+        path53 = get_eat_model_path(f"eat53_svm_cal{suffix}_{lang_upper}_{cls._VERSION}.onnx")
+        path7 = get_eat_model_path(f"eat7_svm_cal{suffix}_{lang_upper}_{cls._VERSION}.onnx")
         if path53 and os.path.isfile(path53):
             m53 = _OnnxModel(path53)
             m7 = _OnnxModel(path7) if path7 and os.path.isfile(path7) else None
             return cls(m53, m7)
         raise RuntimeError(
-            f"No EAT ONNX model found for lang={lang!r}. "
+            f"No EAT ONNX model found for lang={lang!r} punctuated={punctuated}. "
             "Run `python -m train.train_eat` to train, or wait for models to be "
             "published to TigreGotico/eat-classifiers."
         )

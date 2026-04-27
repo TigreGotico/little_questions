@@ -140,9 +140,9 @@ def train_model(
 
     is_calibrated = model_type == "svm_cal"
     if is_calibrated:
-        # Train two variants: punctuated (written text) and unpunctuated (ASR)
+        # Train two variants: punctuated (written/cased) and unpunctuated (uncased)
         for punctuated in (True, False):
-            suffix = "" if punctuated else "_asr"
+            suffix = "" if punctuated else "_unpunct"
             _name = f"{n_class_tag}_{model_type}{suffix}_EN_{VERSION}"
             print(f"\n  → variant: {_name}")
             clf_wrapper = CalibratedLinearSVCClassifier(punctuated=punctuated)

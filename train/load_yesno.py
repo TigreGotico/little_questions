@@ -32,7 +32,7 @@ def load_yesno_hf(
     for row in ds:
         if lang and row["language"] != lang:
             continue
-        utterance = row["utterance"].strip()
+        utterance = (row["utterance"] or "").strip()
         if not utterance:
             continue
         label = row["agreement"] if row["agreement"] else "maybe"

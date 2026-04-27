@@ -54,7 +54,7 @@ ALL_LANGUAGES = [
 
 def _build_svm_cal_pipeline() -> Pipeline:
     tfidf = TfidfVectorizer(
-        analyzer="char_wb",
+        analyzer="char",
         ngram_range=(2, 4),
         min_df=1,
         max_df=0.95,

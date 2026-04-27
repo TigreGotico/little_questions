@@ -1,6 +1,7 @@
 # Classification Benchmarks
 
-All benchmarks use a 15% held-out stratified test split (`random_state=42`) and are logged to MLflow experiment `EAT`.
+All EAT benchmarks use a 15% held-out stratified test split (`random_state=42`).
+Sentence-type and yes/no benchmarks are evaluated on the full labelled datasets.
 
 ## EAT question-type classification (EN)
 
@@ -8,50 +9,52 @@ All benchmarks use a 15% held-out stratified test split (`random_state=42`) and 
 
 | Metric | Score |
 |--------|-------|
-| Accuracy | — |
+| Accuracy | **93.4%** |
 | Macro F1 | **93.4%** |
 
 ### All baselines
 
 | Model | Classes | Accuracy | Macro F1 |
 |-------|---------|----------|----------|
-| `eat53_svm_cal` (calibrated SVM) | 53 | — | 91.0% |
-| `eat7_svm_cal` (calibrated SVM) | 7 | — | 95.6% |
-| Two-stage default | 53 | — | **93.4%** |
-| `eat53_svm` (uncalibrated) | 53 | — | — |
-| `eat53_logreg` | 53 | — | — |
-| `eat53_sgd` | 53 | — | — |
-| `m2v-potion-base-8M+tfidf` | 53 | — | ~91–92% |
+| `eat53_svm_cal` (calibrated SVM) | 53 | 91.3% | 91.2% |
+| `eat7_svm_cal` (calibrated SVM) | 7 | 96.3% | 96.0% |
+| **Two-stage default** | 53 | **93.4%** | **93.4%** |
+| `eat53_svm` (uncalibrated) | 53 | 90.0% | 89.7% |
+| `eat53_logreg` | 53 | 88.8% | 88.3% |
+| `eat53_sgd` | 53 | 85.4% | 85.0% |
+| `m2v-potion-base-32M+tfidf` | 53 | ~91% | ~91% |
 
-Run `python -m train.benchmark_eat` to generate plots and populate the table with exact numbers.
-
-Plots are saved to `train/reports/eat/`:
-- `benchmark_eat53_overview.png` — all baselines, accuracy + macro F1
-- `benchmark_eat53_confusion.png` — normalised confusion matrix (best model)
-- `benchmark_eat53_per_class_f1.png` — per-class F1, sorted ascending
-- `benchmark_eat7_confusion.png` — 7-class confusion matrix
-- `benchmark_eat_model_comparison.png` — macro F1 line plot, 53-class vs 7-class
+Plots saved to `train/reports/eat/`.
 
 ## Sentence-type classification
 
-Run `python -m train.benchmark_sentence_type` to generate numbers and plots.
+6 classes: `command`, `exclamation`, `polar_question`, `request`, `statement`, `wh_question`.
 
-Supported languages with ONNX models: `en`, `de`, `es`, `fr`, `it`, `nl`, `pt`.
+| Language | Accuracy | Macro F1 |
+|----------|----------|----------|
+| EN | 99.2% | 99.2% |
+| FR | 97.1% | 97.1% |
+| IT | 97.0% | 97.0% |
+| NL | 98.8% | 98.8% |
+| PT | 95.4% | 95.4% |
+| DE | 85.6% | 84.9% |
+| ES | 74.6% | 72.7% |
 
-Plots saved to `train/reports/sentence_type/`:
-- `benchmark_sentence_type_overview.png` — accuracy + macro F1 per language
-- `benchmark_sentence_type_{lang}_confusion.png` — per-language confusion matrices
+Plots saved to `train/reports/sentence_type/`.
 
-## Yes/no polarity classification
+## Yes/no answer-polarity classification
 
-Run `python -m train.train_yesno --plot` to generate numbers and overview chart.
+3 classes: `yes`, `no`, `maybe`.
 
-| Model | Coverage | Macro F1 |
-|-------|----------|----------|
-| `yesno_svm_cal_multilingual` | 43 languages | — |
-| `yesno_svm_cal_{LANG}` | per-language | — |
+| Model | Coverage | Accuracy | Macro F1 |
+|-------|----------|----------|----------|
+| `yesno_svm_cal_{LANG}` (per-language) | 43 languages | ~91–96% | ~91–96% |
+| `yesno_svm_cal_multilingual` (bundled) | all languages | 84.6% | 84.0% |
 
-Plot saved to `train/reports/yesno/benchmark_yesno_overview.png`.
+The bundled multilingual model is used when no language-specific model is available.
+Per-language models achieve 90–96% macro F1 on their own language.
+
+Plots saved to `train/reports/yesno/`.
 
 ## Running all benchmarks
 
@@ -59,5 +62,6 @@ Plot saved to `train/reports/yesno/benchmark_yesno_overview.png`.
 pip install little-questions[train]
 
 python -m train.benchmark_eat
-python -m train.train_yesno --plot
+python -m train.benchmark_sentence_type
+python -m train.benchmark_yesno
 ```

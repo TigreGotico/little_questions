@@ -12,9 +12,12 @@ from little_questions.classifiers import (
 # Public helpers (used by tests + external code)
 # ---------------------------------------------------------------------------
 
-def get_classifier(lang: str = "en") -> EatClassifier:
-    """Return the EatClassifier singleton for *lang*."""
-    return EatClassifier.get_instance(lang)
+def get_classifier(lang: str = "en", punctuated: bool = True) -> EatClassifier:
+    """Return the EatClassifier singleton for *lang*.
+
+    Pass ``punctuated=False`` for ASR / unpunctuated / uncased input.
+    """
+    return EatClassifier.get_instance(lang, punctuated=punctuated)
 
 
 def get_scorer(lang: str = "en") -> SentenceTypeClassifier:
@@ -42,12 +45,12 @@ class Sentence(str):
             ``exclamation``, ``request``.
     """
 
-    def __new__(cls, content: str, lang: str = "en") -> "Sentence":
+    def __new__(cls, content: str, lang: str = "en", punctuated: bool = True) -> "Sentence":
         instance = str.__new__(cls, content)
         return instance
 
-    def __init__(self, content: str, lang: str = "en") -> None:
-        eat_clf = EatClassifier.get_instance(lang)
+    def __init__(self, content: str, lang: str = "en", punctuated: bool = True) -> None:
+        eat_clf = EatClassifier.get_instance(lang, punctuated=punctuated)
         sentence_clf = SentenceTypeClassifier.get_instance(lang)
         self.classification_scores: dict[str, float] = eat_clf.score(content)
         self.classification: str = max(
@@ -56,6 +59,7 @@ class Sentence(str):
         self.confidence: float = self.classification_scores[self.classification]
         self.sentence_type: str = sentence_clf.predict(content)
         self.lang = lang
+        self.punctuated = punctuated
 
     @classmethod
     def parse(cls, text: str, lang: str = "en") -> "Sentence":
@@ -195,7 +199,7 @@ def _sentence_factory(text: str, lang: str = "en") -> Sentence:
 _orig_sentence_new = Sentence.__new__
 
 
-def _sentence_new(cls, content: str, lang: str = "en") -> "Sentence":
+def _sentence_new(cls, content: str, lang: str = "en", punctuated: bool = True) -> "Sentence":
     if cls is Sentence:
         # defer to factory only when called as Sentence(...), not as subclass(...)
         return str.__new__(Sentence, content)
@@ -205,8 +209,8 @@ def _sentence_new(cls, content: str, lang: str = "en") -> "Sentence":
 Sentence.__new__ = staticmethod(_sentence_new)  # type: ignore[assignment]
 
 
-def _sentence_init(self, content: str, lang: str = "en") -> None:
-    eat_clf = EatClassifier.get_instance(lang)
+def _sentence_init(self, content: str, lang: str = "en", punctuated: bool = True) -> None:
+    eat_clf = EatClassifier.get_instance(lang, punctuated=punctuated)
     sentence_clf = SentenceTypeClassifier.get_instance(lang)
     self.classification_scores = eat_clf.score(content)
     self.classification = max(
@@ -215,6 +219,7 @@ def _sentence_init(self, content: str, lang: str = "en") -> None:
     self.confidence = self.classification_scores[self.classification]
     self.sentence_type = sentence_clf.predict(content)
     self.lang = lang
+    self.punctuated = punctuated
     # Reclassify into correct subclass if called as plain Sentence
     if type(self) is Sentence:
         target_cls = _SENTENCE_TYPE_TO_CLASS.get(self.sentence_type, Sentence)
