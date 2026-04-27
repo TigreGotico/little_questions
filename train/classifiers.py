@@ -16,6 +16,7 @@ import os
 from os.path import join, dirname
 from typing import List, Optional
 
+from sklearn.calibration import CalibratedClassifierCV
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import Pipeline, FeatureUnion
@@ -180,6 +181,72 @@ class LinearSVCClassifier(TrainableClassifier):
             ("features", features),
             ("clf", _LinearSVC()),
         ]
+
+
+class CalibratedLinearSVCClassifier(TrainableClassifier):
+    """Platt-calibrated Linear SVM classifier.
+
+    Args:
+        pipeline_id: Identifier string (default "calibrated-svc").
+
+    Wraps LinearSVC in CalibratedClassifierCV(method='sigmoid', cv=5) so that
+    ONNX output[1] is a genuine probability vector (values in [0,1], sum to 1)
+    rather than raw decision-function distances.
+
+    Export: use save_onnx() — requires options={CalibratedClassifierCV: {"zipmap": False}}
+    to get a plain float32 matrix instead of a ZipMap dict.
+    """
+
+    def __init__(self, pipeline_id: str = "calibrated-svc") -> None:
+        super().__init__(pipeline_id)
+
+    @property
+    def pipeline(self) -> list:
+        tfidf = TfidfVectorizer(
+            ngram_range=(1, 2), min_df=1, max_df=0.9, sublinear_tf=True
+        )
+        clf = CalibratedClassifierCV(
+            _LinearSVC(C=1.0, max_iter=2000), cv=5, method="sigmoid"
+        )
+        return [("tfidf", tfidf), ("clf", clf)]
+
+    def save_onnx(self, path: str) -> None:
+        """Export to ONNX with zipmap=False so output[1] is a float32 matrix."""
+        if self.clf is None:
+            raise RuntimeError("Classifier not trained. Call train() first.")
+
+        try:
+            from skl2onnx import convert_sklearn
+            from skl2onnx.common.data_types import StringTensorType
+            import onnx, json
+        except ImportError as e:
+            raise ImportError(
+                "skl2onnx and onnx required. Install: pip install skl2onnx onnx"
+            ) from e
+
+        initial_type = [("input", StringTensorType([None]))]
+        options = {CalibratedClassifierCV: {"zipmap": False}}
+        onnx_model = convert_sklearn(self.clf, initial_types=initial_type, options=options)
+        if isinstance(onnx_model, tuple):
+            onnx_model = onnx_model[0]
+
+        # Embed sorted class labels as metadata for inference-time lookup.
+        try:
+            classes = list(self.clf.steps[-1][1].classes_)
+        except Exception:
+            classes = []
+        if classes:
+            meta = onnx_model.metadata_props.add()
+            meta.key = "classes"
+            meta.value = json.dumps(classes)
+        # Mark as calibrated so inference code knows output[1] is probabilities.
+        flag = onnx_model.metadata_props.add()
+        flag.key = "calibrated"
+        flag.value = "true"
+
+        from pathlib import Path
+        Path(path).parent.mkdir(parents=True, exist_ok=True)
+        onnx.save_model(onnx_model, path)
 
 
 class LogRegClassifier(TrainableClassifier):
