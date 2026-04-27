@@ -71,10 +71,26 @@ def build_pipeline(model_type: str) -> Pipeline:
 # ONNX export helper (no custom transformers, so this always works)
 # ---------------------------------------------------------------------------
 
-def save_onnx(pipeline: Pipeline, path: str, classes: list[str], calibrated: bool = False) -> None:
+def save_onnx(pipeline: Pipeline, path: str, classes: list[str],
+              calibrated: bool = False, punctuated: bool | None = None) -> None:
+    """Export *pipeline* to ONNX, stripping any custom preprocessor steps first.
+
+    Custom transformers (EATTextPreprocessor) are not convertible by skl2onnx;
+    they are applied in Python at inference time using metadata embedded here.
+    The *punctuated* flag (True/False) is stored as metadata so inference code
+    knows which normalization to apply before calling the ONNX session.
+    """
     from skl2onnx import convert_sklearn
     from skl2onnx.common.data_types import StringTensorType
     import onnx, json
+    from train.classifiers import EATTextPreprocessor
+    from sklearn.pipeline import Pipeline as _Pipeline
+
+    # Strip custom preprocessor steps — export only sklearn-native steps
+    exportable_steps = [(name, step) for name, step in pipeline.steps
+                        if not isinstance(step, EATTextPreprocessor)]
+    if len(exportable_steps) < len(pipeline.steps):
+        pipeline = _Pipeline(exportable_steps)
 
     initial_type = [("input", StringTensorType([None]))]
     if calibrated:
@@ -93,6 +109,11 @@ def save_onnx(pipeline: Pipeline, path: str, classes: list[str], calibrated: boo
         flag = onnx_model.metadata_props.add()
         flag.key = "calibrated"
         flag.value = "true"
+
+    if punctuated is not None:
+        flag = onnx_model.metadata_props.add()
+        flag.key = "punctuated"
+        flag.value = "true" if punctuated else "false"
 
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     onnx.save_model(onnx_model, path)
@@ -119,9 +140,38 @@ def train_model(
 
     is_calibrated = model_type == "svm_cal"
     if is_calibrated:
-        clf_wrapper = CalibratedLinearSVCClassifier()
-        clf_wrapper.train(x_train, y_train)
-        pipe = clf_wrapper.clf
+        # Train two variants: punctuated (written text) and unpunctuated (ASR)
+        for punctuated in (True, False):
+            suffix = "" if punctuated else "_asr"
+            _name = f"{n_class_tag}_{model_type}{suffix}_EN_{VERSION}"
+            print(f"\n  → variant: {_name}")
+            clf_wrapper = CalibratedLinearSVCClassifier(punctuated=punctuated)
+            clf_wrapper.train(x_train, y_train)
+            _pipe = clf_wrapper.clf
+            _y_pred = list(_pipe.predict(x_test))
+            _report = classification_report(y_test, _y_pred, zero_division=0)
+            _acc = accuracy_score(y_test, _y_pred)
+            _mf1 = f1_score(y_test, _y_pred, average="macro", zero_division=0)
+            _wf1 = f1_score(y_test, _y_pred, average="weighted", zero_division=0)
+            print(_report)
+            _rpath = join(REPORTS_DIR, f"{_name}.txt")
+            Path(_rpath).write_text(_report, encoding="utf-8")
+            _onnx_path = join(MODEL_DIR, f"{_name}.onnx")
+            print(f"  Exporting ONNX → {_onnx_path}")
+            _classes = sorted(set(y_train))
+            save_onnx(_pipe, _onnx_path, _classes, calibrated=True, punctuated=punctuated)
+            import mlflow
+            mlflow.set_experiment(mlflow_config.EXPERIMENT_COSC.replace("cosc", "eat"))
+            with mlflow.start_run(run_name=_name):
+                mlflow.log_params({"model_type": model_type, "punctuated": punctuated,
+                                   "n_classes": classes, "version": VERSION})
+                mlflow.log_metrics({"accuracy": _acc, "macro_f1": _mf1, "weighted_f1": _wf1})
+                mlflow.log_artifact(_rpath)
+                if os.path.exists(_onnx_path):
+                    mlflow.log_artifact(_onnx_path, artifact_path="onnx")
+        # Return the written variant as the primary result
+        return {"model_name": model_name, "model_type": model_type, "classes": classes,
+                "accuracy": _acc, "macro_f1": _mf1, "weighted_f1": _wf1}
     else:
         pipe = build_pipeline(model_type)
         pipe.fit(x_train, y_train)

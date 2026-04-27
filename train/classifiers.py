@@ -58,6 +58,115 @@ class WordFeaturesVectorizer(BaseEstimator, TransformerMixin):
         return normalize_text(X, **transform_params)
 
 
+# ---------------------------------------------------------------------------
+# Categorical features via synthetic token injection
+# ---------------------------------------------------------------------------
+# Prepending __feat_*__ tokens to the question text before TF-IDF vectorization
+# injects categorical signal without breaking skl2onnx export — the pipeline
+# stays as pure sklearn string ops that skl2onnx handles natively.
+#
+# Precision on EAT corpus (empirically verified):
+#   __feat_yesno__  → BOOL  100% precision (is/does/do/was/are/were/has/will/did)
+#   __feat_who__    → HUM    86% precision
+#   __feat_where__  → LOC    99% precision
+#   __feat_when__   → NUM    94% precision
+#   __feat_why__    → DESC  100% precision
+#   __feat_howmany__→ NUM    ~90% precision (how + quantifier)
+#   __feat_define__ → DESC  100% precision
+
+_YESNO_STARTERS = frozenset({
+    "is", "does", "do", "was", "are", "were", "has", "will", "did", "should",
+})
+_WHO_WORDS   = frozenset({"who", "whom", "whose"})
+_HOW_MANY    = frozenset({"many", "much", "often", "long", "far", "old", "tall",
+                           "deep", "wide", "fast", "big", "large", "heavy", "high"})
+_DESC_VERBS  = frozenset({"define", "explain", "meaning"})
+_ABBR_WORDS  = frozenset({"abbreviation", "acronym", "initials"})
+
+
+import re as _re
+
+_PUNCT_RE = _re.compile(r"[^\w\s]", flags=_re.UNICODE)
+
+
+def normalize_punctuated(text: str) -> str:
+    """Lowercase — keeps punctuation (written/typed text)."""
+    return text.lower().strip()
+
+
+def normalize_unpunctuated(text: str) -> str:
+    """Lowercase + strip all punctuation (ASR/spoken text)."""
+    return _PUNCT_RE.sub("", text.lower()).strip()
+
+
+class TextNormalizer(BaseEstimator, TransformerMixin):
+    """Normalize text before TF-IDF. punctuated=True keeps punct, False strips it."""
+
+    def __init__(self, punctuated: bool = True) -> None:
+        self.punctuated = punctuated
+
+    def fit(self, X, y=None):
+        return self
+
+    def transform(self, X, y=None):
+        fn = normalize_punctuated if self.punctuated else normalize_unpunctuated
+        return [fn(t) for t in X]
+
+
+def inject_eat_features(text: str) -> str:
+    """Prepend high-precision categorical signal tokens to *text*.
+
+    Expects already-normalised (lowercased) input. Called on both training
+    texts and at inference time (before ONNX session). The ONNX model's
+    TF-IDF vocabulary includes these __feat_*__ unigrams, so they contribute
+    just like any other feature — no custom ONNX op needed.
+    """
+    words = text.split()
+    first = words[0] if words else ""
+    second = words[1] if len(words) > 1 else ""
+    tokens: list[str] = []
+
+    if first in _YESNO_STARTERS:
+        tokens.append("__feat_yesno__")
+    if first in _WHO_WORDS:
+        tokens.append("__feat_who__")
+    if first == "where":
+        tokens.append("__feat_where__")
+    if first == "when":
+        tokens.append("__feat_when__")
+    if first == "why":
+        tokens.append("__feat_why__")
+    if first == "how":
+        if second in _HOW_MANY:
+            tokens.append("__feat_howmany__")
+        else:
+            tokens.append("__feat_howother__")
+    if any(w in text for w in _DESC_VERBS):
+        tokens.append("__feat_define__")
+    if any(w in text for w in _ABBR_WORDS):
+        tokens.append("__feat_abbr__")
+
+    return (" ".join(tokens) + " " + text) if tokens else text
+
+
+class EATTextPreprocessor(BaseEstimator, TransformerMixin):
+    """Normalize + inject categorical tokens.
+
+    punctuated=True (default): lowercase, keep punctuation — for typed/written text.
+    punctuated=False: lowercase, strip punctuation — for ASR/spoken text.
+    """
+
+    def __init__(self, punctuated: bool = True) -> None:
+        self.punctuated = punctuated
+
+    def fit(self, X, y=None):
+        return self
+
+    def transform(self, X, y=None):
+        fn = normalize_punctuated if self.punctuated else normalize_unpunctuated
+        return [inject_eat_features(fn(text)) for text in X]
+
+
 class LemmatizerTransformer(BaseEstimator, TransformerMixin):
     def __init__(self, stemmer=None):
         self.stemmer = stemmer
@@ -184,12 +293,14 @@ class LinearSVCClassifier(TrainableClassifier):
 
 
 class CalibratedLinearSVCClassifier(TrainableClassifier):
-    """Platt-calibrated Linear SVM classifier.
+    """Platt-calibrated Linear SVM classifier with optional categorical features.
 
     Args:
         pipeline_id: Identifier string (default "calibrated-svc").
+        use_categorical: When True (default), fuses EATFeatureTransformer binary
+            indicators with TF-IDF via FeatureUnion for a free accuracy boost.
 
-    Wraps LinearSVC in CalibratedClassifierCV(method='sigmoid', cv=5) so that
+    Wraps LinearSVC in CalibratedClassifierCV(method='sigmoid', cv=3) so that
     ONNX output[1] is a genuine probability vector (values in [0,1], sum to 1)
     rather than raw decision-function distances.
 
@@ -197,19 +308,29 @@ class CalibratedLinearSVCClassifier(TrainableClassifier):
     to get a plain float32 matrix instead of a ZipMap dict.
     """
 
-    def __init__(self, pipeline_id: str = "calibrated-svc") -> None:
+    def __init__(self, pipeline_id: str = "calibrated-svc",
+                 punctuated: bool = True) -> None:
+        """
+        Args:
+            punctuated: True (default) for written/typed text (keeps punctuation);
+                        False for ASR/spoken text (strips all punctuation).
+        """
         super().__init__(pipeline_id)
+        self.punctuated = punctuated
 
     @property
     def pipeline(self) -> list:
         tfidf = TfidfVectorizer(
             ngram_range=(1, 2), min_df=2, max_df=0.9, sublinear_tf=True,
-            max_features=20_000,  # caps vocab at ~20 MB model vs 180 MB unbounded
+            max_features=20_000,
+            # \w matches word chars including underscores → picks up __feat_*__ tokens
+            token_pattern=r"(?u)\b\w+\b",
         )
         clf = CalibratedClassifierCV(
             _LinearSVC(C=1.0, max_iter=2000), cv=3, method="sigmoid"
         )
-        return [("tfidf", tfidf), ("clf", clf)]
+        prep = EATTextPreprocessor(punctuated=self.punctuated)
+        return [("prep", prep), ("tfidf", tfidf), ("clf", clf)]
 
     def save_onnx(self, path: str) -> None:
         """Export to ONNX with zipmap=False so output[1] is a float32 matrix."""

@@ -195,8 +195,43 @@ class HeuristicQuestionTypeClassifier(HeuristicClassifier):
 # ONNX-backed singletons (with HF auto-download)
 ###################################################
 
+import re as _re
+_PUNCT_RE = _re.compile(r"[^\w\s]", flags=_re.UNICODE)
+
+_YESNO_STARTERS = frozenset({"is","does","do","was","are","were","has","will","did","should"})
+_WHO_WORDS = frozenset({"who","whom","whose"})
+_HOW_MANY = frozenset({"many","much","often","long","far","old","tall","deep","wide",
+                        "fast","big","large","heavy","high"})
+_DESC_VERBS = frozenset({"define","explain","meaning"})
+_ABBR_WORDS = frozenset({"abbreviation","acronym","initials"})
+
+
+def _eat_preprocess(text: str, punctuated: bool) -> str:
+    """Normalise + inject __feat_*__ categorical tokens before ONNX inference."""
+    low = (_PUNCT_RE.sub("", text.lower()) if not punctuated else text.lower()).strip()
+    words = low.split()
+    first = words[0] if words else ""
+    second = words[1] if len(words) > 1 else ""
+    tokens: List[str] = []
+    if first in _YESNO_STARTERS:    tokens.append("__feat_yesno__")
+    if first in _WHO_WORDS:         tokens.append("__feat_who__")
+    if first == "where":            tokens.append("__feat_where__")
+    if first == "when":             tokens.append("__feat_when__")
+    if first == "why":              tokens.append("__feat_why__")
+    if first == "how":
+        tokens.append("__feat_howmany__" if second in _HOW_MANY else "__feat_howother__")
+    if any(w in low for w in _DESC_VERBS):  tokens.append("__feat_define__")
+    if any(w in low for w in _ABBR_WORDS):  tokens.append("__feat_abbr__")
+    return (" ".join(tokens) + " " + low) if tokens else low
+
+
 class _OnnxModel:
-    """Thin wrapper around a single ONNX inference session."""
+    """Thin wrapper around a single ONNX inference session.
+
+    If the model was trained with EATTextPreprocessor (indicated by the
+    ``punctuated`` metadata key), preprocessing is applied here in Python
+    before each call — keeping the ONNX graph itself sklearn-standard ops only.
+    """
 
     def __init__(self, model_path: str) -> None:
         opts = ort.SessionOptions()
@@ -206,13 +241,21 @@ class _OnnxModel:
         self.classes: List[str] = json.loads(meta.get("classes", "[]"))
         self.is_calibrated: bool = meta.get("calibrated") == "true"
         self._input_name: str = self._session.get_inputs()[0].name
+        # None = no preprocessing; True/False = punctuated/unpunctuated
+        _p = meta.get("punctuated")
+        self._punctuated: Optional[bool] = (True if _p == "true" else False) if _p is not None else None
+
+    def _preprocess(self, text: str) -> str:
+        if self._punctuated is None:
+            return text
+        return _eat_preprocess(text, self._punctuated)
 
     def _raw_scores(self, text: str) -> np.ndarray:
-        inp = np.array([text], dtype=object)
+        inp = np.array([self._preprocess(text)], dtype=object)
         return np.array(self._session.run(None, {self._input_name: inp})[1][0], dtype=np.float64)
 
     def predict(self, text: str) -> str:
-        inp = np.array([text], dtype=object)
+        inp = np.array([self._preprocess(text)], dtype=object)
         raw = self._session.run(None, {self._input_name: inp})[0][0]
         if isinstance(raw, (int, np.integer)):
             return self.classes[int(raw)]
