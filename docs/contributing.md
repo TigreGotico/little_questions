@@ -3,99 +3,86 @@
 ## Setup
 
 ```bash
-git clone https://github.com/OpenJarbas/little_questions
+git clone https://github.com/TigreGotico/little_questions
 cd little_questions
-uv pip install -e ".[train]"
-```
-
-NLTK data required for English tests:
-```bash
-uv run python -c "import nltk; nltk.download('punkt'); nltk.download('averaged_perceptron_tagger')"
+pip install -e ".[train]"
 ```
 
 ## Running tests
 
 ```bash
-uv run pytest test/ -v --cov=little_questions --cov-report=term-missing
+# Unit tests (no models required)
+pytest test/
+
+# Integration tests (require downloaded ONNX models)
+pytest test/ --integration
 ```
 
 ## Project layout
 
 ```
 little_questions/
-├── __init__.py          # Sentence, classify(), classify_batch(), subclasses
-├── classifiers/
-│   └── __init__.py      # Classifier (ONNX/joblib), get_classifier(), get_scorer()
-├── sentence_type.py     # SentenceTypeClassifier (TF-IDF + LinearSVC)
-├── models/
-│   └── __init__.py      # download(), get_model_path(), LANG2MODEL, MODEL2URL, MODEL2SHA256
-├── constants.py         # SUPPORTED_LANGUAGES, SENTENCE_TYPES
-└── version.py           # version block
+├── __init__.py      # Sentence, subclasses, get_classifier(), get_scorer(), get_yesno_classifier()
+├── classifiers.py   # EatClassifier, SentenceTypeClassifier, YesNoClassifier, _OnnxModel
+├── constants.py     # EAT_LABELS_7, EAT_LABELS_53, SENTENCE_TYPES, MAIN_LABEL_NAMES, SEC_LABEL_NAMES
+└── models.py        # HF auto-download helpers
 
-train/                   # Training-only (not installed with the package)
-├── classifiers.py       # LinearSVCClassifier, Model2VecClassifier
-├── baselines.py         # PunctuationScorer, HeuristicScorer (benchmarking only)
-├── features.py          # LinguisticFeaturesTransformer (40+ POS/lexical features)
+train/               # Training-only — install with pip install little-questions[train]
+├── classifiers.py       # CalibratedLinearSVCClassifier, LinearSVCClassifier, LogRegClassifier,
+│                        # SGDClassifier, Model2VecClassifier, EATTextPreprocessor
+├── load_eat.py          # EAT dataset loader (HF + local TSV)
+├── load_yesno.py        # Yes/no dataset loader (HF)
+├── train_eat.py         # Train EAT ONNX baselines (svm_cal + uncalibrated variants)
+├── train_eat_m2v.py     # Train Model2Vec EAT variants (12 models)
+├── train_yesno.py       # Train yes/no polarity classifiers → ONNX
+├── train_sentence_type.py
+├── benchmark_eat.py     # Full EAT benchmark + 6 plots
 ├── metrics.py           # EvalResult, evaluate(), compare()
-├── mlflow_config.py     # MLflow tracking helpers
-├── tune.py              # Optuna HPO + SGD per-epoch training
-├── train_all.py         # Train all language SVM models
-└── compare_classifiers.py  # Benchmark SVM vs Potion vs baselines
+├── mlflow_config.py     # MLflow setup
+└── push_to_hf.py        # Push models + benchmarks to HuggingFace
 ```
 
-## Adding a language
-
-1. Add URL and filename entries in `little_questions/models/__init__.py`:
-   - `LANG2MODEL["<code>"]` and `LANG2MODEL["<code>_small"]`
-   - `download_<code>()` function
-
-2. Add to `little_questions/constants.py`:
-   - `SUPPORTED_LANGUAGES`
-
-3. Add a `LANG_CONFIG` entry in `train/compare_classifiers.py`.
-
-4. Train the model (see Training section below).
-
-5. Write smoke tests in `test/test_sentence.py`.
-
-## Training a model
-
-Training scripts live in `train/`.
+## Training
 
 ```bash
-# Set MLflow credentials (optional — runs log to localhost if unset)
-export MLFLOW_TRACKING_URI=https://mlflow.example.com
-export MLFLOW_TRACKING_USERNAME=admin
-export MLFLOW_TRACKING_PASSWORD=<token>
+# EAT classifiers (calibrated ONNX, both punctuated + ASR variants)
+python -m train.train_eat
 
-# Train all languages, 52-class, export ONNX
-uv run python -m train.train_all
+# EAT Model2Vec variants
+python -m train.train_eat_m2v
 
-# Train a single language
-uv run python -m train.train_en --classes 52
+# Yes/no polarity classifiers (per-language + multilingual)
+python -m train.train_yesno
 
-# Benchmark SVM vs Potion vs heuristics
-uv run python -m train.compare_classifiers --lang en --classes 52
+# Sentence-type classifiers
+python -m train.train_sentence_type
 
-# Hyperparameter search
-uv run python -m train.tune --lang en --classes 52 --n-trials 50
+# Benchmarks + plots
+python -m train.benchmark_eat
+python -m train.train_yesno --plot
+
+# Push all models to HuggingFace
+python -m train.push_to_hf
 ```
 
-Trained ONNX models are saved to `~/.local/share/little_questions/` and uploaded to the configured MLflow run as artifacts.
+## HuggingFace repos
+
+| Repo | Contents |
+|------|----------|
+| `TigreGotico/eat-classifiers` | EAT ONNX models + benchmarks |
+| `TigreGotico/sentence-types` | Sentence-type ONNX models |
+| `TigreGotico/yes-no-classifiers` | Yes/no ONNX models |
+| `TigreGotico/EAT` | EAT training dataset (30K EN, 53 labels) |
+| `TigreGotico/sentence-types-multilingual` | Sentence-type training data (80K) |
+| `TigreGotico/yes-no-multilingual` | Yes/no training data (8.6K, 43 languages) |
 
 ## Commit conventions
 
-Follow [Conventional Commits](https://www.conventionalcommits.org/):
-
 | Prefix | When |
 |--------|------|
-| `feat:` | New feature or entry point |
+| `feat:` | New feature |
 | `fix:` | Bug fix |
 | `docs:` | Documentation only |
 | `test:` | Tests only |
 | `refactor:` | Refactor without behaviour change |
 | `chore:` | Build, tooling, dependencies |
-
-Always include:
-- AI model name if AI-generated
-- `Verified via: uv run pytest test/ -v` or equivalent

@@ -29,21 +29,22 @@ classifiers = [
 ]
 dependencies = [
     "numpy>=1.21.2",
-    "pyxdg",
-    "huggingface_hub",
     "onnxruntime",
 ]
 
 [project.optional-dependencies]
+# HuggingFace integration — needed only to download non-bundled or custom models
+hf = [
+    "huggingface_hub",
+]
 train = [
     "scikit-learn",
     "joblib",
-    "nltk",
     "skl2onnx",
     "onnx",
     "model2vec",
     "mlflow",
-    "optuna",
+    "datasets",
 ]
 
 [project.urls]
@@ -58,6 +59,9 @@ version = {attr = "little_questions.version.__version__"}
 [tool.setuptools.packages.find]
 include = ["little_questions*"]
 exclude = ["train*", "test*"]
+
+[tool.setuptools.package-data]
+little_questions = ["models/**/*.onnx"]
 
 [dependency-groups]
 dev = [

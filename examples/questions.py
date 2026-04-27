@@ -1,107 +1,59 @@
-from little_questions import Question, Sentence, Statement, Command, \
-    Exclamation, Request
-from pprint import pprint
+"""EAT question classification examples — all 7 main categories."""
 
-text = "Could you pass me the salt please?"
-sentence = Sentence(text, model="en_small")
-
-assert isinstance(sentence, str)
-assert isinstance(sentence, Command)
-assert isinstance(sentence, Request)
-
-assert not sentence.is_question
-assert sentence.is_command
-assert not sentence.is_statement
-assert sentence.is_request
-assert not sentence.is_exclamation
-
-text = "I like pizza"
-
-sentence = Sentence(text, model="en_small")
-
-assert not sentence.is_question
-assert not sentence.is_command
-assert sentence.is_statement
-assert isinstance(sentence, Statement)
-
-text = "Open the pod bay doors"
-
-sentence = Sentence(text, model="en_small")
-pprint(sentence.score)
-assert not sentence.is_question
-assert sentence.is_command
-assert not sentence.is_statement
-assert isinstance(sentence, Command)
-
-text = "What a nice dog you have there!"
-sentence = Sentence(text, model="en_small")
-assert isinstance(sentence, Exclamation)
-
-text = "I want you to buy bitcoin"
-
-sentence = Sentence(text, model="en_small")
-
-assert not sentence.is_question
-assert sentence.is_statement
-
-
-text = "who made you"
-question = Question(text)
-
-assert question.is_question
-assert isinstance(question, Sentence)
-assert question.pretty_label == "individual (Human)"
-assert question.main_label == "HUM"
-assert question.secondary_label == "ind"
-
-text = "when will the world end"
-question = Question(text)
-assert question.pretty_label == "date (Numeric)"
-
-text = "how fast can an elephant run"
-question = Question(text)
-assert question.pretty_label == "speed (Numeric)"
-
-text = "why are fire trucks red"
-question = Question(text)
-
-assert question.pretty_label == "reason (Description)"
+from little_questions import Question, Sentence, Statement
 
 questions = [
-    "what do dogs and cats have in common",
-    "tell me about evil",
-    "what is a living being",
-    "how to kill animals ( a cow ) and make meat",
-    "why are humans living beings",
-    "give examples of animals",
-    "what is the speed of light",
-    "when is your birthday",
-    "when were you born",
-    "where do you store your data",
-    "will you die",
-    "should i program artificial stupidity",
-    "who made you",
-    "how long until world war 3",
-    "how long ago was sunrise",
-    "which city has more people",
-    "did you know that dogs are animals",
-    "do you agree that dogs are animals",
-    "who made you",
-    "whose dog is this",
-    "how much is bitcoin worth",
+    # ABBR
+    ("What does NASA stand for?",               "ABBR"),
+    ("What is the abbreviation for kilometer?", "ABBR"),
+    # BOOL
+    ("Is the Earth flat?",                      "BOOL"),
+    ("Can dogs see color?",                     "BOOL"),
+    # DESC
+    ("What is machine learning?",               "DESC"),
+    ("Why is the sky blue?",                    "DESC"),
+    ("How do vaccines work?",                   "DESC"),
+    # ENTY
+    ("What is the fastest land animal?",        "ENTY"),
+    ("What color is the sun?",                  "ENTY"),
+    # HUM
+    ("Who invented the telephone?",             "HUM"),
+    ("Who was the first person on the moon?",   "HUM"),
+    # LOC
+    ("Where is the Eiffel Tower?",              "LOC"),
+    ("What country is Paris in?",               "LOC"),
+    # NUM
+    ("How old is the universe?",                "NUM"),
+    ("When did World War II end?",              "NUM"),
+    ("How fast is light?",                      "NUM"),
+]
 
-    "have you finished booting",
+print(f"{'Question':<45}  {'Predicted':<12}  {'Expected':<12}  {'Conf':>6}")
+print("-" * 80)
+for text, expected_main in questions:
+    q = Question(text)
+    mark = "✓" if q.main_label == expected_main else "✗"
+    print(f"{text:<45}  {q.classification:<12}  {expected_main:<12}  {q.confidence:>5.2f}  {mark}")
 
-    "how tall is the eiffel tower",
-    "how big is an elephant",
-    "how large is the car",
-    "how fast is a zebra",
+# ---------------------------------------------------------------------------
+# Yes/no answer polarity (requires yesno ONNX model)
+# ---------------------------------------------------------------------------
 
-    "not a question"]
+print("\n--- Yes/No answer polarity ---")
+pairs = [
+    ("Is water wet?",       "Yes, of course."),
+    ("Can pigs fly?",       "No, they cannot."),
+    ("Will it rain today?", "Maybe, it depends on the forecast."),
+]
 
-for q in questions:
-    question = Question(q, model="en_small")
-    print("Q:", q)
-    print(question.sentence_type, question.pretty_label)
-    print("____")
-
+for question, answer in pairs:
+    q = Sentence(question)
+    a = Sentence(answer)
+    assert isinstance(a, Statement)
+    try:
+        polarity = a.answer_polarity
+        print(f"Q: {question!r}")
+        print(f"A: {answer!r}  →  {polarity}  (is_affirmative={a.is_affirmative}, is_negative={a.is_negative})\n")
+    except RuntimeError as e:
+        print(f"(yes/no model not available: {e})")
+        break

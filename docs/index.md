@@ -1,90 +1,86 @@
 # little_questions
 
-Lightweight multilingual question classifier and sentence-type detector. No LLM required — uses pre-trained sklearn SVM models exported to ONNX.
+Classify sentences by **type** (question, command, statement, exclamation, request)
+and, for questions, by **expected answer category** (EAT taxonomy: 7 main, 53 fine-grained).
 
-## Supported languages
-
-| Code | Language   | COSC model | Sentence-type model |
-|------|------------|------------|---------------------|
-| `en` | English    | ✓ | ✓ (trained) |
-| `es` | Spanish    | ✓ | ✓ (trained) |
-| `pt` | Portuguese | ✓ | ✓ (trained) |
-| `ca` | Catalan    | ✓ | ✓ (trained) |
-| `fr` | French     | ✓ | ✓ (trained) |
-| `de` | German     | ✓ | ✓ (trained) |
-| `it` | Italian    | ✓ | ✓ (trained) |
-| `nl` | Dutch      | ✓ | ✓ (trained) |
-
-Models are downloaded on first use from GitHub releases and cached in `~/.local/share/little_questions/`.
+Both classifiers download their ONNX models automatically from HuggingFace on first use.
 
 ## Quick start
 
 ```python
 from little_questions import Sentence
 
-s = Sentence("What is the capital of France?")
-print(s.sentence_type)    # question
-print(s.main_label)       # LOC
-print(s.secondary_label)  # city
-print(s.pretty_label)     # Location — city
-print(s.is_question)      # True
+# A question
+s = Sentence("Who invented the telephone?")
+print(type(s).__name__)          # Question
+print(s.sentence_type)           # question
+print(s.classification)          # HUM:ind
+print(s.main_label)              # HUM
+print(s.secondary_label)         # ind
+print(s.pretty_label)            # individual (Human)
+print(s.confidence)              # 0.94
 
-# Fast path — COSC label only, no sentence-type overhead
-from little_questions import classify, classify_batch
-print(classify("Who invented the telephone?"))
-print(classify_batch(["What is X?", "Open the door."]))
+# A command
+s = Sentence("Play some jazz music.")
+print(type(s).__name__)          # Command
+print(s.sentence_type)           # command
+
+# A statement
+s = Sentence("The sky is blue.")
+print(type(s).__name__)          # Statement
+print(s.sentence_type)           # statement
 ```
-
-## Architecture
-
-```
-little_questions/
-├── __init__.py          # Sentence, classify(), classify_batch(), subclasses
-├── classifiers/
-│   └── __init__.py      # Classifier (ONNX/joblib), get_classifier(), get_scorer()
-├── sentence_type.py     # SentenceTypeClassifier (TF-IDF + LinearSVC)
-├── models/
-│   └── __init__.py      # download(), get_model_path(), LANG2MODEL, MODEL2URL
-├── constants.py         # SUPPORTED_LANGUAGES, SENTENCE_TYPES
-└── version.py           # version block
-
-train/                   # Training-only (not installed with the package)
-├── classifiers.py       # LinearSVCClassifier, Model2VecClassifier, …
-├── baselines.py         # PunctuationScorer, HeuristicScorer (benchmarking only)
-├── features.py          # LinguisticFeaturesTransformer (40+ POS/lexical features)
-├── metrics.py           # EvalResult, evaluate(), compare()
-├── mlflow_config.py     # MLflow tracking helpers
-├── tune.py              # Optuna HPO + SGD per-epoch training
-├── train_all.py         # Train all language SVM models
-└── compare_classifiers.py  # Benchmark SVM vs Potion vs baselines
-```
-
-## COSC taxonomy
-
-52 fine-grained question types grouped into 6 coarse categories.
-
-| Coarse | Subtypes |
-|--------|----------|
-| `ABBR` | `abb` `exp` |
-| `DESC` | `def` `desc` `manner` `reason` |
-| `ENTY` | `animal` `body` `color` `cremat` `currency` `dismed` `event` `food` `instru` `lang` `letter` `other` `plant` `product` `religion` `sport` `substance` `symbol` `techmeth` `termeq` `veh` `word` |
-| `HUM`  | `desc` `gr` `ind` `title` |
-| `LOC`  | `city` `country` `mount` `other` `state` |
-| `NUM`  | `code` `count` `date` `dist` `money` `ord` `other` `perc` `period` `speed` `temp` `volsize` `weight` |
 
 ## Sentence types
 
-| Subclass | `sentence_type` | Notes |
-|----------|-----------------|-------|
-| `Question` | `question` | |
-| `Command` | `command` | |
-| `Request` | `request` | Subclass of `Command`; also satisfies `is_command` |
-| `Statement` | `statement` | |
-| `Exclamation` | `exclamation` | |
+| Class | `sentence_type` | Example |
+|-------|----------------|---------|
+| `Question` | `question` | "What is the capital of France?" |
+| `Statement` | `statement` | "The sky is blue." |
+| `Command` | `command` | "Open the door." |
+| `Request` | `request` | "Could you pass the salt?" |
+| `Exclamation` | `exclamation` | "What a beautiful day!" |
+
+`Request` subclasses `Command`, so `isinstance(s, Command)` is `True` for requests too.
+
+## EAT taxonomy (question answer types)
+
+| Main | Fine-grained subtypes |
+|------|-----------------------|
+| `ABBR` | `abb`, `exp` |
+| `BOOL` | `yesno` |
+| `DESC` | `def`, `desc`, `manner`, `reason` |
+| `ENTY` | `animal`, `body`, `color`, `food`, `product`, `sport`, `substance`, … (23 total) |
+| `HUM` | `ind`, `gr`, `title`, `desc` |
+| `LOC` | `city`, `country`, `state`, `mount`, `water`, … |
+| `NUM` | `date`, `money`, `dist`, `count`, `temp`, `speed`, … (13 total) |
+
+## Project layout
+
+```
+little_questions/
+├── __init__.py      # Sentence, subclasses, get_classifier(), get_scorer(), get_yesno_classifier()
+├── classifiers.py   # EatClassifier, SentenceTypeClassifier, YesNoClassifier, _OnnxModel
+├── constants.py     # EAT_LABELS_7, EAT_LABELS_53, SENTENCE_TYPES, MAIN_LABEL_NAMES, SEC_LABEL_NAMES
+└── models.py        # HF auto-download helpers
+
+train/               # Training-only — install with pip install little-questions[train]
+├── classifiers.py       # CalibratedLinearSVCClassifier, LinearSVCClassifier, LogRegClassifier, SGDClassifier, Model2VecClassifier
+├── load_eat.py          # EAT dataset loader
+├── load_yesno.py        # Yes/no dataset loader
+├── train_eat.py         # Train EAT classifiers → ONNX
+├── train_eat_m2v.py     # Train Model2Vec EAT variants
+├── train_yesno.py       # Train yes/no polarity classifiers → ONNX
+├── train_sentence_type.py
+├── benchmark_eat.py     # Full EAT benchmark + plots
+├── metrics.py           # EvalResult, evaluate(), compare()
+├── mlflow_config.py     # MLflow setup
+└── push_to_hf.py        # Push models to HuggingFace
+```
 
 ## Further reading
 
 - [api.md](api.md) — full API reference
-- [models.md](models.md) — model files and download helpers
+- [models.md](models.md) — model files, HuggingFace repos, training
 - [classification.md](classification.md) — benchmark results
-- [contributing.md](contributing.md) — development setup and training workflow
+- [contributing.md](contributing.md) — development setup
