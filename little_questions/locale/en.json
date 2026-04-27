@@ -1,0 +1,846 @@
+{
+  "sentence_type": {
+    "strip_leading": "",
+    "rules": [
+      {
+        "match": [
+          "?"
+        ],
+        "position": "end",
+        "scores": {
+          "question": 0.7
+        }
+      },
+      {
+        "match": [
+          "!"
+        ],
+        "position": "end",
+        "scores": {
+          "exclamation": 0.7
+        }
+      },
+      {
+        "match": [
+          "."
+        ],
+        "position": "end",
+        "scores": {
+          "statement": 0.4
+        }
+      },
+      {
+        "match": [
+          "could you",
+          "would you",
+          "can you",
+          "will you",
+          "may i",
+          "might i",
+          "do you mind",
+          "would you mind"
+        ],
+        "position": "start",
+        "scores": {
+          "request": 0.8
+        },
+        "suppress": [
+          "question"
+        ]
+      },
+      {
+        "match": [
+          "please"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "request": 0.6
+        },
+        "skip_if": [
+          "request"
+        ]
+      },
+      {
+        "match": [
+          "what",
+          "why",
+          "how",
+          "when",
+          "who",
+          "which",
+          "where",
+          "whose",
+          "whom",
+          "is",
+          "are",
+          "was",
+          "were",
+          "do",
+          "does",
+          "did",
+          "have",
+          "has",
+          "had",
+          "can",
+          "could",
+          "will",
+          "would",
+          "should",
+          "shall",
+          "may",
+          "might",
+          "am"
+        ],
+        "position": "word_start",
+        "scores": {
+          "question": 0.4
+        },
+        "skip_if": [
+          "request"
+        ]
+      },
+      {
+        "match": [
+          "go",
+          "come",
+          "stop",
+          "start",
+          "do",
+          "make",
+          "turn",
+          "open",
+          "close",
+          "play",
+          "pause",
+          "set",
+          "get",
+          "put",
+          "let",
+          "show",
+          "tell",
+          "give",
+          "take",
+          "run",
+          "send",
+          "find",
+          "search",
+          "check",
+          "help",
+          "try",
+          "use"
+        ],
+        "position": "word_start",
+        "scores": {
+          "command": 0.4
+        }
+      },
+      {
+        "match": [
+          "wow",
+          "oh",
+          "ah",
+          "great",
+          "amazing",
+          "awesome",
+          "terrible",
+          "no",
+          "yes",
+          "yay",
+          "hurray"
+        ],
+        "position": "word_start",
+        "scores": {
+          "exclamation": 0.4
+        }
+      }
+    ],
+    "default": {
+      "statement": 0.4
+    }
+  },
+  "question_type": {
+    "strip_leading": "",
+    "rules": [
+      {
+        "match": [
+          "who"
+        ],
+        "position": "word_start",
+        "scores": {
+          "HUM:ind": 0.6,
+          "HUM:gr": 0.2
+        }
+      },
+      {
+        "match": [
+          "whose",
+          "whom"
+        ],
+        "position": "word_start",
+        "scores": {
+          "HUM:ind": 0.7
+        }
+      },
+      {
+        "match": [
+          "where"
+        ],
+        "position": "word_start",
+        "scores": {
+          "LOC:other": 0.5,
+          "LOC:city": 0.15,
+          "LOC:country": 0.1
+        }
+      },
+      {
+        "match": [
+          "when"
+        ],
+        "position": "word_start",
+        "scores": {
+          "NUM:date": 0.5,
+          "NUM:period": 0.2
+        }
+      },
+      {
+        "match": [
+          "how"
+        ],
+        "position": "word_start",
+        "scores": {
+          "DESC:manner": 0.4,
+          "NUM:count": 0.2
+        }
+      },
+      {
+        "match": [
+          "why"
+        ],
+        "position": "word_start",
+        "scores": {
+          "DESC:reason": 0.7
+        }
+      },
+      {
+        "match": [
+          "what",
+          "which"
+        ],
+        "position": "word_start",
+        "scores": {
+          "DESC:def": 0.3,
+          "ENTY:other": 0.2
+        }
+      },
+      {
+        "match": [
+          "how many",
+          "how much",
+          "number of",
+          "count of"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "NUM:count": 0.6
+        },
+        "exclusive_group": "num"
+      },
+      {
+        "match": [
+          "how far",
+          "distance",
+          "miles",
+          "km",
+          "kilometers"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "NUM:dist": 0.6
+        },
+        "exclusive_group": "num"
+      },
+      {
+        "match": [
+          "how fast",
+          "speed",
+          "mph",
+          "kph"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "NUM:speed": 0.6
+        },
+        "exclusive_group": "num"
+      },
+      {
+        "match": [
+          "how old",
+          "age",
+          "born",
+          "birthday",
+          "date",
+          "year",
+          "month",
+          "day"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "NUM:date": 0.5
+        },
+        "exclusive_group": "num"
+      },
+      {
+        "match": [
+          "cost",
+          "price",
+          "dollar",
+          "euro",
+          "pound",
+          "money",
+          "worth",
+          "pay"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "NUM:money": 0.6
+        },
+        "exclusive_group": "num"
+      },
+      {
+        "match": [
+          "how hot",
+          "temperature",
+          "degrees",
+          "celsius",
+          "fahrenheit"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "NUM:temp": 0.6
+        },
+        "exclusive_group": "num"
+      },
+      {
+        "match": [
+          "percent",
+          "percentage",
+          "ratio",
+          "fraction"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "NUM:perc": 0.6
+        },
+        "exclusive_group": "num"
+      },
+      {
+        "match": [
+          "weigh",
+          "weight",
+          "kg",
+          "pound",
+          "ounce",
+          "gram"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "NUM:weight": 0.6
+        },
+        "exclusive_group": "num"
+      },
+      {
+        "match": [
+          "volume",
+          "liter",
+          "litre",
+          "gallon"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "NUM:volsize": 0.6
+        },
+        "exclusive_group": "num"
+      },
+      {
+        "match": [
+          "how often",
+          "duration",
+          "how long"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "NUM:period": 0.5
+        },
+        "exclusive_group": "num"
+      },
+      {
+        "match": [
+          "ordinal",
+          "first",
+          "second",
+          "third",
+          "ranked",
+          "ranking",
+          "order"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "NUM:ord": 0.4
+        },
+        "exclusive_group": "num"
+      },
+      {
+        "match": [
+          "code",
+          "zip",
+          "postal",
+          "area code",
+          "isbn",
+          "serial"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "NUM:code": 0.6
+        },
+        "exclusive_group": "num"
+      },
+      {
+        "match": [
+          "animal",
+          "species",
+          "breed",
+          "creature",
+          "mammal",
+          "bird",
+          "fish",
+          "insect"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:animal": 0.7
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "color",
+          "colour"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:color": 0.7
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "food",
+          "dish",
+          "recipe",
+          "cuisine",
+          "eat",
+          "drink",
+          "beverage"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:food": 0.7
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "instrument",
+          "guitar",
+          "piano",
+          "violin",
+          "drum"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:instru": 0.7
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "language",
+          "tongue",
+          "dialect",
+          "spoken"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:lang": 0.7
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "letter",
+          "alphabet",
+          "symbol",
+          "character"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:letter": 0.5
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "plant",
+          "flower",
+          "tree",
+          "herb",
+          "shrub"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:plant": 0.7
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "product",
+          "brand",
+          "model",
+          "device",
+          "gadget"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:product": 0.6
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "religion",
+          "faith",
+          "belief",
+          "church",
+          "temple"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:religion": 0.7
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "sport",
+          "game",
+          "play",
+          "tournament",
+          "athlete"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:sport": 0.6
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "substance",
+          "chemical",
+          "element",
+          "compound",
+          "material"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:substance": 0.6
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "vehicle",
+          "car",
+          "truck",
+          "bus",
+          "train",
+          "ship",
+          "plane"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:veh": 0.7
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "disease",
+          "illness",
+          "medicine",
+          "drug",
+          "symptom",
+          "treatment"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:dismed": 0.7
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "currency",
+          "coin",
+          "bill",
+          "money",
+          "exchange"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:currency": 0.7
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "event",
+          "war",
+          "battle",
+          "ceremony",
+          "festival"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:event": 0.6
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "book",
+          "novel",
+          "movie",
+          "film",
+          "song",
+          "album",
+          "painting"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:cremat": 0.6
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "technique",
+          "method",
+          "technology",
+          "algorithm",
+          "system"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:techmeth": 0.6
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "term",
+          "synonym",
+          "equivalent",
+          "meaning",
+          "definition"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:termeq": 0.6
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "word",
+          "phrase",
+          "expression",
+          "say"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:word": 0.6
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "body",
+          "organ",
+          "muscle",
+          "bone",
+          "skin",
+          "heart",
+          "brain"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ENTY:body": 0.7
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "city",
+          "town",
+          "village",
+          "capital"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "LOC:city": 0.7
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "country",
+          "nation",
+          "province",
+          "republic"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "LOC:country": 0.6
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "mountain",
+          "hill",
+          "peak",
+          "volcano"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "LOC:mount": 0.7
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "river",
+          "lake",
+          "ocean",
+          "sea",
+          "bay",
+          "gulf"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "LOC:water": 0.7
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "continent",
+          "island",
+          "peninsula",
+          "landmass"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "LOC:landmass": 0.6
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "state",
+          "region",
+          "district",
+          "county"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "LOC:state": 0.5
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "group",
+          "team",
+          "organization",
+          "company",
+          "band",
+          "party",
+          "family"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "HUM:gr": 0.6
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "title",
+          "role",
+          "position",
+          "called",
+          "named",
+          "known as"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "HUM:title": 0.6
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "describe",
+          "description"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "HUM:desc": 0.6
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "abbreviation",
+          "acronym",
+          "stand for",
+          "short for",
+          "initials"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ABBR:abb": 0.8
+        },
+        "mode": "max"
+      },
+      {
+        "match": [
+          "expression",
+          "abbreviated"
+        ],
+        "position": "anywhere",
+        "scores": {
+          "ABBR:exp": 0.7
+        },
+        "mode": "max"
+      }
+    ],
+    "default_if_low": {
+      "DESC:def": 0.3
+    },
+    "default_if_low_threshold": 0.3
+  }
+}

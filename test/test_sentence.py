@@ -226,6 +226,86 @@ class TestPublicHelpers:
 
 
 # ---------------------------------------------------------------------------
+# Statement.answer_polarity (mocked yes/no classifier)
+# ---------------------------------------------------------------------------
+
+def _mock_yesno(polarity: str = "yes") -> MagicMock:
+    m = MagicMock()
+    scores = {"yes": 0.0, "no": 0.0, "maybe": 0.0}
+    scores[polarity] = 0.9
+    m.predict.return_value = polarity
+    m.score.return_value = scores
+    return m
+
+
+def _make_statement(text: str, polarity: str = "yes"):
+    from little_questions import Sentence
+    with (
+        patch("little_questions.EatClassifier.get_instance", return_value=_mock_eat("DESC:def")),
+        patch("little_questions.SentenceTypeClassifier.get_instance", return_value=_mock_sent("statement")),
+    ):
+        s = Sentence(text)
+    return s, polarity
+
+
+class TestAnswerPolarity:
+    def test_is_affirmative(self):
+        from little_questions import Statement
+        s, _ = _make_statement("Yes, it is.")
+        with patch("little_questions.YesNoClassifier.get_instance", return_value=_mock_yesno("yes")):
+            assert isinstance(s, Statement)
+            assert s.answer_polarity == "yes"
+            assert s.is_affirmative
+            assert not s.is_negative
+
+    def test_is_negative(self):
+        from little_questions import Statement
+        s, _ = _make_statement("No, it is not.")
+        with patch("little_questions.YesNoClassifier.get_instance", return_value=_mock_yesno("no")):
+            assert isinstance(s, Statement)
+            assert s.answer_polarity == "no"
+            assert s.is_negative
+            assert not s.is_affirmative
+
+    def test_maybe(self):
+        from little_questions import Statement
+        s, _ = _make_statement("Maybe, it depends.")
+        with patch("little_questions.YesNoClassifier.get_instance", return_value=_mock_yesno("maybe")):
+            assert isinstance(s, Statement)
+            assert s.answer_polarity == "maybe"
+            assert not s.is_affirmative
+            assert not s.is_negative
+
+    def test_polarity_scores_sum_to_one(self):
+        from little_questions import Statement
+        s, _ = _make_statement("Yes indeed.")
+        mock = _mock_yesno("yes")
+        mock.score.return_value = {"yes": 0.85, "no": 0.10, "maybe": 0.05}
+        with patch("little_questions.YesNoClassifier.get_instance", return_value=mock):
+            scores = s.answer_polarity_scores
+            assert set(scores.keys()) == {"yes", "no", "maybe"}
+            assert sum(scores.values()) == pytest.approx(1.0, abs=0.01)
+
+    def test_no_model_raises(self):
+        from little_questions import Statement
+        s, _ = _make_statement("Sure.")
+        with patch("little_questions.YesNoClassifier.get_instance",
+                   side_effect=RuntimeError("no model")):
+            with pytest.raises(RuntimeError):
+                _ = s.answer_polarity
+
+    def test_polarity_cached(self):
+        """answer_polarity should only call the classifier once."""
+        from little_questions import Statement
+        s, _ = _make_statement("Yes.")
+        mock = _mock_yesno("yes")
+        with patch("little_questions.YesNoClassifier.get_instance", return_value=mock):
+            _ = s.answer_polarity
+            _ = s.answer_polarity
+        mock.predict.assert_called_once()
+
+
+# ---------------------------------------------------------------------------
 # PunctuationScorer baseline (train module)
 # ---------------------------------------------------------------------------
 

@@ -4,6 +4,7 @@ from little_questions.constants import MAIN_LABEL_NAMES, SEC_LABEL_NAMES
 from little_questions.classifiers import (
     EatClassifier, QuestionTypeClassifier, SentenceTypeClassifier,
     HeuristicSentenceTypeClassifier, HeuristicQuestionTypeClassifier,
+    YesNoClassifier,
 )
 
 
@@ -19,6 +20,11 @@ def get_classifier(lang: str = "en") -> EatClassifier:
 def get_scorer(lang: str = "en") -> SentenceTypeClassifier:
     """Return the SentenceTypeClassifier singleton for *lang*."""
     return SentenceTypeClassifier.get_instance(lang)
+
+
+def get_yesno_classifier(lang: str = "en") -> YesNoClassifier:
+    """Return the YesNoClassifier singleton for *lang*."""
+    return YesNoClassifier.get_instance(lang)
 
 
 # ---------------------------------------------------------------------------
@@ -103,7 +109,47 @@ class Question(Sentence):
 
 
 class Statement(Sentence):
-    """A sentence classified as a statement."""
+    """A sentence classified as a statement.
+
+    When used as an answer to a yes/no question, the ``answer_polarity``
+    property indicates whether the response is affirmative, negative, or
+    neither (``"yes"``, ``"no"``, or ``"maybe"``).
+
+    The classifier is loaded lazily on first access — no model download at
+    construction time unless ``answer_polarity`` is actually called.
+    """
+
+    @property
+    def answer_polarity(self) -> str:
+        """``"yes"``, ``"no"``, or ``"maybe"``.
+
+        Lazy-loads the yes/no ONNX classifier on first access.
+        Raises ``RuntimeError`` if no model is available for this language.
+        """
+        if not hasattr(self, "_answer_polarity"):
+            clf = YesNoClassifier.get_instance(self.lang)
+            object.__setattr__(self, "_answer_polarity", clf.predict(str(self)))
+        return self._answer_polarity
+
+    @property
+    def answer_polarity_scores(self) -> dict:
+        """Calibrated probabilities over ``yes``/``no``/``maybe``.
+
+        Lazy-loads the yes/no ONNX classifier on first access.
+        Raises ``RuntimeError`` if no model is available for this language.
+        """
+        if not hasattr(self, "_answer_polarity_scores"):
+            clf = YesNoClassifier.get_instance(self.lang)
+            object.__setattr__(self, "_answer_polarity_scores", clf.score(str(self)))
+        return self._answer_polarity_scores
+
+    @property
+    def is_affirmative(self) -> bool:
+        return self.answer_polarity == "yes"
+
+    @property
+    def is_negative(self) -> bool:
+        return self.answer_polarity == "no"
 
 
 class Command(Sentence):

@@ -400,6 +400,60 @@ class SentenceTypeClassifier:
 
 
 ###################################################
+# Yes/No answer polarity classifier (ONNX only)
+###################################################
+
+_YESNO_LABELS = ["yes", "no", "maybe"]
+
+
+class YesNoClassifier:
+    """Yes/No answer polarity classifier.
+
+    Labels: ``yes``, ``no``, ``maybe``.
+
+    Requires an ONNX model — no heuristic fallback.  Models are fetched from
+    ``TigreGotico/yes-no-classifiers`` on first use (language-specific first,
+    then multilingual) and cached at ``~/.local/share/little_questions/yesno/``.
+
+    Raises ``RuntimeError`` if no model can be loaded (not yet downloaded or
+    language not supported).
+    """
+
+    _instances: Dict[str, "YesNoClassifier"] = {}
+    _instances_lock: Lock = Lock()
+    _VERSION: str = "0.9.0"
+
+    @classmethod
+    def get_instance(cls, lang: str) -> "YesNoClassifier":
+        lang = lang.lower()
+        with cls._instances_lock:
+            if lang not in cls._instances:
+                cls._instances[lang] = cls._load(lang)
+        return cls._instances[lang]
+
+    @classmethod
+    def _load(cls, lang: str) -> "YesNoClassifier":
+        from little_questions.models import get_yesno_model_path
+        path = get_yesno_model_path(lang, version=cls._VERSION)
+        if path and os.path.isfile(path):
+            return cls(path)
+        raise RuntimeError(
+            f"No yes/no ONNX model found for lang={lang!r}. "
+            "Run `python -m train.train_yesno` to train and export the model, "
+            "or wait for the model to be published to TigreGotico/yes-no-classifiers."
+        )
+
+    def __init__(self, model_path: str) -> None:
+        self._model = _OnnxModel(model_path)
+
+    def predict(self, text: str) -> str:
+        return self._model.predict(text)
+
+    def score(self, text: str) -> Dict[str, float]:
+        return self._model.score(text)
+
+
+###################################################
 # Cache management utilities
 ###################################################
 
@@ -411,6 +465,7 @@ def clear_classifier_cache() -> None:
     """Clear all cached classifier instances, forcing reload on next use."""
     EatClassifier._instances.clear()
     SentenceTypeClassifier._instances.clear()
+    YesNoClassifier._instances.clear()
     _LAZY_LOADING.clear()
 
 

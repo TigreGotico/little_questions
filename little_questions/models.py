@@ -8,6 +8,7 @@ from pathlib import Path
 
 HF_REPO_ID = "TigreGotico/eat-classifiers"
 HF_SENTENCE_TYPE_REPO_ID = "TigreGotico/sentence-types"
+HF_YESNO_REPO_ID = "TigreGotico/yes-no-classifiers"
 
 _CACHE_DIR = Path(os.path.expanduser("~/.local/share/little_questions"))
 
@@ -47,6 +48,36 @@ def get_eat_model_path(filename: str) -> str | None:
         return str(local) if local.exists() else downloaded
     except Exception:
         return None
+
+
+def get_yesno_model_path(lang: str, version: str = "0.9.0") -> str | None:
+    """Return local path to a yes/no ONNX model, downloading from HF if needed.
+
+    Tries language-specific model first (``yesno_svm_cal_{LANG}_{version}.onnx``),
+    then falls back to the multilingual model (``yesno_svm_cal_multilingual_{version}.onnx``).
+    """
+    candidates = [
+        f"yesno_svm_cal_{lang.upper()}_{version}.onnx",
+        f"yesno_svm_cal_multilingual_{version}.onnx",
+    ]
+    for filename in candidates:
+        local = _CACHE_DIR / "yesno" / filename
+        if local.exists():
+            return str(local)
+        try:
+            from huggingface_hub import hf_hub_download
+            downloaded = hf_hub_download(
+                repo_id=HF_YESNO_REPO_ID,
+                filename=f"models/yesno/{filename}",
+                local_dir=str(_CACHE_DIR / "yesno"),
+                local_dir_use_symlinks=False,
+            )
+            _copy_flat(Path(downloaded), local)
+            if local.exists():
+                return str(local)
+        except Exception:
+            continue
+    return None
 
 
 def get_sentence_type_model_path(lang: str) -> str | None:
