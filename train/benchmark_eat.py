@@ -132,13 +132,24 @@ class TwoStageOnnxScorer:
             scores = exp / exp.sum(axis=1, keepdims=True)
         return scores
 
+    def _decode7(self, raw) -> str:
+        """Decode stage-1 output — int index or direct string label."""
+        if isinstance(raw, (int, np.integer)):
+            return self._classes7[int(raw)]
+        if isinstance(raw, bytes):
+            return raw.decode("utf-8")
+        return str(raw)
+
+    def _main_cats(self, inp) -> list[str]:
+        res7 = self._sess7.run([self._out7_label], {self._in7: inp})
+        return [self._decode7(idx) for idx in res7[0]]
+
     def predict(self, text: str) -> str:
         return self.predict_batch([text])[0]
 
     def predict_batch(self, texts: list[str]) -> list[str]:
         inp = np.array(texts, dtype=object)
-        res7 = self._sess7.run([self._out7_label], {self._in7: inp})
-        main_cats = [self._classes7[int(idx)] for idx in res7[0]]
+        main_cats = self._main_cats(inp)
         scores = self._get_scores53(inp)
 
         preds = []
@@ -157,8 +168,7 @@ class TwoStageOnnxScorer:
     def score_batch(self, texts: list[str]) -> list[dict[str, float]]:
         """Return renormalized probability dicts masked to the stage-1 main category."""
         inp = np.array(texts, dtype=object)
-        res7 = self._sess7.run([self._out7_label], {self._in7: inp})
-        main_cats = [self._classes7[int(idx)] for idx in res7[0]]
+        main_cats = self._main_cats(inp)
         scores = self._get_scores53(inp)
 
         out = []

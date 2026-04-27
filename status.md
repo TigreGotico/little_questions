@@ -9,14 +9,13 @@
 - [x] Rewrite `little_questions/constants.py` — `EAT_LABELS_7`, `EAT_LABELS_53`, updated label name dicts (add BOOL, remove COSC-only)
 - [x] Add `EatClassifier` singleton to `little_questions/classifiers.py`; update/replace `QuestionTypeClassifier`
 - [x] Update `little_questions/__init__.py` — wire `EatClassifier`, add `.classification_scores`, `.confidence`; handle `BOOL:yesno` (no secondary label)
-- [ ] Retrain ONNX: `python -m train.train_eat --model svm_cal`
-- [ ] Train M2V: `python -m train.train_eat_m2v`
-- [ ] Re-benchmark: `python -m train.benchmark_eat` — verify probs sum to 1, plots updated
-- [x] Delete COSC-only scripts from `train/` — removed 15; kept translate.py/translate_dataset.py/translate_cosc.py/translate_cosc_batch.py for future multilingual EAT use
-- [x] Delete `little-questions-hf/` monorepo — replaced by one-HF-repo-per-model approach
-- [x] Create `train/push_to_hf.py` — pushes each ONNX/M2V model to its own HF repo with generated README model card
-- [ ] Run `python -m train.push_to_hf --type onnx` after ONNX training
-- [ ] Run `python -m train.push_to_hf --type m2v` after M2V training
+- [x] Retrain ONNX: all 8 models trained (svm/logreg/sgd/svm_cal × 53c/7c)
+- [x] Train M2V: all 12 variants trained (2M/8M/32M × plain/+tfidf × 53c/7c)
+- [x] Re-benchmark: all 22 scorers evaluated, 7 plots saved to `train/reports/eat/`
+- [x] Delete COSC-only scripts from `train/` — removed 15; kept translate scripts for future multilingual EAT use
+- [x] Delete `little-questions-hf/` — replaced by single-repo `TigreGotico/eat-classifiers` approach
+- [x] Create `train/push_to_hf.py` — uploads all ONNX + M2V models + benchmark reports to `TigreGotico/eat-classifiers` with auto-generated README + BENCHMARKS.md
+- [ ] Run `python -m train.push_to_hf` (requires HF login)
 
 ## Blockers
 <!-- none yet -->

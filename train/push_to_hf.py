@@ -1,20 +1,26 @@
 #!/usr/bin/env python3
-"""Push trained EAT models to HuggingFace — one repo per model.
+"""Push all trained EAT models to a single HuggingFace repo.
 
-ONNX repos: TigreGotico/eat{N}_{model_type}_en
-M2V repos:  TigreGotico/{variant_name}   (e.g. m2v-potion-base-8M+tfidf-en-53c)
+Repo: TigreGotico/eat-classifiers
 
-Each repo receives:
-  - the model file(s)
-  - a generated README.md with YAML model card frontmatter
+Layout uploaded:
+  models/eat/eat53_svm_EN_0.9.0.onnx
+  models/eat/eat7_svm_EN_0.9.0.onnx
+  ... (all ONNX files)
+  models/eat_m2v/m2v-potion-base-8M+tfidf-en-53c/
+  ... (all M2V directories)
+  benchmarks/eat/benchmark_eat53_overview.png
+  ... (all benchmark plots and JSON reports)
+  README.md
+  BENCHMARKS.md
 
 Usage::
 
-    python -m train.push_to_hf --type onnx          # push all trained ONNX models
-    python -m train.push_to_hf --type m2v           # push all trained M2V models
-    python -m train.push_to_hf --type all           # push everything (default)
-    python -m train.push_to_hf --model eat53_svm_cal_EN_0.9.0   # single model
-    python -m train.push_to_hf --dry-run            # print repos that would be created
+    python -m train.push_to_hf                   # push everything
+    python -m train.push_to_hf --dry-run         # print what would be uploaded
+    python -m train.push_to_hf --type onnx       # only ONNX models
+    python -m train.push_to_hf --type m2v        # only M2V models
+    python -m train.push_to_hf --type reports    # only benchmark reports + plots
 """
 
 from __future__ import annotations
@@ -28,9 +34,10 @@ from textwrap import dedent
 
 LOG = logging.getLogger(__name__)
 
-HF_ORG = "TigreGotico"
+HF_REPO_ID = "TigreGotico/eat-classifiers"
 ONNX_MODEL_DIR = Path(os.path.expanduser("~/.local/share/little_questions/eat"))
 M2V_MODEL_DIR = Path(os.path.expanduser("~/.local/share/little_questions/eat_m2v"))
+REPORTS_DIR = Path(__file__).parent / "reports" / "eat"
 VERSION = "0.9.0"
 
 EAT_DATASET_URL = "https://huggingface.co/datasets/TigreGotico/EAT"
@@ -39,86 +46,37 @@ LITTLE_QUESTIONS_URL = "https://github.com/TigreGotico/little_questions"
 
 
 # ---------------------------------------------------------------------------
-# README generators
+# README / BENCHMARKS generators
 # ---------------------------------------------------------------------------
 
-def _onnx_readme(model_stem: str, classes: list[str], n_cls: int,
-                 model_type: str, calibrated: bool) -> str:
-    prob_note = (
-        "Output `[1]` is a calibrated probability vector (Platt sigmoid, values in [0,1], sum to 1.0)."
-        if calibrated else
-        "Output `[1]` contains raw decision-function scores (not probabilities)."
-    )
-    tags = ["question-classification", "text-classification", "onnx", "english", "eat"]
-    if calibrated:
-        tags.append("calibrated")
-    tags_yaml = "\n".join(f"  - {t}" for t in tags)
+def _generate_readme(onnx_files: list[Path], m2v_dirs: list[Path]) -> str:
+    onnx_rows = []
+    for f in sorted(onnx_files):
+        stem = f.stem  # eat53_svm_cal_EN_0.9.0
+        parts = stem.split("_")
+        n_cls = parts[0].replace("eat", "")
+        model_type = "_".join(parts[1:-2])
+        lang = parts[-2].lower()
+        calibrated = "cal" in model_type
+        prob_note = "✓ calibrated proba" if calibrated else "decision scores"
+        onnx_rows.append(f"| `{f.name}` | {n_cls}-class | {model_type} | {lang} | {prob_note} |")
 
-    classes_md = "\n".join(f"  - `{c}`" for c in classes)
+    m2v_rows = []
+    for d in sorted(m2v_dirs):
+        meta_path = d / "meta.json"
+        if meta_path.exists():
+            meta = json.loads(meta_path.read_text())
+            n_cls = len(meta.get("classes", []))
+            backbone = meta.get("model_name", "").split("/")[-1]
+            fusion = "+tfidf" if meta.get("use_tfidf_fusion") else "plain"
+        else:
+            n_cls = "?"
+            backbone = d.name
+            fusion = "?"
+        m2v_rows.append(f"| `{d.name}` | {n_cls}-class | {backbone} | {fusion} |")
 
-    return dedent(f"""\
-        ---
-        language:
-          - en
-        license: apache-2.0
-        tags:
-        {tags_yaml}
-        datasets:
-          - TigreGotico/EAT
-        ---
-
-        # {model_stem}
-
-        EAT question-type classifier — {n_cls} classes, `{model_type}` backbone.
-
-        Trained on the [EAT dataset]({EAT_DATASET_URL}) (30K English questions, {n_cls} labels).
-        Inference requires only `onnxruntime` — no sklearn at runtime.
-
-        ## Usage
-
-        ```python
-        import onnxruntime as rt
-        import numpy as np, json
-
-        sess = rt.InferenceSession("{model_stem}.onnx")
-        meta = sess.get_modelmeta().custom_metadata_map
-        classes = json.loads(meta["classes"])
-
-        inp = np.array(["Who invented the telephone?"], dtype=object)
-        label_idx, scores = sess.run(None, {{"input": inp}})
-        label = classes[int(label_idx[0])]
-        print(label)          # e.g. "HUM:ind"
-        print(dict(zip(classes, scores[0])))
-        ```
-
-        {prob_note}
-
-        ## Labels ({n_cls} classes)
-
-        {classes_md}
-
-        ## Datasets
-
-        Two datasets were built specifically for this project:
-
-        - [{EAT_DATASET_URL}]({EAT_DATASET_URL}) — Expected Answer Type taxonomy,
-          30K English questions, 53 fine-grained labels across 7 main categories
-          (ABBR, BOOL, DESC, ENTY, HUM, LOC, NUM).
-        - [{SENTENCE_TYPES_DATASET_URL}]({SENTENCE_TYPES_DATASET_URL}) — sentence-type
-          taxonomy (question/statement/command/exclamation/request), 80K multilingual samples.
-
-        ## Project
-
-        Part of [little_questions]({LITTLE_QUESTIONS_URL}).
-        """)
-
-
-def _m2v_readme(variant_name: str, meta: dict) -> str:
-    n_cls = len(meta.get("classes", []))
-    classes_md = "\n".join(f"  - `{c}`" for c in (meta.get("classes") or []))
-    m2v_model = meta.get("model_name", "minishlab/potion-base-8M")
-    use_tfidf = meta.get("use_tfidf_fusion", False)
-    fusion_note = " Embeddings are fused with TF-IDF word (1,2)-gram features." if use_tfidf else ""
+    onnx_table = "\n".join(onnx_rows) or "_No ONNX models found_"
+    m2v_table = "\n".join(m2v_rows) or "_No M2V models found_"
 
     return dedent(f"""\
         ---
@@ -128,113 +86,215 @@ def _m2v_readme(variant_name: str, meta: dict) -> str:
         tags:
           - question-classification
           - text-classification
+          - onnx
           - model2vec
           - english
           - eat
+          - calibrated
         datasets:
           - TigreGotico/EAT
         ---
 
-        # {variant_name}
+        # eat-classifiers
 
-        EAT question-type classifier — {n_cls} classes, Model2Vec backbone (`{m2v_model}`).{fusion_note}
+        EAT question-type classifiers for English — trained on the
+        [EAT dataset]({EAT_DATASET_URL}) (30K questions, 53 fine-grained labels
+        across 7 main categories: ABBR, BOOL, DESC, ENTY, HUM, LOC, NUM).
 
-        Trained on the [EAT dataset]({EAT_DATASET_URL}) (30K English questions).
-        Requires `model2vec` and `scikit-learn` at inference.
+        Two model families:
 
-        ## Usage
+        - **ONNX** (`models/eat/`) — Platt-calibrated LinearSVC; inference requires only `onnxruntime`.
+        - **Model2Vec** (`models/eat_m2v/`) — static potion-base embeddings ± TF-IDF fusion + LinearSVC.
+
+        Best single model: `m2v-potion-base-32M+tfidf-en-53c` (92.2 % macro F1, 53-class).
+        Best ONNX: `eat53_2stage_svm_cal` two-stage (93.4 % macro F1, 53-class).
+
+        ## ONNX Models
+
+        | File | Classes | Backbone | Lang | Output[1] |
+        |------|---------|----------|------|-----------|
+        {onnx_table}
+
+        ### Usage (ONNX)
+
+        ```python
+        import onnxruntime as rt
+        import numpy as np, json
+
+        sess = rt.InferenceSession("models/eat/eat53_svm_cal_EN_0.9.0.onnx")
+        classes = json.loads(sess.get_modelmeta().custom_metadata_map["classes"])
+
+        inp = np.array(["Who invented the telephone?"], dtype=object)
+        label_idx, probs = sess.run(None, {{"input": inp}})
+        label = classes[int(label_idx[0])]
+        print(label, max(probs[0]))   # e.g. HUM:ind  0.94
+        ```
+
+        Calibrated models (`_cal`) output true probabilities in `output[1]`.
+        Two-stage inference: run `eat7_svm_cal` to get the main category, then
+        run `eat53_svm_cal` and zero + renormalise labels outside that category.
+
+        ## Model2Vec Models
+
+        | Directory | Classes | Backbone | Fusion |
+        |-----------|---------|----------|--------|
+        {m2v_table}
+
+        ### Usage (Model2Vec)
 
         ```python
         from train.classifiers import Model2VecClassifier
 
-        clf = Model2VecClassifier.load("/path/to/{variant_name}")
+        clf = Model2VecClassifier.load("models/eat_m2v/m2v-potion-base-8M+tfidf-en-53c")
         print(clf.predict(["Who invented the telephone?"]))
         ```
 
-        ## Labels ({n_cls} classes)
+        ## Integration with little_questions
 
-        {classes_md}
+        ```python
+        from little_questions import Sentence
+
+        s = Sentence("Who invented the telephone?")
+        print(s.classification)          # "HUM:ind"
+        print(s.confidence)              # e.g. 0.94
+        print(s.classification_scores)   # dict[str, float] — all 53 labels
+        ```
 
         ## Datasets
 
         Two datasets were built specifically for this project:
 
-        - [{EAT_DATASET_URL}]({EAT_DATASET_URL}) — Expected Answer Type taxonomy,
+        - [TigreGotico/EAT]({EAT_DATASET_URL}) — Expected Answer Type taxonomy,
           30K English questions, 53 fine-grained labels across 7 main categories.
-        - [{SENTENCE_TYPES_DATASET_URL}]({SENTENCE_TYPES_DATASET_URL}) — sentence-type
-          taxonomy, 80K multilingual samples.
+        - [TigreGotico/sentence-types-multilingual]({SENTENCE_TYPES_DATASET_URL}) —
+          sentence-type taxonomy (question/statement/command/exclamation/request),
+          80K multilingual samples.
 
         ## Project
 
-        Part of [little_questions]({LITTLE_QUESTIONS_URL}).
+        [little_questions]({LITTLE_QUESTIONS_URL}) — lightweight NLP question analysis library.
+
+        See [BENCHMARKS.md](BENCHMARKS.md) for full results.
+        """)
+
+
+def _generate_benchmarks() -> str:
+    report_files = sorted(REPORTS_DIR.glob("*_benchmark.json")) if REPORTS_DIR.exists() else []
+    rows_53, rows_7 = [], []
+    for rf in report_files:
+        try:
+            data = json.loads(rf.read_text())
+        except Exception:
+            continue
+        name = data.get("scorer_name", rf.stem.replace("_benchmark", ""))
+        acc = data.get("accuracy", 0)
+        mf1 = data.get("macro_f1", 0)
+        wf1 = data.get("weighted_f1", 0)
+        n_labels = len(data.get("labels", []))
+        row = f"| `{name}` | {acc:.4f} | {mf1:.4f} | {wf1:.4f} |"
+        if n_labels > 10:
+            rows_53.append((mf1, row))
+        else:
+            rows_7.append((mf1, row))
+
+    def table(rows):
+        if not rows:
+            return "_No results found_"
+        header = "| Model | Accuracy | Macro F1 | Weighted F1 |\n|-------|----------|----------|-------------|"
+        body = "\n".join(r for _, r in sorted(rows, reverse=True))
+        return header + "\n" + body
+
+    return dedent(f"""\
+        # EAT Classifier Benchmarks
+
+        Test set: 15% stratified split of [TigreGotico/EAT](https://huggingface.co/datasets/TigreGotico/EAT)
+        (random_state=42), 4,503 samples.
+
+        ## 53-class results
+
+        {table(rows_53)}
+
+        ## 7-class results
+
+        {table(rows_7)}
+
+        ## Plots
+
+        ![Overview 53-class](benchmarks/eat/benchmark_eat53_overview.png)
+        ![Overview 7-class](benchmarks/eat/benchmark_eat7_overview.png)
+        ![Model comparison](benchmarks/eat/benchmark_eat_model_comparison.png)
+        ![Per-class F1 53](benchmarks/eat/benchmark_eat53_per_class_f1.png)
+        ![Per-class F1 7](benchmarks/eat/benchmark_eat7_per_class_f1.png)
         """)
 
 
 # ---------------------------------------------------------------------------
-# Push helpers
+# Upload helpers
 # ---------------------------------------------------------------------------
 
-def _repo_id(name: str) -> str:
-    return f"{HF_ORG}/{name}"
-
-
-def push_onnx_model(onnx_path: Path, dry_run: bool = False) -> None:
-    from huggingface_hub import HfApi
-    import onnxruntime as rt
-
-    stem = onnx_path.stem  # e.g. eat53_svm_cal_EN_0.9.0
-    # derive repo name: eat53_svm_cal_en  (lowercase lang, drop version)
-    parts = stem.split("_")
-    # format: eat{N}_{type(s)}_{LANG}_{VERSION}
-    # repo name: eat{N}_{type(s)}_en
-    repo_name = "_".join(parts[:-2] + [parts[-2].lower()])  # drop version, lowercase lang
-    repo_id = _repo_id(repo_name)
-
-    # Extract metadata from ONNX
-    sess = rt.InferenceSession(str(onnx_path), providers=["CPUExecutionProvider"])
-    meta = sess.get_modelmeta().custom_metadata_map
-    classes: list[str] = json.loads(meta.get("classes", "[]"))
-    calibrated = meta.get("calibrated") == "true"
-
-    # Derive n_cls and model_type from stem
-    n_cls = int(parts[0].replace("eat", ""))
-    model_type = "_".join(parts[1:-2])
-
-    readme = _onnx_readme(stem, classes, n_cls, model_type, calibrated)
-
-    print(f"{'[DRY RUN] ' if dry_run else ''}Pushing {onnx_path.name} → {repo_id}")
-    if dry_run:
-        return
-
-    api = HfApi()
-    api.create_repo(repo_id=repo_id, repo_type="model", exist_ok=True)
-    api.upload_file(path_or_fileobj=str(onnx_path), path_in_repo=onnx_path.name,
-                    repo_id=repo_id, repo_type="model")
-    api.upload_file(path_or_fileobj=readme.encode(), path_in_repo="README.md",
-                    repo_id=repo_id, repo_type="model")
-    print(f"  → https://huggingface.co/{repo_id}")
-
-
-def push_m2v_model(m2v_dir: Path, dry_run: bool = False) -> None:
+def push_all(push_onnx: bool, push_m2v: bool, push_reports: bool,
+             dry_run: bool = False) -> None:
     from huggingface_hub import HfApi
 
-    variant_name = m2v_dir.name
-    repo_id = _repo_id(variant_name)
+    api = HfApi() if not dry_run else None
 
-    meta_path = m2v_dir / "meta.json"
-    meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.exists() else {}
-    readme = _m2v_readme(variant_name, meta)
+    def upload_file(local_path: Path, repo_path: str) -> None:
+        print(f"  {'[dry] ' if dry_run else ''}upload {repo_path}")
+        if dry_run:
+            return
+        api.upload_file(
+            path_or_fileobj=str(local_path),
+            path_in_repo=repo_path,
+            repo_id=HF_REPO_ID,
+            repo_type="model",
+        )
 
-    print(f"{'[DRY RUN] ' if dry_run else ''}Pushing {variant_name}/ → {repo_id}")
-    if dry_run:
-        return
+    def upload_bytes(content: bytes, repo_path: str) -> None:
+        print(f"  {'[dry] ' if dry_run else ''}upload {repo_path}")
+        if dry_run:
+            return
+        api.upload_file(
+            path_or_fileobj=content,
+            path_in_repo=repo_path,
+            repo_id=HF_REPO_ID,
+            repo_type="model",
+        )
 
-    api = HfApi()
-    api.create_repo(repo_id=repo_id, repo_type="model", exist_ok=True)
-    api.upload_folder(folder_path=str(m2v_dir), repo_id=repo_id, repo_type="model")
-    api.upload_file(path_or_fileobj=readme.encode(), path_in_repo="README.md",
-                    repo_id=repo_id, repo_type="model")
-    print(f"  → https://huggingface.co/{repo_id}")
+    onnx_files = sorted(ONNX_MODEL_DIR.glob("*.onnx")) if ONNX_MODEL_DIR.exists() else []
+    m2v_dirs = [d for d in sorted(M2V_MODEL_DIR.iterdir())
+                if d.is_dir()] if M2V_MODEL_DIR.exists() else []
+
+    if not dry_run:
+        print(f"Creating repo {HF_REPO_ID} (exist_ok=True)…")
+        api.create_repo(repo_id=HF_REPO_ID, repo_type="model", exist_ok=True)
+
+    # README + BENCHMARKS
+    readme = _generate_readme(onnx_files, m2v_dirs)
+    benchmarks = _generate_benchmarks()
+    upload_bytes(readme.encode(), "README.md")
+    upload_bytes(benchmarks.encode(), "BENCHMARKS.md")
+
+    # ONNX models
+    if push_onnx:
+        print(f"\nUploading {len(onnx_files)} ONNX models…")
+        for f in onnx_files:
+            upload_file(f, f"models/eat/{f.name}")
+
+    # M2V models
+    if push_m2v:
+        print(f"\nUploading {len(m2v_dirs)} M2V model directories…")
+        for d in m2v_dirs:
+            for fp in sorted(d.rglob("*")):
+                if fp.is_file():
+                    rel = fp.relative_to(M2V_MODEL_DIR)
+                    upload_file(fp, f"models/eat_m2v/{rel}")
+
+    # Benchmark reports + plots
+    if push_reports and REPORTS_DIR.exists():
+        report_files = list(REPORTS_DIR.glob("*.json")) + list(REPORTS_DIR.glob("*.png"))
+        print(f"\nUploading {len(report_files)} benchmark reports/plots…")
+        for rf in sorted(report_files):
+            upload_file(rf, f"benchmarks/eat/{rf.name}")
 
 
 # ---------------------------------------------------------------------------
@@ -244,36 +304,19 @@ def push_m2v_model(m2v_dir: Path, dry_run: bool = False) -> None:
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-    parser = argparse.ArgumentParser(description="Push EAT models to HuggingFace Hub")
-    parser.add_argument("--type", choices=["onnx", "m2v", "all"], default="all")
-    parser.add_argument("--model", help="Push a single model by stem name or directory name")
-    parser.add_argument("--dry-run", action="store_true", help="Print repos without pushing")
+    parser = argparse.ArgumentParser(description=f"Push EAT models to {HF_REPO_ID}")
+    parser.add_argument("--type", choices=["onnx", "m2v", "reports", "all"], default="all")
+    parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
-    push_onnx = args.type in ("onnx", "all")
-    push_m2v = args.type in ("m2v", "all")
-
-    if push_onnx:
-        onnx_files = sorted(ONNX_MODEL_DIR.glob("*.onnx")) if ONNX_MODEL_DIR.exists() else []
-        for f in onnx_files:
-            if args.model and f.stem != args.model:
-                continue
-            try:
-                push_onnx_model(f, dry_run=args.dry_run)
-            except Exception as exc:
-                LOG.error("Failed to push %s: %s", f.name, exc)
-
-    if push_m2v:
-        m2v_dirs = sorted(M2V_MODEL_DIR.iterdir()) if M2V_MODEL_DIR.exists() else []
-        for d in m2v_dirs:
-            if not d.is_dir():
-                continue
-            if args.model and d.name != args.model:
-                continue
-            try:
-                push_m2v_model(d, dry_run=args.dry_run)
-            except Exception as exc:
-                LOG.error("Failed to push %s: %s", d.name, exc)
+    push_all(
+        push_onnx=args.type in ("onnx", "all"),
+        push_m2v=args.type in ("m2v", "all"),
+        push_reports=args.type in ("reports", "all"),
+        dry_run=args.dry_run,
+    )
+    if not args.dry_run:
+        print(f"\nDone → https://huggingface.co/{HF_REPO_ID}")
 
 
 if __name__ == "__main__":
