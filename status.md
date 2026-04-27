@@ -13,10 +13,10 @@
 - [ ] Train M2V: `python -m train.train_eat_m2v`
 - [ ] Re-benchmark: `python -m train.benchmark_eat` — verify probs sum to 1, plots updated
 - [x] Delete COSC-only scripts from `train/` — removed 15; kept translate.py/translate_dataset.py/translate_cosc.py/translate_cosc_batch.py for future multilingual EAT use
-- [ ] `little-questions-hf`: `git rm -r models/cosc/`; copy ONNX → `models/eat/`; copy m2v → `models/eat_m2v/`; rewrite `manifest.json`; change git remote to `TigreGotico/eat-classifiers`
-- [ ] Rewrite `little-questions-hf/README.md` (EAT classifiers; datasets section linking TigreGotico/EAT and TigreGotico/sentence-types-multilingual)
-- [ ] Rewrite `little-questions-hf/BENCHMARKS.md` (EAT results only)
-- [ ] Create `TigreGotico/eat-classifiers` HF repo and `git push`
+- [x] Delete `little-questions-hf/` monorepo — replaced by one-HF-repo-per-model approach
+- [x] Create `train/push_to_hf.py` — pushes each ONNX/M2V model to its own HF repo with generated README model card
+- [ ] Run `python -m train.push_to_hf --type onnx` after ONNX training
+- [ ] Run `python -m train.push_to_hf --type m2v` after M2V training
 
 ## Blockers
 <!-- none yet -->
