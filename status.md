@@ -12,7 +12,7 @@
 - [ ] Retrain ONNX: `python -m train.train_eat --model svm_cal`
 - [ ] Train M2V: `python -m train.train_eat_m2v`
 - [ ] Re-benchmark: `python -m train.benchmark_eat` — verify probs sum to 1, plots updated
-- [ ] Delete 19 COSC-only scripts from `train/` (see delete list in plan.md)
+- [x] Delete COSC-only scripts from `train/` — removed 15; kept translate.py/translate_dataset.py/translate_cosc.py/translate_cosc_batch.py for future multilingual EAT use
 - [ ] `little-questions-hf`: `git rm -r models/cosc/`; copy ONNX → `models/eat/`; copy m2v → `models/eat_m2v/`; rewrite `manifest.json`; change git remote to `TigreGotico/eat-classifiers`
 - [ ] Rewrite `little-questions-hf/README.md` (EAT classifiers; datasets section linking TigreGotico/EAT and TigreGotico/sentence-types-multilingual)
 - [ ] Rewrite `little-questions-hf/BENCHMARKS.md` (EAT results only)
