@@ -1,0 +1,199 @@
+label	question	lang
+NUM:weight	What is the weight of an empty tractor-trailer?	en
+LOC:other	What country has Snowdon?	en
+HUM:title	What is a Admiral?	en
+LOC:mount	What is the tallest peak in the Dolomites?	en
+DESC:desc	What is Moscow?	en
+DESC:def	What is the £ symbol used for?	en
+DESC:manner	What is the way to write a letter?	en
+DESC:def	How is a preposition used?	en
+NUM:dist	How far is Sydney from Melbourne?	en
+HUM:gr	What are Arnold Palmers fans called	en
+DESC:desc	How are provinces?	en
+ABBR:exp	What does ROU stand for?	en
+ENTY:color	What color is coral?	en
+LOC:mount	Where is Mount Popocatépetl?	en
+HUM:ind	What Democratic prankster waved the train out of the station while Richard Nixon spoke from the caboose	en
+DESC:def	What is a historian?	en
+DESC:manner	How are remains scattered?	en
+LOC:state	Kosovo is a province of what country	en
+DESC:desc	How are republics?	en
+DESC:description	What are the rules of golf?	en
+ENTY:symbol	What is the percent sign symbol?	en
+NUM:count	How many miles of corridors are in The Pentagon	en
+DESC:desc	What is the oldest profession	en
+ABBR:abb	What is the acronym for Local Area Network?	en
+NUM:ord	What is the sixth book in the series?	en
+ENTY:animal	What is a baby turkey called	en
+ABBR:exp	CPU means what in full form?	en
+NUM:temp	At what temperature does aluminum melt?	en
+DESC:desc	How is a consortium formed?	en
+DESC:manner	How do colonists inhabit?	en
+DESC:def	What makes a zone a city?	en
+NUM:speed	How fast does a bullet travel?	en
+ENTY:event	What are the rites accompanying the circumcision of a newly born-child in Judaism called	en
+HUM:ind	How old is Britney Spears	en
+DESC:manner	How did Lee Harvey Oswald purchase his rifle	en
+DESC:def	What is the endocrine system?	en
+ENTY:currency	What is the rupee?	en
+NUM:count	How many chambers does the human kidney have?	en
+ENTY:other	What does NATO countries include?	en
+NUM:count	What are the unemployment statistics for the years 1965 and 1990	en
+ENTY:animal	What is the proper name for a female walrus	en
+DESC:desc	What is the Panama Canal?	en
+ENTY:word	What is the longest English word	en
+DESC:manner	What is the method for tie a knot?	en
+NUM:code	What is the octal code for carriage return?	en
+ENTY:product	What is the name of Kevin Costners movie about Sioux Indians	en
+DESC:def	What is cemetery?	en
+DESC:desc	What happened during the 2008 financial crisis?	en
+NUM:count	What is the number of sports?	en
+ENTY:cremat	Name a novel written by John Steinbeck	en
+NUM:date	When did the royal wedding of Prince Andrew and Fergie take place	en
+ABBR:abb	What does SMTP stand for?	en
+DESC:reason	Why do ISBN numbers for books contain check digits?	en
+ABBR:exp	FAQ means what?	en
+DESC:reason	What causes drainage?	en
+DESC:def	What is the meaning of JSON?	en
+NUM:count	How many muscles exist?	en
+DESC:reason	How do safety colors work?	en
+ABBR:exp	What does CUW represent?	en
+ENTY:symbol	what was the symbol used by the nazis	en
+DESC:desc	What is cheese made from?	en
+LOC:other	Which country has the most water pollution	en
+DESC:def	What is an atoll?	en
+NUM:volsize	How large is the Arctic Ocean?	en
+DESC:desc	What is the ear?	en
+HUM:gr	What is a employers?	en
+ENTY:food	What is tilapia?	en
+LOC:other	Where does cereal come from?	en
+HUM:desc	Describe a typical nurse	en
+DESC:reason	Why do nerves transmit?	en
+DESC:desc	What is the weather like on the moon	en
+ABBR:exp	FBI stands for what exactly?	en
+LOC:water	What ocean surrounds the Maldive Islands	en
+NUM:dist	How tall is kilamanjaro	enDESC:reason	What is a drill used for?	en
+NUM:count	How many strings does a harp have?	en
+ABBR:exp	What does LBY stand for?	en
+ENTY:desc	What color is crimson?	en
+DESC:manner	How are seeds cultivated?	en
+ENTY:word	Name the 5 words that use all of the letters in the alphabet, except Q, with no repeats	en
+ENTY:product	What product did Robert Conrad dare people to knock off his shoulder	en
+NUM:money	How much money does each player get at the beginning of the game in Monopoly	en
+ABBR:exp	What does MDV expand to?	en
+DESC:reason	What causes lava flows?	en
+DESC:desc	What is a script?	en
+DESC:desc	How does microservices architecture work?	en
+ENTY:symbol	what signs are there in the horoscope	en
+DESC:desc	What does effervescent mean?	en
+ENTY:product	What household products are there for adult acne	en
+ENTY:product	What is a microwave?	en
+DESC:reason	What makes resource defense important?	en
+DESC:manner	How is milk processed?	en
+NUM:period	What is the typical duration of a medical appointment?	en
+DESC:manner	How does GPS tracking work?	en
+DESC:manner	How do you use a compass?	en
+DESC:reason	Why do eyes blink?	en
+NUM:period	What is the average lifespan of a turtle?	en
+DESC:desc	How are tastes described gustatorily?	en
+DESC:def	What is meant by USB?	en
+NUM:period	Shea and Gould had an office in Los Angeles for how long before closing it	en
+LOC:country	Where is New Zealand?	en
+ABBR:exp	What does CHE expand to?	en
+NUM:count	What is the number of provinces of Argentina?	en
+NUM:perc	What percentage of the worlds fresh water is frozen?	en
+ENTY:animal	What are the wolverine habits	en
+ENTY:event	What was the Olympics?	en
+NUM:money	How much does a book cost?	en
+DESC:manner	What is the pronunciation of the letter G in English?	en
+DESC:manner	What handicraft requires you to interlace your warp and weft	en
+ENTY:termeq	What is a synonym for automobile?	en
+ABBR:exp	What does e.g. stand for	en
+DESC:def	What is a conjunction?	en
+NUM:volsize	What is the volume of a teaspoon?	en
+ENTY:color	What color is a tomato?	en
+DESC:desc	What is broccoli made from?	en
+LOC:city	What is the capital of Kenya?	en
+DESC:manner	How do animals use touch?	en
+DESC:manner	What is a excavator used for?	en
+DESC:manner	What do you use a scissors for?	en
+NUM:other	What is the fuel efficiency of a Prius in highway conditions?	en
+ENTY:animal	What is a reindeer?	en
+NUM:money	How much does a house cost?	en
+DESC:desc	What identifies personal characteristics?	en
+DESC:def	What is canary deployment?	en
+LOC:landmass	List all the continents	en
+DESC:reason	Why are eggs supposed to be stored small end down	en
+ENTY:other	What arch can you see from the Place de la Concorde	en
+ENTY:body	What is the function of the bladder?	en
+DESC:manner	In what way do surveyors measure?	en
+DESC:desc	What is pie made from?	en
+ENTY:event	What happened on January 15, 1969	en
+ENTY:food	What is cocoa?	en
+LOC:city	Where was the first restaurant	en
+NUM:code	What does error code E429 mean in web?	en
+LOC:other	Where is Norwegian spoken?	en
+DESC:def	What is anaphora?	en
+NUM:other	How many horsepower does a Tesla Model S Plaid have?	en
+DESC:desc	What is mausoleum?	en
+NUM:count	What is the population of Japan?	en
+HUM:desc	Whats the nickname of oddsmaker Jimmy Snyder	en
+ENTY:event	What was the tragedy that struck the city of Dogtown in 1899	en
+NUM:volsize	What is the size of the internet?	en
+LOC:other	Where does pizza come from?	en
+NUM:weight	What is the weight of a grand piano?	en
+NUM:speed	What is the speed of a typical bullet train?	en
+ENTY:other	What connects to the Yangtze River?	en
+NUM:money	What is the cost of a movie ticket?	en
+DESC:def	What is infrastructure as code?	en
+ENTY:product	What is the recipe or formula for Coca-Cola	en
+DESC:reason	Why is eclipses happen?	en
+NUM:dist	How far is Earth and Moon?	en
+ENTY:substance	What chemicals are used in lethal injection	en
+LOC:country	What country in Latin America is the largest one	en
+DESC:manner	How are states delineated?	en
+NUM:code	What is the hexadecimal code for symbol @?	en
+ENTY:animal	What kind of dog is Scooby Doo	en
+ENTY:product	What computer operating system is on the most computers	en
+ENTY:plant	What is a lettuce?	en
+ENTY:word	What is an antonym for good?	en
+DESC:def	What is propylene glycol	en
+ENTY:desc	How is the - symbol used?	en
+HUM:desc	What cigar-chewing comedian observed You re only as old as the woman you feel	en
+NUM:count	About how many Americans are still unaccounted for from the Vietnam war	en
+DESC:desc	What is a Gen X?	en
+ENTY:animal	What was Paul Bunyans oxs name	en
+ENTY:body	What is the integumentary system?	en
+DESC:reason	What causes defaults?	en
+LOC:desc	What connects to the Great Salt Lake?	en
+DESC:def	What is fibromyalgia	en
+DESC:reason	What is the reason we need sleep?	en
+NUM:perc	What percentage of the population is vegan?	en
+NUM:count	How many male reproductive organs?	en
+ENTY:body	What is the immune system?	en
+NUM:perc	What percentage of the human genome is unique to each person?	en
+DESC:desc	What are nerve endings?	en
+ABBR:abb	What does A11y mean?	en
+DESC:manner	How do animals use regeneration?	en
+LOC:country	What country is Kosovo a part of	en
+LOC:landmass	Name all the continents	en
+DESC:def	How does cohesion function?	en
+ABBR:exp	Expand the acronym EPA	en
+ENTY:word	What is the plural of criterion?	en
+NUM:count	How many Agnostics are there?	en
+DESC:def	What is Batesian mimicry?	en
+NUM:count	How many people speak German?	en
+ENTY:city	What is the capital of Kentucky?	en
+ENTY:veh	What is a rental car?	en
+ENTY:word	What is the plural of gulf	en
+LOC:mount	How high is Mount McKinley?	en
+DESC:desc	What is meant by WiFi?	en
+LOC:other	What connects to the Caribbean Sea?	en
+DESC:desc	How are colors represented in light?	en
+NUM:period	What is the average lifespan of a goldfish?	en
+LOC:landmass	Where is Greenland?	en
+DESC:desc	What is a caisson?	en
+LOC:other	Where does cake come from?	en
+DESC:def	How is a sentence structured?	en
+HUM:ind	What was Michelangelos last name	en
+DESC:desc	Tell me about Argentina	en
