@@ -23,6 +23,7 @@ import numpy as np
 LOG = logging.getLogger(__name__)
 
 MODEL_DIR = os.path.expanduser("~/.local/share/little_questions/eat")
+M2V_MODEL_DIR = os.path.expanduser("~/.local/share/little_questions/eat_m2v")
 REPORTS_DIR = join(os.path.dirname(__file__), "reports", "eat")
 VERSION = "0.9.0"
 
@@ -67,6 +68,25 @@ class OnnxScorer:
         result = self._sess.run([self._output_name], {self._input_name: inp})
         return [self._decode(r) for r in result[0]]
 
+    def score_batch(self, texts: list[str]) -> list[dict[str, float]]:
+        """Return per-class probability dicts. For calibrated models reads output[1] directly;
+        for uncalibrated models applies softmax over decision scores."""
+        inp = np.array(texts, dtype=object)
+        outputs = self._sess.get_outputs()
+        out_names = [o.name for o in outputs]
+        results = self._sess.run(out_names, {self._input_name: inp})
+        scores = results[1]  # shape [N, n_classes]
+        meta = self._sess.get_modelmeta().custom_metadata_map
+        is_calibrated = meta.get("calibrated") == "true"
+        if not is_calibrated:
+            # softmax over decision scores
+            exp = np.exp(scores - scores.max(axis=1, keepdims=True))
+            scores = exp / exp.sum(axis=1, keepdims=True)
+        return [
+            {cls: float(scores[i, j]) for j, cls in enumerate(self._classes)}
+            for i in range(len(texts))
+        ]
+
 
 # ---------------------------------------------------------------------------
 # Two-stage ONNX scorer
@@ -75,23 +95,21 @@ class OnnxScorer:
 class TwoStageOnnxScorer:
     """53-class scorer that constrains predictions using a 7-class gating model.
 
-    Stage 1: run eat7_svm → predict main category (e.g. "ENTY")
-    Stage 2: run eat53_svm → get decision scores for all 53 labels,
-             zero out every label whose main category ≠ stage-1 result,
-             return the argmax of the remaining scores.
+    Stage 1: eat7 → predict main category (e.g. "ENTY")
+    Stage 2: eat53 → get probability/score vector for all 53 labels,
+             zero out labels whose main category ≠ stage-1 result,
+             renormalize surviving probabilities, return argmax.
     """
 
-    name = "eat53_2stage_svm"
-
-    def __init__(self, path7: str, path53: str) -> None:
+    def __init__(self, path7: str, path53: str, model_type: str = "svm") -> None:
         import onnxruntime as rt
 
+        self.name = f"eat53_2stage_{model_type}"
         self._sess7 = rt.InferenceSession(path7, providers=["CPUExecutionProvider"])
         self._sess53 = rt.InferenceSession(path53, providers=["CPUExecutionProvider"])
         self._in7 = self._sess7.get_inputs()[0].name
         self._in53 = self._sess53.get_inputs()[0].name
 
-        # output[0] = label (int64 index), output[1] = decision scores (float)
         self._out7_label = self._sess7.get_outputs()[0].name
         self._out53_label = self._sess53.get_outputs()[0].name
         self._out53_scores = self._sess53.get_outputs()[1].name
@@ -100,34 +118,78 @@ class TwoStageOnnxScorer:
         meta53 = self._sess53.get_modelmeta().custom_metadata_map
         self._classes7: list[str] = json.loads(meta7.get("classes", "[]"))
         self._classes53: list[str] = json.loads(meta53.get("classes", "[]"))
+        self._is_calibrated53 = meta53.get("calibrated") == "true"
 
-        # Precompute: for each 53-class index, which 7-class main category
         self._main_of_53 = [c.split(":")[0] for c in self._classes53]
+
+    def _get_scores53(self, inp) -> np.ndarray:
+        """Return probability matrix [N, 53], converting from decision scores if needed."""
+        out_names = [o.name for o in self._sess53.get_outputs()]
+        results = self._sess53.run(out_names, {self._in53: inp})
+        scores = results[1]
+        if not self._is_calibrated53:
+            exp = np.exp(scores - scores.max(axis=1, keepdims=True))
+            scores = exp / exp.sum(axis=1, keepdims=True)
+        return scores
 
     def predict(self, text: str) -> str:
         return self.predict_batch([text])[0]
 
     def predict_batch(self, texts: list[str]) -> list[str]:
         inp = np.array(texts, dtype=object)
-
-        # Stage 1: main category per sample
         res7 = self._sess7.run([self._out7_label], {self._in7: inp})
         main_cats = [self._classes7[int(idx)] for idx in res7[0]]
-
-        # Stage 2: decision scores for all 53 labels
-        res53 = self._sess53.run([self._out53_label, self._out53_scores], {self._in53: inp})
-        scores = res53[1]  # shape [N, 53]
+        scores = self._get_scores53(inp)
 
         preds = []
         for i, main in enumerate(main_cats):
             row = scores[i].copy()
-            # Zero out labels that don't belong to the predicted main category
-            for j, m in enumerate(self._main_of_53):
-                if m != main:
-                    row[j] = -np.inf
-            best = int(np.argmax(row))
-            preds.append(self._classes53[best])
+            mask = np.array([m != main for m in self._main_of_53])
+            row[mask] = 0.0
+            surviving = row.sum()
+            if surviving > 0:
+                row /= surviving
+            else:
+                row = scores[i]  # fallback: use original scores
+            preds.append(self._classes53[int(np.argmax(row))])
         return preds
+
+    def score_batch(self, texts: list[str]) -> list[dict[str, float]]:
+        """Return renormalized probability dicts masked to the stage-1 main category."""
+        inp = np.array(texts, dtype=object)
+        res7 = self._sess7.run([self._out7_label], {self._in7: inp})
+        main_cats = [self._classes7[int(idx)] for idx in res7[0]]
+        scores = self._get_scores53(inp)
+
+        out = []
+        for i, main in enumerate(main_cats):
+            row = scores[i].copy()
+            mask = np.array([m != main for m in self._main_of_53])
+            row[mask] = 0.0
+            surviving = row.sum()
+            if surviving > 0:
+                row /= surviving
+            out.append({cls: float(row[j]) for j, cls in enumerate(self._classes53)})
+        return out
+
+
+# ---------------------------------------------------------------------------
+# M2V scorer (joblib directory)
+# ---------------------------------------------------------------------------
+
+class M2VEatScorer:
+    """Scorer wrapping a saved Model2VecClassifier for benchmarking."""
+
+    def __init__(self, directory: str) -> None:
+        from train.classifiers import Model2VecClassifier
+        self._clf = Model2VecClassifier.load(directory)
+        self.name = Path(directory).name
+
+    def predict(self, text: str) -> str:
+        return self._clf.predict([text])[0]
+
+    def predict_batch(self, texts: list[str]) -> list[str]:
+        return self._clf.predict(texts)
 
 
 # ---------------------------------------------------------------------------
@@ -300,12 +362,31 @@ def plot_per_class_f1(eval_result, n_cls: int, save_dir: str) -> None:
 # Main
 # ---------------------------------------------------------------------------
 
-MODEL_TYPES = ["svm", "logreg", "sgd"]
+ONNX_MODEL_TYPES = ["svm", "svm_cal", "logreg", "sgd"]
 
 
 def _model_path(model_type: str, n_cls: int) -> str:
     name = f"eat{n_cls}_{model_type}_EN_{VERSION}.onnx"
     return join(MODEL_DIR, name)
+
+
+def _run_scorer(scorer, x_test, y_test) -> tuple:
+    """Run predict_batch on scorer, monkey-patch predict(), call evaluate()."""
+    from train.metrics import evaluate
+    y_pred_batch = scorer.predict_batch(x_test)
+    _it = iter(y_pred_batch)
+    scorer.predict = lambda _t, _i=_it: next(_i)
+    result = evaluate(scorer, x_test, y_test, dataset=HF_DATASET, lang="en")
+    return result
+
+
+def _discover_m2v_dirs(n_cls: int) -> list[str]:
+    """Return sorted list of M2V model directories matching n_cls."""
+    base = Path(M2V_MODEL_DIR)
+    if not base.exists():
+        return []
+    suffix = f"-en-{n_cls}c"
+    return sorted(str(d) for d in base.iterdir() if d.is_dir() and d.name.endswith(suffix))
 
 
 def main() -> None:
@@ -316,17 +397,18 @@ def main() -> None:
                         help="Path to local EAT.tsv (default: load from HuggingFace)")
     parser.add_argument("--classes", type=int, choices=[7, 53],
                         help="Only benchmark this class granularity")
-    parser.add_argument("--model", choices=MODEL_TYPES,
-                        help="Only benchmark this model type")
+    parser.add_argument("--model", choices=ONNX_MODEL_TYPES,
+                        help="Only benchmark this ONNX model type")
+    parser.add_argument("--no-m2v", action="store_true", help="Skip M2V models")
     args = parser.parse_args()
 
-    from train.metrics import evaluate, compare
+    from train.metrics import compare
 
     class_variants = [args.classes] if args.classes else [53, 7]
-    model_types = [args.model] if args.model else MODEL_TYPES
+    model_types = [args.model] if args.model else ONNX_MODEL_TYPES
 
     all_summary: list[dict] = []
-    best_per_cls: dict[int, tuple] = {}  # n_cls → (best_macro_f1, eval_result)
+    best_per_cls: dict[int, tuple] = {}
 
     for n_cls in class_variants:
         print(f"\nLoading test split ({n_cls}-class)…")
@@ -334,6 +416,8 @@ def main() -> None:
         print(f"  {len(x_test)} test samples, {len(set(y_test))} classes")
 
         cls_results = []
+
+        # ONNX baselines
         for mt in model_types:
             path = _model_path(mt, n_cls)
             if not os.path.exists(path):
@@ -341,11 +425,7 @@ def main() -> None:
                 continue
 
             scorer = OnnxScorer(path)
-            y_pred_batch = scorer.predict_batch(x_test)
-            _pred_iter = iter(y_pred_batch)
-            scorer.predict = lambda _t, _it=_pred_iter: next(_it)
-            result = evaluate(scorer, x_test, y_test,
-                              dataset=HF_DATASET, lang="en")
+            result = _run_scorer(scorer, x_test, y_test)
             cls_results.append(result)
             all_summary.append({
                 "scorer_name": scorer.name,
@@ -356,26 +436,25 @@ def main() -> None:
                 "weighted_f1": result.weighted_f1,
             })
             result.save(join(REPORTS_DIR, f"{scorer.name}_benchmark.json"))
-
             if n_cls not in best_per_cls or result.macro_f1 > best_per_cls[n_cls][0]:
                 best_per_cls[n_cls] = (result.macro_f1, result)
 
-        # 2-stage scorer: only when benchmarking 53-class and svm is included
-        if n_cls == 53 and "svm" in model_types:
-            p7 = _model_path("svm", 7)
-            p53 = _model_path("svm", 53)
-            if os.path.exists(p7) and os.path.exists(p53):
-                print("\n  Running 2-stage scorer (eat7_svm → eat53_svm)…")
-                ts = TwoStageOnnxScorer(p7, p53)
-                y_pred_2s = ts.predict_batch(x_test)
-                _pred_iter_2s = iter(y_pred_2s)
-                ts.predict = lambda _t, _it=_pred_iter_2s: next(_it)
-                result_2s = evaluate(ts, x_test, y_test,
-                                     dataset=HF_DATASET, lang="en")
+        # 2-stage scorers (53-class only)
+        if n_cls == 53:
+            for mt in ("svm", "svm_cal"):
+                if mt not in model_types:
+                    continue
+                p7 = _model_path(mt, 7)
+                p53 = _model_path(mt, 53)
+                if not (os.path.exists(p7) and os.path.exists(p53)):
+                    continue
+                print(f"\n  Running 2-stage scorer (eat7_{mt} → eat53_{mt})…")
+                ts = TwoStageOnnxScorer(p7, p53, model_type=mt)
+                result_2s = _run_scorer(ts, x_test, y_test)
                 cls_results.append(result_2s)
                 all_summary.append({
                     "scorer_name": ts.name,
-                    "model_type": "2stage_svm",
+                    "model_type": f"2stage_{mt}",
                     "classes": 53,
                     "accuracy": result_2s.accuracy,
                     "macro_f1": result_2s.macro_f1,
@@ -384,6 +463,28 @@ def main() -> None:
                 result_2s.save(join(REPORTS_DIR, f"{ts.name}_benchmark.json"))
                 if result_2s.macro_f1 > best_per_cls.get(53, (-1, None))[0]:
                     best_per_cls[53] = (result_2s.macro_f1, result_2s)
+
+        # M2V scorers
+        if not args.no_m2v:
+            for m2v_dir in _discover_m2v_dirs(n_cls):
+                try:
+                    scorer = M2VEatScorer(m2v_dir)
+                except Exception as exc:
+                    LOG.warning("Could not load M2V model %s: %s", m2v_dir, exc)
+                    continue
+                result = _run_scorer(scorer, x_test, y_test)
+                cls_results.append(result)
+                all_summary.append({
+                    "scorer_name": scorer.name,
+                    "model_type": scorer.name,
+                    "classes": n_cls,
+                    "accuracy": result.accuracy,
+                    "macro_f1": result.macro_f1,
+                    "weighted_f1": result.weighted_f1,
+                })
+                result.save(join(REPORTS_DIR, f"{scorer.name}_benchmark.json"))
+                if n_cls not in best_per_cls or result.macro_f1 > best_per_cls[n_cls][0]:
+                    best_per_cls[n_cls] = (result.macro_f1, result)
 
         if cls_results:
             print(f"\n--- {n_cls}-class comparison ---")

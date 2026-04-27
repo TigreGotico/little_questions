@@ -5,7 +5,7 @@
 - [x] Add `CalibratedLinearSVCClassifier` to `train/classifiers.py` with `save_onnx()` using `zipmap=False`
 - [x] Add `"svm_cal"` to `train/train_eat.py`; update `save_onnx()` helper for calibration options
 - [x] Create `train/train_eat_m2v.py` — train 12 M2V variants (2M/8M/32M × plain/+tfidf × 7c/53c)
-- [ ] Update `train/benchmark_eat.py` — `OnnxScorer.score_batch()`, calibrated `TwoStageOnnxScorer`, `M2VEatScorer`, full benchmark loop, regenerate plots
+- [x] Update `train/benchmark_eat.py` — `OnnxScorer.score_batch()`, calibrated `TwoStageOnnxScorer`, `M2VEatScorer`, full benchmark loop, regenerate plots
 - [ ] Rewrite `little_questions/constants.py` — `EAT_LABELS_7`, `EAT_LABELS_53`, updated label name dicts (add BOOL, remove COSC-only)
 - [ ] Add `EatClassifier` singleton to `little_questions/classifiers.py`; update/replace `QuestionTypeClassifier`
 - [ ] Update `little_questions/__init__.py` — wire `EatClassifier`, add `.classification_scores`, `.confidence`; handle `BOOL:yesno` (no secondary label)
