@@ -20,6 +20,7 @@ import os
 from os.path import dirname, join
 from pathlib import Path
 
+from sklearn.calibration import CalibratedClassifierCV
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression, SGDClassifier as _SGD
 from sklearn.metrics import accuracy_score, classification_report, f1_score
@@ -28,6 +29,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.svm import LinearSVC
 
 import train.mlflow_config as mlflow_config
+from train.classifiers import CalibratedLinearSVCClassifier
 from train.load_eat import load_eat, load_eat_hf
 
 LOG = logging.getLogger(__name__)
@@ -52,9 +54,10 @@ def _char_tfidf() -> TfidfVectorizer:
 
 
 BASELINES: dict[str, tuple[str, callable]] = {
-    "svm":    ("word", lambda: LinearSVC(C=1.0, max_iter=2000)),
-    "logreg": ("word", lambda: LogisticRegression(solver="lbfgs", max_iter=1000, C=1.0)),
-    "sgd":    ("word", lambda: _SGD(loss="hinge", penalty="l2", alpha=1e-3, random_state=42)),
+    "svm":     ("word", lambda: LinearSVC(C=1.0, max_iter=2000)),
+    "logreg":  ("word", lambda: LogisticRegression(solver="lbfgs", max_iter=1000, C=1.0)),
+    "sgd":     ("word", lambda: _SGD(loss="hinge", penalty="l2", alpha=1e-3, random_state=42)),
+    "svm_cal": None,  # handled specially via CalibratedLinearSVCClassifier
 }
 
 
@@ -68,13 +71,16 @@ def build_pipeline(model_type: str) -> Pipeline:
 # ONNX export helper (no custom transformers, so this always works)
 # ---------------------------------------------------------------------------
 
-def save_onnx(pipeline: Pipeline, path: str, classes: list[str]) -> None:
+def save_onnx(pipeline: Pipeline, path: str, classes: list[str], calibrated: bool = False) -> None:
     from skl2onnx import convert_sklearn
     from skl2onnx.common.data_types import StringTensorType
     import onnx, json
 
     initial_type = [("input", StringTensorType([None]))]
-    options = {LinearSVC: {"nocl": True}}
+    if calibrated:
+        options = {CalibratedClassifierCV: {"zipmap": False}}
+    else:
+        options = {LinearSVC: {"nocl": True}}
     onnx_model = convert_sklearn(pipeline, initial_types=initial_type, options=options)
     if isinstance(onnx_model, tuple):
         onnx_model = onnx_model[0]
@@ -82,6 +88,11 @@ def save_onnx(pipeline: Pipeline, path: str, classes: list[str]) -> None:
     meta = onnx_model.metadata_props.add()
     meta.key = "classes"
     meta.value = json.dumps(classes)
+
+    if calibrated:
+        flag = onnx_model.metadata_props.add()
+        flag.key = "calibrated"
+        flag.value = "true"
 
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     onnx.save_model(onnx_model, path)
@@ -106,8 +117,14 @@ def train_model(
     print(f"Training  {model_name}")
     print("=" * 60)
 
-    pipe = build_pipeline(model_type)
-    pipe.fit(x_train, y_train)
+    is_calibrated = model_type == "svm_cal"
+    if is_calibrated:
+        clf_wrapper = CalibratedLinearSVCClassifier()
+        clf_wrapper.train(x_train, y_train)
+        pipe = clf_wrapper.clf
+    else:
+        pipe = build_pipeline(model_type)
+        pipe.fit(x_train, y_train)
 
     y_pred = list(pipe.predict(x_test))
     report = classification_report(y_test, y_pred, zero_division=0)
@@ -126,7 +143,7 @@ def train_model(
     onnx_path = join(MODEL_DIR, f"{model_name}.onnx")
     print(f"Exporting ONNX → {onnx_path}")
     label_list = sorted(set(y_train))
-    save_onnx(pipe, onnx_path, label_list)  # raises on failure — no pkl fallback
+    save_onnx(pipe, onnx_path, label_list, calibrated=is_calibrated)  # raises on failure — no pkl fallback
 
     mlflow.set_experiment(mlflow_config.EXPERIMENT_COSC.replace("cosc", "eat"))
     with mlflow.start_run(run_name=model_name):
@@ -239,7 +256,8 @@ def main() -> None:
                         help="Path to local EAT.tsv (default: load from HuggingFace TigreGotico/EAT)")
     parser.add_argument("--classes", type=int, choices=[7, 53],
                         help="Train only this class granularity (default: both)")
-    parser.add_argument("--model", choices=list(BASELINES), help="Train a single model type only")
+    parser.add_argument("--model", choices=[k for k, v in BASELINES.items()],
+                        help="Train a single model type only")
     parser.add_argument("--plot", action="store_true", help="Save benchmark plots after training")
     args = parser.parse_args()
 
