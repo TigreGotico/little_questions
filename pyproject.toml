@@ -37,6 +37,10 @@ dependencies = [
 hf = [
     "huggingface_hub",
 ]
+test = [
+    "pytest",
+    "scikit-learn",
+]
 train = [
     "scikit-learn",
     "joblib",
