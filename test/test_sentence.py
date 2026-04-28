@@ -309,6 +309,10 @@ class TestAnswerPolarity:
 # PunctuationScorer baseline (train module)
 # ---------------------------------------------------------------------------
 
+@pytest.mark.skipif(
+    __import__("importlib.util", fromlist=["find_spec"]).find_spec("sklearn") is None,
+    reason="sklearn not installed (requires little-questions[train])",
+)
 class TestPunctuationScorer:
     def test_question_mark(self):
         from train.baselines import PunctuationScorer
