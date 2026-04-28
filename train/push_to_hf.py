@@ -93,84 +93,85 @@ def _eat_readme(onnx_files: list[Path]) -> str:
         rows.append(f"| `{f.name}` | {variant} | {output} |")
     table = "\n".join(rows) or "_No models found_"
 
-    return dedent(f"""\
-        ---
-        language:
-          - en
-        license: apache-2.0
-        tags:
-          - question-classification
-          - text-classification
-          - onnx
-          - english
-          - eat
-          - calibrated
-        datasets:
-          - TigreGotico/EAT
-        ---
+    tmpl = """\
+---
+language:
+  - en
+license: apache-2.0
+tags:
+  - question-classification
+  - text-classification
+  - onnx
+  - english
+  - eat
+  - calibrated
+datasets:
+  - TigreGotico/EAT
+---
 
-        # eat-classifiers
+# eat-classifiers
 
-        English question answer-type (EAT) classifiers trained on the
-        [TigreGotico/EAT](https://huggingface.co/datasets/TigreGotico/EAT) dataset
-        (30,017 questions, 53 fine-grained labels across 7 TREC categories).
+English question answer-type (EAT) classifiers trained on the
+[TigreGotico/EAT](https://huggingface.co/datasets/TigreGotico/EAT) dataset
+(30,017 questions, 53 fine-grained labels across 7 TREC categories).
 
-        Two-stage inference (eat7 gates eat53) achieves **93.4% macro F1** on the test set.
+Two-stage inference (eat7 gates eat53) achieves **93.4% macro F1** on the test set.
 
-        Used by [little_questions](https://github.com/OpenJarbas/little_questions).
+Used by [little_questions](https://github.com/OpenJarbas/little_questions).
 
-        ## Label taxonomy
+## Label taxonomy
 
-        7 main categories, 53 sub-types:
+7 main categories, 53 sub-types:
 
-        | Main | Sub-types |
-        |------|-----------|
-        | `ABBR` | abb, exp |
-        | `BOOL` | yesno |
-        | `DESC` | def, desc, manner, reason |
-        | `ENTY` | animal, body, color, cremat, currency, dismed, event, food, instru, lang, letter, other, plant, product, religion, sport, substance, symbol, techmeth, termeq, veh, word |
-        | `HUM` | desc, gr, ind, title |
-        | `LOC` | city, country, landmass, mount, other, state, water |
-        | `NUM` | code, count, date, dist, money, ord, other, perc, period, speed, temp, volsize, weight |
+| Main | Sub-types |
+|------|-----------|
+| `ABBR` | abb, exp |
+| `BOOL` | yesno |
+| `DESC` | def, desc, manner, reason |
+| `ENTY` | animal, body, color, cremat, currency, dismed, event, food, instru, lang, letter, other, plant, product, religion, sport, substance, symbol, techmeth, termeq, veh, word |
+| `HUM` | desc, gr, ind, title |
+| `LOC` | city, country, landmass, mount, other, state, water |
+| `NUM` | code, count, date, dist, money, ord, other, perc, period, speed, temp, volsize, weight |
 
-        ## Models
+## Models
 
-        | File | Input variant | Output[1] |
-        |------|---------------|-----------|
-        {table}
+| File | Input variant | Output[1] |
+|------|---------------|-----------|
+TABLE_ROWS
 
-        Both punctuated and unpunctuated variants are provided.
-        Use the unpunctuated (`_unpunct`) model for ASR / voice assistant input.
+Both punctuated and unpunctuated variants are provided.
+Use the unpunctuated (`_unpunct`) model for ASR / voice assistant input.
 
-        ## Two-stage inference
+## Two-stage inference
 
-        ```python
-        import onnxruntime as rt, numpy as np, json
+```python
+import onnxruntime as rt, numpy as np, json
 
-        sess7  = rt.InferenceSession("eat7_svm_cal_EN_{VERSION}.onnx")
-        sess53 = rt.InferenceSession("eat53_svm_cal_EN_{VERSION}.onnx")
-        classes7  = json.loads(sess7.get_modelmeta().custom_metadata_map["classes"])
-        classes53 = json.loads(sess53.get_modelmeta().custom_metadata_map["classes"])
-        main_of_53 = [c.split(":")[0] for c in classes53]
+sess7  = rt.InferenceSession("eat7_svm_cal_EN_VERSION.onnx")
+sess53 = rt.InferenceSession("eat53_svm_cal_EN_VERSION.onnx")
+classes7  = json.loads(sess7.get_modelmeta().custom_metadata_map["classes"])
+classes53 = json.loads(sess53.get_modelmeta().custom_metadata_map["classes"])
+main_of_53 = [c.split(":")[0] for c in classes53]
 
-        def classify(text):
-            inp = np.array([text], dtype=object)
-            main = classes7[int(sess7.run(None, {{"input": inp}})[0][0])]
-            _, probs = sess53.run(None, {{"input": inp}})
-            row = probs[0].copy()
-            for j, m in enumerate(main_of_53):
-                if m != main:
-                    row[j] = 0.0
-            row /= row.sum()
-            return classes53[int(np.argmax(row))], float(row.max())
+def classify(text):
+    inp = np.array([text], dtype=object)
+    main = classes7[int(sess7.run(None, {"input": inp})[0][0])]
+    _, probs = sess53.run(None, {"input": inp})
+    row = probs[0].copy()
+    for j, m in enumerate(main_of_53):
+        if m != main:
+            row[j] = 0.0
+    row /= row.sum()
+    return classes53[int(np.argmax(row))], float(row.max())
 
-        print(classify("Who invented the telephone?"))  # ('HUM:ind', 0.96)
-        ```
+print(classify("Who invented the telephone?"))  # ('HUM:ind', 0.96)
+```
 
-        ## Benchmarks
+## Benchmarks
 
-        Full results: [BENCHMARKS.md](BENCHMARKS.md)
-        """).replace("{VERSION}", VERSION)
+Full results: [BENCHMARKS.md](BENCHMARKS.md)
+"""
+    return tmpl.replace("TABLE_ROWS", table).replace("VERSION", VERSION)
 
 
 def _eat_benchmarks() -> str:
@@ -187,21 +188,16 @@ def _eat_benchmarks() -> str:
                 pass
     header = "| Model | Accuracy | Macro F1 |\n|-------|----------|----------|"
     body = "\n".join(r for _, r in sorted(rows, reverse=True))
-    return dedent(f"""\
-        # EAT Classifier Benchmarks
-
-        Test set: 15% stratified split of TigreGotico/EAT (4,503 samples, random_state=42).
-
-        {header}
-        {body}
-
-        ## Plots
-
-        ![Overview](benchmarks/benchmark_eat53_overview.png)
-        ![Model comparison](benchmarks/benchmark_eat_model_comparison.png)
-        ![Per-class F1 53-class](benchmarks/benchmark_eat53_per_class_f1.png)
-        ![Confusion 7-class](benchmarks/benchmark_eat7_confusion.png)
-        """)
+    return (
+        "# EAT Classifier Benchmarks\n\n"
+        "Test set: 15% stratified split of TigreGotico/EAT (4,503 samples, random_state=42).\n\n"
+        + header + "\n" + body + "\n\n"
+        "## Plots\n\n"
+        "![Overview](benchmarks/benchmark_eat53_overview.png)\n"
+        "![Model comparison](benchmarks/benchmark_eat_model_comparison.png)\n"
+        "![Per-class F1 53-class](benchmarks/benchmark_eat53_per_class_f1.png)\n"
+        "![Confusion 7-class](benchmarks/benchmark_eat7_confusion.png)\n"
+    )
 
 
 def push_eat(api, dry_run: bool) -> None:
@@ -242,68 +238,69 @@ def _sentence_readme() -> str:
         f"| `sentence_type_{code}_0.8.0.onnx` | {name} |"
         for code, name in langs.items()
     )
-    return dedent(f"""\
-        ---
-        language:
-          - en
-          - de
-          - es
-          - fr
-          - it
-          - nl
-          - pt
-        license: apache-2.0
-        tags:
-          - sentence-classification
-          - text-classification
-          - onnx
-          - multilingual
-        datasets:
-          - TigreGotico/sentence-types-multilingual
-        ---
+    tmpl = """\
+---
+language:
+  - en
+  - de
+  - es
+  - fr
+  - it
+  - nl
+  - pt
+license: apache-2.0
+tags:
+  - sentence-classification
+  - text-classification
+  - onnx
+  - multilingual
+datasets:
+  - TigreGotico/sentence-types-multilingual
+---
 
-        # sentence-types
+# sentence-types
 
-        Multilingual sentence-type classifiers (ONNX) trained on
-        [TigreGotico/sentence-types-multilingual](https://huggingface.co/datasets/TigreGotico/sentence-types-multilingual)
-        (9,900 balanced samples per language, 6 classes).
+Multilingual sentence-type classifiers (ONNX) trained on
+[TigreGotico/sentence-types-multilingual](https://huggingface.co/datasets/TigreGotico/sentence-types-multilingual)
+(9,900 balanced samples per language, 6 classes).
 
-        Used by [little_questions](https://github.com/OpenJarbas/little_questions).
+Used by [little_questions](https://github.com/OpenJarbas/little_questions).
 
-        ## Classes
+## Classes
 
-        `command`, `exclamation`, `polar_question`, `request`, `statement`, `wh_question`
+`command`, `exclamation`, `polar_question`, `request`, `statement`, `wh_question`
 
-        ## Models
+## Models
 
-        | File | Language |
-        |------|----------|
-        {rows}
+| File | Language |
+|------|----------|
+MODEL_ROWS
 
-        ## Accuracy
+## Accuracy
 
-        | Language | Accuracy | Macro F1 |
-        |----------|----------|----------|
-        | EN | 99.2% | 99.2% |
-        | NL | 98.8% | 98.8% |
-        | FR | 97.1% | 97.1% |
-        | IT | 97.0% | 97.0% |
-        | PT | 95.4% | 95.4% |
-        | DE | 85.6% | 84.9% |
-        | ES | 74.6% | 72.7% |
+| Language | Accuracy | Macro F1 |
+|----------|----------|----------|
+| EN | 99.2% | 99.2% |
+| NL | 98.8% | 98.8% |
+| FR | 97.1% | 97.1% |
+| IT | 97.0% | 97.0% |
+| PT | 95.4% | 95.4% |
+| DE | 85.6% | 84.9% |
+| ES | 74.6% | 72.7% |
 
-        ## Inference
+## Inference
 
-        ```python
-        import onnxruntime as rt, numpy as np, json
+```python
+import onnxruntime as rt, numpy as np, json
 
-        sess = rt.InferenceSession("sentence_type_EN_0.8.0.onnx")
-        classes = json.loads(sess.get_modelmeta().custom_metadata_map["classes"])
-        inp = np.array(["Who invented the telephone?"], dtype=object)
-        label_idx, probs = sess.run(None, {{"input": inp}})
-        print(classes[int(label_idx[0])])   # wh_question
-        ```
-        """)
+sess = rt.InferenceSession("sentence_type_EN_0.8.0.onnx")
+classes = json.loads(sess.get_modelmeta().custom_metadata_map["classes"])
+inp = np.array(["Who invented the telephone?"], dtype=object)
+label_idx, probs = sess.run(None, {"input": inp})
+print(classes[int(label_idx[0])])   # wh_question
+```
+"""
+    return tmpl.replace("MODEL_ROWS", rows)
 
 
 def push_sentence_type(api, dry_run: bool) -> None:
@@ -338,58 +335,58 @@ def push_sentence_type(api, dry_run: bool) -> None:
 def _yesno_readme(onnx_files: list[Path]) -> str:
     per_lang = [fn for fn in sorted(onnx_files, key=lambda fn: fn.name) if "multilingual" not in fn.name]
     lang_rows = "\n".join("| `" + fn.name + "` |" for fn in per_lang)
-    tmpl = dedent("""\
-        ---
-        language:
-          - multilingual
-        license: apache-2.0
-        tags:
-          - text-classification
-          - sentiment-analysis
-          - onnx
-          - multilingual
-          - yes-no
-        datasets:
-          - TigreGotico/yes-no-multilingual
-        ---
+    tmpl = """\
+---
+language:
+  - multilingual
+license: apache-2.0
+tags:
+  - text-classification
+  - sentiment-analysis
+  - onnx
+  - multilingual
+  - yes-no
+datasets:
+  - TigreGotico/yes-no-multilingual
+---
 
-        # yes-no-classifiers
+# yes-no-classifiers
 
-        Yes/No answer polarity classifiers (ONNX) for 43 languages, trained on
-        [TigreGotico/yes-no-multilingual](https://huggingface.co/datasets/TigreGotico/yes-no-multilingual)
-        (200 samples/language, 8,600 total).
+Yes/No answer polarity classifiers (ONNX) for 43 languages, trained on
+[TigreGotico/yes-no-multilingual](https://huggingface.co/datasets/TigreGotico/yes-no-multilingual)
+(200 samples/language, 8,600 total).
 
-        Used by [little_questions](https://github.com/OpenJarbas/little_questions) to detect
-        whether a statement is an affirmative, negative, or uncertain answer.
+Used by [little_questions](https://github.com/OpenJarbas/little_questions) to detect
+whether a statement is an affirmative, negative, or uncertain answer.
 
-        ## Classes
+## Classes
 
-        `yes`, `no`, `maybe`
+`yes`, `no`, `maybe`
 
-        ## Models
+## Models
 
-        A **multilingual model** (`yesno_svm_cal_multilingual_VERSION.onnx`) covers all 43
-        languages and ships bundled with `little_questions`. Per-language models achieve
-        90-96% macro F1 on their own language; the multilingual model achieves 84%.
+A **multilingual model** (`yesno_svm_cal_multilingual_VERSION.onnx`) covers all 43
+languages and ships bundled with `little_questions`. Per-language models achieve
+90-96% macro F1 on their own language; the multilingual model achieves 84%.
 
-        ### Per-language models
+### Per-language models
 
-        | File |
-        |------|
-        LANG_ROWS
+| File |
+|------|
+LANG_ROWS
 
-        ## Inference
+## Inference
 
-        ```python
-        import onnxruntime as rt, numpy as np
+```python
+import onnxruntime as rt, numpy as np
 
-        sess = rt.InferenceSession("yesno_svm_cal_multilingual_VERSION.onnx")
-        inp = np.array(["Yes, of course!"], dtype=object)
-        label, probs = sess.run(None, {"input": inp})
-        print(label[0])   # yes
-        ```
-        """)
-    return tmpl.replace("VERSION", VERSION).replace("LANG_ROWS", lang_rows).replace('{"input": inp}', '{{"input": inp}}')
+sess = rt.InferenceSession("yesno_svm_cal_multilingual_VERSION.onnx")
+inp = np.array(["Yes, of course!"], dtype=object)
+label, probs = sess.run(None, {"input": inp})
+print(label[0])   # yes
+```
+"""
+    return tmpl.replace("VERSION", VERSION).replace("LANG_ROWS", lang_rows)
 
 
 def push_yesno(api, dry_run: bool) -> None:
