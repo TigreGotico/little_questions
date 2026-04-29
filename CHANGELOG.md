@@ -1,30 +1,12 @@
 # Changelog
 
-## [0.9.0] - 2026-04-27
+## [0.10.0a1](https://github.com/TigreGotico/little_questions/tree/0.10.0a1) (2026-04-29)
 
-### Added
-- **EAT dataset** — 30,017 EN questions with 53 fine-grained answer-type labels across 7 TREC categories; trained calibrated SVM classifiers (two-stage eat7 + eat53), achieving 93.4% macro F1
-- **Unpunctuated model variants** (`punctuated=False`) for ASR / voice assistant input; `Sentence(text, punctuated=False)` and `get_classifier(punctuated=False)` select the uncased ONNX model
-- **Yes/No answer polarity** — `Statement.answer_polarity` returns `"yes"` / `"no"` / `"maybe"`; `is_affirmative`, `is_negative` convenience properties; 43-language ONNX models
-- **Bundled models** — `eat53_svm_cal_EN_0.9.0.onnx`, `eat7_svm_cal_EN_0.9.0.onnx`, unpunctuated variants, `sentence_type_EN_0.8.0.onnx`, and `yesno_svm_cal_multilingual_0.9.0.onnx` all ship inside the package; English + multilingual yes/no work fully offline
-- **Model resolution order**: bundled → user cache (`~/.local/share/little_questions/`) → HuggingFace (optional `[hf]` extra)
-- **`train/benchmark_sentence_type.py`** — full benchmark with confusion matrices and per-class F1 plots for all 7 supported languages
-- **`train/benchmark_yesno.py`** — benchmark for all trained yes/no models (per-language + multilingual)
-- **`train/train_yesno.py`** — trains per-language and multilingual yes/no ONNX classifiers via TF-IDF char n-gram SVM
-- **`train/load_eat.py`** and **`train/load_yesno.py`** — dataset loaders from HuggingFace
+[Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.8.1a1...0.10.0a1)
 
-### Changed
-- All classifiers are now ONNX-only — no heuristics, no sklearn at inference, no locale JSON files
-- `SentenceTypeClassifier` and `EatClassifier` raise `RuntimeError` when no model is found (no silent fallback)
-- `EatClassifier.get_instance(lang, punctuated=True)` — `punctuated` parameter added
-- `pyproject.toml`: `huggingface_hub` moved to optional `[hf]` extra; `numpy` and `onnxruntime` are the only runtime dependencies
+**Merged pull requests:**
 
-### Removed
-- All heuristic classifiers (`HeuristicClassifier`, `HeuristicSentenceTypeClassifier`, `HeuristicQuestionTypeClassifier`)
-- Locale JSON rule files (`little_questions/locale/`)
-- COSC/UIUC QC models — replaced by EAT-trained models
-- `pyxdg` dependency
-- Old m2v model artefacts committed to the repository
+- feat: little\_questions 0.9.0 — EAT classifiers, yes/no polarity, bundled models [\#7](https://github.com/TigreGotico/little_questions/pull/7) ([JarbasAl](https://github.com/JarbasAl))
 
 ## [0.8.1a1](https://github.com/TigreGotico/little_questions/tree/0.8.1a1) (2026-03-31)
 
