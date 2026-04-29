@@ -40,7 +40,6 @@ hf = [
 test = [
     "pytest",
     "scikit-learn",
-    "nltk",
 ]
 train = [
     "scikit-learn",
