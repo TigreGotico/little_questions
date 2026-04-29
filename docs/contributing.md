@@ -3,116 +3,86 @@
 ## Setup
 
 ```bash
-git clone https://github.com/OpenJarbas/little_questions
+git clone https://github.com/TigreGotico/little_questions
 cd little_questions
-uv pip install -e ".[dev]"
-```
-
-NLTK data required for the English scorer tests:
-```bash
-uv run python -c "import nltk; nltk.download('punkt'); nltk.download('averaged_perceptron_tagger')"
+pip install -e ".[train]"
 ```
 
 ## Running tests
 
 ```bash
-uv run pytest test/ -v --cov=little_questions --cov-report=term-missing
-```
+# Unit tests (no models required)
+pytest test/
 
-Tests run without network access or model files. `test/conftest.py` stubs `JarbasModelZoo`
-and `xdg.BaseDirectory` so CI environments do not need those packages installed.
+# Integration tests (require downloaded ONNX models)
+pytest test/ --integration
+```
 
 ## Project layout
 
 ```
 little_questions/
-├── __init__.py                  # Sentence, Question, Command, etc.
-├── classifiers/
-│   ├── __init__.py              # get_classifier(), get_scorer()
-│   ├── base.py                  # SentenceScorer, Classifier, *TextClassifier
-│   ├── features.py              # WordFeaturesTransformer, WordFeaturesVectorizer
-│   └── lang/
-│       ├── __init__.py          # get_pipeline(lang) dispatcher
-│       ├── en/                  # SentenceScorerEN, English feature pipeline
-│       ├── es/ pt/ ca/ fr/ de/ it/
-└── models/
-    └── __init__.py              # download(), get_model_path(), LANG2MODEL
+├── __init__.py      # Sentence, subclasses, get_classifier(), get_scorer(), get_yesno_classifier()
+├── classifiers.py   # EatClassifier, SentenceTypeClassifier, YesNoClassifier, _OnnxModel
+├── constants.py     # EAT_LABELS_7, EAT_LABELS_53, SENTENCE_TYPES, MAIN_LABEL_NAMES, SEC_LABEL_NAMES
+└── models.py        # HF auto-download helpers
+
+train/               # Training-only — install with pip install little-questions[train]
+├── classifiers.py       # CalibratedLinearSVCClassifier, LinearSVCClassifier, LogRegClassifier,
+│                        # SGDClassifier, Model2VecClassifier, EATTextPreprocessor
+├── load_eat.py          # EAT dataset loader (HF + local TSV)
+├── load_yesno.py        # Yes/no dataset loader (HF)
+├── train_eat.py         # Train EAT ONNX baselines (svm_cal + uncalibrated variants)
+├── train_eat_m2v.py     # Train Model2Vec EAT variants (12 models)
+├── train_yesno.py       # Train yes/no polarity classifiers → ONNX
+├── train_sentence_type.py
+├── benchmark_eat.py     # Full EAT benchmark + 6 plots
+├── metrics.py           # EvalResult, evaluate(), compare()
+├── mlflow_config.py     # MLflow setup
+└── push_to_hf.py        # Push models + benchmarks to HuggingFace
 ```
 
-## Adding a language
-
-1. Create `little_questions/classifiers/lang/<code>/` with:
-   - `__init__.py` — expose `get_pipeline_<code>()` returning a `FeatureUnion`
-   - `features.py` — language-specific `LemmatizerTransformer` or `POSTaggerVectorizer`
-
-2. Register in `little_questions/classifiers/lang/__init__.py`:
-   ```python
-   from little_questions.classifiers.lang.<code> import get_pipeline_<code>
-   _PIPELINES["<code>"] = get_pipeline_<code>
-   ```
-
-3. Add to `little_questions/models/__init__.py`:
-   - URL entries in `MODEL2URL`
-   - Path entries in `LANG2MODEL`
-   - `download_<code>()` function
-
-4. Train the model (see Training section below).
-
-5. Write smoke tests in `test/test_sentence.py`.
-
-## Training a model
-
-Training scripts live in `train_scripts/`. Each language follows the same pattern:
-
-```
-train_scripts/
-├── clean.py                   # Shared: clean and normalise raw data
-├── train_en.py                # English training script
-├── train_es.py                # Spanish
-├── clean_data/                # Preprocessed training data (CSV)
-│   ├── questions_en_train.csv
-│   └── ...
-└── reports/                   # Accuracy reports from last training run
-```
-
-**Workflow:**
+## Training
 
 ```bash
-# 1. Clean raw data (only needed when adding new training examples)
-uv run python train_scripts/clean.py
+# EAT classifiers (calibrated ONNX, both punctuated + ASR variants)
+python -m train.train_eat
 
-# 2. Train a specific language
-uv run python train_scripts/train_en.py
-# Produces: questions52_svm_EN_<version>.pkl  (in current directory)
+# EAT Model2Vec variants
+python -m train.train_eat_m2v
 
-# 3. Move the model to the XDG cache directory
-mv questions52_svm_EN_*.pkl ~/.local/share/little_questions/
+# Yes/no polarity classifiers (per-language + multilingual)
+python -m train.train_yesno
 
-# 4. Test that the model loads
-uv run python -c "from little_questions import Sentence; print(Sentence('Who are you?'))"
+# Sentence-type classifiers
+python -m train.train_sentence_type
+
+# Benchmarks + plots
+python -m train.benchmark_eat
+python -m train.train_yesno --plot
+
+# Push all models to HuggingFace
+python -m train.push_to_hf
 ```
 
-The default classifier is `LinearSVCTextClassifier`. To experiment with other algorithms,
-edit the `train_<lang>.py` script and replace the classifier class. Compare accuracy reports
-in `train_scripts/reports/`.
+## HuggingFace repos
+
+| Repo | Contents |
+|------|----------|
+| `TigreGotico/eat-classifiers` | EAT ONNX models + benchmarks |
+| `TigreGotico/sentence-types` | Sentence-type ONNX models |
+| `TigreGotico/yes-no-classifiers` | Yes/no ONNX models |
+| `TigreGotico/EAT` | EAT training dataset (30K EN, 53 labels) |
+| `TigreGotico/sentence-types-multilingual` | Sentence-type training data (80K) |
+| `TigreGotico/yes-no-multilingual` | Yes/no training data (8.6K, 43 languages) |
 
 ## Commit conventions
 
-Follow [Conventional Commits](https://www.conventionalcommits.org/):
-
 | Prefix | When |
 |--------|------|
-| `feat:` | New feature or entry point |
+| `feat:` | New feature |
 | `fix:` | Bug fix |
 | `docs:` | Documentation only |
 | `test:` | Tests only |
 | `refactor:` | Refactor without behaviour change |
 | `chore:` | Build, tooling, dependencies |
-
-Always include:
-- AI model name if AI-generated
-- `Verified via: uv run pytest test/ -v` or equivalent
-
-## Release process
-
-See `MAINTAINERS_GUIDE.md`.

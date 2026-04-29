@@ -29,22 +29,26 @@ classifiers = [
 ]
 dependencies = [
     "numpy>=1.21.2",
-    "nltk",
-    "wordfreq",
-    "scikit-learn",
-    "joblib",
-    "pyxdg",
-    "requests",
-    "brill_postagger",
     "onnxruntime",
 ]
 
 [project.optional-dependencies]
+# HuggingFace integration — needed only to download non-bundled or custom models
+hf = [
+    "huggingface_hub",
+]
+test = [
+    "pytest",
+    "scikit-learn",
+]
 train = [
+    "scikit-learn",
+    "joblib",
     "skl2onnx",
     "onnx",
     "model2vec",
     "mlflow",
+    "datasets",
 ]
 
 [project.urls]
@@ -61,4 +65,10 @@ include = ["little_questions*"]
 exclude = ["train*", "test*"]
 
 [tool.setuptools.package-data]
-"little_questions" = ["models/*"]
+little_questions = ["models/**/*.onnx"]
+
+[dependency-groups]
+dev = [
+    "matplotlib>=3.10.8",
+]
+

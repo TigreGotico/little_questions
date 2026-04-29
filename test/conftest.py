@@ -1,5 +1,8 @@
 """pytest configuration: stub out optional / unavailable heavy dependencies.
 
+Pass --integration to also run @pytest.mark.integration tests (requires model files).
+
+
 JarbasModelZoo and xdg (pyxdg) are optional packages not installed in all
 environments.  Stubbing them at import time prevents ImportError when the
 language feature modules are loaded.
@@ -48,3 +51,23 @@ except ModuleNotFoundError:
 
     sys.modules["xdg"] = _xdg_mod
     sys.modules["xdg.BaseDirectory"] = _base_dir_mod
+
+
+def pytest_addoption(parser):
+    parser.addoption("--integration", action="store_true", default=False,
+                     help="Run integration tests that require real model files")
+
+
+def pytest_configure(config):
+    config.addinivalue_line("markers", "integration: requires real model files")
+
+
+def pytest_collection_modifyitems(config, items):
+    if not config.getoption("--integration"):
+        skip = pytest.mark.skip(reason="pass --integration to run")
+        for item in items:
+            if "integration" in item.keywords:
+                item.add_marker(skip)
+
+
+import pytest  # noqa: E402 — needed for skip marker above

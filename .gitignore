@@ -15,7 +15,10 @@ venv/
 *.pkl
 *.npy
 *.onnx
+!little_questions/models/**/*.onnx
 .pytest_cache/
 .coverage
 htmlcov/
 *.log
+mlflow.db
+mlruns/

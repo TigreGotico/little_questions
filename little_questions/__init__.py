@@ -1,225 +1,159 @@
 from __future__ import annotations
 
-from typing import Optional, Tuple
-
-from little_questions.classifiers import get_classifier, get_scorer
-
-
-def classify(text: str, lang: str = "en") -> str:
-    """Return the COSC label for *text* without sentence-type scoring.
-
-    Faster than ``Sentence.parse()`` for pipelines that only need the COSC
-    label (``"HUM:ind"``, ``"DESC:def"``, etc.) and do not need sentence-type
-    detection or a ``Sentence`` object.
-
-    Args:
-        text: The utterance to classify.
-        lang: Language code (e.g. ``"en"``). Defaults to ``"en"``.
-
-    Returns:
-        COSC label string, e.g. ``"HUM:ind"``.
-    """
-    return get_classifier(model_id=lang).predict([text])[0]
-
-
-def classify_batch(texts: list[str], lang: str = "en") -> list[str]:
-    """Classify multiple texts in a single model call.
-
-    Args:
-        texts: Utterances to classify.
-        lang: Language code. Defaults to ``"en"``.
-
-    Returns:
-        List of COSC label strings, one per input text.
-    """
-    return get_classifier(model_id=lang).predict(texts)
-
-_MAIN_LABEL_NAMES = {
-    "HUM": "Human",
-    "ENTY": "Entity",
-    "DESC": "Description",
-    "NUM": "Numeric",
-    "LOC": "Location",
-    "ABBR": "Abbreviation",
-}
-
-_SEC_LABEL_NAMES = {
-    "def": "definition",
-    "desc": "description",
-    "ind": "individual",
-    "dist": "distance",
-    "volsize": "volume",
-    "temp": "temperature",
-    "gr": "group or organization of persons",
-    "abb": "abbreviation",
-    "exp": "expression abbreviated",
-    "body": "organs of body",
-    "cremat": "inventions, books and other creative pieces",
-    "dismed": "diseases and medicine",
-    "lang": "language",
-    "termeq": "equivalent terms",
-    "veh": "vehicles",
-}
-
-# str methods whose return value should NOT be re-wrapped as a Sentence subclass
-_STR_PASSTHROUGH = frozenset(
-    {
-        "__len__",
-        "__contains__",
-        "__iter__",
-        "__hash__",
-        "__eq__",
-        "__lt__",
-        "__le__",
-        "__gt__",
-        "__ge__",
-        "encode",
-        "startswith",
-        "endswith",
-        "find",
-        "rfind",
-        "index",
-        "rindex",
-        "count",
-        "isalpha",
-        "isdigit",
-        "isspace",
-        "isalnum",
-        "islower",
-        "isupper",
-        "istitle",
-        "isidentifier",
-        "isprintable",
-        "isnumeric",
-        "isdecimal",
-    }
+from little_questions.constants import MAIN_LABEL_NAMES, SEC_LABEL_NAMES
+from little_questions.classifiers import (
+    EatClassifier,
+    SentenceTypeClassifier,
+    YesNoClassifier,
 )
 
+
+# ---------------------------------------------------------------------------
+# Public helpers (used by tests + external code)
+# ---------------------------------------------------------------------------
+
+def get_classifier(lang: str = "en", punctuated: bool = True) -> EatClassifier:
+    """Return the EatClassifier singleton for *lang*.
+
+    Pass ``punctuated=False`` for ASR / unpunctuated / uncased input.
+    """
+    return EatClassifier.get_instance(lang, punctuated=punctuated)
+
+
+def get_scorer(lang: str = "en") -> SentenceTypeClassifier:
+    """Return the SentenceTypeClassifier singleton for *lang*."""
+    return SentenceTypeClassifier.get_instance(lang)
+
+
+def get_yesno_classifier(lang: str = "en") -> YesNoClassifier:
+    """Return the YesNoClassifier singleton for *lang*."""
+    return YesNoClassifier.get_instance(lang)
+
+
+# ---------------------------------------------------------------------------
+# Sentence and typed subclasses
+# ---------------------------------------------------------------------------
 
 class Sentence(str):
     """A classified sentence that subclasses :class:`str`.
 
-    The concrete subclass (``Question``, ``Command``, etc.) is determined at
-    construction time by running the sentence scorer.  The COSC label is
-    stored on :attr:`classification`.
-
     Attributes:
-        classification: Full COSC label, e.g. ``"HUM:ind"``.
-        model: Language/model identifier used for COSC classification.
+        classification: Full EAT label, e.g. ``"HUM:ind"``.
+        classification_scores: Dict of EAT label → calibrated probability (sum ≈ 1.0).
+        confidence: Max value from classification_scores.
         sentence_type: One of ``question``, ``command``, ``statement``,
             ``exclamation``, ``request``.
-        score: Dict of sentence-type scores from the scorer.
     """
 
-    # Populated by __new__; declared here so type checkers see the attributes.
-    classification: str
-    model: str
-    sentence_type: str
-    score: dict
+    def __new__(cls, content: str, lang: str = "en", punctuated: bool = True) -> "Sentence":
+        instance = str.__new__(cls, content)
+        return instance
+
+    def __init__(self, content: str, lang: str = "en", punctuated: bool = True) -> None:
+        eat_clf = EatClassifier.get_instance(lang, punctuated=punctuated)
+        sentence_clf = SentenceTypeClassifier.get_instance(lang)
+        self.classification_scores: dict[str, float] = eat_clf.score(content)
+        self.classification: str = max(
+            self.classification_scores, key=self.classification_scores.__getitem__
+        )
+        self.confidence: float = self.classification_scores[self.classification]
+        self.sentence_type: str = sentence_clf.predict(content)
+        self.lang = lang
+        self.punctuated = punctuated
 
     @classmethod
     def parse(cls, text: str, lang: str = "en") -> "Sentence":
-        """Classify *text* in the given *lang* and return the appropriate ``Sentence`` subclass.
-
-        This is the preferred entry point for parsing utterances. It is equivalent to
-        calling ``Sentence(text, model=lang)`` but has a more discoverable signature.
-
-        Args:
-            text: The utterance to classify.
-            lang: Language code (e.g. ``"en"``, ``"es"``, ``"fr"``). Defaults to ``"en"``.
-
-        Returns:
-            A concrete subclass instance (``Question``, ``Command``, ``Statement``,
-            ``Exclamation``, or ``Request``) with classification metadata attached.
-        """
-        return cls(text, model=lang)
-
-    def __new__(
-        cls,
-        content: str,
-        model: str = "en",
-        scorer: Optional[str] = None,
-    ) -> "Sentence":
-        """Classify *content* and return the appropriate ``Sentence`` subclass instance."""
-        # lazy load classifiers
-        question_classifier = get_classifier(model_id=model)
-        sentence_classifier = get_scorer(lang=scorer or model)
-
-        # classify
-        classification = question_classifier.predict([content])[0]
-        sent_classification = sentence_classifier.predict(content)
-
-        # choose the correct concrete subclass
-        _TYPE_MAP = {
-            "command": Command,
-            "question": Question,
-            "exclamation": Exclamation,
-            "statement": Statement,
-            "request": Request,
-        }
-        target_cls = _TYPE_MAP.get(sent_classification, cls)
-        obj = str.__new__(target_cls, content)
-
-        # attach metadata
-        obj.classification = classification
-        obj.model = model
-        obj.sentence_type = sent_classification
-        obj.score = sentence_classifier.score(content)
-        return obj
-
-    def __getattr__(self, name: str):
-        """Delegate unknown attribute access to :class:`str` (safety net only)."""
-        # This is only reached when normal attribute lookup has already failed,
-        # so it will not shadow real properties/methods defined on the class.
-        raise AttributeError(
-            f"'{type(self).__name__}' object has no attribute '{name}'"
-        )
+        """Alternative constructor — equivalent to ``Sentence(text, lang)``."""
+        return cls(text, lang)
 
     @property
     def main_label(self) -> str:
-        """Top-level COSC category (HUM, ENTY, DESC, NUM, LOC, ABBR)."""
+        """Top-level EAT category (ABBR, BOOL, DESC, ENTY, HUM, LOC, NUM)."""
         return self.classification.split(":")[0]
 
     @property
-    def secondary_label(self) -> str:
-        """Fine-grained COSC subtype, e.g. ``ind``, ``def``, ``dist``."""
-        return self.classification.split(":")[-1]
+    def secondary_label(self) -> str | None:
+        """Fine-grained EAT subtype, or ``None`` when absent."""
+        parts = self.classification.split(":")
+        return parts[1] if len(parts) > 1 else None
 
     @property
     def pretty_label(self) -> str:
-        """Human-readable label combining main and secondary COSC categories."""
-        pretty_main = _MAIN_LABEL_NAMES.get(self.main_label, self.main_label)
-        pretty_sec = _SEC_LABEL_NAMES.get(self.secondary_label, self.secondary_label)
+        """Human-readable label combining main and secondary EAT categories."""
+        pretty_main = MAIN_LABEL_NAMES.get(self.main_label, self.main_label)
+        sec = self.secondary_label
+        if sec is None:
+            return pretty_main
+        pretty_sec = SEC_LABEL_NAMES.get(sec, sec)
         return f"{pretty_sec} ({pretty_main})"
 
     @property
     def is_exclamation(self) -> bool:
-        """``True`` when this sentence was classified as an exclamation."""
-        return isinstance(self, Exclamation)
+        return self.sentence_type == "exclamation"
 
     @property
     def is_request(self) -> bool:
-        """``True`` when this sentence was classified as a request."""
-        return isinstance(self, Request)
+        return self.sentence_type == "request"
 
     @property
     def is_statement(self) -> bool:
-        """``True`` when this sentence was classified as a statement."""
-        return isinstance(self, Statement)
+        return self.sentence_type == "statement"
 
     @property
     def is_command(self) -> bool:
-        """``True`` when this sentence was classified as a command."""
-        return isinstance(self, Command)
+        return self.sentence_type in ("command", "request")
 
     @property
     def is_question(self) -> bool:
-        """``True`` when this sentence was classified as a question."""
-        return isinstance(self, Question)
+        return self.sentence_type == "question"
 
 
 class Question(Sentence):
     """A sentence classified as a question."""
+
+
+class Statement(Sentence):
+    """A sentence classified as a statement.
+
+    When used as an answer to a yes/no question, the ``answer_polarity``
+    property indicates whether the response is affirmative, negative, or
+    neither (``"yes"``, ``"no"``, or ``"maybe"``).
+
+    The classifier is loaded lazily on first access — no model download at
+    construction time unless ``answer_polarity`` is actually called.
+    """
+
+    @property
+    def answer_polarity(self) -> str:
+        """``"yes"``, ``"no"``, or ``"maybe"``.
+
+        Lazy-loads the yes/no ONNX classifier on first access.
+        Raises ``RuntimeError`` if no model is available for this language.
+        """
+        if not hasattr(self, "_answer_polarity"):
+            clf = YesNoClassifier.get_instance(self.lang)
+            object.__setattr__(self, "_answer_polarity", clf.predict(str(self)))
+        return self._answer_polarity
+
+    @property
+    def answer_polarity_scores(self) -> dict:
+        """Calibrated probabilities over ``yes``/``no``/``maybe``.
+
+        Lazy-loads the yes/no ONNX classifier on first access.
+        Raises ``RuntimeError`` if no model is available for this language.
+        """
+        if not hasattr(self, "_answer_polarity_scores"):
+            clf = YesNoClassifier.get_instance(self.lang)
+            object.__setattr__(self, "_answer_polarity_scores", clf.score(str(self)))
+        return self._answer_polarity_scores
+
+    @property
+    def is_affirmative(self) -> bool:
+        return self.answer_polarity == "yes"
+
+    @property
+    def is_negative(self) -> bool:
+        return self.answer_polarity == "no"
 
 
 class Command(Sentence):
@@ -227,12 +161,70 @@ class Command(Sentence):
 
 
 class Request(Command):
-    """A command phrased as a polite request."""
+    """A sentence classified as a request (a polite command)."""
 
 
 class Exclamation(Sentence):
     """A sentence classified as an exclamation."""
 
 
-class Statement(Sentence):
-    """A sentence classified as a declarative statement."""
+_SENTENCE_TYPE_TO_CLASS: dict[str, type] = {
+    "question": Question,
+    "statement": Statement,
+    "command": Command,
+    "request": Request,
+    "exclamation": Exclamation,
+}
+
+
+def _sentence_factory(text: str, lang: str = "en") -> Sentence:
+    """Create the correct Sentence subclass based on sentence_type."""
+    # Temporarily create a plain Sentence to get the sentence_type
+    s = Sentence.__new__(Sentence, text)
+    Sentence.__init__(s, text, lang)
+    cls = _SENTENCE_TYPE_TO_CLASS.get(s.sentence_type, Sentence)
+    if cls is Sentence:
+        return s
+    # Re-instantiate as the correct subclass, copying already-computed attrs
+    typed = str.__new__(cls, text)
+    typed.classification = s.classification
+    typed.classification_scores = s.classification_scores
+    typed.confidence = s.confidence
+    typed.sentence_type = s.sentence_type
+    typed.lang = s.lang
+    return typed
+
+
+# Patch Sentence.__new__ so Sentence("...") returns the right subclass
+_orig_sentence_new = Sentence.__new__
+
+
+def _sentence_new(cls, content: str, lang: str = "en", punctuated: bool = True) -> "Sentence":
+    if cls is Sentence:
+        # defer to factory only when called as Sentence(...), not as subclass(...)
+        return str.__new__(Sentence, content)
+    return str.__new__(cls, content)
+
+
+Sentence.__new__ = staticmethod(_sentence_new)  # type: ignore[assignment]
+
+
+def _sentence_init(self, content: str, lang: str = "en", punctuated: bool = True) -> None:
+    eat_clf = EatClassifier.get_instance(lang, punctuated=punctuated)
+    sentence_clf = SentenceTypeClassifier.get_instance(lang)
+    self.classification_scores = eat_clf.score(content)
+    self.classification = max(
+        self.classification_scores, key=self.classification_scores.__getitem__
+    )
+    self.confidence = self.classification_scores[self.classification]
+    self.sentence_type = sentence_clf.predict(content)
+    self.lang = lang
+    self.punctuated = punctuated
+    # Reclassify into correct subclass if called as plain Sentence
+    if type(self) is Sentence:
+        target_cls = _SENTENCE_TYPE_TO_CLASS.get(self.sentence_type, Sentence)
+        if target_cls is not Sentence:
+            self.__class__ = target_cls
+
+
+Sentence.__init__ = _sentence_init  # type: ignore[method-assign]

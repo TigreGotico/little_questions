@@ -7,207 +7,204 @@
 ```python
 class Sentence(str)
 ```
-`little_questions/__init__.py:18`
 
-A classified sentence. Subclasses `str`, so all string operations work normally. The concrete
-subclass (`Question`, `Command`, etc.) is chosen at construction time.
+A classified sentence. Subclasses `str`, so all string operations work normally.
+The concrete subclass (`Question`, `Statement`, `Command`, `Request`, `Exclamation`)
+is chosen automatically at construction time.
 
 **Construction:**
 
 ```python
-Sentence(content: str, model: str = "en", scorer: Optional[str] = None) -> Sentence
+Sentence(content: str, lang: str = "en") -> Sentence
 ```
 
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `content` | — | The sentence text. |
-| `model` | `"en"` | Language code for the COSC classifier. One of `en es pt ca fr de it`. |
-| `scorer` | `None` | Language code for the sentence-type scorer. Defaults to `model`. |
+Returns a concrete subclass. Raises `RuntimeError` if no ONNX model is available
+for the requested language.
 
-Returns a concrete subclass instance (`Question`, `Command`, etc.).
-
-**Alternative entry point (Phase 2+):**
+**Class method:**
 
 ```python
 Sentence.parse(text: str, lang: str = "en") -> Sentence
 ```
 
-Classmethod. Equivalent to `Sentence(text, model=lang)` but more discoverable.
+Equivalent to `Sentence(text, lang)`.
 
-**Attributes set at construction:**
+**Attributes:**
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
-| `classification` | `str` | Full COSC label, e.g. `"HUM:ind"`. |
-| `model` | `str` | Language code used for COSC classification. |
-| `sentence_type` | `str` | One of `question command statement exclamation request`. |
-| `score` | `dict` | Per-type confidence scores from the sentence scorer. |
+| `sentence_type` | `str` | `question` / `statement` / `command` / `request` / `exclamation` |
+| `classification` | `str` | Full EAT label, e.g. `"HUM:ind"` |
+| `classification_scores` | `dict[str, float]` | Calibrated probabilities over all 53 EAT labels (sum ≈ 1.0) |
+| `confidence` | `float` | Max value from `classification_scores` |
+| `lang` | `str` | Language code used at construction |
 
-**Read-only properties:**
+**Properties:**
 
-| Property | Type | Description | Source |
-|----------|------|-------------|--------|
-| `main_label` | `str` | Top-level COSC category. | `__init__.py:86` |
-| `secondary_label` | `str` | Fine-grained COSC subtype. | `__init__.py:92` |
-| `pretty_label` | `str` | Human-readable combined label. | `__init__.py:97` |
-| `is_question` | `bool` | `True` when `isinstance(self, Question)`. | `__init__.py:168` |
-| `is_command` | `bool` | `True` when `isinstance(self, Command)`. | `__init__.py:163` |
-| `is_request` | `bool` | `True` when `isinstance(self, Request)`. | `__init__.py:153` |
-| `is_statement` | `bool` | `True` when `isinstance(self, Statement)`. | `__init__.py:158` |
-| `is_exclamation` | `bool` | `True` when `isinstance(self, Exclamation)`. | `__init__.py:147` |
+| Property | Type | Description |
+|----------|------|-------------|
+| `main_label` | `str` | Top-level EAT category (ABBR/BOOL/DESC/ENTY/HUM/LOC/NUM) |
+| `secondary_label` | `str \| None` | EAT sub-type, or `None` |
+| `pretty_label` | `str` | Human-readable, e.g. `"individual (Human)"` |
+| `is_question` | `bool` | `sentence_type == "question"` |
+| `is_statement` | `bool` | `sentence_type == "statement"` |
+| `is_command` | `bool` | `sentence_type in ("command", "request")` |
+| `is_request` | `bool` | `sentence_type == "request"` |
+| `is_exclamation` | `bool` | `sentence_type == "exclamation"` |
 
 ---
 
-### Concrete sentence subclasses
+### Concrete subclasses
 
 All subclass `Sentence` (and `str`).
 
-| Class | Inherits | Notes |
-|-------|----------|-------|
-| `Question` | `Sentence` | `sentence_type == "question"` |
-| `Command` | `Sentence` | `sentence_type == "command"` |
-| `Request` | `Command` | `sentence_type == "request"`. Also satisfies `is_command`. |
-| `Statement` | `Sentence` | `sentence_type == "statement"` |
-| `Exclamation` | `Sentence` | `sentence_type == "exclamation"` |
+| Class | `sentence_type` | Notes |
+|-------|----------------|-------|
+| `Question` | `question` | |
+| `Statement` | `statement` | Adds `answer_polarity` — see below |
+| `Command` | `command` | |
+| `Request` | `request` | Subclass of `Command`; also satisfies `is_command` |
+| `Exclamation` | `exclamation` | |
+
+---
+
+### `Statement` — answer polarity
+
+`Statement` adds three lazy-loaded properties for classifying yes/no responses.
+The yes/no ONNX model is downloaded on first access; a `RuntimeError` is raised
+if no model is available.
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `answer_polarity` | `str` | `"yes"`, `"no"`, or `"maybe"` |
+| `answer_polarity_scores` | `dict[str, float]` | Calibrated probabilities over `yes`/`no`/`maybe` |
+| `is_affirmative` | `bool` | `answer_polarity == "yes"` |
+| `is_negative` | `bool` | `answer_polarity == "no"` |
+
+```python
+q = Sentence("Is the sky blue?")   # → Question, classification BOOL:yesno
+a = Sentence("Yes, absolutely.")   # → Statement
+print(a.answer_polarity)           # yes
+print(a.is_affirmative)            # True
+```
+
+---
+
+### Helper functions
+
+```python
+get_classifier(lang: str = "en") -> EatClassifier
+```
+Return the `EatClassifier` singleton for *lang*.
+
+```python
+get_scorer(lang: str = "en") -> SentenceTypeClassifier
+```
+Return the `SentenceTypeClassifier` singleton for *lang*.
+
+```python
+get_yesno_classifier(lang: str = "en") -> YesNoClassifier
+```
+Return the `YesNoClassifier` singleton for *lang*.
 
 ---
 
 ## `little_questions.classifiers`
 
-### `get_classifier(model_id: str) -> Classifier`
+### `EatClassifier`
 
-`little_questions/classifiers/__init__.py:16`
-
-Returns a loaded `Classifier` for the given language code. Results are cached in
-`_LAZY_LOADING` — the model file is read from disk only on the first call per language.
+Two-stage calibrated EAT classifier. Stage 1 (`eat7_svm_cal`) predicts the main
+category; Stage 2 (`eat53_svm_cal`) scores all 53 labels and renormalises within
+the predicted main category.
 
 ```python
-from little_questions.classifiers import get_classifier
-clf = get_classifier("en")
-labels = clf.predict(["Who invented the telephone?"])  # ["HUM:ind"]
+EatClassifier.get_instance(lang: str) -> EatClassifier
 ```
 
-### `get_scorer(lang: Optional[str] = None) -> SentenceScorer`
+| Method | Signature | Description |
+|--------|-----------|-------------|
+| `predict` | `(text: str) -> str` | Top EAT label, e.g. `"HUM:ind"` |
+| `score` | `(text: str) -> dict[str, float]` | Calibrated probabilities over all 53 labels |
 
-`little_questions/classifiers/__init__.py:8`
-
-Returns `SentenceScorerEN()` if `lang` starts with `"en"`, otherwise `SentenceScorer()`.
-
-### `clear_classifier_cache() -> None`
-
-`little_questions/classifiers/__init__.py` (Phase 2)
-
-Clears the lazy-load cache. All subsequent `get_classifier()` calls will reload from disk.
-
-### `list_supported_languages() -> List[str]`
-
-`little_questions/classifiers/__init__.py` (Phase 2)
-
-Returns `["en", "es", "pt", "ca", "fr", "de", "it"]`.
+Raises `RuntimeError` if no model is available for *lang*.
 
 ---
 
-## `little_questions.classifiers.base`
+### `SentenceTypeClassifier`
 
-### `SentenceScorer`
+ONNX sentence-type classifier. Auto-downloads from `TigreGotico/sentence-types`.
 
-`little_questions/classifiers/base.py:22`
-
-Rule-based sentence-type scorer. Language-agnostic fallback using terminal punctuation only.
-
-| Method | Signature | Description |
-|--------|-----------|-------------|
-| `predict` | `(text: str) -> str` | Return best sentence type. |
-| `score` | `(text: str) -> Dict[str, float]` | Return all type scores. |
-| `question_score` | `(text: str) -> float` | Heuristic: 0.8 if ends `?`, else 0.4. |
-| `statement_score` | `(text: str) -> float` | Heuristic: 0.5 if ends `.`, else 0. |
-| `exclamation_score` | `(text: str) -> float` | Heuristic: 0.6 if ends `!`, else 0. |
-| `command_score` | `(text: str) -> float` | Heuristic: 0.6 if ends `.`, 0.5 if `!`, else 0. |
-| `request_score` | `(text: str) -> float` | Heuristic: 0.5 if ends `.` or `?`, else 0. |
-
-### `Classifier`
-
-`little_questions/classifiers/base.py:87`
-
-Base class for COSC classifiers backed by a joblib-serialised sklearn pipeline.
+```python
+SentenceTypeClassifier.get_instance(lang: str) -> SentenceTypeClassifier
+```
 
 | Method | Signature | Description |
 |--------|-----------|-------------|
-| `__init__` | `(pipeline_id: str)` | `pipeline_id` is the language code, e.g. `"en"`. |
-| `train` | `(train_data, target_data)` | Fit the pipeline (subclasses implement). |
-| `predict` | `(text: List[str]) -> List[str]` | Return list of COSC labels. |
-| `save` | `(path: str)` | Persist the fitted pipeline via joblib. |
-| `load_from_file` | `(path: Optional[str])` | Load from path (or default model path). |
+| `predict` | `(text: str) -> str` | Sentence type: `question`/`statement`/`command`/`request`/`exclamation` |
+| `score` | `(text: str) -> dict[str, float]` | Softmax probabilities over sentence types |
 
-**Available concrete subclasses** (all in `little_questions/classifiers/base.py`):
-
-- `LinearSVCTextClassifier` — default; best accuracy on UIUC QC
-- `LogRegTextClassifier`
-- `RandomForestTextClassifier`
-- `NaiveBayesTextClassifier`
-- `PassiveAggressiveTextClassifier`
-- `SGDTextClassifier`
-- `PerceptronTextClassifier`
+Supported languages for ONNX inference: `en`, `de`, `es`, `fr`, `it`, `nl`, `pt`.
+Raises `RuntimeError` for unsupported languages.
 
 ---
 
-## `little_questions.classifiers.lang.en`
+### `YesNoClassifier`
 
-### `SentenceScorerEN`
+ONNX yes/no polarity classifier. Auto-downloads from `TigreGotico/yes-no-classifiers`.
 
-`little_questions/classifiers/lang/en/__init__.py:23`
+```python
+YesNoClassifier.get_instance(lang: str) -> YesNoClassifier
+```
 
-English sentence-type scorer using NLTK POS tags. More accurate than the base `SentenceScorer`.
+| Method | Signature | Description |
+|--------|-----------|-------------|
+| `predict` | `(text: str) -> str` | `"yes"`, `"no"`, or `"maybe"` |
+| `score` | `(text: str) -> dict[str, float]` | Calibrated probabilities over `yes`/`no`/`maybe` |
 
-Each `*_score(text)` static method runs `word_tokenize` + `pos_tag` via NLTK, then computes
-a score ∈ [0, 1] based on start/end tokens, POS tag patterns, and unlikely-word penalties.
-The internal `_score()` method at line 41 implements the shared scoring framework.
+Tries a language-specific model first, then falls back to the multilingual model.
+Raises `RuntimeError` if neither is available.
+
+---
+
+### Cache utilities
+
+```python
+from little_questions.classifiers import clear_classifier_cache, list_supported_languages
+
+clear_classifier_cache()        # force reload on next use
+list_supported_languages()      # languages with a sentence-type ONNX model
+```
+
+---
+
+## `little_questions.constants`
+
+```python
+from little_questions.constants import (
+    EAT_LABELS_7,       # ["ABBR","BOOL","DESC","ENTY","HUM","LOC","NUM"]
+    EAT_LABELS_53,      # full 53-label list
+    SENTENCE_TYPES,     # ["command","exclamation","question","request","statement"]
+    MAIN_LABEL_NAMES,   # {"ABBR": "Abbreviation", "BOOL": "Boolean", ...}
+    SEC_LABEL_NAMES,    # {"yesno": "yes/no question", "ind": "individual", ...}
+)
+```
 
 ---
 
 ## `little_questions.models`
 
-### `get_model_path(model: str) -> str`
+```python
+from little_questions.models import (
+    get_eat_model_path,           # (filename) -> str | None
+    get_sentence_type_model_path, # (lang) -> str | None
+    get_yesno_model_path,         # (lang, version) -> str | None
+)
+```
 
-`little_questions/models/__init__.py:163`
+Each function downloads the model from HuggingFace on first call and returns
+the local cache path. Returns `None` if the download fails.
 
-Resolve the filesystem path for a model. Downloads the model and required NLTK data if not present.
-
-| `model` value | Resolution |
-|---------------|------------|
-| Starts with `http` | Raises `NotImplementedError` |
-| A valid filesystem path | Returned as-is |
-| A key in `LANG2MODEL` | Downloads if absent, returns path |
-| Anything else | Raises `ValueError` |
-
-### `download(model_id: str, force: bool = False) -> Optional[str]`
-
-`little_questions/models/__init__.py:48`
-
-Download a model file to the XDG data directory. `model_id` is a key in `MODEL2URL` (e.g.
-`"questions52_EN"`). Skips if already downloaded unless `force=True`.
-
-### Language-specific download helpers
-
-| Function | Downloads |
-|----------|-----------|
-| `download_en()` | EN 52-class + 6-class models + NLTK data |
-| `download_es()` | ES models + Spanish Brill tagger (via JarbasModelZoo if available) |
-| `download_pt()` | PT models + Floresta tagger |
-| `download_ca()` | CA models + Catalan Brill tagger |
-| `download_fr()` | FR models |
-| `download_de()` | DE models |
-| `download_it()` | IT models |
-
-### `MODEL2URL`
-
-`little_questions/models/__init__.py:16`
-
-Dict mapping model ID (e.g. `"questions52_EN"`) to GitHub release download URL.
-
-### `LANG2MODEL`
-
-`little_questions/models/__init__.py:79`
-
-Dict mapping language code (e.g. `"en"`) to the expected filesystem path of the model file.
-Includes `_small` variants (6-class) and `_tagger` variants (POS tagger, where applicable).
+HuggingFace repos:
+- EAT models: `TigreGotico/eat-classifiers`
+- Sentence-type models: `TigreGotico/sentence-types`
+- Yes/no models: `TigreGotico/yes-no-classifiers`

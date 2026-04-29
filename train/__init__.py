@@ -3,27 +3,25 @@
 Install with: pip install little-questions[train]
 
 Example:
-    from train.classifiers import LinearSVCClassifier
+    from train.classifiers import CalibratedLinearSVCClassifier
 
-    clf = LinearSVCClassifier("en")
+    clf = CalibratedLinearSVCClassifier()
     clf.train(train_data, labels)
-    clf.save_onnx("questions52_svm_EN_0.8.0.onnx")
+    clf.save_onnx("eat53_svm_cal_EN_0.9.0.onnx")
 """
 
-from train.classifiers import LinearSVCClassifier
-from train.classifiers import LogRegClassifier
-from train.classifiers import RandomForestClassifier
-from train.classifiers import NaiveBayesClassifier
-from train.classifiers import PassiveAggressiveClassifier
-from train.classifiers import SGDClassifier
-from train.classifiers import PerceptronClassifier
+from train.classifiers import (
+    LinearSVCClassifier,
+    CalibratedLinearSVCClassifier,
+    LogRegClassifier,
+    SGDClassifier,
+    Model2VecClassifier,
+)
 
 __all__ = [
     "LinearSVCClassifier",
+    "CalibratedLinearSVCClassifier",
     "LogRegClassifier",
-    "RandomForestClassifier",
-    "NaiveBayesClassifier",
-    "PassiveAggressiveClassifier",
     "SGDClassifier",
-    "PerceptronClassifier",
+    "Model2VecClassifier",
 ]

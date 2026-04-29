@@ -1,149 +1,67 @@
-## Classification
+# Classification Benchmarks
 
-Training classifiers with [this data](http://cogcomp.org/Data/QA/QC/)
+All EAT benchmarks use a 15% held-out stratified test split (`random_state=42`).
+Sentence-type and yes/no benchmarks are evaluated on the full labelled datasets.
 
-There are 6 main labels
+## EAT question-type classification (EN)
 
-* ABBR - answer is an abbreviation
-* DESC - answer is a description of something
-* ENTY - answer is an entity/thing
-* HUM - answer is a human
-* LOC - answer is a location
-* NUM - answer is numeric
+### Two-stage default (eat7_svm_cal → eat53_svm_cal)
 
-Best accuracy model will always be used for DEFAULT_CLASSIFIER
+| Metric | Score |
+|--------|-------|
+| Accuracy | **93.4%** |
+| Macro F1 | **93.4%** |
 
-```python
-from little_questions.classifiers import QuestionClassifier
-from little_questions.classifiers import MainQuestionClassifier
+### All baselines
 
-classifier = QuestionClassifier()
-question = "who made you"
-preds = classifier.predict([question])
-assert preds[0] == "HUM:ind"
+| Model | Classes | Accuracy | Macro F1 |
+|-------|---------|----------|----------|
+| `eat53_svm_cal` (calibrated SVM) | 53 | 91.3% | 91.2% |
+| `eat7_svm_cal` (calibrated SVM) | 7 | 96.3% | 96.0% |
+| **Two-stage default** | 53 | **93.4%** | **93.4%** |
+| `eat53_svm` (uncalibrated) | 53 | 90.0% | 89.7% |
+| `eat53_logreg` | 53 | 88.8% | 88.3% |
+| `eat53_sgd` | 53 | 85.4% | 85.0% |
+| `m2v-potion-base-32M+tfidf` | 53 | ~91% | ~91% |
 
-classifier = MainQuestionClassifier()
-question = "who made you"
-preds = classifier.predict([question])
-assert preds[0] == "HUM"
+Plots saved to `train/reports/eat/`.
 
-```
-### Models
+## Sentence-type classification
 
-For model accuracy baseline the following features are extracted
+6 classes: `command`, `exclamation`, `polar_question`, `request`, `statement`, `wh_question`.
 
-- CountVectorizer, n_gram range (1,2)
-- TfidfVectorizer, n_gram range (1,2), lemmatized input
-- Word2Vec
-- PosTagVectorizer
+| Language | Accuracy | Macro F1 |
+|----------|----------|----------|
+| EN | 99.2% | 99.2% |
+| FR | 97.1% | 97.1% |
+| IT | 97.0% | 97.0% |
+| NL | 98.8% | 98.8% |
+| PT | 95.4% | 95.4% |
+| DE | 85.6% | 84.9% |
+| ES | 74.6% | 72.7% |
 
-you need to consider speed/memory/performance trade offs and decide which classifier is best for you
+Plots saved to `train/reports/sentence_type/`.
 
-NOTE: optimal pipeline/features and hyperparameters under investigation
+## Yes/no answer-polarity classification
 
-#### Classification of sentence type
+3 classes: `yes`, `no`, `maybe`.
 
-* Passive Aggressive - Accuracy: 0.8666666666666667
-* Linear SVC - Accuracy: 0.8666666666666667
-* Decision Tree - Accuracy: 0.8666666666666667
-* Perceptron - Accuracy: 0.7333333333333333
-* Ridge - Accuracy: 0.6666666666666666
-* SGD - Accuracy: 0.5333333333333333
-* AdaBoost - Accuracy: 0.4666666666666667
+| Model | Coverage | Accuracy | Macro F1 |
+|-------|----------|----------|----------|
+| `yesno_svm_cal_{LANG}` (per-language) | 43 languages | ~91–96% | ~91–96% |
+| `yesno_svm_cal_multilingual` (bundled) | all languages | 84.6% | 84.0% |
 
-#### Classification of main label
+The bundled multilingual model is used when no language-specific model is available.
+Per-language models achieve 90–96% macro F1 on their own language.
 
-* Linear SVC - Accuracy: 0.902
-* Ridge - Accuracy: 0.896
-* Logistic Regression - Accuracy: 0.894
-* SGD - Accuracy: 0.888
-* Passive Aggressive - Accuracy: 0.882
-* Naive Bayes - Accuracy: 0.81
-* Perceptron - Accuracy: 0.872
-* Gradient Boosting - Accuracy: 0.858
-* Random Forest - Accuracy: 0.798
-* Decision Tree - Accuracy: 0.784
-* AdaBoost - Accuracy: 0.592
+Plots saved to `train/reports/yesno/`.
 
-#### Classification of main + secondary label
+## Running all benchmarks
 
-* Linear SVC - Accuracy: 0.838
-* Passive Aggressive - Accuracy: 0.804
-* Ridge - Accuracy: 0.834
-* SGD - Accuracy: 0.802
-* Logistic Regression - Accuracy: 0.794
-* Gradient Boosting - Accuracy: 0.776
-* Perceptron - Accuracy: 0.766
-* Decision Tree - Accuracy: 0.666
-* Random Forest - Accuracy: 0.636
-* ExtraTree - Accuracy: 0.548
-* Naive Bayes - Accuracy: 0.53
-* AdaBoost - Accuracy: 0.22
+```bash
+pip install little-questions[train]
 
-You can test specific classifiers
-
-```python
-from little_questions.classifiers.passive_agressive import
-    PassiveAggressiveQuestionClassifier
-
-classifier = PassiveAggressiveQuestionClassifier()
-
-from little_questions.classifiers.gradboost import
-    GradientBoostingQuestionClassifier
-
-classifier = GradientBoostingQuestionClassifier()
-
-from little_questions.classifiers.svm import SVCQuestionClassifier
-
-classifier = SVCQuestionClassifier()
-
-from little_questions.classifiers.logreg import LogRegQuestionClassifier
-
-classifier = LogRegQuestionClassifier()
-
-from little_questions.classifiers.ridge import RidgeQuestionClassifier
-
-classifier = RidgeQuestionClassifier()
-
-from little_questions.classifiers.sgd import SGDQuestionClassifier
-
-classifier = SGDQuestionClassifier()
-
-from little_questions.classifiers.forest import ForestQuestionClassifier
-
-classifier = ForestQuestionClassifier()
-
-from little_questions.classifiers.tree import TreeQuestionClassifier
-
-classifier = TreeQuestionClassifier()
-
-from little_questions.classifiers.perceptron import
-    PerceptronQuestionClassifier
-
-classifier = PerceptronQuestionClassifier()
-
-from little_questions.classifiers.naive import NaiveQuestionClassifier
-
-classifier = NaiveQuestionClassifier()
-
-# train / load
-train = True
-if train:
-    t, tt = classifier.load_data()
-    classifier.train(t, tt)
-    classifier.save()
-else:
-    classifier.load_from_file()
-
-# test
-X_test, y_test = classifier.load_test_data()
-preds = classifier.predict(X_test)
-
-from sklearn.metrics import accuracy_score, classification_report,
-    confusion_matrix
-
-accuracy = accuracy_score(y_test, preds)
-report = classification_report(y_test, preds)
-matrix = confusion_matrix(y_test, preds)
-
+python -m train.benchmark_eat
+python -m train.benchmark_sentence_type
+python -m train.benchmark_yesno
 ```

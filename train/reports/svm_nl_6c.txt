@@ -1,0 +1,20 @@
+Scorer : tfidf-svm
+Dataset: test-split-nl-6c  (lang=nl)
+Samples: 945
+
+              precision    recall  f1-score   support
+
+        ABBR       0.86      0.43      0.57        14
+        DESC       0.79      0.85      0.82       193
+        ENTY       0.81      0.77      0.79       226
+         HUM       0.84      0.88      0.86       195
+         LOC       0.91      0.90      0.90       141
+         NUM       0.92      0.90      0.91       176
+
+    accuracy                           0.85       945
+   macro avg       0.85      0.79      0.81       945
+weighted avg       0.85      0.85      0.85       945
+
+Accuracy : 0.8476
+Macro F1 : 0.8093
+Wtd   F1 : 0.8466

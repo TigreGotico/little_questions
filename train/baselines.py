@@ -17,7 +17,6 @@ from __future__ import annotations
 
 from typing import Dict
 
-from nltk import word_tokenize, pos_tag
 
 
 # ---------------------------------------------------------------------------
@@ -121,6 +120,7 @@ class HeuristicScorer:
         unlikely_end_pos_tag = unlikely_end_pos_tag or []
         unlikely_pos_tag = unlikely_pos_tag or (unlikely_end_pos_tag + unlikely_start_pos_tag)
 
+        from nltk import word_tokenize, pos_tag
         tokens = word_tokenize(text)
         tagged = pos_tag(tokens)
 

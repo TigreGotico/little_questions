@@ -174,8 +174,8 @@ def main() -> None:
     args = parser.parse_args()
 
     if args.all_langs:
-        from little_questions.constants import SUPPORTED_LANGUAGES
-        langs = SUPPORTED_LANGUAGES
+        from little_questions.classifiers import list_supported_languages
+        langs = list_supported_languages()
     else:
         langs = [args.lang]
 
