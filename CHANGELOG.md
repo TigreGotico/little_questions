@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.10.0a2](https://github.com/TigreGotico/little_questions/tree/0.10.0a2) (2026-07-30)
+
+[Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.10.0a1...0.10.0a2)
+
+**Merged pull requests:**
+
+- docs: rewrite README in Simplified Technical English [\#30](https://github.com/TigreGotico/little_questions/pull/30) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.10.0a1](https://github.com/TigreGotico/little_questions/tree/0.10.0a1) (2026-04-29)
 
 [Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.8.1a1...0.10.0a1)
