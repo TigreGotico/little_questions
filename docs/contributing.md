@@ -13,7 +13,6 @@ pip install -e ".[train]"
 ```bash
 # Unit tests (no models required)
 pytest test/
-
 # Integration tests (require downloaded ONNX models)
 pytest test/ --integration
 ```
@@ -26,8 +25,7 @@ little_questions/
 ├── classifiers.py   # EatClassifier, SentenceTypeClassifier, YesNoClassifier, _OnnxModel
 ├── constants.py     # EAT_LABELS_7, EAT_LABELS_53, SENTENCE_TYPES, MAIN_LABEL_NAMES, SEC_LABEL_NAMES
 └── models.py        # HF auto-download helpers
-
-train/               # Training-only — install with pip install little-questions[train]
+train/               # Training only. Install with pip install little-questions[train]
 ├── classifiers.py       # CalibratedLinearSVCClassifier, LinearSVCClassifier, LogRegClassifier,
 │                        # SGDClassifier, Model2VecClassifier, EATTextPreprocessor
 ├── load_eat.py          # EAT dataset loader (HF + local TSV)
@@ -47,31 +45,33 @@ train/               # Training-only — install with pip install little-questio
 ```bash
 # EAT classifiers (calibrated ONNX, both punctuated + ASR variants)
 python -m train.train_eat
-
 # EAT Model2Vec variants
 python -m train.train_eat_m2v
-
 # Yes/no polarity classifiers (per-language + multilingual)
 python -m train.train_yesno
-
 # Sentence-type classifiers
 python -m train.train_sentence_type
-
 # Benchmarks + plots
 python -m train.benchmark_eat
 python -m train.train_yesno --plot
-
 # Push all models to HuggingFace
 python -m train.push_to_hf
 ```
 
 ## HuggingFace repos
 
+Model repos:
+
 | Repo | Contents |
 |------|----------|
 | `TigreGotico/eat-classifiers` | EAT ONNX models + benchmarks |
 | `TigreGotico/sentence-types` | Sentence-type ONNX models |
 | `TigreGotico/yes-no-classifiers` | Yes/no ONNX models |
+
+Training data repos:
+
+| Repo | Contents |
+|------|----------|
 | `TigreGotico/EAT` | EAT training dataset (30K EN, 53 labels) |
 | `TigreGotico/sentence-types-multilingual` | Sentence-type training data (80K) |
 | `TigreGotico/yes-no-multilingual` | Yes/no training data (8.6K, 43 languages) |
@@ -86,3 +86,6 @@ python -m train.push_to_hf
 | `test:` | Tests only |
 | `refactor:` | Refactor without behaviour change |
 | `chore:` | Build, tooling, dependencies |
+
+---
+[← Classification](classification.md) · [Home](index.md)

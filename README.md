@@ -10,8 +10,7 @@ Three classifiers, all ONNX-backed, all offline out of the box:
 | **EAT question-type** | 7 main / 53 fine-grained answer categories | EN | bundled |
 | **Yes/No polarity** | yes / no / maybe (for statement answers) | 43 languages | multilingual bundled |
 
-No internet required on first use — English models ship inside the package.
-Other language models download automatically from HuggingFace on first use.
+The package needs no internet connection on first use. English models ship inside the package. Other language models download automatically from HuggingFace on first use.
 
 ---
 
@@ -25,7 +24,6 @@ pip install little-questions
 
 ```python
 from little_questions import Sentence
-
 s = Sentence("Who invented the telephone?")
 print(type(s).__name__)       # Question
 print(s.sentence_type)        # question
@@ -40,20 +38,15 @@ print(f"{s.confidence:.2f}")  # 0.94
 
 ```python
 from little_questions import Sentence, Question, Statement, Command, Request, Exclamation
-
 s = Sentence("Who invented the telephone?")
 assert isinstance(s, Question)
-
 s = Sentence("Open the pod bay doors.")
 assert isinstance(s, Command)
-
 s = Sentence("Could you pass the salt?")
 assert isinstance(s, Request)
 assert isinstance(s, Command)   # Request subclasses Command
-
 s = Sentence("The sky is blue.")
 assert isinstance(s, Statement)
-
 s = Sentence("What a beautiful day!")
 assert isinstance(s, Exclamation)
 ```
@@ -70,7 +63,6 @@ Six classes: `wh_question`, `polar_question`, `statement`, `command`, `request`,
 s = Sentence("Is the Earth flat?")
 print(s.sentence_type)  # polar_question
 print(s.is_question)    # True
-
 s = Sentence("What is the capital of France?")
 print(s.sentence_type)  # wh_question
 print(s.is_question)    # True
@@ -110,7 +102,6 @@ Two-stage inference (eat7 gates eat53) achieves **93.4% macro F1**.
 s = Sentence("When did World War II end?")
 print(s.classification)          # NUM:date
 print(s.confidence)              # 0.97
-
 # Full probability distribution over all 53 labels:
 top3 = sorted(s.classification_scores.items(), key=lambda x: -x[1])[:3]
 print(top3)  # [('NUM:date', 0.97), ('NUM:period', 0.01), ...]
@@ -129,21 +120,17 @@ print(s.classification)   # HUM:ind
 
 ## Yes/No answer polarity
 
-Detect whether a statement is an affirmative, negative, or uncertain answer.
-Works for 43 languages. The multilingual model ships bundled in the package.
+Detect whether a statement is an affirmative, negative, or uncertain answer. Works for 43 languages. The multilingual model ships bundled in the package.
 
 ```python
 from little_questions import Sentence, Statement
-
 a = Sentence("Yes, they can perceive some colors.")
 assert isinstance(a, Statement)
 print(a.answer_polarity)   # yes
 print(a.is_affirmative)    # True
-
 a = Sentence("No, dogs are colorblind.")
 print(a.answer_polarity)   # no
 print(a.is_negative)       # True
-
 a = Sentence("It depends on the breed.")
 print(a.answer_polarity)   # maybe
 ```
@@ -160,7 +147,6 @@ The `answer_polarity` property is lazy-loaded on first access.
 ```python
 s = Sentence("Qui a invente le telephone?", lang="fr")
 print(s.sentence_type)    # question
-
 a = Sentence("Oui, bien sur.", lang="fr")
 print(a.answer_polarity)  # yes
 ```
@@ -177,7 +163,6 @@ sentences = [
     "It is raining outside.",
     "How wonderful!",
 ]
-
 for text in sentences:
     s = Sentence(text)
     if s.is_question:
@@ -226,15 +211,12 @@ pip install little-questions[hf]
 
 ```bash
 pip install little-questions[train]
-
 python -m train.train_eat                 # EAT question classifiers (EN)
 python -m train.train_yesno               # yes/no polarity (43 langs + multilingual)
 python -m train.train_sentence_type       # sentence-type classifiers
-
 python -m train.benchmark_eat
 python -m train.benchmark_sentence_type
 python -m train.benchmark_yesno
-
 python -m train.push_to_hf               # push all models to HuggingFace
 ```
 

@@ -1,7 +1,6 @@
 # Classification Benchmarks
 
-All EAT benchmarks use a 15% held-out stratified test split (`random_state=42`).
-Sentence-type and yes/no benchmarks are evaluated on the full labelled datasets.
+All EAT benchmarks use a 15% held-out stratified test split (`random_state=42`). Sentence-type and yes/no benchmarks are evaluated on the full labelled datasets.
 
 ## EAT question-type classification (EN)
 
@@ -48,11 +47,10 @@ Plots saved to `train/reports/sentence_type/`.
 
 | Model | Coverage | Accuracy | Macro F1 |
 |-------|----------|----------|----------|
-| `yesno_svm_cal_{LANG}` (per-language) | 43 languages | ~91–96% | ~91–96% |
+| `yesno_svm_cal_{LANG}` (per-language) | 43 languages | ~91-96% | ~91-96% |
 | `yesno_svm_cal_multilingual` (bundled) | all languages | 84.6% | 84.0% |
 
-The bundled multilingual model is used when no language-specific model is available.
-Per-language models achieve 90–96% macro F1 on their own language.
+The bundled multilingual model is used when no language-specific model is available. Per-language models achieve 90-96% macro F1 on their own language.
 
 Plots saved to `train/reports/yesno/`.
 
@@ -60,8 +58,10 @@ Plots saved to `train/reports/yesno/`.
 
 ```bash
 pip install little-questions[train]
-
 python -m train.benchmark_eat
 python -m train.benchmark_sentence_type
 python -m train.benchmark_yesno
 ```
+
+---
+[← Models](models.md) · [Home](index.md) · [Contributing →](contributing.md)
