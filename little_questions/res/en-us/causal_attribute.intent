@@ -1,4 +1,0 @@
-# questions that want to ask the cause of something
-what (causes|attempts to|is the cause|caused) {effect} (when|after) {thing}
-what (causes|attempts to|is the cause|caused) {effect}
-what {thing} (causes|attempts to|is the cause|caused) {effect}

@@ -1,4 +1,0 @@
-# questions that want to retrieve information about something
-what (is|are|were|was|did|does|do) {thing}
-(tell about|tell me about|define|describe|talk about|what) {thing}
-{thing} (for|is) what

@@ -1,5 +1,0 @@
-# questions that want a description of a property of something
-(how|for what) {property} (is|can|are|was|does|do) {thing}
-(what|what's|what 's) {property} (did|were|in|as|on|for|does) {thing}
-(what|what's|what' s) (is|are|were|was|did|does|do) {property} of {thing}
-{thing} (is|are) {property} (what|for what)
