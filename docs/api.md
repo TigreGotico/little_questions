@@ -1,6 +1,6 @@
 # API Reference
 
-## `little_questions` — top-level package
+## `little_questions` (top-level package)
 
 ### `Sentence`
 
@@ -8,9 +8,7 @@
 class Sentence(str)
 ```
 
-A classified sentence. Subclasses `str`, so all string operations work normally.
-The concrete subclass (`Question`, `Statement`, `Command`, `Request`, `Exclamation`)
-is chosen automatically at construction time.
+A classified sentence. Subclasses `str`, so all string operations work normally. The concrete subclass (`Question`, `Statement`, `Command`, `Request`, `Exclamation`) is chosen automatically at construction time.
 
 **Construction:**
 
@@ -18,8 +16,7 @@ is chosen automatically at construction time.
 Sentence(content: str, lang: str = "en") -> Sentence
 ```
 
-Returns a concrete subclass. Raises `RuntimeError` if no ONNX model is available
-for the requested language.
+Returns a concrete subclass. Raises `RuntimeError` if no ONNX model is available for the requested language.
 
 **Class method:**
 
@@ -61,18 +58,16 @@ All subclass `Sentence` (and `str`).
 | Class | `sentence_type` | Notes |
 |-------|----------------|-------|
 | `Question` | `question` | |
-| `Statement` | `statement` | Adds `answer_polarity` — see below |
+| `Statement` | `statement` | Adds `answer_polarity`, see below |
 | `Command` | `command` | |
-| `Request` | `request` | Subclass of `Command`; also satisfies `is_command` |
+| `Request` | `request` | Subclass of `Command`. Also satisfies `is_command` |
 | `Exclamation` | `exclamation` | |
 
 ---
 
-### `Statement` — answer polarity
+### `Statement`: answer polarity
 
-`Statement` adds three lazy-loaded properties for classifying yes/no responses.
-The yes/no ONNX model is downloaded on first access; a `RuntimeError` is raised
-if no model is available.
+`Statement` adds three lazy-loaded properties for classifying yes/no responses. The yes/no ONNX model downloads on first access. A `RuntimeError` is raised if no model is available.
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -113,9 +108,7 @@ Return the `YesNoClassifier` singleton for *lang*.
 
 ### `EatClassifier`
 
-Two-stage calibrated EAT classifier. Stage 1 (`eat7_svm_cal`) predicts the main
-category; Stage 2 (`eat53_svm_cal`) scores all 53 labels and renormalises within
-the predicted main category.
+Two-stage calibrated EAT classifier. Stage 1 (`eat7_svm_cal`) predicts the main category. Stage 2 (`eat53_svm_cal`) scores all 53 labels and renormalises within the predicted main category.
 
 ```python
 EatClassifier.get_instance(lang: str) -> EatClassifier
@@ -143,8 +136,7 @@ SentenceTypeClassifier.get_instance(lang: str) -> SentenceTypeClassifier
 | `predict` | `(text: str) -> str` | Sentence type: `question`/`statement`/`command`/`request`/`exclamation` |
 | `score` | `(text: str) -> dict[str, float]` | Softmax probabilities over sentence types |
 
-Supported languages for ONNX inference: `en`, `de`, `es`, `fr`, `it`, `nl`, `pt`.
-Raises `RuntimeError` for unsupported languages.
+Supported languages for ONNX inference: `en`, `de`, `es`, `fr`, `it`, `nl`, `pt`. Raises `RuntimeError` for unsupported languages.
 
 ---
 
@@ -161,8 +153,7 @@ YesNoClassifier.get_instance(lang: str) -> YesNoClassifier
 | `predict` | `(text: str) -> str` | `"yes"`, `"no"`, or `"maybe"` |
 | `score` | `(text: str) -> dict[str, float]` | Calibrated probabilities over `yes`/`no`/`maybe` |
 
-Tries a language-specific model first, then falls back to the multilingual model.
-Raises `RuntimeError` if neither is available.
+Tries a language-specific model first, then falls back to the multilingual model. Raises `RuntimeError` if neither is available.
 
 ---
 
@@ -170,7 +161,6 @@ Raises `RuntimeError` if neither is available.
 
 ```python
 from little_questions.classifiers import clear_classifier_cache, list_supported_languages
-
 clear_classifier_cache()        # force reload on next use
 list_supported_languages()      # languages with a sentence-type ONNX model
 ```
@@ -201,10 +191,12 @@ from little_questions.models import (
 )
 ```
 
-Each function downloads the model from HuggingFace on first call and returns
-the local cache path. Returns `None` if the download fails.
+Each function downloads the model from HuggingFace on first call and returns the local cache path. Returns `None` if the download fails.
 
 HuggingFace repos:
 - EAT models: `TigreGotico/eat-classifiers`
 - Sentence-type models: `TigreGotico/sentence-types`
 - Yes/no models: `TigreGotico/yes-no-classifiers`
+
+---
+[Home](index.md) · [Models →](models.md)

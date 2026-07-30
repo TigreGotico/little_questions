@@ -1,7 +1,6 @@
 # little_questions
 
-Classify sentences by **type** (question, command, statement, exclamation, request)
-and, for questions, by **expected answer category** (EAT taxonomy: 7 main, 53 fine-grained).
+Classify sentences by **type** (question, command, statement, exclamation, request) and, for questions, by **expected answer category** (EAT taxonomy: 7 main, 53 fine-grained).
 
 Both classifiers download their ONNX models automatically from HuggingFace on first use.
 
@@ -9,7 +8,6 @@ Both classifiers download their ONNX models automatically from HuggingFace on fi
 
 ```python
 from little_questions import Sentence
-
 # A question
 s = Sentence("Who invented the telephone?")
 print(type(s).__name__)          # Question
@@ -19,12 +17,10 @@ print(s.main_label)              # HUM
 print(s.secondary_label)         # ind
 print(s.pretty_label)            # individual (Human)
 print(s.confidence)              # 0.94
-
 # A command
 s = Sentence("Play some jazz music.")
 print(type(s).__name__)          # Command
 print(s.sentence_type)           # command
-
 # A statement
 s = Sentence("The sky is blue.")
 print(type(s).__name__)          # Statement
@@ -63,8 +59,7 @@ little_questions/
 ├── classifiers.py   # EatClassifier, SentenceTypeClassifier, YesNoClassifier, _OnnxModel
 ├── constants.py     # EAT_LABELS_7, EAT_LABELS_53, SENTENCE_TYPES, MAIN_LABEL_NAMES, SEC_LABEL_NAMES
 └── models.py        # HF auto-download helpers
-
-train/               # Training-only — install with pip install little-questions[train]
+train/               # Training only. Install with pip install little-questions[train]
 ├── classifiers.py       # CalibratedLinearSVCClassifier, LinearSVCClassifier, LogRegClassifier, SGDClassifier, Model2VecClassifier
 ├── load_eat.py          # EAT dataset loader
 ├── load_yesno.py        # Yes/no dataset loader
@@ -80,7 +75,7 @@ train/               # Training-only — install with pip install little-questio
 
 ## Further reading
 
-- [api.md](api.md) — full API reference
-- [models.md](models.md) — model files, HuggingFace repos, training
-- [classification.md](classification.md) — benchmark results
-- [contributing.md](contributing.md) — development setup
+- [api.md](api.md): full API reference
+- [models.md](models.md): model files, HuggingFace repos, training
+- [classification.md](classification.md): benchmark results
+- [contributing.md](contributing.md): development setup
