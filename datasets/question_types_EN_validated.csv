@@ -1,0 +1,143 @@
+label	question	lang
+LOC:mount	What is the tallest peak in the Dolomites?	en
+DESC:manner	What is the way to write a letter?	en
+DESC:def	How is a preposition used?	en
+NUM:dist	How far is Sydney from Melbourne?	en
+ABBR:exp	What does ROU stand for?	en
+ENTY:color	What color is coral?	en
+LOC:mount	Where is Mount Popocatépetl?	en
+LOC:state	Kosovo is a province of what country	en
+NUM:count	How many miles of corridors are in The Pentagon	en
+ABBR:abb	What is the acronym for Local Area Network?	en
+NUM:ord	What is the sixth book in the series?	en
+ENTY:animal	What is a baby turkey called	en
+ABBR:exp	CPU means what in full form?	en
+NUM:temp	At what temperature does aluminum melt?	en
+NUM:speed	How fast does a bullet travel?	en
+ENTY:event	What are the rites accompanying the circumcision of a newly born-child in Judaism called	en
+ENTY:currency	What is the rupee?	en
+ENTY:animal	What is the proper name for a female walrus	en
+ENTY:word	What is the longest English word	en
+DESC:manner	What is the method for tie a knot?	en
+NUM:code	What is the octal code for carriage return?	en
+NUM:count	What is the number of sports?	en
+ENTY:cremat	Name a novel written by John Steinbeck	en
+NUM:date	When did the royal wedding of Prince Andrew and Fergie take place	en
+ABBR:abb	What does SMTP stand for?	en
+ABBR:exp	FAQ means what?	en
+DESC:reason	What causes drainage?	en
+ABBR:exp	What does CUW represent?	en
+ENTY:symbol	what was the symbol used by the nazis	en
+NUM:volsize	How large is the Arctic Ocean?	en
+ENTY:food	What is tilapia?	en
+HUM:desc	Describe a typical nurse	en
+DESC:reason	Why do nerves transmit?	en
+ABBR:exp	FBI stands for what exactly?	en
+LOC:water	What ocean surrounds the Maldive Islands	en
+NUM:dist	How tall is kilamanjaro	enABBR:exp	What does LBY stand for?	en
+NUM:money	How much money does each player get at the beginning of the game in Monopoly	en
+ABBR:exp	What does MDV expand to?	en
+DESC:reason	What causes lava flows?	en
+ENTY:product	What household products are there for adult acne	en
+NUM:period	What is the typical duration of a medical appointment?	en
+DESC:reason	Why do eyes blink?	en
+DESC:desc	How are tastes described gustatorily?	en
+NUM:period	Shea and Gould had an office in Los Angeles for how long before closing it	en
+LOC:country	Where is New Zealand?	en
+ABBR:exp	What does CHE expand to?	en
+NUM:count	What is the number of provinces of Argentina?	en
+NUM:perc	What percentage of the worlds fresh water is frozen?	en
+NUM:money	How much does a book cost?	en
+ENTY:termeq	What is a synonym for automobile?	en
+ABBR:exp	What does e.g. stand for	en
+DESC:def	What is a conjunction?	en
+NUM:volsize	What is the volume of a teaspoon?	en
+ENTY:color	What color is a tomato?	en
+ENTY:animal	What is a reindeer?	en
+NUM:money	How much does a house cost?	en
+DESC:desc	What identifies personal characteristics?	en
+LOC:landmass	List all the continents	en
+DESC:reason	Why are eggs supposed to be stored small end down	en
+DESC:manner	In what way do surveyors measure?	en
+ENTY:food	What is cocoa?	en
+NUM:code	What does error code E429 mean in web?	en
+DESC:def	What is anaphora?	en
+ENTY:event	What was the tragedy that struck the city of Dogtown in 1899	en
+NUM:weight	What is the weight of a grand piano?	en
+NUM:speed	What is the speed of a typical bullet train?	en
+NUM:money	What is the cost of a movie ticket?	en
+NUM:dist	How far is Earth and Moon?	en
+LOC:country	What country in Latin America is the largest one	en
+NUM:code	What is the hexadecimal code for symbol @?	en
+ENTY:animal	What kind of dog is Scooby Doo	en
+ENTY:product	What computer operating system is on the most computers	en
+ENTY:plant	What is a lettuce?	en
+DESC:def	What is propylene glycol	en
+NUM:count	About how many Americans are still unaccounted for from the Vietnam war	en
+ENTY:body	What is the integumentary system?	en
+DESC:reason	What causes defaults?	en
+DESC:def	What is fibromyalgia	en
+DESC:reason	What is the reason we need sleep?	en
+NUM:perc	What percentage of the population is vegan?	en
+ENTY:body	What is the immune system?	en
+NUM:perc	What percentage of the human genome is unique to each person?	en
+ABBR:abb	What does A11y mean?	en
+LOC:country	What country is Kosovo a part of	en
+LOC:landmass	Name all the continents	en
+DESC:def	How does cohesion function?	en
+ABBR:exp	Expand the acronym EPA	en
+ENTY:word	What is the plural of criterion?	en
+ENTY:word	What is the plural of gulf	en
+LOC:mount	How high is Mount McKinley?	en
+LOC:landmass	Where is Greenland?	en
+DESC:def	How is a sentence structured?	en
+HUM:ind	What was Michelangelos last name	en
+HUM:ind	Who is the father of the computer	en
+LOC:city	Where is New York?	en
+ENTY:symbol	What is the at sign symbol?	en
+ABBR:exp	NATO expands to North Atlantic Treaty Organization?	en
+ENTY:religion	What is Zoroastrianism?	en
+LOC:mount	Where are the Andes Mountains?	en
+ABBR:abb	What is the correct way to abbreviate cc. at the bottom of a business letter	en
+DESC:reason	What causes bad breath?	en
+HUM:desc	What does a dancer do?	en
+NUM:code	What is the ASCII code for space character?	en
+DESC:desc	How are landscapes depicted in art?	en
+NUM:dist	How far is New York from Tokyo?	en
+ENTY:dismed	What is a fear of fur	en
+NUM:ord	What is the chronological position of Barack Obama as the President of United States	en
+ABBR:abb	What does IR stand for?	en
+ENTY:symbol	What is the chemical symbol for helium?	en
+ENTY:instru	What instrument measures blood pressure?	en
+ENTY:body	What is the weakest bone in the body	en
+NUM:perc	What percentage of the worlds wealth is held by the top 1 percent?	en
+ABBR:abb	What is the shorthand for Gigabyte?	en
+DESC:manner	In what manner do settlers establish?	en
+DESC:manner	How do they get Teflon to stick to the pan	en
+LOC:mount	How high is Mount Fuji?	en
+DESC:reason	What causes leaves to turn green?	en
+NUM:temp	At what temperature does asphalt soften?	en
+ENTY:animal	What kinds of animals are in Cambodia	en
+HUM:desc	What is a engineer?	en
+HUM:title	Who holds the title of Provost?	en
+LOC:mount	What mountain range is traversed by the highest railroad in the world	en
+DESC:def	How does holonym function?	en
+NUM:weight	How much does an unknown item weigh?	en
+ENTY:religion	name all the religions practiced around the Mediterranean sea	en
+ENTY:color	What color is a bluebell?	en
+NUM:temp	How hot should the oven be when baking Peachy Oat Muffins	en
+ENTY:word	What is a homophone?	en
+LOC:other	Where is Tufts University	en
+DESC:reason	Why do muscles ache?	en
+NUM:ord	Which is your precise position in the order of seniority	en
+DESC:manner	How do you learn a language?	en
+LOC:city	Tell me what city the Kentucky Horse Park is near	en
+ABBR:exp	What is IOC an abbreviation of	en
+NUM:count	How many muscles does an oyster have	en
+DESC:reason	What causes peace?	en
+NUM:volsize	What is the volume of the Great Lakes?	en
+NUM:dist	How far can you see	en
+ABBR:abb	TLS abbreviates what?	en
+NUM:code	What is the octal code for delete?	en
+DESC:manner	How do musicians play?	en
+ABBR:abb	Explain the acronym HDMI	en

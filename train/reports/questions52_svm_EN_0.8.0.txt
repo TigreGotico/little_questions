@@ -1,0 +1,58 @@
+                precision    recall  f1-score   support
+
+      ABBR:abb       0.75      0.90      0.82       107
+      ABBR:exp       0.92      0.75      0.82       107
+      DESC:def       0.59      0.64      0.61       107
+     DESC:desc       0.75      0.69      0.72       107
+   DESC:manner       0.55      0.95      0.70       107
+   DESC:reason       0.93      0.79      0.86       107
+   ENTY:animal       0.87      0.57      0.69       132
+     ENTY:body       0.27      0.95      0.42       128
+    ENTY:color       0.94      0.50      0.65       136
+   ENTY:cremat       0.83      0.52      0.64       105
+ ENTY:currency       1.00      0.55      0.71       105
+   ENTY:dismed       0.98      0.52      0.68       105
+    ENTY:event       0.92      0.62      0.74       105
+     ENTY:food       0.80      0.52      0.63       128
+   ENTY:instru       0.93      0.49      0.64       105
+     ENTY:lang       0.95      0.56      0.71       105
+   ENTY:letter       0.94      0.49      0.64       105
+    ENTY:other       0.84      0.35      0.50       105
+    ENTY:plant       0.87      0.52      0.65       105
+  ENTY:product       0.94      0.44      0.60       105
+ ENTY:religion       1.00      0.49      0.65       105
+    ENTY:sport       0.97      0.58      0.73       105
+ENTY:substance       0.92      0.56      0.70       105
+   ENTY:symbol       0.15      0.95      0.25       105
+ ENTY:techmeth       0.92      0.54      0.68       105
+   ENTY:termeq       0.87      0.58      0.70       105
+      ENTY:veh       0.81      0.37      0.51       105
+     ENTY:word       0.80      0.47      0.59       105
+      HUM:desc       0.76      0.36      0.49       106
+        HUM:gr       0.93      0.52      0.67       106
+       HUM:ind       0.40      0.88      0.55       106
+     HUM:title       0.95      0.56      0.70       106
+      LOC:city       0.86      0.54      0.67       105
+   LOC:country       0.80      0.53      0.64       105
+  LOC:landmass       0.92      0.44      0.59       105
+     LOC:mount       0.95      0.60      0.74       105
+     LOC:other       0.93      0.65      0.77       106
+     LOC:state       0.86      0.46      0.60       105
+     LOC:water       0.29      0.97      0.45       105
+      NUM:code       1.00      0.64      0.78       125
+     NUM:count       0.17      0.92      0.29       120
+      NUM:date       0.96      0.63      0.76       106
+      NUM:dist       0.97      0.59      0.73       105
+     NUM:money       0.96      0.64      0.77       105
+       NUM:ord       0.97      0.57      0.72       105
+     NUM:other       0.86      0.34      0.49       105
+      NUM:perc       0.98      0.54      0.70       105
+    NUM:period       0.96      0.64      0.77       105
+     NUM:speed       0.93      0.60      0.73       105
+      NUM:temp       0.96      0.51      0.67       105
+   NUM:volsize       0.98      0.57      0.72       105
+    NUM:weight       0.97      0.62      0.76       105
+
+      accuracy                           0.60      5617
+     macro avg       0.83      0.60      0.65      5617
+  weighted avg       0.83      0.60      0.65      5617

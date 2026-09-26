@@ -1,0 +1,259 @@
+Am I going to die
+Am I sick
+Are Spanish and German different languages?
+Are airplanes flown inside?
+Are apples red fruit?
+Are aspirin and tylenol pain relievers?
+Are bananas and oranges sweet vegetables?
+Are band-aids used for healing?
+Are cars made here
+Are cars used to drive on the water?
+Are chips and pretzels salty?
+Are clocks and bikes used to tell time?
+Are coffee and hot chocolate cold drinks?
+Are computers used to brush your teeth with?
+Are dogs and cats animals that live in the jungle?
+Are flies and robins small insects?
+Are football and baseball types of food?
+Are fruits and vegetables healthy to eat?
+Are houses more than $50 dollars?
+Are lasagna and spaghetti Chinese dishes?
+Are lizards small?
+Are muscles needed to move our body?
+Are musicians and artists creative?
+Are ovens used to freeze things?
+Are paint and syrup used to take a bath in?
+Are peanuts made into jam?
+Are pencils and markers used to write on a whiteboard?
+Are pillows and mattresses used to sleep on?
+Are rattlesnakes poisonous?
+Are roses tall trees?
+Are scoops of ice cream sweet?
+Are shoes worn over the top of socks?
+Are shovels something you would use to dig a hole with?
+Are the children at school?
+Are the letters "d" and "s" in the word "dressing"?
+Are there 80 minutes in an hour?
+Are they American?
+Are they sitting in a row ?
+Are they studying hard
+Are they visiting Paris?
+Are umbrellas used to keep you wet?
+Are violins and pianos musical instruments?
+Are we going to try it
+Are wild animals dangerous?
+Are you going to try it
+Are you hungry?
+Are you looking for the keys
+Are you sick
+Can John read
+Can a backpack get a cold?
+Can a circle have corners?
+Can a fish live out of water?
+Can a tiger be your pet?
+Can pigs walk on two feet?
+Can you brush your teeth with a shoe?
+Can you buy eggs by the dozen?
+Can you drive a car wearing a blindfold?
+Can you drive a car without wearing a seatbelt?
+Can you eat tomato soup with a fork?
+Can you eat without a mouth?
+Can you freeze orange juice?
+Can you fry vegetables in a pan?
+Can you grow a mustache on your foot?
+Can you jump over a puddle?
+Can you keep a horse inside your house?
+Can you make bread without using flour?
+Can you rake leaves with a hammer?
+Can you ride a bike without a helmet?
+Can you ride a camel?
+Can you rip concrete?
+Can you see in the dark without a flashlight?
+Can you sleep in the day time?
+Can you stir something with a spoon?
+Can you stretch a rock?
+Can you teach a cat to talk?
+Can you touch your elbow with your nose?
+Can you use a shovel at the beach?
+Can you wear a tie?
+Can you wear pajama's to school / work?
+Could he have said that
+Did she have a smile on her face
+Did she have her camera
+Did the boss notice the mistake
+Did the printer break
+Did they dance well
+Did they find the answer?
+Did they forget their tickets
+Did you feel sick
+Did you go to the park
+Did you see John yesterday?
+Do astronauts work in grocery stores?
+Do babies need their diapers changed?
+Do baby birds get fed by their mother?
+Do butterflies run fast?
+Do cars have engines?
+Do cats climb trees?
+Do children play with toys?
+Do computers help us find information?
+Do elephants live in the ocean?
+Do erasers remove pencil marks?
+Do fire extinguishers help fireman?
+Do football players use sticks?
+Do horses wear socks?
+Do new clothes get dirty?
+Do pilots fly paper planes?
+Do plants wear glasses?
+Do storms damage homes?
+Do teachers help you learn?
+Do we call a school if we have an emergency?
+Do we eat beef
+Do we need our hands to play a musical instrument?
+Do we want more money
+Do windows need to be cleaned?
+Do you agree
+Do you believe me
+Do you chew soup?
+Do you do yoga
+Do you eat beef
+Do you get wet when you go swimming?
+Do you have a car?
+Do you have a dog
+Do you have a problem?
+Do you need to go home?
+Do you own a car?
+Do you throw things in the garbage that are broken?
+Do you use roller skates on the grass?
+Do you want a drink
+Do you want more money
+Does an orange have more juice than a banana?
+Does he read every day
+Does it snow during the summer?
+Does my dog bark loudly
+Does she have a job?
+Does she love tennis?
+Does the sun make things hot?
+Does yogurt go bad if it isn't refrigerated?
+Does your birthday always happen on the same day?
+Does your dog bark loudly
+Has John been fired?
+Has he been working here
+Has he had surgery
+Has she done the housework?
+Has she had a job?
+Has the order been approved
+Have they finished
+Have you eaten breakfast today?
+Have you got a car?
+Have you got a pen?
+Have you seen Michael
+If it is June, is it hot in the North Pole?
+If someone cries, are they sad?
+If someone smiles, are they sad?
+If something is light, would it sink?
+If something is tasty, is it bad?
+If something smells, does it stink?
+If there are laves on the ground, is it winter?
+If there is snow on the ground, is it summer?
+If you break an egg, can you fix it?
+If you cut yourself really bad, should you go to the dentist?
+If you have a ball, can you play catch?
+If you have a bracelet, do you own jewelry?
+If you have a pen and paper, can you write your name?
+If you have boiling water, is it hot?
+If you rip your shirt, would you staple it back together?
+If you want to watch a movie, would you go to a bank?
+If you wanted to get warm, would you drink hot chocolate?
+If you went to a restaurant, would you see clowns?
+If you were a bee, could you sing?
+If you were a bird, would you have fins?
+If you were a builder, would you use a hammer?
+If you were a cat, would you have three legs?
+If you were a caterpillar, would you have legs?
+If you were a chair, could you swim?
+If you were a computer, would you be alive?
+If you were a fish, could you jump?
+If you were a horse, could you gallup?
+If you were a shark, would you eat fish?
+If you were an ant, would you live in dirt?
+If you were an owner, would you have a pet?
+If you were rotten, would you smell nice?
+If your bike has a flat tire, should you ride it?
+Is 50% higher than 48%?
+Is 9:30 p.m. later than 3:30 p.m.?
+Is John a doctor
+Is Luan going to be hired
+Is New York City small?
+Is Peter going to go
+Is a brick heavier than a feather?
+Is a car bigger than a person?
+Is a car faster than a bicycle?
+Is a clown funnier than a doctor?
+Is a cow bigger than an elephant?
+Is a day longer than a week?
+Is a father older than his son?
+Is a gallon less than a cup?
+Is a hurricane dangerous?
+Is a mile longer than a football field?
+Is a month longer than an hour?
+Is a pair of shoes more than one shoe?
+Is a pair of socks less than three pairs?
+Is a screwdriver a tool?
+Is a state bigger than a city?
+Is a year longer than six months?
+Is building a house hard work?
+Is five dollars more than one hundred?
+Is half an apple less than one apple?
+Is he a bad person
+Is he a good person
+Is he being interviewed now
+Is he fat
+Is he tall
+Is it 4 o'clock
+Is it a doctor's job to save people?
+Is my name being called
+Is one million a big number?
+Is paper used to wash clothes?
+Is she a bad person
+Is she a good person
+Is she being interviewed now
+Is she fat
+Is she tall
+Is the moon hotter than the sun?
+Is the school open
+Is the train going to arrive?
+Is thirty minutes shorter than one hour?
+Is today my birthday
+Is today your birthday
+Is twenty more than fifty?
+Is whole less than a half?
+Is yoga popular
+Is your arm bigger than your thigh?
+Might it be broken
+Must a visa be obtained first
+Shall we attend
+Should he practice more
+Should she practice more
+Was New York expensive?
+Was Sarah his teacher
+Was he going to visit
+Was it nice?
+Was she going to visit
+Was the book sold
+Was the price the same
+Was the printer being repaired?
+Was the waiter rude
+Were they waiting long
+Were we late?
+Were you rich
+Were you there
+Were you tired
+Will he come?
+Will she come?
+Will they be happy
+Will they be hired?
+Will we join them
+Will you go to the park
+Will you join them
+Would he have been angry
+Would she have been angry

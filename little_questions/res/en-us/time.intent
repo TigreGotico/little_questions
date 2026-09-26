@@ -1,6 +1,0 @@
-# questions about the time something happened
-when (is|are|were|was|did|does|do|will) {thing}
-(what|which) (time|day|day of the week|week|month|year|century|date) (is|are|were|was|did|does|do) {thing}
-(in|on|at) (what|which) (time|day|day of the week|week|month|year|century|date) (is|are|were|was|did|does|do) {thing}
-{thing} (in|on|at) what (time|day|day of the week|week|month|year|century|date)
-(in|on|at) what date {thing}

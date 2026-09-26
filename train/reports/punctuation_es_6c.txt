@@ -1,0 +1,21 @@
+Scorer : punctuation
+Dataset: test-split-es-6c  (lang=es)
+Samples: 5617
+
+              precision    recall  f1-score   support
+
+        ABBR       0.00      0.00      0.00     213.0
+        DESC       0.00      0.00      0.00     427.0
+        ENTY       0.00      0.00      0.00    2414.0
+         HUM       0.00      0.00      0.00     425.0
+         LOC       0.00      0.00      0.00     736.0
+         NUM       0.00      0.00      0.00    1402.0
+    question       0.00      0.00      0.00       0.0
+
+    accuracy                           0.00    5617.0
+   macro avg       0.00      0.00      0.00    5617.0
+weighted avg       0.00      0.00      0.00    5617.0
+
+Accuracy : 0.0000
+Macro F1 : 0.0000
+Wtd   F1 : 0.0000

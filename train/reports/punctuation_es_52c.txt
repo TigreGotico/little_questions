@@ -1,0 +1,67 @@
+Scorer : punctuation
+Dataset: test-split-es-52c  (lang=es)
+Samples: 5617
+
+                precision    recall  f1-score   support
+
+      ABBR:abb       0.00      0.00      0.00     107.0
+      ABBR:exp       0.00      0.00      0.00     107.0
+      DESC:def       0.00      0.00      0.00     107.0
+     DESC:desc       0.00      0.00      0.00     107.0
+   DESC:manner       0.00      0.00      0.00     107.0
+   DESC:reason       0.00      0.00      0.00     107.0
+   ENTY:animal       0.00      0.00      0.00     132.0
+     ENTY:body       0.00      0.00      0.00     128.0
+    ENTY:color       0.00      0.00      0.00     136.0
+   ENTY:cremat       0.00      0.00      0.00     105.0
+ ENTY:currency       0.00      0.00      0.00     105.0
+   ENTY:dismed       0.00      0.00      0.00     105.0
+    ENTY:event       0.00      0.00      0.00     105.0
+     ENTY:food       0.00      0.00      0.00     128.0
+   ENTY:instru       0.00      0.00      0.00     105.0
+     ENTY:lang       0.00      0.00      0.00     105.0
+   ENTY:letter       0.00      0.00      0.00     105.0
+    ENTY:other       0.00      0.00      0.00     105.0
+    ENTY:plant       0.00      0.00      0.00     105.0
+  ENTY:product       0.00      0.00      0.00     105.0
+ ENTY:religion       0.00      0.00      0.00     105.0
+    ENTY:sport       0.00      0.00      0.00     105.0
+ENTY:substance       0.00      0.00      0.00     105.0
+   ENTY:symbol       0.00      0.00      0.00     105.0
+ ENTY:techmeth       0.00      0.00      0.00     105.0
+   ENTY:termeq       0.00      0.00      0.00     105.0
+      ENTY:veh       0.00      0.00      0.00     105.0
+     ENTY:word       0.00      0.00      0.00     105.0
+      HUM:desc       0.00      0.00      0.00     106.0
+        HUM:gr       0.00      0.00      0.00     106.0
+       HUM:ind       0.00      0.00      0.00     106.0
+     HUM:title       0.00      0.00      0.00     106.0
+      LOC:city       0.00      0.00      0.00     105.0
+   LOC:country       0.00      0.00      0.00     105.0
+  LOC:landmass       0.00      0.00      0.00     105.0
+     LOC:mount       0.00      0.00      0.00     105.0
+     LOC:other       0.00      0.00      0.00     106.0
+     LOC:state       0.00      0.00      0.00     105.0
+     LOC:water       0.00      0.00      0.00     105.0
+      NUM:code       0.00      0.00      0.00     125.0
+     NUM:count       0.00      0.00      0.00     120.0
+      NUM:date       0.00      0.00      0.00     106.0
+      NUM:dist       0.00      0.00      0.00     105.0
+     NUM:money       0.00      0.00      0.00     105.0
+       NUM:ord       0.00      0.00      0.00     105.0
+     NUM:other       0.00      0.00      0.00     105.0
+      NUM:perc       0.00      0.00      0.00     105.0
+    NUM:period       0.00      0.00      0.00     105.0
+     NUM:speed       0.00      0.00      0.00     105.0
+      NUM:temp       0.00      0.00      0.00     105.0
+   NUM:volsize       0.00      0.00      0.00     105.0
+    NUM:weight       0.00      0.00      0.00     105.0
+      question       0.00      0.00      0.00       0.0
+
+      accuracy                           0.00    5617.0
+     macro avg       0.00      0.00      0.00    5617.0
+  weighted avg       0.00      0.00      0.00    5617.0
+
+Accuracy : 0.0000
+Macro F1 : 0.0000
+Wtd   F1 : 0.0000

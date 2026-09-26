@@ -1,0 +1,12 @@
+                precision    recall  f1-score   support
+
+       command       0.88      0.90      0.89       247
+   exclamation       0.94      0.99      0.96       247
+polar_question       0.87      0.76      0.81       248
+       request       0.94      0.98      0.96       248
+     statement       0.82      0.86      0.84       248
+   wh_question       0.96      0.92      0.94       247
+
+      accuracy                           0.90      1485
+     macro avg       0.90      0.90      0.90      1485
+  weighted avg       0.90      0.90      0.90      1485
