@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.10.0a3](https://github.com/TigreGotico/little_questions/tree/0.10.0a3) (2026-09-26)
+
+[Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.10.0a2...0.10.0a3)
+
+**Merged pull requests:**
+
+- chore\(deps\): bump idna from 3.11 to 3.15 [\#18](https://github.com/TigreGotico/little_questions/pull/18) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [0.10.0a2](https://github.com/TigreGotico/little_questions/tree/0.10.0a2) (2026-07-30)
 
 [Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.10.0a1...0.10.0a2)
@@ -27,6 +35,14 @@
 ## [0.7.0a1](https://github.com/TigreGotico/little_questions/tree/0.7.0a1) (2021-09-01)
 
 [Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.6...0.7.0a1)
+
+## [0.6](https://github.com/TigreGotico/little_questions/tree/0.6) (2020-11-29)
+
+[Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.5.2...0.6)
+
+## [0.5.2](https://github.com/TigreGotico/little_questions/tree/0.5.2) (2019-12-13)
+
+[Full Changelog](https://github.com/TigreGotico/little_questions/compare/3333ac028778983c8abb8ec8b6a984d0e4ad4926...0.5.2)
 
 
 
