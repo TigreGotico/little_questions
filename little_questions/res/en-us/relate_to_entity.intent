@@ -1,5 +1,0 @@
-# question about an entity related to something
-who {entity} (in|for|during|of|on|who|to|with) {thing}
-{thing} (to|by) whom
-to what (does|did) {thing}
-{query} (with|to) whom {thing}

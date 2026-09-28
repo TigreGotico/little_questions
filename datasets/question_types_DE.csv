@@ -1,0 +1,362 @@
+label	question	lang
+NUM:weight	Wie schwer ist ein leerer Sattelzug?	de
+LOC:other	Welches Land hat Snowdon?	de
+HUM:title	Was ist ein Admiral?	de
+LOC:mount	Was ist der höchste Gipfel in den Dolomiten?	de
+DESC:desc	Was ist Moskau?	de
+DESC:def	Wofür wird das £-Symbol verwendet?	de
+DESC:manner	Wie schreibt man einen Brief?	de
+DESC:def	Wie wird eine Präposition verwendet?	de
+NUM:dist	Wie weit ist Sydney von Melbourne entfernt?	de
+HUM:gr	Was nennt man Arnold Palmers Fans	de
+DESC:desc	Wie sind die Provinzen?	de
+ABBR:exp	Was steht für ROU?	de
+ENTY:color	Welche Farbe hat Korallen?	de
+LOC:mount	Wo befindet sich der Vulkan Popocatépetl?	de
+HUM:ind	Wer war der demokratische Scherzspieler, der den Zug aus dem Bahnhof wegwog, während Richard Nixon aus dem Waggon sprach	de
+DESC:def	Was ist ein Historiker?	de
+DESC:manner	Wie werden Überreste zerstreut?	de
+LOC:state	Kosovo ist eine Provinz von welchem Land	de
+DESC:desc	Wie sind Republiken?	de
+DESC:description	Was sind die Regeln des Golfsports?	de
+ENTY:symbol	Was ist das Prozentzeichen?	de
+NUM:count	Wie viele Meilen Korridore gibt es im Pentagon?	de
+DESC:desc	Was ist das älteste Handwerk?	de
+ABBR:abb	Was ist die Abkürzung für Local Area Network?	de
+NUM:ord	Was ist das sechste Buch in der Serie?	de
+ENTY:animal	Was nennt man ein Baby-Huhn?	de
+ABBR:exp	Was bedeutet CPU in voller Form?	de
+NUM:temp	Bei welcher Temperatur schmilzt Aluminium?	de
+DESC:desc	Wie wird ein Konsortium gebildet?	de
+DESC:manner	Wie leben Kolonisten?	de
+DESC:def	Was macht eine Zone zu einer Stadt?	de
+NUM:speed	Wie schnell reist eine Kugel?	de
+ENTY:event	Was heißen die Riten, die die Beschneidung eines neugeborenen Kindes im Judentum begleiten?	de
+HUM:ind	Wie alt ist Britney Spears	de
+DESC:manner	Wie hat Lee Harvey Oswald sein Gewehr erworben	de
+DESC:def	Was ist das endokrine System?	de
+ENTY:currency	Was ist der Rupie?	de
+NUM:count	Wie viele Kammern hat die menschliche Niere?	de
+ENTY:other	Was umfasst die NATO-Länder?	de
+NUM:count	Was sind die Arbeitslosenstatistiken für die Jahre 1965 und 1990	de
+ENTY:animal	Was ist der richtige Name für eine weibliche Walross?	de
+DESC:desc	Was ist der Panama-Kanal?	de
+ENTY:word	Was ist das längste englische Wort?	de
+DESC:manner	Was ist die Methode, um einen Knoten zu binden?	de
+NUM:code	Was ist der Oktal-Code für die Eingabetaste?	de
+ENTY:product	Was ist der Name des Kevin Costners Film über die Sioux-Indianer?	de
+DESC:def	Was ist ein Friedhof?	de
+DESC:desc	Was geschah während der Finanzkrise 2008?	de
+NUM:count	Wie viele Sportarten gibt es?	de
+ENTY:cremat	Nenne einen Roman, der von John Steinbeck geschrieben wurde.	de
+NUM:date	Wann fand die königliche Hochzeit von Prinz Andrew und Fergie statt	de
+ABBR:abb	Was steht für SMTP?	de
+DESC:reason	Warum enthalten ISBN-Nummern für Bücher Prüfziffern?	de
+ABBR:exp	Was bedeutet FAQ?	de
+DESC:reason	Was verursacht Abfluss?	de
+DESC:def	Was bedeutet JSON?	de
+NUM:count	Wie viele Muskeln gibt es?	de
+DESC:reason	Wie funktionieren Sicherheitsfarben?	de
+ABBR:exp	Was repräsentiert CUW?	de
+ENTY:symbol	Was war das Symbol, das von den Nazis verwendet wurde	de
+DESC:desc	Aus was wird Käse hergestellt?	de
+LOC:other	Welches Land hat die meisten Wasserverschmutzungen	de
+DESC:def	Was ist ein Atoll?	de
+NUM:volsize	Wie groß ist der Arktische Ozean?	de
+DESC:desc	Was ist das Ohr?	de
+HUM:gr	Was ist ein Arbeitgeber?	de
+ENTY:food	Was ist Tilapia?	de
+LOC:other	Woher stammt Getreide?	de
+HUM:desc	Beschreibe ein typisches Pflegepersonal	de
+DESC:reason	Warum übertragen Nerven?	de
+DESC:desc	Wie ist das Wetter auf dem Mond	de
+ABBR:exp	Was bedeutet FBI genau?	de
+LOC:water	Welcher Ozean umgibt die Malediven	de
+NUM:dist	Wie hoch ist der Kilimandscharo	de
+NUM:count	Wie viele Saiten hat eine Harfe	de
+ABBR:exp	Was steht für LBY?	de
+ENTY:desc	Welche Farbe ist Karmesin	de
+DESC:manner	Wie werden Samen kultiviert	de
+ENTY:word	Nenne die 5 Wörter, die alle Buchstaben des Alphabets verwenden, außer Q, ohne Wiederholungen	de
+ENTY:product	Welches Produkt wagte Robert Conrad, von seinem Schulter zu schlagen	de
+NUM:money	Wie viel Geld bekommt jeder Spieler zu Beginn des Spiels in Monopoly?	de
+ABBR:exp	Was erweitert sich nach MDV?	de
+DESC:reason	Was verursacht Lavaströme?	de
+DESC:desc	Was ist ein Skript?	de
+DESC:desc	Wie funktioniert die Mikrodienstarchitektur?	de
+ENTY:symbol	Welche Zeichen gibt es im Horoskop?	de
+DESC:desc	Was bedeutet effervescent?	de
+ENTY:product	Welche Haushaltsprodukte gibt es für Akne bei Erwachsenen?	de
+ENTY:product	Was ist ein Mikrowellenofen?	de
+DESC:reason	Was macht Ressourcenverteidigung wichtig?	de
+DESC:manner	Wie wird Milch verarbeitet?	de
+NUM:period	Wie lange dauert eine medizinische Termin?	de
+DESC:manner	Wie funktioniert die GPS-Verfolgung?	de
+DESC:manner	Wie benutzt man einen Kompass?	de
+DESC:reason	Warum blinzeln die Augen?	de
+NUM:period	Wie lang ist die durchschnittliche Lebensdauer einer Schildkröte?	de
+DESC:desc	Wie werden Geschmäcker gustatorisch beschrieben?	de
+DESC:def	Was bedeutet USB?	de
+NUM:period	Wie lange hatten Shea und Gould ein Büro in Los Angeles, bevor sie es geschlossen haben?	de
+LOC:country	Wo befindet sich Neuseeland?	de
+ABBR:exp	Was erweitert sich das CHE auf?	de
+NUM:count	Wie viele Provinzen hat Argentinien?	de
+NUM:perc	Wie viel Prozent des Süßwassers der Welt ist gefroren?	de
+ENTY:animal	Was sind die Gewohnheiten des Wiesel?	de
+ENTY:event	Was waren die Olympischen Spiele?	de
+NUM:money	Wie viel kostet ein Buch?	de
+DESC:manner	Wie lautet die Aussprache des Buchstabens G in Englisch?	de
+DESC:manner	Welches Handwerk erfordert das Verflechten von Kettfaden und Schussfaden?	de
+ENTY:termeq	Was ist ein Synonym für Automobil?	de
+ABBR:exp	Was steht für e.g.	de
+DESC:def	Was ist eine Konjunktion?	de
+NUM:volsize	Wie viel ist der Inhalt eines Teelöffels?	de
+ENTY:color	Welche Farbe hat eine Tomate?	de
+DESC:desc	Aus welchem Material besteht Brokkoli?	de
+LOC:city	Was ist die Hauptstadt Kenias?	de
+DESC:manner	Wie nutzen Tiere den Tastsinn?	de
+DESC:manner	Wofür wird ein Bagger verwendet?	de
+DESC:manner	Was dient ein Scheren?	de
+NUM:other	Wie effizient ist der Kraftstoffverbrauch eines Prius unter Autobahnbedingungen?	de
+ENTY:animal	Was ist ein Rentier?	de
+NUM:money	Wie viel kostet ein Haus?	de
+DESC:desc	Was identifiziert persönliche Merkmale?	de
+DESC:def	Was ist Kanarienvorbringung?	de
+LOC:landmass	Auflisten aller Kontinente	de
+DESC:reason	Warum sollen Eier klein nach unten gelagert werden?	de
+ENTY:other	Welcher Bogen kann man vom Place de la Concorde sehen?	de
+ENTY:body	Welche Funktion hat die Blase?	de
+DESC:manner	Auf welche Weise messen Vermesser?	de
+DESC:desc	Aus welchem Material besteht Kuchen?	de
+ENTY:event	Was geschah am 15. Januar 1969	de
+ENTY:food	Was ist Kakao?	de
+LOC:city	Wo war das erste Restaurant?	de
+NUM:code	Was bedeutet der Fehlercode E429 im Web?	de
+LOC:other	Wo wird Norwegisch gesprochen?	de
+DESC:def	Was ist Anapher?	de
+NUM:other	Wie viele Pferdestärken hat ein Tesla Model S Plaid?	de
+DESC:desc	Was ist ein Mausoleum?	de
+NUM:count	Wie viele Einwohner hat Japan?	de
+HUM:desc	Was ist der Spitzname von Wettspieler Jimmy Snyder?	de
+ENTY:event	Was war die Tragödie, die die Stadt Dogtown im Jahr 1899 traf?	de
+NUM:volsize	Wie groß ist das Internet?	de
+LOC:other	Woher kommt Pizza?	de
+NUM:weight	Wie schwer ist ein Konzertflügel?	de
+NUM:speed	Wie schnell ist ein typischer Hochgeschwindigkeitszug?	de
+ENTY:other	Was verbindet sich mit dem Fluss Jangtse?	de
+NUM:money	Wie viel kostet ein Kinokarte?	de
+DESC:def	Was ist Infrastruktur als Code?	de
+ENTY:product	Was ist das Rezept oder die Formel für Coca-Cola?	de
+DESC:reason	Warum passieren Sonnenfinsternisse?	de
+NUM:dist	Wie weit ist die Erde von der Mond?	de
+ENTY:substance	Welche Chemikalien werden bei der tödlichen Injektion verwendet	de
+LOC:country	Welches Land in Lateinamerika ist das größte	de
+DESC:manner	Wie werden Staaten abgegrenzt	de
+NUM:code	Welcher hexadezimaler Code steht für das Symbol @	de
+ENTY:animal	Welcher Hund ist Scooby Doo	de
+ENTY:product	Welches Betriebssystem ist auf den meisten Computern installiert	de
+ENTY:plant	Was ist eine Salatgurke	de
+ENTY:word	Was ist ein Gegenteil von gut	de
+DESC:def	Was ist Propylenglykol	de
+ENTY:desc	Wie wird das -Zeichen verwendet	de
+HUM:desc	Welcher Zigarrenkauffrau-Komiker bemerkte, dass man nur so alt ist wie die Frau, die man sich fühlt	de
+NUM:count	Wie viele Amerikaner sind nach dem Vietnamkrieg immer noch vermisst	de
+DESC:desc	Was ist ein Gen X?	de
+ENTY:animal	Wie hieß der Ochse von Paul Bunyan?	de
+ENTY:body	Was ist das Integumentäres System?	de
+DESC:reason	Was verursacht Verluste?	de
+NUM:weight	Wie schwer ist ein leerer Sattelzug?	de
+LOC:other	Welches Land hat Snowdon?	de
+HUM:title	Was ist ein Admiral?	de
+LOC:mount	Was ist der höchste Gipfel in den Dolomiten?	de
+DESC:desc	Was ist Moskau?	de
+DESC:def	Wofür wird das £-Symbol verwendet?	de
+DESC:manner	Wie schreibt man einen Brief?	de
+DESC:def	Wie wird eine Präposition verwendet?	de
+NUM:dist	Wie weit ist Sydney von Melbourne entfernt?	de
+HUM:gr	Was nennt man Arnold Palmers Fans	de
+DESC:desc	Wie sind die Provinzen?	de
+ABBR:exp	Was steht für ROU?	de
+ENTY:color	Welche Farbe hat Korallen?	de
+LOC:mount	Wo befindet sich der Vulkan Popocatépetl?	de
+HUM:ind	Wer war der demokratische Scherzspieler, der den Zug aus dem Bahnhof wegwog, während Richard Nixon aus dem Waggon sprach	de
+DESC:def	Was ist ein Historiker?	de
+DESC:manner	Wie werden Überreste zerstreut?	de
+LOC:state	Kosovo ist eine Provinz von welchem Land	de
+DESC:desc	Wie sind Republiken?	de
+DESC:description	Was sind die Regeln des Golfsports?	de
+ENTY:symbol	Was ist das Prozentzeichen?	de
+NUM:count	Wie viele Meilen Korridore gibt es im Pentagon?	de
+DESC:desc	Was ist das älteste Handwerk?	de
+ABBR:abb	Was ist die Abkürzung für Local Area Network?	de
+NUM:ord	Was ist das sechste Buch in der Serie?	de
+ENTY:animal	Was nennt man ein Baby-Huhn?	de
+ABBR:exp	Was bedeutet CPU in voller Form?	de
+NUM:temp	Bei welcher Temperatur schmilzt Aluminium?	de
+DESC:desc	Wie wird ein Konsortium gebildet?	de
+DESC:manner	Wie leben Kolonisten?	de
+DESC:def	Was macht eine Zone zu einer Stadt?	de
+NUM:speed	Wie schnell reist eine Kugel?	de
+ENTY:event	Was heißen die Riten, die die Beschneidung eines neugeborenen Kindes im Judentum begleiten?	de
+HUM:ind	Wie alt ist Britney Spears	de
+DESC:manner	Wie hat Lee Harvey Oswald sein Gewehr erworben	de
+DESC:def	Was ist das endokrine System?	de
+ENTY:currency	Was ist der Rupie?	de
+NUM:count	Wie viele Kammern hat die menschliche Niere?	de
+ENTY:other	Was umfasst die NATO-Länder?	de
+NUM:count	Was sind die Arbeitslosenstatistiken für die Jahre 1965 und 1990	de
+ENTY:animal	Was ist der richtige Name für eine weibliche Walross?	de
+DESC:desc	Was ist der Panama-Kanal?	de
+ENTY:word	Was ist das längste englische Wort?	de
+DESC:manner	Was ist die Methode, um einen Knoten zu binden?	de
+NUM:code	Was ist der Oktal-Code für die Eingabetaste?	de
+ENTY:product	Was ist der Name des Kevin Costners Film über die Sioux-Indianer?	de
+DESC:def	Was ist ein Friedhof?	de
+DESC:desc	Was geschah während der Finanzkrise 2008?	de
+NUM:count	Wie viele Sportarten gibt es?	de
+ENTY:cremat	Nenne einen Roman, der von John Steinbeck geschrieben wurde.	de
+NUM:date	Wann fand die königliche Hochzeit von Prinz Andrew und Fergie statt	de
+ABBR:abb	Was steht für SMTP?	de
+DESC:reason	Warum enthalten ISBN-Nummern für Bücher Prüfziffern?	de
+ABBR:exp	Was bedeutet FAQ?	de
+DESC:reason	Was verursacht Abfluss?	de
+DESC:def	Was bedeutet JSON?	de
+NUM:count	Wie viele Muskeln gibt es?	de
+DESC:reason	Wie funktionieren Sicherheitsfarben?	de
+ABBR:exp	Was repräsentiert CUW?	de
+ENTY:symbol	Was war das Symbol, das von den Nazis verwendet wurde	de
+DESC:desc	Aus was wird Käse hergestellt?	de
+LOC:other	Welches Land hat die meisten Wasserverschmutzungen	de
+DESC:def	Was ist ein Atoll?	de
+NUM:volsize	Wie groß ist der Arktische Ozean?	de
+DESC:desc	Was ist das Ohr?	de
+HUM:gr	Was ist ein Arbeitgeber?	de
+ENTY:food	Was ist Tilapia?	de
+LOC:other	Woher stammt Getreide?	de
+HUM:desc	Beschreibe ein typisches Pflegepersonal	de
+DESC:reason	Warum übertragen Nerven?	de
+DESC:desc	Wie ist das Wetter auf dem Mond	de
+ABBR:exp	Was bedeutet FBI genau?	de
+LOC:water	Welcher Ozean umgibt die Malediven	de
+NUM:dist	Wie hoch ist der Kilimandscharo	de
+NUM:count	Wie viele Saiten hat eine Harfe	de
+ABBR:exp	Was steht für LBY?	de
+ENTY:desc	Welche Farbe ist Karmesin	de
+DESC:manner	Wie werden Samen kultiviert	de
+ENTY:word	Nenne die 5 Wörter, die alle Buchstaben des Alphabets verwenden, außer Q, ohne Wiederholungen	de
+ENTY:product	Welches Produkt wagte Robert Conrad, von seinem Schulter zu schlagen	de
+NUM:money	Wie viel Geld bekommt jeder Spieler zu Beginn des Spiels in Monopoly?	de
+ABBR:exp	Was erweitert sich nach MDV?	de
+DESC:reason	Was verursacht Lavaströme?	de
+DESC:desc	Was ist ein Skript?	de
+DESC:desc	Wie funktioniert die Mikrodienstarchitektur?	de
+ENTY:symbol	Welche Zeichen gibt es im Horoskop?	de
+DESC:desc	Was bedeutet effervescent?	de
+ENTY:product	Welche Haushaltsprodukte gibt es für Akne bei Erwachsenen?	de
+ENTY:product	Was ist ein Mikrowellenofen?	de
+DESC:reason	Was macht Ressourcenverteidigung wichtig?	de
+DESC:manner	Wie wird Milch verarbeitet?	de
+NUM:period	Wie lange dauert eine medizinische Termin?	de
+DESC:manner	Wie funktioniert die GPS-Verfolgung?	de
+DESC:manner	Wie benutzt man einen Kompass?	de
+DESC:reason	Warum blinzeln die Augen?	de
+NUM:period	Wie lang ist die durchschnittliche Lebensdauer einer Schildkröte?	de
+DESC:desc	Wie werden Geschmäcker gustatorisch beschrieben?	de
+DESC:def	Was bedeutet USB?	de
+NUM:period	Wie lange hatten Shea und Gould ein Büro in Los Angeles, bevor sie es geschlossen haben?	de
+LOC:country	Wo befindet sich Neuseeland?	de
+ABBR:exp	Was erweitert sich das CHE auf?	de
+NUM:count	Wie viele Provinzen hat Argentinien?	de
+NUM:perc	Wie viel Prozent des Süßwassers der Welt ist gefroren?	de
+ENTY:animal	Was sind die Gewohnheiten des Wiesel?	de
+ENTY:event	Was waren die Olympischen Spiele?	de
+NUM:money	Wie viel kostet ein Buch?	de
+DESC:manner	Wie lautet die Aussprache des Buchstabens G in Englisch?	de
+DESC:manner	Welches Handwerk erfordert das Verflechten von Kettfaden und Schussfaden?	de
+ENTY:termeq	Was ist ein Synonym für Automobil?	de
+ABBR:exp	Was steht für e.g.	de
+DESC:def	Was ist eine Konjunktion?	de
+NUM:volsize	Wie viel ist der Inhalt eines Teelöffels?	de
+ENTY:color	Welche Farbe hat eine Tomate?	de
+DESC:desc	Aus welchem Material besteht Brokkoli?	de
+LOC:city	Was ist die Hauptstadt Kenias?	de
+DESC:manner	Wie nutzen Tiere den Tastsinn?	de
+DESC:manner	Wofür wird ein Bagger verwendet?	de
+DESC:manner	Was dient ein Scheren?	de
+NUM:other	Wie effizient ist der Kraftstoffverbrauch eines Prius unter Autobahnbedingungen?	de
+ENTY:animal	Was ist ein Rentier?	de
+NUM:money	Wie viel kostet ein Haus?	de
+DESC:desc	Was identifiziert persönliche Merkmale?	de
+DESC:def	Was ist Kanarienvorbringung?	de
+LOC:landmass	Auflisten aller Kontinente	de
+DESC:reason	Warum sollen Eier klein nach unten gelagert werden?	de
+ENTY:other	Welcher Bogen kann man vom Place de la Concorde sehen?	de
+ENTY:body	Welche Funktion hat die Blase?	de
+DESC:manner	Auf welche Weise messen Vermesser?	de
+DESC:desc	Aus welchem Material besteht Kuchen?	de
+ENTY:event	Was geschah am 15. Januar 1969	de
+ENTY:food	Was ist Kakao?	de
+LOC:city	Wo war das erste Restaurant?	de
+NUM:code	Was bedeutet der Fehlercode E429 im Web?	de
+LOC:other	Wo wird Norwegisch gesprochen?	de
+DESC:def	Was ist Anapher?	de
+NUM:other	Wie viele Pferdestärken hat ein Tesla Model S Plaid?	de
+DESC:desc	Was ist ein Mausoleum?	de
+NUM:count	Wie viele Einwohner hat Japan?	de
+HUM:desc	Was ist der Spitzname von Wettspieler Jimmy Snyder?	de
+ENTY:event	Was war die Tragödie, die die Stadt Dogtown im Jahr 1899 traf?	de
+NUM:volsize	Wie groß ist das Internet?	de
+LOC:other	Woher kommt Pizza?	de
+NUM:weight	Wie schwer ist ein Konzertflügel?	de
+NUM:speed	Wie schnell ist ein typischer Hochgeschwindigkeitszug?	de
+ENTY:other	Was verbindet sich mit dem Fluss Jangtse?	de
+NUM:money	Wie viel kostet ein Kinokarte?	de
+DESC:def	Was ist Infrastruktur als Code?	de
+ENTY:product	Was ist das Rezept oder die Formel für Coca-Cola?	de
+DESC:reason	Warum passieren Sonnenfinsternisse?	de
+NUM:dist	Wie weit ist die Erde von der Mond?	de
+ENTY:substance	Welche Chemikalien werden bei der tödlichen Injektion verwendet	de
+LOC:country	Welches Land in Lateinamerika ist das größte	de
+DESC:manner	Wie werden Staaten abgegrenzt	de
+NUM:code	Welcher hexadezimaler Code steht für das Symbol @	de
+ENTY:animal	Welcher Hund ist Scooby Doo	de
+ENTY:product	Welches Betriebssystem ist auf den meisten Computern installiert	de
+ENTY:plant	Was ist eine Salatgurke	de
+ENTY:word	Was ist ein Gegenteil von gut	de
+DESC:def	Was ist Propylenglykol	de
+ENTY:desc	Wie wird das -Zeichen verwendet	de
+HUM:desc	Welcher Zigarrenkauffrau-Komiker bemerkte, dass man nur so alt ist wie die Frau, die man sich fühlt.	de
+NUM:count	Wie viele Amerikaner sind nach dem Vietnamkrieg immer noch vermisst.	de
+DESC:desc	Was ist ein Gen X?	de
+ENTY:animal	Wie hieß der Ochse von Paul Bunyan?	de
+ENTY:body	Was ist das Integumentary System?	de
+DESC:reason	Was verursacht Schulden?	de
+LOC:desc	Was verbindet sich mit dem Großen Salzsee?	de
+DESC:def	Was ist Fibromyalgie?	de
+DESC:reason	Warum brauchen wir Schlaf?	de
+NUM:perc	Welcher Prozentsatz der Bevölkerung ist vegan?	de
+NUM:count	Wie viele männliche Fortpflanzungsorgane?	de
+ENTY:body	Was ist das Immunsystem?	de
+NUM:perc	Wie viel Prozent des menschlichen Genoms ist für jeden Menschen einzigartig?	de
+DESC:desc	Was sind Nervenenden?	de
+ABBR:abb	Was bedeutet A11y?	de
+DESC:manner	Wie nutzen Tiere die Regeneration?	de
+LOC:country	Zu welchem Land gehört Kosovo	de
+LOC:landmass	Nenne alle Kontinente	de
+DESC:def	Wie funktioniert Kohäsion?	de
+ABBR:exp	Erweitere das Akronym EPA	de
+ENTY:word	Was ist das Mehrzahlwort von Kriterium?	de
+NUM:count	Wie viele Agnostiker gibt es?	de
+DESC:def	Was ist Batesianische Mimik?	de
+NUM:count	Wie viele Menschen sprechen Deutsch?	de
+ENTY:city	Was ist die Hauptstadt von Kentucky?	de
+ENTY:veh	Was ist ein Mietwagen?	de
+ENTY:word	Was ist das Mehrzahlwort von Golf?	de
+LOC:mount	Wie hoch ist der Mount McKinley?	de
+DESC:desc	Was wird unter WiFi verstanden?	de
+LOC:other	Was verbindet sich mit dem Karibischen Meer?	de
+DESC:desc	Wie werden Farben im Licht dargestellt?	de
+NUM:period	Wie lange lebt ein Goldfisch im Durchschnitt?	de
+LOC:landmass	Wo befindet sich Grönland?	de
+DESC:desc	Was ist ein Kaisson?	de
+LOC:other	Woher kommt Kuchen?	de

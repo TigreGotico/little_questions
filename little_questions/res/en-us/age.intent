@@ -1,5 +1,0 @@
-# questions that ask how old something is
-{query} (is|are)  how old
-how old (is|are) {query}
-{query} at what age
-at what age {query}

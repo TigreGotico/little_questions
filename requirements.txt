@@ -1,9 +1,7 @@
-numpy
-scikit-learn
-padaos
-fann2==1.0.7
-padatious>=0.4.5
-gensim
+numpy>=1.21.2
 nltk
-simple_NER>=0.3.0
-text_classifikation
+wordfreq
+scikit-learn
+joblib
+pyxdg
+JarbasModelZoo>=0.2.0a2

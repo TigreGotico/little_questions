@@ -1,2 +1,0 @@
-# questions that expect a yes/no answer to validate the location of something
-(are|is) {thing} (on|in|at|from) {location}

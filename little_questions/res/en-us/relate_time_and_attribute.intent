@@ -1,6 +1,0 @@
-# questions about something at a certain time
-(when|during) {time} what {thing}
-what {thing} (when|during) {time}
-how {thing} (when|during) {time}
-(how was|how were) {thing}
-{thing} for how long {time}

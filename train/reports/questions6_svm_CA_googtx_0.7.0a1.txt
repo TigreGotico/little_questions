@@ -1,0 +1,12 @@
+              precision    recall  f1-score   support
+
+        ABBR       0.86      0.43      0.57        14
+        DESC       0.80      0.89      0.84       193
+        ENTY       0.76      0.80      0.78       226
+         HUM       0.83      0.80      0.81       195
+         LOC       0.89      0.84      0.86       141
+         NUM       0.96      0.89      0.92       176
+
+    accuracy                           0.83       945
+   macro avg       0.85      0.77      0.80       945
+weighted avg       0.84      0.83      0.83       945

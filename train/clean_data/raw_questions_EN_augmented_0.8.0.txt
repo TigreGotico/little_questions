@@ -1,0 +1,25 @@
+HUM:ind What is the name of the individual mentioned in the text?
+HUM:ind Who is the person being discussed in this passage?
+HUM:ind Can you identify the individual referred to in the context?
+HUM:ind Who is the subject of this sentence?
+HUM:ind What is the name of the person involved in the event?
+HUM:title What is the title of the book mentioned in the text?
+HUM:title What is the name of the article being referenced?
+HUM:title Can you provide the title of the work discussed?
+HUM:title What is the heading of the document mentioned?
+HUM:title What is the name of the publication this is from?
+LOC:city What city is being referred to in the context?
+LOC:city Can you name the city mentioned in the passage?
+LOC:city What is the name of the city involved in the event?
+LOC:city Which city is the focus of this discussion?
+LOC:city What city is the location of the described event?
+LOC:country What country is being discussed in the text?
+LOC:country Can you identify the country mentioned in the passage?
+LOC:country What is the name of the country involved in the event?
+LOC:country Which country is the focus of this discussion?
+LOC:country What country is the location of the described event?
+LOC:landmass What landmass is being referred to in the context?
+LOC:landmass Can you name the landmass mentioned in the passage?
+LOC:landmass What is the name of the landmass involved in the event?
+LOC:landmass Which landmass is the focus of this discussion?
+LOC:landmass What landmass is the location of the described event?
