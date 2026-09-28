@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.10.0a6](https://github.com/TigreGotico/little_questions/tree/0.10.0a6) (2026-09-28)
+
+[Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.10.0a5...0.10.0a6)
+
+**Merged pull requests:**
+
+- chore\(deps\): upgrade pillow, and correct the onnxruntime pin for Python 3.10 [\#42](https://github.com/TigreGotico/little_questions/pull/42) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.10.0a5](https://github.com/TigreGotico/little_questions/tree/0.10.0a5) (2026-09-28)
 
 [Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.10.0a4...0.10.0a5)
