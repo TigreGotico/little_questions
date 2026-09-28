@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.10.0a5](https://github.com/TigreGotico/little_questions/tree/0.10.0a5) (2026-09-28)
+
+[Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.10.0a4...0.10.0a5)
+
+**Merged pull requests:**
+
+- chore: let Renovate rebase a pull request that is behind dev [\#40](https://github.com/TigreGotico/little_questions/pull/40) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.10.0a4](https://github.com/TigreGotico/little_questions/tree/0.10.0a4) (2026-09-28)
 
 [Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.10.0a3...0.10.0a4)
