@@ -76,13 +76,7 @@ All subclass `Sentence` (and `str`).
 | `is_affirmative` | `bool` | `answer_polarity == "yes"` |
 | `is_negative` | `bool` | `answer_polarity == "no"` |
 
-```python
-from little_questions import Sentence
-q = Sentence("Is the sky blue?")   # → Question, classification BOOL:yesno
-a = Sentence("Yes, absolutely.")   # → Statement
-print(a.answer_polarity)           # yes
-print(a.is_affirmative)            # True
-```
+Most answers do not become a `Statement`: the sentence-type model classifies "Yes, absolutely." as `Command` ([#77](https://github.com/TigreGotico/little_questions/issues/77)). Until #77 is fixed, call `get_yesno_classifier().predict(text)` for the polarity.
 
 ---
 
@@ -200,4 +194,4 @@ HuggingFace repos:
 - Yes/no models: `TigreGotico/yes-no-classifiers`
 
 ---
-[Home](index.md) · [Models →](models.md)
+[← Usage](usage.md) · [Home](index.md) · [Models →](models.md)

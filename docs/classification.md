@@ -1,6 +1,6 @@
 # Classification Benchmarks
 
-All EAT benchmarks use a 15% held-out stratified test split (`random_state=42`). Sentence-type and yes/no benchmarks are evaluated on the full labelled datasets.
+All EAT benchmarks use a 15% held-out stratified test split (`random_state=42`). The sentence-type and yes/no benchmarks score the models on their full labelled datasets, which include the training data, so these scores are higher than the scores on unseen text.
 
 ## EAT question-type classification (EN)
 
@@ -18,7 +18,7 @@ All EAT benchmarks use a 15% held-out stratified test split (`random_state=42`).
   <img alt="EAT 53-class models on the held-out split: the two-stage default is the highest at 93.4% accuracy; eat53_sgd is the lowest at 84.6%." src="img/eat-models.svg">
 </picture>
 
-`img/plot_eat_models.py` makes this figure from `train/reports/eat/*_benchmark.json`.
+The figure and its alt text show the 53-class models only. `img/plot_eat_models.py` makes this figure from `train/reports/eat/*_benchmark.json`.
 
 | Model | Classes | Accuracy | Macro F1 |
 |-------|---------|----------|----------|
@@ -36,37 +36,35 @@ Plots saved to `train/reports/eat/`.
 
 ## Sentence-type classification
 
-6 classes: `command`, `exclamation`, `polar_question`, `request`, `statement`, `wh_question`.
+6 classes: `command`, `exclamation`, `polar_question`, `request`, `statement`, `wh_question`. Each language has 9,900 labelled sentences.
 
 | Language | Accuracy | Macro F1 |
-|----------|----------|----------|
+| --- | --- | --- |
 | EN | 99.2% | 99.2% |
+| NL | 98.8% | 98.8% |
 | FR | 97.1% | 97.1% |
 | IT | 97.0% | 97.0% |
-| NL | 98.8% | 98.8% |
 | PT | 95.4% | 95.4% |
 | DE | 85.6% | 84.9% |
 | ES | 74.6% | 72.7% |
 
-Plots saved to `train/reports/sentence_type/`.
+The values come from `train/reports/sentence_type/*_benchmark.json`.
 
 ## Yes/no answer-polarity classification
 
 3 classes: `yes`, `no`, `maybe`.
 
-| Model | Coverage | Accuracy | Macro F1 |
-|-------|----------|----------|----------|
-| `yesno_svm_cal_{LANG}` (per-language) | 43 languages | ~91-96% | ~91-96% |
-| `yesno_svm_cal_multilingual` (bundled) | all languages | 84.6% | 84.0% |
+| Model | Languages with a report | Sentences | Accuracy | Macro F1 |
+| --- | --- | --- | --- | --- |
+| `yesno_svm_cal_{LANG}` (one for each language) | 15 | 200 for each language | 90.0% to 95.5% | 90.1% to 95.5% |
+| `yesno_svm_cal_multilingual` (in the package) | all | 8,599 | 84.6% | 84.0% |
 
-The bundled multilingual model is used when no language-specific model is available. Per-language models achieve 90-96% macro F1 on their own language.
-
-Plots saved to `train/reports/yesno/`.
+The values come from `train/reports/yesno/*_benchmark.json`. The runtime uses the multilingual model when no model exists for the language.
 
 ## Running all benchmarks
 
 ```bash
-pip install little-questions[train]
+uv pip install little-questions[train]
 python -m train.benchmark_eat
 python -m train.benchmark_sentence_type
 python -m train.benchmark_yesno

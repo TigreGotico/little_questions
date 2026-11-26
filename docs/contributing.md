@@ -5,7 +5,7 @@
 ```bash
 git clone https://github.com/TigreGotico/little_questions
 cd little_questions
-pip install -e ".[train]"
+uv pip install -e ".[train]"
 ```
 
 ## Running tests
@@ -25,7 +25,7 @@ little_questions/
 ├── classifiers.py   # EatClassifier, SentenceTypeClassifier, YesNoClassifier, _OnnxModel
 ├── constants.py     # EAT_LABELS_7, EAT_LABELS_53, SENTENCE_TYPES, MAIN_LABEL_NAMES, SEC_LABEL_NAMES
 └── models.py        # HF auto-download helpers
-train/               # Training only. Install with pip install little-questions[train]
+train/               # Training only. Install with uv pip install little-questions[train]
 ├── classifiers.py       # CalibratedLinearSVCClassifier, LinearSVCClassifier, LogRegClassifier,
 │                        # SGDClassifier, Model2VecClassifier, EATTextPreprocessor
 ├── load_eat.py          # EAT dataset loader (HF + local TSV)
