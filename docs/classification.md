@@ -13,15 +13,24 @@ All EAT benchmarks use a 15% held-out stratified test split (`random_state=42`).
 
 ### All baselines
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="img/eat-models-dark.svg">
+  <img alt="EAT 53-class models on the held-out split: the two-stage default is the highest at 93.4 % accuracy; eat53_sgd is the lowest at 84.6 %." src="img/eat-models.svg">
+</picture>
+
+`img/plot_eat_models.py` makes this figure from `train/reports/eat/*_benchmark.json`.
+
 | Model | Classes | Accuracy | Macro F1 |
 |-------|---------|----------|----------|
-| `eat53_svm_cal` (calibrated SVM) | 53 | 91.3% | 91.2% |
-| `eat7_svm_cal` (calibrated SVM) | 7 | 96.3% | 96.0% |
 | **Two-stage default** | 53 | **93.4%** | **93.4%** |
-| `eat53_svm` (uncalibrated) | 53 | 90.0% | 89.7% |
-| `eat53_logreg` | 53 | 88.8% | 88.3% |
-| `eat53_sgd` | 53 | 85.4% | 85.0% |
-| `m2v-potion-base-32M+tfidf` | 53 | ~91% | ~91% |
+| `m2v-potion-base-32M+tfidf` | 53 | 92.2% | 92.0% |
+| `eat53_svm` (uncalibrated) | 53 | 91.7% | 91.5% |
+| `eat53_svm_cal` (calibrated SVM) | 53 | 91.5% | 91.4% |
+| `eat53_logreg` | 53 | 87.7% | 87.8% |
+| `eat53_sgd` | 53 | 84.6% | 84.1% |
+| `eat7_svm_cal` (calibrated SVM) | 7 | 95.6% | 92.9% |
+
+The values come from the committed `train/reports/eat/*_benchmark.json` files.
 
 Plots saved to `train/reports/eat/`.
 
