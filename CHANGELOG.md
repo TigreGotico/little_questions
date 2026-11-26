@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.10.0a9](https://github.com/TigreGotico/little_questions/tree/0.10.0a9) (2026-11-26)
+
+[Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.10.0a8...0.10.0a9)
+
+**Merged pull requests:**
+
+- test: the docs-example xfails expect AssertionError only [\#82](https://github.com/TigreGotico/little_questions/pull/82) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.10.0a8](https://github.com/TigreGotico/little_questions/tree/0.10.0a8) (2026-11-26)
 
 [Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.10.0a7...0.10.0a8)
