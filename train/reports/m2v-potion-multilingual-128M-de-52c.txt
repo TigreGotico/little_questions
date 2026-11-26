@@ -1,0 +1,66 @@
+Scorer : m2v-potion-multilingual-128M-de-52c
+Dataset: test-split-de-52c  (lang=de)
+Samples: 5617
+
+                precision    recall  f1-score   support
+
+      ABBR:abb       0.74      0.78      0.76       107
+      ABBR:exp       0.67      0.64      0.66       107
+      DESC:def       0.51      0.35      0.41       107
+     DESC:desc       0.57      0.59      0.58       107
+   DESC:manner       0.63      0.58      0.60       107
+   DESC:reason       0.71      0.75      0.73       107
+   ENTY:animal       0.85      0.76      0.80       132
+     ENTY:body       0.82      0.84      0.83       128
+    ENTY:color       0.86      0.84      0.85       136
+   ENTY:cremat       0.82      0.80      0.81       105
+ ENTY:currency       0.99      0.94      0.97       105
+   ENTY:dismed       0.93      0.88      0.90       105
+    ENTY:event       0.79      0.73      0.76       105
+     ENTY:food       0.83      0.82      0.82       128
+   ENTY:instru       0.88      0.95      0.92       105
+     ENTY:lang       0.76      0.79      0.78       105
+   ENTY:letter       0.89      0.91      0.90       105
+    ENTY:other       0.80      0.79      0.79       105
+    ENTY:plant       0.92      0.90      0.91       105
+  ENTY:product       0.86      0.88      0.87       105
+ ENTY:religion       0.94      0.96      0.95       105
+    ENTY:sport       0.92      0.94      0.93       105
+ENTY:substance       0.73      0.70      0.71       105
+   ENTY:symbol       0.92      0.95      0.93       105
+ ENTY:techmeth       0.90      0.90      0.90       105
+   ENTY:termeq       0.86      0.82      0.84       105
+      ENTY:veh       0.77      0.81      0.79       105
+     ENTY:word       0.85      0.89      0.87       105
+      HUM:desc       0.72      0.71      0.71       106
+        HUM:gr       0.69      0.58      0.63       106
+       HUM:ind       0.60      0.61      0.61       106
+     HUM:title       0.86      0.85      0.85       106
+      LOC:city       0.92      0.91      0.92       105
+   LOC:country       0.85      0.76      0.80       105
+  LOC:landmass       0.82      0.82      0.82       105
+     LOC:mount       0.72      0.74      0.73       105
+     LOC:other       0.85      0.81      0.83       106
+     LOC:state       0.56      0.68      0.61       105
+     LOC:water       0.87      0.92      0.89       105
+      NUM:code       0.98      0.96      0.97       125
+     NUM:count       0.64      0.68      0.66       120
+      NUM:date       0.63      0.72      0.67       106
+      NUM:dist       0.75      0.77      0.76       105
+     NUM:money       0.95      0.97      0.96       105
+       NUM:ord       0.71      0.67      0.69       105
+     NUM:other       0.70      0.79      0.74       105
+      NUM:perc       0.93      0.98      0.95       105
+    NUM:period       0.89      0.88      0.88       105
+     NUM:speed       0.96      0.98      0.97       105
+      NUM:temp       0.97      0.98      0.98       105
+   NUM:volsize       0.92      0.96      0.94       105
+    NUM:weight       0.94      0.98      0.96       105
+
+      accuracy                           0.81      5617
+     macro avg       0.81      0.81      0.81      5617
+  weighted avg       0.81      0.81      0.81      5617
+
+Accuracy : 0.8113
+Macro F1 : 0.8101
+Wtd   F1 : 0.8101

@@ -1,6 +1,0 @@
-# questions that aim to explain a statement, usually WHY questions
-why (is|are|were|was|did|does|do|doesn't|should|shouldn 't|shouldn't|can't|can 't|didn 't|didn't) {statement}
-how (was|did|does|has|would|come) {statement}
-in {location} (how|why) (was|did|does|is) {statement}
-for what reason {statement}
-{statement} for what reason

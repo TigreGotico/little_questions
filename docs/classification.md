@@ -1,136 +1,74 @@
-## Classification
+# Classification Benchmarks
 
-Training classifiers with [this data](http://cogcomp.org/Data/QA/QC/)
+All EAT benchmarks use a 15% held-out stratified test split (`random_state=42`). The sentence-type and yes/no benchmarks score the models on their full labelled datasets, which include the training data, so these scores are higher than the scores on unseen text.
 
-There are 6 main labels
+## EAT question-type classification (EN)
 
-* ABBR - answer is an abbreviation
-* DESC - answer is a description of something
-* ENTY - answer is an entity/thing
-* HUM - answer is a human
-* LOC - answer is a location
-* NUM - answer is numeric
+### Two-stage default (eat7_svm_cal → eat53_svm_cal)
 
-Best accuracy model will always be used for DEFAULT_CLASSIFIER
+| Metric | Score |
+|--------|-------|
+| Accuracy | **93.4%** |
+| Macro F1 | **93.4%** |
 
-```python
-from little_questions.classifiers import QuestionClassifier
-from little_questions.classifiers import MainQuestionClassifier
+### All baselines
 
-classifier = QuestionClassifier()
-question = "who made you"
-preds = classifier.predict([question])
-assert preds[0] == "HUM:ind"
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="img/eat-models-dark.svg">
+  <img alt="EAT 53-class models on the held-out split: the two-stage default is the highest at 93.4% accuracy; eat53_sgd is the lowest at 84.6%." src="img/eat-models.svg">
+</picture>
 
-classifier = MainQuestionClassifier()
-question = "who made you"
-preds = classifier.predict([question])
-assert preds[0] == "HUM"
+The figure and its alt text show the 53-class models only. `img/plot_eat_models.py` makes this figure from `train/reports/eat/*_benchmark.json`.
 
+| Model | Classes | Accuracy | Macro F1 |
+|-------|---------|----------|----------|
+| **Two-stage default** | 53 | **93.4%** | **93.4%** |
+| `m2v-potion-base-32M+tfidf` | 53 | 92.2% | 92.0% |
+| `eat53_svm` (uncalibrated) | 53 | 91.7% | 91.5% |
+| `eat53_svm_cal` (calibrated SVM) | 53 | 91.5% | 91.4% |
+| `eat53_logreg` | 53 | 87.7% | 87.8% |
+| `eat53_sgd` | 53 | 84.6% | 84.1% |
+| `eat7_svm_cal` (calibrated SVM) | 7 | 95.6% | 92.9% |
+
+The values come from the committed `train/reports/eat/*_benchmark.json` files.
+
+Plots saved to `train/reports/eat/`.
+
+## Sentence-type classification
+
+6 classes: `command`, `exclamation`, `polar_question`, `request`, `statement`, `wh_question`. Each language has 9,900 labelled sentences.
+
+| Language | Accuracy | Macro F1 |
+| --- | --- | --- |
+| EN | 99.2% | 99.2% |
+| NL | 98.8% | 98.8% |
+| FR | 97.1% | 97.1% |
+| IT | 97.0% | 97.0% |
+| PT | 95.4% | 95.4% |
+| DE | 85.6% | 84.9% |
+| ES | 74.6% | 72.7% |
+
+The values come from `train/reports/sentence_type/*_benchmark.json`.
+
+## Yes/no answer-polarity classification
+
+3 classes: `yes`, `no`, `maybe`.
+
+| Model | Languages with a report | Sentences | Accuracy | Macro F1 |
+| --- | --- | --- | --- | --- |
+| `yesno_svm_cal_{LANG}` (one for each language) | 15 | 200 for each language | 90.0% to 95.5% | 90.1% to 95.5% |
+| `yesno_svm_cal_multilingual` (in the package) | all | 8,599 | 84.6% | 84.0% |
+
+The values come from `train/reports/yesno/*_benchmark.json`. The runtime uses the multilingual model when no model exists for the language.
+
+## Running all benchmarks
+
+```bash
+uv pip install little-questions[train]
+python -m train.benchmark_eat
+python -m train.benchmark_sentence_type
+python -m train.benchmark_yesno
 ```
-### Models
 
-For model accuracy baseline the following features are extracted
-
-- CountVectorizer, n_gram range (1,2)
-- TfidfVectorizer, n_gram range (1,2), lemmatized input
-- Word2Vec
-- PosTagVectorizer
-
-you need to consider speed/memory/performance trade offs and decide which classifier is best for you
-
-NOTE: optimal pipeline/features and hyperparameters under investigation
-
-#### Classification of sentence type
-
-* Passive Aggressive - Accuracy: 0.8666666666666667
-* Linear SVC - Accuracy: 0.8666666666666667
-* Decision Tree - Accuracy: 0.8666666666666667
-* Perceptron - Accuracy: 0.7333333333333333
-* Ridge - Accuracy: 0.6666666666666666
-* SGD - Accuracy: 0.5333333333333333
-* AdaBoost - Accuracy: 0.4666666666666667
-
-#### Classification of main label
-
-* Linear SVC - Accuracy: 0.902
-* Ridge - Accuracy: 0.896
-* Logistic Regression - Accuracy: 0.894
-* SGD - Accuracy: 0.888
-* Passive Aggressive - Accuracy: 0.882
-* Naive Bayes - Accuracy: 0.81
-* Perceptron - Accuracy: 0.872
-* Gradient Boosting - Accuracy: 0.858
-* Random Forest - Accuracy: 0.798
-* Decision Tree - Accuracy: 0.784
-* AdaBoost - Accuracy: 0.592
-
-#### Classification of main + secondary label
-
-* Linear SVC - Accuracy: 0.838
-* Passive Aggressive - Accuracy: 0.804
-* Ridge - Accuracy: 0.834
-* SGD - Accuracy: 0.802
-* Logistic Regression - Accuracy: 0.794
-* Gradient Boosting - Accuracy: 0.776
-* Perceptron - Accuracy: 0.766
-* Decision Tree - Accuracy: 0.666
-* Random Forest - Accuracy: 0.636
-* ExtraTree - Accuracy: 0.548
-* Naive Bayes - Accuracy: 0.53
-* AdaBoost - Accuracy: 0.22
-
-You can test specific classifiers
-
-```python
-from little_questions.classifiers.passive_agressive import PassiveAggressiveQuestionClassifier
-classifier = PassiveAggressiveQuestionClassifier()
-
-from little_questions.classifiers.gradboost import GradientBoostingQuestionClassifier
-classifier = GradientBoostingQuestionClassifier()
-
-from little_questions.classifiers.svm import SVCQuestionClassifier
-classifier = SVCQuestionClassifier()
-
-from little_questions.classifiers.logreg import LogRegQuestionClassifier
-classifier = LogRegQuestionClassifier()
-
-from little_questions.classifiers.ridge import RidgeQuestionClassifier
-classifier = RidgeQuestionClassifier()
-
-from little_questions.classifiers.sgd import SGDQuestionClassifier
-classifier = SGDQuestionClassifier()
-
-from little_questions.classifiers.forest import ForestQuestionClassifier
-classifier = ForestQuestionClassifier()
-    
-from little_questions.classifiers.tree import TreeQuestionClassifier
-classifier = TreeQuestionClassifier()
-
-from little_questions.classifiers.perceptron import PerceptronQuestionClassifier
-classifier = PerceptronQuestionClassifier()
-
-from little_questions.classifiers.naive import NaiveQuestionClassifier
-classifier = NaiveQuestionClassifier()
-
-
-# train / load
-train = True
-if train:
-    t, tt = classifier.load_data()
-    classifier.train(t, tt)
-    classifier.save()
-else:
-    classifier.load()
-    
-# test
-X_test, y_test = classifier.load_test_data()
-preds = classifier.predict(X_test)
-
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-
-accuracy = accuracy_score(y_test, preds)
-report = classification_report(y_test, preds)
-matrix = confusion_matrix(y_test, preds)
-
-```
+---
+[← Models](models.md) · [Home](index.md) · [Contributing →](contributing.md)

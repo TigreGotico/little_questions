@@ -1,0 +1,118 @@
+"""The docs match the committed results and the code.
+
+- every python block with a `print(...)  # value` line runs in a fresh process, after the imports of the
+  earlier blocks on its page, and prints each value in order;
+- the EAT figure data equals a fresh read of train/reports/eat/*_benchmark.json;
+- the figure alt texts and the classification.md tables equal those reports.
+"""
+import json
+import os
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+import pytest
+
+ROOT = Path(__file__).resolve().parent.parent
+PAGES = [ROOT / "README.md", *sorted((ROOT / "docs").glob("*.md"))]
+PRINTED = re.compile(r"^\s*print\(.*\)\s+#\s?(.+?)\s*$")
+sys.path.insert(0, str(ROOT / "docs" / "img"))
+import plot_eat_models  # noqa: E402
+
+
+def blocks():
+    for page in PAGES:
+        imports = []
+        for n, code in enumerate(re.findall(r"^```python\n(.*?)^```", page.read_text(encoding="utf-8"), re.S | re.M)):
+            expected = [m[1] for line in code.splitlines() if (m := PRINTED.match(line))]
+            if expected:
+                yield pytest.param("\n".join(imports) + "\n" + code, expected, id=f"{page.relative_to(ROOT)}-{n}",
+                                   marks=known(code))
+            imports += [line for line in code.splitlines() if re.match(r"(from \S+ )?import ", line)]
+
+
+KNOWN = {}  # text in the block: the open issue that makes the example fail
+
+
+def known(code):
+    return [pytest.mark.xfail(strict=True, raises=AssertionError, reason=why) for text, why in KNOWN.items() if text in code][:1]
+
+
+@pytest.mark.parametrize("code,expected", list(blocks()))
+def test_example_prints_its_comments(code, expected, tmp_path):
+    done = subprocess.run([sys.executable, "-I", "-c", code], cwd=tmp_path, capture_output=True, text=True, timeout=300)
+    assert done.returncode == 0, done.stderr
+    assert done.stdout.splitlines() == expected
+
+
+def test_figure_data_matches_the_reports():
+    stem = ROOT / "docs" / "img" / "eat-models"
+    committed = json.loads(stem.with_suffix(".json").read_text(encoding="utf-8"))
+    assert json.loads(json.dumps(plot_eat_models.load())) == committed
+
+
+def test_alt_texts_match_the_reports():
+    data = plot_eat_models.load()
+    assert f'alt="{plot_eat_models.alt(data)}"' in (ROOT / "docs/classification.md").read_text(encoding="utf-8")
+    assert f'alt="{plot_eat_models.alt(data, short=True)}"' in (ROOT / "docs/index.md").read_text(encoding="utf-8")
+
+
+def test_classification_tables_match_the_reports():
+    page = (ROOT / "docs/classification.md").read_text(encoding="utf-8")
+    labels = {"two-stage default": "**Two-stage default**", "m2v 32M + tfidf": "`m2v-potion-base-32M+tfidf`",
+              "eat53_svm": "`eat53_svm` (uncalibrated)", "eat53_svm_cal": "`eat53_svm_cal` (calibrated SVM)",
+              "eat53_logreg": "`eat53_logreg`", "eat53_sgd": "`eat53_sgd`"}
+    table = {c[0]: c[1:] for line in page.splitlines() if line.startswith("| ")
+             for c in [[x.strip() for x in line.strip("|").split("|")]]}
+    for label, acc, f1 in plot_eat_models.load()["rows"]:
+        cells = [c.strip("*") for c in table[labels[label]]]
+        assert cells == ["53", f"{acc:.1%}", f"{f1:.1%}"], label
+    top = plot_eat_models.load()["rows"][0]
+    assert [c.strip("*") for c in table["Accuracy"]] == [f"{top[1]:.1%}"]
+    assert [c.strip("*") for c in table["Macro F1"]] == [f"{top[2]:.1%}"]
+
+
+def _reports(kind):
+    return {p.name: json.loads(p.read_text(encoding="utf-8"))
+            for p in sorted((ROOT / "train/reports" / kind).glob("*_benchmark.json"))}
+
+
+def _rows(page):
+    return [[x.strip() for x in line.strip().strip("|").split("|")]
+            for line in (ROOT / page).read_text(encoding="utf-8").splitlines() if line.startswith("| ")]
+
+
+def test_sentence_type_table_matches_the_reports():
+    reports = _reports("sentence_type")
+    expected = {name.split("_")[2]: [f"{r['accuracy']:.1%}", f"{r['macro_f1']:.1%}"] for name, r in reports.items()}
+    table = {row[0]: row[1:] for row in _rows("docs/classification.md") if row[0] in expected}
+    assert table == expected
+    sizes = {sum(map(sum, r["confusion_matrix"])) for r in reports.values()}
+    assert sizes == {9900}
+    assert "Each language has 9,900 labelled sentences." in (ROOT / "docs/classification.md").read_text(encoding="utf-8")
+
+
+def test_yesno_table_matches_the_reports():
+    reports = _reports("yesno")
+    multi = reports.pop("yesno_svm_cal_multilingual_0.9.0_benchmark.json")
+    acc = [r["accuracy"] for r in reports.values()]
+    f1 = [r["macro_f1"] for r in reports.values()]
+    assert {sum(map(sum, r["confusion_matrix"])) for r in reports.values()} == {200}
+    rows = {row[0]: row[1:] for row in _rows("docs/classification.md")}
+    assert rows["`yesno_svm_cal_{LANG}` (one for each language)"] == [
+        str(len(reports)), "200 for each language",
+        f"{min(acc):.1%} to {max(acc):.1%}", f"{min(f1):.1%} to {max(f1):.1%}"]
+    assert rows["`yesno_svm_cal_multilingual` (in the package)"] == [
+        "all", f"{sum(map(sum, multi['confusion_matrix'])):,}", f"{multi['accuracy']:.1%}", f"{multi['macro_f1']:.1%}"]
+
+
+def test_feature_token_table_matches_the_code():
+    import re
+    from little_questions import classifiers
+    source = (ROOT / "little_questions/classifiers.py").read_text(encoding="utf-8")
+    rows = {row[0].strip("`"): row[1] for row in _rows("docs/models.md") if row[0].startswith("`__feat_")}
+    assert set(rows) == set(re.findall(r'"(__feat_\w+__)"', source))
+    starters = rows["__feat_yesno__"].removeprefix("the first word is ").replace(" or ", ", ").split(", ")
+    assert set(starters) == classifiers._YESNO_STARTERS
+    assert set(rows["__feat_who__"].removeprefix("the first word is ").replace(" or ", ", ").split(", ")) == classifiers._WHO_WORDS

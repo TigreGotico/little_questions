@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "little_questions"
+dynamic = ["version"]
+description = "Question parser and classifier for voice assistants"
+license = { text = "Apache-2.0" }
+authors = [{ name = "jarbasAI", email = "jarbasai@mailfence.com" }]
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Natural Language :: Spanish",
+    "Natural Language :: French",
+    "Natural Language :: German",
+    "Natural Language :: Italian",
+    "Natural Language :: Portuguese",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+    "numpy>=1.21.2",
+    "onnxruntime",
+]
+
+[project.optional-dependencies]
+# HuggingFace integration — needed only to download non-bundled or custom models
+hf = [
+    "huggingface_hub",
+]
+test = [
+    "pytest",
+    "scikit-learn",
+]
+train = [
+    "scikit-learn",
+    "joblib",
+    "skl2onnx",
+    "onnx",
+    "model2vec",
+    "mlflow",
+    "datasets",
+]
+
+[project.urls]
+Homepage = "https://github.com/OpenJarbas/little_questions"
+Repository = "https://github.com/OpenJarbas/little_questions"
+Changelog = "https://github.com/OpenJarbas/little_questions/blob/dev/CHANGELOG.md"
+"Bug Tracker" = "https://github.com/OpenJarbas/little_questions/issues"
+
+[tool.setuptools.dynamic]
+version = {attr = "little_questions.version.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["little_questions*"]
+exclude = ["train*", "test*"]
+
+[tool.setuptools.package-data]
+little_questions = ["models/**/*.onnx"]
+
+[dependency-groups]
+dev = [
+    "matplotlib>=3.10.8",
+]
+

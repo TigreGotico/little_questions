@@ -1,0 +1,360 @@
+QUESTION:COMMAND Be quiet
+QUESTION:COMMAND Eat your dinner
+QUESTION:COMMAND Open the door
+QUESTION:COMMAND Open the pod bay doors
+QUESTION:COMMAND give examples of animals
+QUESTION:COMMAND tell me about evil
+QUESTION:QUERY What can we speak
+QUESTION:QUERY What day is Christmas
+QUESTION:QUERY What did you buy
+QUESTION:QUERY What did you eat
+QUESTION:QUERY What did you have for breakfast
+QUESTION:QUERY What do you like
+QUESTION:QUERY What do you study
+QUESTION:QUERY What does he teach
+QUESTION:QUERY What does huge mean
+QUESTION:QUERY What has been ordered
+QUESTION:QUERY What is Peter doing
+QUESTION:QUERY What is expensive
+QUESTION:QUERY What is he playing
+QUESTION:QUERY What is it
+QUESTION:QUERY What is she
+QUESTION:QUERY What kind of dog do you have
+QUESTION:QUERY What kind of music do you like
+QUESTION:QUERY What should we buy
+QUESTION:QUERY What was she washing
+QUESTION:QUERY What will he buy
+QUESTION:QUERY What's he playing
+QUESTION:QUERY When can she come
+QUESTION:QUERY When can we meet
+QUESTION:QUERY When does the class start
+QUESTION:QUERY When is Christmas
+QUESTION:QUERY When is your birthday
+QUESTION:QUERY Where are you going tomorrow
+QUESTION:QUERY Where did they go
+QUESTION:QUERY Where has he visited
+QUESTION:QUERY Where is Vancouver
+QUESTION:QUERY Where is your home district
+QUESTION:QUERY Which newspaper do you read
+QUESTION:QUERY Who are they
+QUESTION:QUERY Who can cook well
+QUESTION:QUERY Who did she call
+QUESTION:QUERY Who does John like
+QUESTION:QUERY Who is coming
+QUESTION:QUERY Who is she
+QUESTION:QUERY Who is sleeping
+QUESTION:QUERY Who is your favourite actor
+QUESTION:QUERY Who knows the answer
+QUESTION:QUERY Who likes Lisa
+QUESTION:QUERY Who said that
+QUESTION:QUERY Who's coming
+QUESTION:QUERY Whose bag is on the table
+QUESTION:QUERY Whose bag's on the table
+QUESTION:QUERY Whose car is that
+QUESTION:QUERY Whose website is this
+QUESTION:QUERY Why did she call you
+QUESTION:QUERY Why is she crying
+QUESTION:QUERY Why was she crying
+QUESTION:QUERY how fast can an elephant run
+QUESTION:QUERY how long ago was sunrise
+QUESTION:QUERY how long until world war 3
+QUESTION:QUERY how much is bitcoin worth
+QUESTION:QUERY what do dogs and cats have in common
+QUESTION:QUERY what is a living being
+QUESTION:QUERY what is the speed of light
+QUESTION:QUERY what time does the class start/When does the class start
+QUESTION:QUERY when is your birthday
+QUESTION:QUERY when were you born
+QUESTION:QUERY when will the world end
+QUESTION:QUERY where do you store your data
+QUESTION:QUERY which city has more people
+QUESTION:QUERY who made you
+QUESTION:QUERY whose dog is this
+QUESTION:QUERY why are fire trucks red
+QUESTION:REQUEST Could I have that now, thank you
+QUESTION:REQUEST Could you pass me the salt please
+QUESTION:REQUEST Would you feed the dog, please
+QUESTION:REQUEST Would you mind shutting the door
+QUESTION:YESNO Am I going to die
+QUESTION:YESNO Am I sick
+QUESTION:YESNO Are Spanish and German different languages?
+QUESTION:YESNO Are airplanes flown inside?
+QUESTION:YESNO Are apples red fruit?
+QUESTION:YESNO Are aspirin and tylenol pain relievers?
+QUESTION:YESNO Are bananas and oranges sweet vegetables?
+QUESTION:YESNO Are band-aids used for healing?
+QUESTION:YESNO Are cars made here
+QUESTION:YESNO Are cars used to drive on the water?
+QUESTION:YESNO Are chips and pretzels salty?
+QUESTION:YESNO Are clocks and bikes used to tell time?
+QUESTION:YESNO Are coffee and hot chocolate cold drinks?
+QUESTION:YESNO Are computers used to brush your teeth with?
+QUESTION:YESNO Are dogs and cats animals that live in the jungle?
+QUESTION:YESNO Are flies and robins small insects?
+QUESTION:YESNO Are football and baseball types of food?
+QUESTION:YESNO Are fruits and vegetables healthy to eat?
+QUESTION:YESNO Are houses more than $50 dollars?
+QUESTION:YESNO Are lasagna and spaghetti Chinese dishes?
+QUESTION:YESNO Are lizards small?
+QUESTION:YESNO Are muscles needed to move our body?
+QUESTION:YESNO Are musicians and artists creative?
+QUESTION:YESNO Are ovens used to freeze things?
+QUESTION:YESNO Are paint and syrup used to take a bath in?
+QUESTION:YESNO Are peanuts made into jam?
+QUESTION:YESNO Are pencils and markers used to write on a whiteboard?
+QUESTION:YESNO Are pillows and mattresses used to sleep on?
+QUESTION:YESNO Are rattlesnakes poisonous?
+QUESTION:YESNO Are roses tall trees?
+QUESTION:YESNO Are scoops of ice cream sweet?
+QUESTION:YESNO Are shoes worn over the top of socks?
+QUESTION:YESNO Are shovels something you would use to dig a hole with?
+QUESTION:YESNO Are the children at school?
+QUESTION:YESNO Are the letters "d" and "s" in the word "dressing"?
+QUESTION:YESNO Are there 80 minutes in an hour?
+QUESTION:YESNO Are they American?
+QUESTION:YESNO Are they sitting in a row ?
+QUESTION:YESNO Are they studying hard
+QUESTION:YESNO Are they visiting Paris?
+QUESTION:YESNO Are umbrellas used to keep you wet?
+QUESTION:YESNO Are violins and pianos musical instruments?
+QUESTION:YESNO Are we going to try it
+QUESTION:YESNO Are wild animals dangerous?
+QUESTION:YESNO Are you going to try it
+QUESTION:YESNO Are you hungry?
+QUESTION:YESNO Are you looking for the keys
+QUESTION:YESNO Are you sick
+QUESTION:YESNO Can John read
+QUESTION:YESNO Can a backpack get a cold?
+QUESTION:YESNO Can a circle have corners?
+QUESTION:YESNO Can a fish live out of water?
+QUESTION:YESNO Can a tiger be your pet?
+QUESTION:YESNO Can pigs walk on two feet?
+QUESTION:YESNO Can you brush your teeth with a shoe?
+QUESTION:YESNO Can you buy eggs by the dozen?
+QUESTION:YESNO Can you drive a car wearing a blindfold?
+QUESTION:YESNO Can you drive a car without wearing a seatbelt?
+QUESTION:YESNO Can you eat tomato soup with a fork?
+QUESTION:YESNO Can you eat without a mouth?
+QUESTION:YESNO Can you freeze orange juice?
+QUESTION:YESNO Can you fry vegetables in a pan?
+QUESTION:YESNO Can you grow a mustache on your foot?
+QUESTION:YESNO Can you jump over a puddle?
+QUESTION:YESNO Can you keep a horse inside your house?
+QUESTION:YESNO Can you make bread without using flour?
+QUESTION:YESNO Can you rake leaves with a hammer?
+QUESTION:YESNO Can you ride a bike without a helmet?
+QUESTION:YESNO Can you ride a camel?
+QUESTION:YESNO Can you rip concrete?
+QUESTION:YESNO Can you see in the dark without a flashlight?
+QUESTION:YESNO Can you sleep in the day time?
+QUESTION:YESNO Can you speak Russian
+QUESTION:YESNO Can you stir something with a spoon?
+QUESTION:YESNO Can you stretch a rock?
+QUESTION:YESNO Can you teach a cat to talk?
+QUESTION:YESNO Can you touch your elbow with your nose?
+QUESTION:YESNO Can you use a shovel at the beach?
+QUESTION:YESNO Can you wear a tie?
+QUESTION:YESNO Can you wear pajama's to school / work?
+QUESTION:YESNO Could he have said that
+QUESTION:YESNO Did she have a smile on her face
+QUESTION:YESNO Did she have her camera
+QUESTION:YESNO Did the boss notice the mistake
+QUESTION:YESNO Did the printer break
+QUESTION:YESNO Did they dance well
+QUESTION:YESNO Did they find the answer?
+QUESTION:YESNO Did they forget their tickets
+QUESTION:YESNO Did you feel sick
+QUESTION:YESNO Did you go to the park
+QUESTION:YESNO Did you see John yesterday?
+QUESTION:YESNO Do astronauts work in grocery stores?
+QUESTION:YESNO Do babies need their diapers changed?
+QUESTION:YESNO Do baby birds get fed by their mother?
+QUESTION:YESNO Do butterflies run fast?
+QUESTION:YESNO Do cars have engines?
+QUESTION:YESNO Do cats climb trees?
+QUESTION:YESNO Do children play with toys?
+QUESTION:YESNO Do computers help us find information?
+QUESTION:YESNO Do elephants live in the ocean?
+QUESTION:YESNO Do erasers remove pencil marks?
+QUESTION:YESNO Do fire extinguishers help fireman?
+QUESTION:YESNO Do football players use sticks?
+QUESTION:YESNO Do horses wear socks?
+QUESTION:YESNO Do new clothes get dirty?
+QUESTION:YESNO Do pilots fly paper planes?
+QUESTION:YESNO Do plants wear glasses?
+QUESTION:YESNO Do storms damage homes?
+QUESTION:YESNO Do teachers help you learn?
+QUESTION:YESNO Do we call a school if we have an emergency?
+QUESTION:YESNO Do we eat beef
+QUESTION:YESNO Do we need our hands to play a musical instrument?
+QUESTION:YESNO Do we want more money
+QUESTION:YESNO Do windows need to be cleaned?
+QUESTION:YESNO Do you agree
+QUESTION:YESNO Do you believe me
+QUESTION:YESNO Do you chew soup?
+QUESTION:YESNO Do you do yoga
+QUESTION:YESNO Do you eat beef
+QUESTION:YESNO Do you get wet when you go swimming?
+QUESTION:YESNO Do you have a car?
+QUESTION:YESNO Do you have a dog
+QUESTION:YESNO Do you have a problem?
+QUESTION:YESNO Do you like Paris
+QUESTION:YESNO Do you need to go home?
+QUESTION:YESNO Do you own a car?
+QUESTION:YESNO Do you throw things in the garbage that are broken?
+QUESTION:YESNO Do you use roller skates on the grass?
+QUESTION:YESNO Do you want a drink
+QUESTION:YESNO Do you want more money
+QUESTION:YESNO Does an orange have more juice than a banana?
+QUESTION:YESNO Does he read every day
+QUESTION:YESNO Does it snow during the summer?
+QUESTION:YESNO Does my dog bark loudly
+QUESTION:YESNO Does she have a job?
+QUESTION:YESNO Does she love tennis?
+QUESTION:YESNO Does the sun make things hot?
+QUESTION:YESNO Does yogurt go bad if it isn't refrigerated?
+QUESTION:YESNO Does your birthday always happen on the same day?
+QUESTION:YESNO Does your dog bark loudly
+QUESTION:YESNO Has John been fired?
+QUESTION:YESNO Has he been working here
+QUESTION:YESNO Has he had surgery
+QUESTION:YESNO Has she done the housework?
+QUESTION:YESNO Has she had a job?
+QUESTION:YESNO Has the order been approved
+QUESTION:YESNO Have they finished
+QUESTION:YESNO Have you eaten breakfast today?
+QUESTION:YESNO Have you got a car?
+QUESTION:YESNO Have you got a pen?
+QUESTION:YESNO Have you seen Michael
+QUESTION:YESNO If it is June, is it hot in the North Pole?
+QUESTION:YESNO If someone cries, are they sad?
+QUESTION:YESNO If someone smiles, are they sad?
+QUESTION:YESNO If something is light, would it sink?
+QUESTION:YESNO If something is tasty, is it bad?
+QUESTION:YESNO If something smells, does it stink?
+QUESTION:YESNO If there are laves on the ground, is it winter?
+QUESTION:YESNO If there is snow on the ground, is it summer?
+QUESTION:YESNO If you break an egg, can you fix it?
+QUESTION:YESNO If you cut yourself really bad, should you go to the dentist?
+QUESTION:YESNO If you have a ball, can you play catch?
+QUESTION:YESNO If you have a bracelet, do you own jewelry?
+QUESTION:YESNO If you have a pen and paper, can you write your name?
+QUESTION:YESNO If you have boiling water, is it hot?
+QUESTION:YESNO If you rip your shirt, would you staple it back together?
+QUESTION:YESNO If you want to watch a movie, would you go to a bank?
+QUESTION:YESNO If you wanted to get warm, would you drink hot chocolate?
+QUESTION:YESNO If you went to a restaurant, would you see clowns?
+QUESTION:YESNO If you were a bee, could you sing?
+QUESTION:YESNO If you were a bird, would you have fins?
+QUESTION:YESNO If you were a builder, would you use a hammer?
+QUESTION:YESNO If you were a cat, would you have three legs?
+QUESTION:YESNO If you were a caterpillar, would you have legs?
+QUESTION:YESNO If you were a chair, could you swim?
+QUESTION:YESNO If you were a computer, would you be alive?
+QUESTION:YESNO If you were a fish, could you jump?
+QUESTION:YESNO If you were a horse, could you gallup?
+QUESTION:YESNO If you were a shark, would you eat fish?
+QUESTION:YESNO If you were an ant, would you live in dirt?
+QUESTION:YESNO If you were an owner, would you have a pet?
+QUESTION:YESNO If you were rotten, would you smell nice?
+QUESTION:YESNO If your bike has a flat tire, should you ride it?
+QUESTION:YESNO Is 50% higher than 48%?
+QUESTION:YESNO Is 9:30 p.m. later than 3:30 p.m.?
+QUESTION:YESNO Is John a doctor
+QUESTION:YESNO Is Luan going to be hired
+QUESTION:YESNO Is New York City small?
+QUESTION:YESNO Is Peter going to go
+QUESTION:YESNO Is a brick heavier than a feather?
+QUESTION:YESNO Is a car bigger than a person?
+QUESTION:YESNO Is a car faster than a bicycle?
+QUESTION:YESNO Is a clown funnier than a doctor?
+QUESTION:YESNO Is a cow bigger than an elephant?
+QUESTION:YESNO Is a day longer than a week?
+QUESTION:YESNO Is a father older than his son?
+QUESTION:YESNO Is a gallon less than a cup?
+QUESTION:YESNO Is a hurricane dangerous?
+QUESTION:YESNO Is a mile longer than a football field?
+QUESTION:YESNO Is a month longer than an hour?
+QUESTION:YESNO Is a pair of shoes more than one shoe?
+QUESTION:YESNO Is a pair of socks less than three pairs?
+QUESTION:YESNO Is a screwdriver a tool?
+QUESTION:YESNO Is a state bigger than a city?
+QUESTION:YESNO Is a year longer than six months?
+QUESTION:YESNO Is building a house hard work?
+QUESTION:YESNO Is five dollars more than one hundred?
+QUESTION:YESNO Is half an apple less than one apple?
+QUESTION:YESNO Is he a bad person
+QUESTION:YESNO Is he a good person
+QUESTION:YESNO Is he being interviewed now
+QUESTION:YESNO Is he fat
+QUESTION:YESNO Is he tall
+QUESTION:YESNO Is it 4 o'clock
+QUESTION:YESNO Is it a doctor's job to save people?
+QUESTION:YESNO Is my name being called
+QUESTION:YESNO Is one million a big number?
+QUESTION:YESNO Is paper used to wash clothes?
+QUESTION:YESNO Is she a bad person
+QUESTION:YESNO Is she a good person
+QUESTION:YESNO Is she being interviewed now
+QUESTION:YESNO Is she fat
+QUESTION:YESNO Is she tall
+QUESTION:YESNO Is the moon hotter than the sun?
+QUESTION:YESNO Is the school open
+QUESTION:YESNO Is the train going to arrive?
+QUESTION:YESNO Is thirty minutes shorter than one hour?
+QUESTION:YESNO Is today my birthday
+QUESTION:YESNO Is today your birthday
+QUESTION:YESNO Is twenty more than fifty?
+QUESTION:YESNO Is whole less than a half?
+QUESTION:YESNO Is yoga popular
+QUESTION:YESNO Is your arm bigger than your thigh?
+QUESTION:YESNO Might it be broken
+QUESTION:YESNO Must a visa be obtained first
+QUESTION:YESNO Shall we attend
+QUESTION:YESNO Should he practice more
+QUESTION:YESNO Should she practice more
+QUESTION:YESNO Was New York expensive?
+QUESTION:YESNO Was Sarah his teacher
+QUESTION:YESNO Was he going to visit
+QUESTION:YESNO Was it nice?
+QUESTION:YESNO Was she going to visit
+QUESTION:YESNO Was the book sold
+QUESTION:YESNO Was the price the same
+QUESTION:YESNO Was the printer being repaired?
+QUESTION:YESNO Was the waiter rude
+QUESTION:YESNO Were they waiting long
+QUESTION:YESNO Were we late?
+QUESTION:YESNO Were you rich
+QUESTION:YESNO Were you there
+QUESTION:YESNO Were you tired
+QUESTION:YESNO Will he come?
+QUESTION:YESNO Will she come?
+QUESTION:YESNO Will they be happy
+QUESTION:YESNO Will they be hired?
+QUESTION:YESNO Will we join them
+QUESTION:YESNO Will you go to the park
+QUESTION:YESNO Will you join them
+QUESTION:YESNO Will you marry me
+QUESTION:YESNO Would he have been angry
+QUESTION:YESNO Would she have been angry
+QUESTION:YESNO can you die
+QUESTION:YESNO did you know that dogs are animals
+QUESTION:YESNO do you agree that life is beautiful
+QUESTION:YESNO have you finished booting up
+QUESTION:YESNO should i program artificial stupidity
+QUESTION:YESNO will you live forever
+SENTENCE:EXCLAMATION I like pizza
+SENTENCE:EXCLAMATION I want you to buy bitcoin
+SENTENCE:EXCLAMATION Jimmy loves his dog
+SENTENCE:EXCLAMATION She reads two newspapers every day
+SENTENCE:EXCLAMATION The government will make an announcement at noon
+SENTENCE:EXCLAMATION not a question
+SENTENCE:SOCIAL Get well soon
+SENTENCE:SOCIAL Have a nice day
+SENTENCE:SOCIAL Help yourselves to coffee
+SENTENCE:STATEMENT I like pizza
+SENTENCE:STATEMENT I want you to buy bitcoin
+SENTENCE:STATEMENT Jimmy loves his dog
+SENTENCE:STATEMENT She reads two newspapers every day
+SENTENCE:STATEMENT The government will make an announcement at noon
+SENTENCE:STATEMENT not a question

@@ -1,8 +1,0 @@
-# questions that want to list instances of things
-(name|identify|names of) {thing}
-(name|identify|names of) {thing} in which {property}
-(give|enumerate|tell|say|mention) (example|examples|names of) (of|for) {thing}
-(give|tell) (me|us) (example|examples|names of) (of|for) {thing}
-(give|enumerate|tell|say|mention) {number} (example|examples|names of) (of|for) {thing}
-(give|enumerate|tell|say|mention) (me|us) {number} (example|examples|names of) (of|for) {thing}
-(give|tell) (me|us) (a|an|one) (example|names) (of|for) {thing}
