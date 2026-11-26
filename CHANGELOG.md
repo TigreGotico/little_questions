@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.10.0a7](https://github.com/TigreGotico/little_questions/tree/0.10.0a7) (2026-11-26)
+
+[Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.10.0a6...0.10.0a7)
+
+**Merged pull requests:**
+
+- docs: EAT model figure and benchmark table from the committed results [\#75](https://github.com/TigreGotico/little_questions/pull/75) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.10.0a6](https://github.com/TigreGotico/little_questions/tree/0.10.0a6) (2026-09-28)
 
 [Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.10.0a5...0.10.0a6)
