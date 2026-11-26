@@ -6,7 +6,7 @@ Both classifiers download their ONNX models automatically from HuggingFace on fi
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="img/eat-models-dark.svg">
-  <img alt="EAT 53-class models on the held-out split: the two-stage default is the highest at 93.4 % accuracy." src="img/eat-models.svg">
+  <img alt="EAT 53-class models on the held-out split: the two-stage default is the highest at 93.4% accuracy." src="img/eat-models.svg">
 </picture>
 
 [Classification](classification.md) gives every value of this figure.

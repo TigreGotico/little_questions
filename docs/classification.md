@@ -15,7 +15,7 @@ All EAT benchmarks use a 15% held-out stratified test split (`random_state=42`).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="img/eat-models-dark.svg">
-  <img alt="EAT 53-class models on the held-out split: the two-stage default is the highest at 93.4 % accuracy; eat53_sgd is the lowest at 84.6 %." src="img/eat-models.svg">
+  <img alt="EAT 53-class models on the held-out split: the two-stage default is the highest at 93.4% accuracy; eat53_sgd is the lowest at 84.6%." src="img/eat-models.svg">
 </picture>
 
 `img/plot_eat_models.py` makes this figure from `train/reports/eat/*_benchmark.json`.

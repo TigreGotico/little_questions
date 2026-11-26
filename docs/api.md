@@ -77,6 +77,7 @@ All subclass `Sentence` (and `str`).
 | `is_negative` | `bool` | `answer_polarity == "no"` |
 
 ```python
+from little_questions import Sentence
 q = Sentence("Is the sky blue?")   # → Question, classification BOOL:yesno
 a = Sentence("Yes, absolutely.")   # → Statement
 print(a.answer_polarity)           # yes

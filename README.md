@@ -55,16 +55,16 @@ assert isinstance(s, Exclamation)
 
 ## Sentence-type classification
 
-Six classes: `wh_question`, `polar_question`, `statement`, `command`, `request`, `exclamation`.
+The model has six classes: `wh_question`, `polar_question`, `statement`, `command`, `request`, `exclamation`. `sentence_type` gives `question` for both question classes.
 
 `is_question` is `True` for both wh-questions and polar (yes/no) questions.
 
 ```python
 s = Sentence("Is the Earth flat?")
-print(s.sentence_type)  # polar_question
+print(s.sentence_type)  # question
 print(s.is_question)    # True
 s = Sentence("What is the capital of France?")
-print(s.sentence_type)  # wh_question
+print(s.sentence_type)  # question
 print(s.is_question)    # True
 ```
 
@@ -101,10 +101,10 @@ Two-stage inference (eat7 gates eat53) achieves **93.4% macro F1**.
 ```python
 s = Sentence("When did World War II end?")
 print(s.classification)          # NUM:date
-print(s.confidence)              # 0.97
+print(f"{s.confidence:.2f}")     # 0.99
 # Full probability distribution over all 53 labels:
 top3 = sorted(s.classification_scores.items(), key=lambda x: -x[1])[:3]
-print(top3)  # [('NUM:date', 0.97), ('NUM:period', 0.01), ...]
+print([(label, round(p, 2)) for label, p in top3])  # [('NUM:date', 0.99), ('NUM:period', 0.0), ('NUM:other', 0.0)]
 ```
 
 ### Unpunctuated / ASR input

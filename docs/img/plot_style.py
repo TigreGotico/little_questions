@@ -2,14 +2,17 @@
 
     from plot_style import save
 
-    def draw(fig, theme):
+    def draw(fig, theme, data):
         ax = fig.subplots()
-        ax.barh(names, values, color=theme["series"][0])
+        ax.barh(list(data), list(data.values()), color=theme["series"][0])
         ax.set_xlabel("PER (%)")
 
-    save("docs/img/per-by-language", draw)   # writes .svg and -dark.svg
+    save("docs/img/per-by-language", draw, per)   # writes .json, .svg and -dark.svg
 
-save() calls draw once for each theme. Embed both files with:
+save() writes the data to <stem>.json, then calls draw once for each theme.
+A figure check compares the JSON with a fresh read, because the SVG bytes move
+between matplotlib versions. With DOCS_FIGURES_DATA_ONLY set, only the JSON is
+written, and matplotlib is not needed. Embed both files with:
 
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="img/per-by-language-dark.svg">
@@ -20,10 +23,8 @@ The categorical order is fixed: series 1 takes theme["series"][0], and so on.
 Fold a ninth series into "Other". Colours come from the reference palette of the
 dataviz skill; the light and dark steps are validated for colour-vision deficiency.
 """
-import matplotlib
-
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt  # noqa: E402
+import json
+import os
 
 LIGHT = {
     "surface": "#ffffff", "text": "#191919", "muted": "#666666", "grid": "#e6e6e6",
@@ -38,6 +39,8 @@ DARK = {
 
 
 def style(theme):
+    import matplotlib
+
     return {
         "figure.facecolor": theme["surface"], "axes.facecolor": theme["surface"],
         "savefig.facecolor": theme["surface"],
@@ -53,11 +56,21 @@ def style(theme):
     }
 
 
-def save(stem, draw, width=7.0, height=3.6):
-    """Write <stem>.svg and <stem>-dark.svg. draw(fig, theme) builds the plot."""
+def save(stem, draw, data, width=7.0, height=3.6):
+    """Write <stem>.json, then <stem>.svg and <stem>-dark.svg. draw(fig, theme, data) builds the plot."""
+    with open(f"{stem}.json", "w", encoding="utf-8") as handle:
+        json.dump(data, handle, indent=1, ensure_ascii=False)
+        handle.write("\n")
+    if os.environ.get("DOCS_FIGURES_DATA_ONLY"):
+        return
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
     for theme, suffix in ((LIGHT, ""), (DARK, "-dark")):
         with plt.rc_context(style(theme)):
             fig = plt.figure(figsize=(width, height), layout="constrained")
-            draw(fig, theme)
+            draw(fig, theme, data)
             fig.savefig(f"{stem}{suffix}.svg", metadata={"Date": None})
             plt.close(fig)
