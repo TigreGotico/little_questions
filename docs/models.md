@@ -1,7 +1,7 @@
 # Models
 <!-- agent-hint: model file names and sizes come from little_questions/models/; scores are on classification.md. -->
 
-All models are LinearSVC classifiers exported to ONNX with skl2onnx. Inference needs only `onnxruntime`, not scikit-learn.
+All models are LinearSVC classifiers exported to ONNX with skl2onnx. Inference needs only `numpy` and `onnxruntime`, not scikit-learn.
 
 ## Where the models load from
 
@@ -30,15 +30,17 @@ The default runtime uses the two-stage approach: eat7 predicts the main category
 
 The svm_cal models are trained with lexical signal tokens prepended to the question text before TF-IDF vectorization. The tokens are injected at inference time by `_eat_preprocess()` in `classifiers.py`. No custom ONNX op is needed. The tokens:
 
-| Token | Signal |
+| Token | Added when |
 | --- | --- |
-| `__feat_yesno__` | BOOL (is, does, do, was, are, were, has, will, did) |
-| `__feat_who__` | HUM |
-| `__feat_where__` | LOC |
-| `__feat_when__` | NUM |
-| `__feat_why__` | DESC |
-| `__feat_howmany__` | NUM (how and a quantifier word) |
-| `__feat_define__` | DESC |
+| `__feat_yesno__` | the first word is is, does, do, was, are, were, has, will, did or should |
+| `__feat_who__` | the first word is who, whom or whose |
+| `__feat_where__` | the first word is where |
+| `__feat_when__` | the first word is when |
+| `__feat_why__` | the first word is why |
+| `__feat_howmany__` | the first word is how and the second is a word in `_HOW_MANY` (many, much, long, old, ...) |
+| `__feat_howother__` | the first word is how and the second is not in `_HOW_MANY` |
+| `__feat_define__` | the text has define, explain or meaning |
+| `__feat_abbr__` | the text has abbreviation, acronym or initials |
 
 ## Sentence-type classifiers (`TigreGotico/sentence-types`)
 
@@ -64,7 +66,7 @@ The runtime tries the language-specific model first, then falls back to the mult
 ## Training
 
 ```bash
-pip install little-questions[train]
+uv pip install little-questions[train]
 # EAT classifiers (ONNX baselines)
 python -m train.train_eat                    # all baselines, 53-class + 7-class
 python -m train.train_eat --model svm_cal    # calibrated SVM only

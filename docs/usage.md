@@ -48,40 +48,31 @@ print([(label, round(p, 2)) for label, p in top3])  # [('NUM:date', 0.99), ('NUM
 
 ### Text with no punctuation
 
-Speech recognition output has no punctuation and no capital letters. For this text, set `punctuated=False`:
-
-```python
-from little_questions import Sentence
-s = Sentence("who invented the telephone", punctuated=False)
-print(s.classification)   # HUM:ind
-```
+Speech recognition output has no punctuation and no capital letters. `Sentence(text, punctuated=False)` selects the EAT models for this text. These models do not load: onnxruntime rejects their tokenizer pattern ([#78](https://github.com/TigreGotico/little_questions/issues/78)). Until #78 is fixed, give punctuated text only.
 
 ## Answer polarity
 
-A statement has `answer_polarity`: `yes`, `no` or `maybe`. The model loads on the first access.
+The yes/no classifier gives the polarity of an answer: `yes`, `no` or `maybe`. Call it directly:
 
 ```python
-from little_questions import Sentence
-a = Sentence("Yes, they can perceive some colors.")
-print(a.answer_polarity)   # yes
-print(a.is_affirmative)    # True
-a = Sentence("No, dogs are colorblind.")
-print(a.answer_polarity)   # no
-print(a.is_negative)       # True
-a = Sentence("It depends on the breed.")
-print(a.answer_polarity)   # maybe
+from little_questions import get_yesno_classifier
+clf = get_yesno_classifier()
+print(clf.predict("Yes, they can perceive some colors."))   # yes
+print(clf.predict("No, dogs are colorblind."))              # no
+print(clf.predict("It depends on the breed."))              # maybe
 ```
+
+A `Statement` also has the `answer_polarity`, `is_affirmative` and `is_negative` properties. Most answers do not become a `Statement`: the sentence-type model classifies them as `Question` or `Command` ([#77](https://github.com/TigreGotico/little_questions/issues/77)). Until #77 is fixed, use `get_yesno_classifier()`.
 
 ## Other languages
 
-Give the language with `lang`. Sentence-type models exist for en, de, es, fr, it, nl and pt. The model for a language other than English downloads from Hugging Face on first use, which needs the `hf` extra.
+`Sentence` works for English only. For each other language, `Sentence(text, lang=...)` raises `RuntimeError`, because it loads the EAT model first and only English EAT models exist ([#79](https://github.com/TigreGotico/little_questions/issues/79), [#85](https://github.com/TigreGotico/little_questions/issues/85)). Sentence-type models exist for de, es, fr, it, nl and pt, and they download from Hugging Face with the `hf` extra.
+
+The yes/no classifier works for other languages:
 
 ```python
-from little_questions import Sentence
-s = Sentence("Qui a invente le telephone?", lang="fr")
-print(s.sentence_type)    # question
-a = Sentence("Oui, bien sur.", lang="fr")
-print(a.answer_polarity)  # yes
+from little_questions import get_yesno_classifier
+print(get_yesno_classifier().predict("Oui, bien sur."))  # yes
 ```
 
 ## Route a sentence by its type

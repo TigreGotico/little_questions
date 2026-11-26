@@ -43,7 +43,7 @@ little_questions/
 ├── classifiers.py   # EatClassifier, SentenceTypeClassifier, YesNoClassifier, _OnnxModel
 ├── constants.py     # EAT_LABELS_7, EAT_LABELS_53, SENTENCE_TYPES, MAIN_LABEL_NAMES, SEC_LABEL_NAMES
 └── models.py        # HF auto-download helpers
-train/               # Training only. Install with pip install little-questions[train]
+train/               # Training only. Install with uv pip install little-questions[train]
 ├── classifiers.py       # CalibratedLinearSVCClassifier, LinearSVCClassifier, LogRegClassifier, SGDClassifier, Model2VecClassifier
 ├── load_eat.py          # EAT dataset loader
 ├── load_yesno.py        # Yes/no dataset loader
@@ -61,7 +61,7 @@ train/               # Training only. Install with pip install little-questions[
 
 | Page | Contents |
 | --- | --- |
-| [Usage](usage.md) | Sentence types, answer types, polarity, other languages, text with no punctuation |
+| [Usage](usage.md) | Sentence types, answer types, polarity, other languages |
 | [API](api.md) | Classes, attributes and functions |
 | [Models](models.md) | Model files, where they load from, training |
 | [Classification](classification.md) | Benchmark results for each classifier |

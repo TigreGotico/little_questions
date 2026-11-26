@@ -25,7 +25,7 @@ print(f"{s.confidence:.2f}")  # 0.88
 | Page | Contents |
 | --- | --- |
 | [Index](docs/index.md) | Overview, headline result and reading order |
-| [Usage](docs/usage.md) | Sentence types, answer types, polarity, other languages, ASR input |
+| [Usage](docs/usage.md) | Sentence types, answer types, polarity, other languages |
 | [API](docs/api.md) | Classes, attributes and functions |
 | [Models](docs/models.md) | Model files, where they load from, training |
 | [Classification](docs/classification.md) | Benchmark results for each classifier |

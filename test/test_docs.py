@@ -32,12 +32,7 @@ def blocks():
             imports += [line for line in code.splitlines() if re.match(r"(from \S+ )?import ", line)]
 
 
-KNOWN = {  # text in the block: the open issue that makes the example fail
-    'punctuated=False': "#78: onnxruntime rejects the unpunctuated EAT tokenizer pattern",
-    '"Yes, they can perceive some colors."': "#77: the sentence-type model classifies answers as Question or Command",
-    '"Yes, absolutely."': "#77: the sentence-type model classifies answers as Question or Command",
-    'lang="fr"': "#79: no French EAT model, so a French Sentence fails",
-}
+KNOWN = {}  # text in the block: the open issue that makes the example fail
 
 
 def known(code):
@@ -110,3 +105,14 @@ def test_yesno_table_matches_the_reports():
         f"{min(acc):.1%} to {max(acc):.1%}", f"{min(f1):.1%} to {max(f1):.1%}"]
     assert rows["`yesno_svm_cal_multilingual` (in the package)"] == [
         "all", f"{sum(map(sum, multi['confusion_matrix'])):,}", f"{multi['accuracy']:.1%}", f"{multi['macro_f1']:.1%}"]
+
+
+def test_feature_token_table_matches_the_code():
+    import re
+    from little_questions import classifiers
+    source = (ROOT / "little_questions/classifiers.py").read_text(encoding="utf-8")
+    rows = {row[0].strip("`"): row[1] for row in _rows("docs/models.md") if row[0].startswith("`__feat_")}
+    assert set(rows) == set(re.findall(r'"(__feat_\w+__)"', source))
+    starters = rows["__feat_yesno__"].removeprefix("the first word is ").replace(" or ", ", ").split(", ")
+    assert set(starters) == classifiers._YESNO_STARTERS
+    assert set(rows["__feat_who__"].removeprefix("the first word is ").replace(" or ", ", ").split(", ")) == classifiers._WHO_WORDS
