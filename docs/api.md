@@ -200,4 +200,4 @@ HuggingFace repos:
 - Yes/no models: `TigreGotico/yes-no-classifiers`
 
 ---
-[Home](index.md) · [Models →](models.md)
+[← Usage](usage.md) · [Home](index.md) · [Models →](models.md)

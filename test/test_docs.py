@@ -76,3 +76,37 @@ def test_classification_tables_match_the_reports():
     top = plot_eat_models.load()["rows"][0]
     assert [c.strip("*") for c in table["Accuracy"]] == [f"{top[1]:.1%}"]
     assert [c.strip("*") for c in table["Macro F1"]] == [f"{top[2]:.1%}"]
+
+
+def _reports(kind):
+    return {p.name: json.loads(p.read_text(encoding="utf-8"))
+            for p in sorted((ROOT / "train/reports" / kind).glob("*_benchmark.json"))}
+
+
+def _rows(page):
+    return [[x.strip() for x in line.strip().strip("|").split("|")]
+            for line in (ROOT / page).read_text(encoding="utf-8").splitlines() if line.startswith("| ")]
+
+
+def test_sentence_type_table_matches_the_reports():
+    reports = _reports("sentence_type")
+    expected = {name.split("_")[2]: [f"{r['accuracy']:.1%}", f"{r['macro_f1']:.1%}"] for name, r in reports.items()}
+    table = {row[0]: row[1:] for row in _rows("docs/classification.md") if row[0] in expected}
+    assert table == expected
+    sizes = {sum(map(sum, r["confusion_matrix"])) for r in reports.values()}
+    assert sizes == {9900}
+    assert "Each language has 9,900 labelled sentences." in (ROOT / "docs/classification.md").read_text(encoding="utf-8")
+
+
+def test_yesno_table_matches_the_reports():
+    reports = _reports("yesno")
+    multi = reports.pop("yesno_svm_cal_multilingual_0.9.0_benchmark.json")
+    acc = [r["accuracy"] for r in reports.values()]
+    f1 = [r["macro_f1"] for r in reports.values()]
+    assert {sum(map(sum, r["confusion_matrix"])) for r in reports.values()} == {200}
+    rows = {row[0]: row[1:] for row in _rows("docs/classification.md")}
+    assert rows["`yesno_svm_cal_{LANG}` (one for each language)"] == [
+        str(len(reports)), "200 for each language",
+        f"{min(acc):.1%} to {max(acc):.1%}", f"{min(f1):.1%} to {max(f1):.1%}"]
+    assert rows["`yesno_svm_cal_multilingual` (in the package)"] == [
+        "all", f"{sum(map(sum, multi['confusion_matrix'])):,}", f"{multi['accuracy']:.1%}", f"{multi['macro_f1']:.1%}"]

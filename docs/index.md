@@ -1,8 +1,7 @@
 # little_questions
+<!-- agent-hint: verify with `pytest -q test/test_docs.py`; the figure and its alt text come from train/reports/eat/. -->
 
-Classify sentences by **type** (question, command, statement, exclamation, request) and, for questions, by **expected answer category** (EAT taxonomy: 7 main, 53 fine-grained).
-
-Both classifiers download their ONNX models automatically from HuggingFace on first use.
+little_questions tells a program what kind of sentence it has: a question and its expected answer type, a command, a request, a statement or an exclamation, and the polarity of an answer. The English models and the multilingual polarity model are in the package, so the library runs offline.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="img/eat-models-dark.svg">
@@ -34,29 +33,7 @@ print(type(s).__name__)          # Statement
 print(s.sentence_type)           # statement
 ```
 
-## Sentence types
-
-| Class | `sentence_type` | Example |
-|-------|----------------|---------|
-| `Question` | `question` | "What is the capital of France?" |
-| `Statement` | `statement` | "The sky is blue." |
-| `Command` | `command` | "Open the door." |
-| `Request` | `request` | "Could you pass the salt?" |
-| `Exclamation` | `exclamation` | "What a beautiful day!" |
-
-`Request` subclasses `Command`, so `isinstance(s, Command)` is `True` for requests too.
-
-## EAT taxonomy (question answer types)
-
-| Main | Fine-grained subtypes |
-|------|-----------------------|
-| `ABBR` | `abb`, `exp` |
-| `BOOL` | `yesno` |
-| `DESC` | `def`, `desc`, `manner`, `reason` |
-| `ENTY` | `animal`, `body`, `color`, `food`, `product`, `sport`, `substance`, … (23 total) |
-| `HUM` | `ind`, `gr`, `title`, `desc` |
-| `LOC` | `city`, `country`, `state`, `mount`, `water`, … |
-| `NUM` | `date`, `money`, `dist`, `count`, `temp`, `speed`, … (13 total) |
+[Usage](usage.md) gives the sentence types, the 53 answer types and the polarity classes.
 
 ## Project layout
 
@@ -80,9 +57,12 @@ train/               # Training only. Install with pip install little-questions[
 └── push_to_hf.py        # Push models to HuggingFace
 ```
 
-## Further reading
+## Pages
 
-- [api.md](api.md): full API reference
-- [models.md](models.md): model files, HuggingFace repos, training
-- [classification.md](classification.md): benchmark results
-- [contributing.md](contributing.md): development setup
+| Page | Contents |
+| --- | --- |
+| [Usage](usage.md) | Sentence types, answer types, polarity, other languages, text with no punctuation |
+| [API](api.md) | Classes, attributes and functions |
+| [Models](models.md) | Model files, where they load from, training |
+| [Classification](classification.md) | Benchmark results for each classifier |
+| [Contributing](contributing.md) | Development setup and tests |
