@@ -41,7 +41,7 @@ KNOWN = {  # text in the block: the open issue that makes the example fail
 
 
 def known(code):
-    return [pytest.mark.xfail(strict=True, reason=why) for text, why in KNOWN.items() if text in code][:1]
+    return [pytest.mark.xfail(strict=True, raises=AssertionError, reason=why) for text, why in KNOWN.items() if text in code][:1]
 
 
 @pytest.mark.parametrize("code,expected", list(blocks()))
