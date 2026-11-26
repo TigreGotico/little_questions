@@ -44,7 +44,7 @@ def known(code):
     return [pytest.mark.xfail(strict=True, reason=why) for text, why in KNOWN.items() if text in code][:1]
 
 
-@pytest.mark.parametrize("code,expected", blocks())
+@pytest.mark.parametrize("code,expected", list(blocks()))
 def test_example_prints_its_comments(code, expected, tmp_path):
     done = subprocess.run([sys.executable, "-I", "-c", code], cwd=tmp_path, capture_output=True, text=True, timeout=300)
     assert done.returncode == 0, done.stderr
