@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.10.0a10](https://github.com/TigreGotico/little_questions/tree/0.10.0a10) (2026-11-26)
+
+[Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.10.0a9...0.10.0a10)
+
+**Merged pull requests:**
+
+- docs: README, docs index, navigation and agent hints [\#84](https://github.com/TigreGotico/little_questions/pull/84) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.10.0a9](https://github.com/TigreGotico/little_questions/tree/0.10.0a9) (2026-11-26)
 
 [Full Changelog](https://github.com/TigreGotico/little_questions/compare/0.10.0a8...0.10.0a9)
