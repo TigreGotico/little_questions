@@ -4,6 +4,13 @@ Classify sentences by **type** (question, command, statement, exclamation, reque
 
 Both classifiers download their ONNX models automatically from HuggingFace on first use.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="img/eat-models-dark.svg">
+  <img alt="EAT 53-class models on the held-out split: the two-stage default is the highest at 93.4 % accuracy." src="img/eat-models.svg">
+</picture>
+
+[Classification](classification.md) gives every value of this figure.
+
 ## Quick start
 
 ```python
@@ -16,7 +23,7 @@ print(s.classification)          # HUM:ind
 print(s.main_label)              # HUM
 print(s.secondary_label)         # ind
 print(s.pretty_label)            # individual (Human)
-print(s.confidence)              # 0.94
+print(f"{s.confidence:.2f}")     # 0.88
 # A command
 s = Sentence("Play some jazz music.")
 print(type(s).__name__)          # Command

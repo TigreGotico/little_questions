@@ -31,7 +31,7 @@ print(s.classification)       # HUM:ind
 print(s.main_label)           # HUM
 print(s.secondary_label)      # ind
 print(s.pretty_label)         # individual (Human)
-print(f"{s.confidence:.2f}")  # 0.94
+print(f"{s.confidence:.2f}")  # 0.88
 ```
 
 `Sentence(text)` dispatches to the right subclass automatically:
